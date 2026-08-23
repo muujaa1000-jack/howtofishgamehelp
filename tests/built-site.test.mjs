@@ -5,6 +5,10 @@ import test from 'node:test';
 
 const dist = path.resolve('dist');
 const contactEmailEnabled = process.env.PUBLIC_CONTACT_EMAIL_ENABLED === 'true';
+const analyticsId = process.env.PUBLIC_ANALYTICS_ID?.trim() ?? '';
+const analyticsEnabled =
+  process.env.PUBLIC_ANALYTICS_ENABLED === 'true' &&
+  /^G-[A-Z0-9]{8,}$/.test(analyticsId);
 
 async function text(file) {
   return readFile(path.join(dist, file), 'utf8');
@@ -48,10 +52,27 @@ test('build contains the representative launch routes and metadata', async () =>
   for (const file of representatives) assert.equal(await exists(file), true, `${file} is missing`);
 
   const home = await text('index.html');
+  const guide = await text('bosses/spider-crab/index.html');
   assert.match(home, /<link rel="canonical" href="https:\/\/howtofishgamehelp\.com\/">/);
   assert.match(home, /<meta property="og:image" content="https:\/\/howtofishgamehelp\.com\/og-default\.png">/);
   assert.match(home, /application\/ld\+json/);
   assert.equal((home.match(/<h1(?:\s|>)/g) ?? []).length, 1);
+
+  for (const html of [home, guide]) {
+    if (analyticsEnabled) {
+      assert.equal(
+        (html.match(/www\.googletagmanager\.com\/gtag\/js/g) ?? []).length,
+        1,
+        'enabled pages must load one Google tag',
+      );
+      assert.match(html, new RegExp(analyticsId));
+      assert.match(html, /gtag\(['"]config['"],\s*analyticsId/);
+      assert.match(html, /allow_google_signals:\s*false/);
+      assert.match(html, /allow_ad_personalization_signals:\s*false/);
+    } else {
+      assert.doesNotMatch(html, /googletagmanager\.com|google-analytics\.com|gtag\(/);
+    }
+  }
 
   const contact = await text('contact/index.html');
   if (contactEmailEnabled) {
@@ -69,7 +90,11 @@ test('all generated internal links resolve and launch output contains no private
   const corpus = (await Promise.all(files.filter((file) => /\.(?:html|xml|txt|js|css)$/.test(file)).map((file) => readFile(file, 'utf8')))).join('\n');
   assert.doesNotMatch(corpus, /localhost/i);
   assert.doesNotMatch(corpus, /ca-pub-[0-9]+/i);
-  assert.doesNotMatch(corpus, /(?:^|[^A-Za-z0-9])G-[A-Z0-9]{8,}(?:$|[^A-Za-z0-9])/m);
+  if (analyticsEnabled) {
+    assert.match(corpus, new RegExp(analyticsId));
+  } else {
+    assert.doesNotMatch(corpus, /(?:^|[^A-Za-z0-9])G-[A-Z0-9]{8,}(?:$|[^A-Za-z0-9])/m);
+  }
   assert.doesNotMatch(corpus, /foxmail\.com/i);
 
   for (const file of htmlFiles) {

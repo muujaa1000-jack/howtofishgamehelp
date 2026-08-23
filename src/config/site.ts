@@ -1,3 +1,6 @@
+const analyticsId = import.meta.env.PUBLIC_ANALYTICS_ID?.trim() ?? '';
+const analyticsIdIsValid = /^G-[A-Z0-9]{8,}$/.test(analyticsId);
+
 export const site = {
   name: 'How to Fish Game Help',
   title: 'How to Fish Game Guides, Bosses, Islands & Fixes',
@@ -6,8 +9,8 @@ export const site = {
   gameName: 'How to Fish',
   steamAppId: '4001890',
   adsEnabled: import.meta.env.PUBLIC_ADS_ENABLED === 'true',
-  analyticsEnabled: import.meta.env.PUBLIC_ANALYTICS_ENABLED === 'true' && Boolean(import.meta.env.PUBLIC_ANALYTICS_ID),
-  analyticsId: import.meta.env.PUBLIC_ANALYTICS_ID ?? '',
+  analyticsEnabled: import.meta.env.PUBLIC_ANALYTICS_ENABLED === 'true' && analyticsIdIsValid,
+  analyticsId,
   contactEmailEnabled: import.meta.env.PUBLIC_CONTACT_EMAIL_ENABLED === 'true',
   contactEmail: 'contact@howtofishgamehelp.com',
   disclaimer: 'How to Fish Game Help is an independent fan-made guide site and is not affiliated with or endorsed by the game’s developer, publisher, Steam, or Valve.',
