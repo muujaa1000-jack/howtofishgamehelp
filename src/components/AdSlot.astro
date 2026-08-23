@@ -1,0 +1,11 @@
+---
+import { site } from '../config/site';
+interface Props { placement: 'top-content' | 'mid-content' | 'end-content'; label?: string; }
+const { placement, label = 'Advertisement' } = Astro.props;
+---
+{site.adsEnabled && <aside class:list={['ad-slot', placement]} aria-label={label}><span>{label}</span></aside>}
+<style>
+  .ad-slot { display: grid; place-items: center; min-height: 250px; margin-block: 2rem; border: 1px dashed var(--line); background: rgba(255,255,255,.55); color: var(--muted); font-size: .72rem; }
+  .top-content { min-height: 100px; }
+</style>
+

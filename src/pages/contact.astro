@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+const enabled = site.contactEmailEnabled;
+---
+<BaseLayout title="Contact" description="Contact How to Fish Game Help about guide corrections, copyright concerns, or general questions." canonicalPath="/contact/" noindex={!enabled}>
+  <article class="narrow section prose"><p class="eyebrow">Contact</p><h1>Corrections and rights requests</h1>{enabled ? <><p>For guide corrections, copyright concerns, or general questions, email <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.</p><p>Include the page URL and the exact detail you want us to review. We do not provide support on behalf of Dazed Games or Steam.</p></> : <div class="notice"><h2>Contact route is being verified</h2><p>We will publish the site email only after its exact receiving route is active and checked. No unsupported contact form is offered in the meantime.</p></div>}</article>
+</BaseLayout>
+

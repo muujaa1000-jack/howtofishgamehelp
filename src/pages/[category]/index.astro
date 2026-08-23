@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import GuideCard from '../../components/GuideCard.astro';
+import { categories, categoryFieldNotes, site } from '../../config/site';
+
+export function getStaticPaths() { return categories.map((category) => ({ params: { category: category.slug }, props: { category } })); }
+const { category } = Astro.props;
+const entries = (await getCollection('guides', ({ data }) => !data.draft && data.category === category.slug)).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const title = `${category.label} Guides`;
+const fieldNote = categoryFieldNotes[category.slug];
+const jsonLd = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: title, description: category.description, url: `${site.url}/${category.slug}/`, isPartOf: { '@type': 'WebSite', name: site.name, url: site.url } };
+---
+<BaseLayout title={title} description={category.description} canonicalPath={`/${category.slug}/`} jsonLd={jsonLd}>
+  <header class="category-hero"><div class="container"><Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: category.label }]} /><p class="eyebrow">Field section · {entries.length} guides</p><h1>{title}</h1><p>{category.description}</p></div></header>
+  <section class="container section">
+    <div class="hub-note">
+      <div>
+        <p class="eyebrow">Start here</p>
+        <h2>A practical route through {category.label.toLowerCase()}</h2>
+        <p>{fieldNote.start}</p>
+      </div>
+      <ol>{fieldNote.route.map((step) => <li>{step}</li>)}</ol>
+      <p class="caution"><strong>Evidence note:</strong> {fieldNote.caution}</p>
+    </div>
+    {entries.length ? <div class="grid guide-grid">{entries.map((entry) => <GuideCard entry={entry} />)}</div> : <div class="notice"><h2>Evidence review in progress</h2><p>No page in this section has cleared the publishing gate yet. We do not publish thin placeholders just to fill a category.</p></div>}
+  </section>
+</BaseLayout>
+<style>
+  .category-hero { padding-block: 2rem 4rem; background: var(--navy-900); color: #c7d9e2; }
+  .category-hero :global(.breadcrumbs a), .category-hero :global(.breadcrumbs span) { color: #dce8ee; }
+  h1 { margin-bottom: .8rem; color: white; }
+  .category-hero p:last-child { font-size: 1.13rem; }
+  .hub-note { margin-bottom: 2rem; padding: clamp(1.2rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: 18px; background: #fffdf7; }
+  .hub-note h2 { margin-block: .25rem .65rem; }
+  .hub-note ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1.25rem 0; padding: 0; list-style: none; counter-reset: route; }
+  .hub-note li { position: relative; min-height: 86px; padding: 1rem 1rem 1rem 3.1rem; border-radius: 12px; background: var(--sand-100); counter-increment: route; font-weight: 750; }
+  .hub-note li::before { content: counter(route); position: absolute; left: 1rem; top: .9rem; width: 1.55rem; height: 1.55rem; display: grid; place-items: center; border-radius: 50%; background: var(--navy-900); color: white; font-size: .8rem; }
+  .caution { margin: 0; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--ink-soft); }
+  @media (max-width: 700px) { .hub-note ol { grid-template-columns: 1fr; } .hub-note li { min-height: auto; } }
+</style>

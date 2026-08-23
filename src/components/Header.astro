@@ -1,0 +1,33 @@
+---
+import Logo from './Logo.astro';
+import { categories } from '../config/site';
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <Logo />
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {categories.filter((category) => ['guides', 'walkthrough', 'islands', 'bosses', 'achievements', 'fixes'].includes(category.slug)).map((category) => <a href={`/${category.slug}/`}>{category.label}</a>)}
+      <a class="search-link" href="/search/">Search</a>
+    </nav>
+    <details class="mobile-nav">
+      <summary>Menu</summary>
+      <nav aria-label="Mobile navigation">
+        {categories.map((category) => <a href={`/${category.slug}/`}>{category.label}</a>)}
+        <a href="/search/">Search</a>
+      </nav>
+    </details>
+  </div>
+</header>
+<style>
+  .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(255,255,255,.12); background: rgba(6, 27, 46, .96); color: white; backdrop-filter: blur(12px); }
+  .header-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  nav { display: flex; align-items: center; gap: .15rem; }
+  nav a { padding: .5rem .65rem; color: white; font-size: .86rem; font-weight: 700; text-decoration: none; }
+  nav a:hover { color: var(--seafoam); }
+  .search-link { margin-left: .35rem; border: 1px solid rgba(255,255,255,.38); border-radius: 999px; }
+  .mobile-nav { display: none; position: relative; }
+  summary { cursor: pointer; min-height: 44px; display: grid; place-items: center; padding-inline: .85rem; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; font-weight: 750; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  .mobile-nav nav { position: absolute; right: 0; top: 3.15rem; width: min(270px, calc(100vw - 1.2rem)); padding: .75rem; flex-direction: column; align-items: stretch; border: 1px solid rgba(255,255,255,.14); border-radius: 12px; background: var(--navy-950); box-shadow: var(--shadow); }
+  @media (max-width: 850px) { .desktop-nav { display: none; } .mobile-nav { display: block; } }
+</style>

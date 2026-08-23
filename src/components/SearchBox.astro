@@ -1,0 +1,12 @@
+<form class="search-box" action="/search/" role="search">
+  <label class="sr-only" for="site-search">Search guides</label>
+  <input id="site-search" type="search" name="q" placeholder="Try “leeches”, “Pufferfish”, or “black screen”" autocomplete="off" />
+  <button type="submit">Search guides</button>
+</form>
+<style>
+  .search-box { display: flex; gap: .55rem; width: min(720px, 100%); padding: .45rem; border: 1px solid rgba(255,255,255,.2); border-radius: 16px; background: white; box-shadow: var(--shadow); }
+  input { min-width: 0; flex: 1; padding: .7rem .85rem; border: 0; color: var(--ink); background: transparent; }
+  button { min-height: 46px; padding-inline: 1rem; border: 0; border-radius: 11px; background: var(--coral); color: var(--navy-950); font-weight: 850; cursor: pointer; }
+  @media (max-width: 520px) { .search-box { flex-direction: column; } }
+</style>
+

@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Search Guides" description="Search How to Fish Game Help for bosses, island progression, items, achievements, and current fixes." canonicalPath="/search/" noindex={true}>
+  <section class="narrow section"><p class="eyebrow">Site search</p><h1>Search the field guide</h1><p>Search results are generated from published guide text. Drafts are excluded.</p><div id="search"></div><noscript><p class="notice">Search needs JavaScript. Browse the category links in the main navigation instead.</p></noscript></section>
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <script is:inline>window.addEventListener('DOMContentLoaded', () => { if (window.PagefindUI) { const q = new URLSearchParams(location.search).get('q') || ''; new window.PagefindUI({ element: '#search', showSubResults: true, showImages: false, autofocus: true, translations: { placeholder: 'Search guides' } }); const input = document.querySelector('#search input'); if (input && q) { input.value = q; input.dispatchEvent(new Event('input', { bubbles: true })); } } });</script>
+</BaseLayout>
+

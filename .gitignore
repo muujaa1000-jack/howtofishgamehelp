@@ -8,9 +8,9 @@ dist/
 !.env.example
 coverage/
 playwright-report/
+.playwright-cli/
 test-results/
 output/
 *.log
 .DS_Store
 Thumbs.db
-

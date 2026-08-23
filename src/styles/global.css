@@ -1,0 +1,74 @@
+:root {
+  --navy-950: #061b2e;
+  --navy-900: #0a2740;
+  --navy-800: #103b59;
+  --sand-50: #fffaf0;
+  --sand-100: #f8edda;
+  --sand-300: #dfc9a2;
+  --ink: #102436;
+  --muted: #526477;
+  --coral: #f36b45;
+  --coral-dark: #b83c23;
+  --seafoam: #70d1c4;
+  --line: rgba(16, 59, 89, 0.16);
+  --shadow: 0 18px 50px rgba(0, 20, 38, 0.14);
+  --radius: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--ink);
+  background: var(--sand-50);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: var(--sand-50); line-height: 1.65; }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(112, 209, 196, .17), transparent 28rem),
+    linear-gradient(rgba(16, 59, 89, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 59, 89, .035) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+}
+a { color: var(--navy-800); text-underline-offset: .2em; text-decoration-thickness: .08em; }
+a:hover { color: var(--coral-dark); }
+img, svg { max-width: 100%; }
+button, input { font: inherit; }
+:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+.skip-link { position: fixed; left: 1rem; top: -4rem; z-index: 100; padding: .7rem 1rem; background: white; color: var(--ink); border-radius: 8px; }
+.skip-link:focus { top: 1rem; }
+.container { width: min(1120px, calc(100% - 2rem)); margin-inline: auto; }
+.narrow { width: min(760px, calc(100% - 2rem)); margin-inline: auto; }
+.eyebrow { margin: 0 0 .45rem; color: var(--coral-dark); font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.12; color: var(--navy-950); text-wrap: balance; }
+h1 { font-size: clamp(2.35rem, 7vw, 4.6rem); letter-spacing: -.045em; }
+h2 { font-size: clamp(1.7rem, 4vw, 2.65rem); letter-spacing: -.025em; }
+h3 { font-size: 1.28rem; }
+p, li { max-width: 72ch; }
+.button { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: .65rem 1rem; border: 1px solid var(--navy-800); border-radius: 999px; background: var(--navy-900); color: white; font-weight: 750; text-decoration: none; }
+.button:hover { background: var(--coral); border-color: var(--coral); color: var(--navy-950); }
+.button.secondary { background: transparent; color: var(--navy-900); }
+.card { border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255, 250, 240, .9); box-shadow: var(--shadow); }
+.grid { display: grid; gap: 1rem; }
+.guide-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); }
+.section { padding-block: clamp(3rem, 7vw, 6rem); }
+.prose { font-size: 1.05rem; }
+.prose h2, .prose h3 { scroll-margin-top: 6rem; margin-top: 2.4em; }
+.prose code { padding: .1em .35em; border-radius: 4px; background: var(--sand-100); }
+.prose table { width: 100%; border-collapse: collapse; font-size: .94rem; }
+.prose th, .prose td { padding: .7rem; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.prose blockquote { margin-inline: 0; padding: .8rem 1rem; border-left: 4px solid var(--coral); background: var(--sand-100); }
+.status { display: inline-flex; align-items: center; gap: .4rem; border-radius: 999px; padding: .3rem .65rem; background: #e4f5f1; color: #135f57; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+.status::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: currentColor; }
+.notice { padding: 1rem 1.2rem; border-left: 4px solid var(--coral); background: white; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 700px) {
+  .container, .narrow { width: min(100% - 1.2rem, 1120px); }
+  .section { padding-block: 2.7rem; }
+  .prose table { display: block; overflow-x: auto; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; } }
+

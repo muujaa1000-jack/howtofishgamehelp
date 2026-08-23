@@ -1,0 +1,108 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import EndContentAd from '../components/EndContentAd.astro';
+import TopContentAd from '../components/TopContentAd.astro';
+import BaseLayout from './BaseLayout.astro';
+import { categories, guidePath, site } from '../config/site';
+
+interface Heading { depth: number; slug: string; text: string; }
+interface Props {
+  entry: CollectionEntry<'guides'>;
+  headings: Heading[];
+  previous?: CollectionEntry<'guides'>;
+  next?: CollectionEntry<'guides'>;
+  related: CollectionEntry<'guides'>[];
+}
+
+const { entry, headings, previous, next, related } = Astro.props;
+const data = entry.data;
+const category = categories.find((item) => item.slug === data.category)!;
+const canonicalPath = guidePath(data.category, data.slug);
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Organization', '@id': `${site.url}/#organization`, name: site.name, url: site.url, logo: `${site.url}/brand-mark.svg` },
+    { '@type': 'Article', headline: data.title, description: data.description, datePublished: data.publishedAt.toISOString(), dateModified: data.updatedAt.toISOString(), mainEntityOfPage: `${site.url}${canonicalPath}`, publisher: { '@id': `${site.url}/#organization` }, isPartOf: { '@type': 'WebSite', name: site.name, url: site.url } },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: category.label, item: `${site.url}/${category.slug}/` },
+      { '@type': 'ListItem', position: 3, name: data.title, item: `${site.url}${canonicalPath}` },
+    ] },
+  ],
+};
+---
+<BaseLayout title={data.title} description={data.description} canonicalPath={canonicalPath} noindex={data.noindex} jsonLd={articleJsonLd}>
+  <article>
+    <header class="guide-hero">
+      <div class="container">
+        <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: category.label, href: `/${category.slug}/` }, { label: data.title }]} />
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">{category.label} · {data.priority}</p>
+            <h1>{data.title}</h1>
+            <p class="dek">{data.description}</p>
+          </div>
+          <div class="verification-card">
+            <span class="status">{data.verificationStatus.replace('-', ' ')}</span>
+            <dl><div><dt>Last checked</dt><dd>{data.lastVerifiedAt.toLocaleDateString('en-US', { dateStyle: 'medium' })}</dd></div><div><dt>Game version</dt><dd>{data.gameVersion}</dd></div></dl>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container article-grid">
+      <aside class="toc" aria-label="On this page">
+        <strong>On this page</strong>
+        <ol>{headings.filter((heading) => heading.depth === 2).map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ol>
+      </aside>
+      <div class="article-main" data-pagefind-body>
+        <section class="direct-answer">
+          <p class="eyebrow">Direct answer</p>
+          <p>{data.answer}</p>
+        </section>
+        <TopContentAd />
+        <div class="prose"><slot /></div>
+        <section class="source-note">
+          <h2>Sources and verification</h2>
+          <p>This page synthesizes the specific facts below. It does not claim first-hand testing. Patch-sensitive details are dated so you can judge whether they may have changed.</p>
+          <ul>{data.sources.map((source) => <li><a href={source.url} rel="nofollow noopener">{source.title}</a> <span>({source.type.replaceAll('-', ' ')}, checked {source.accessedAt.toISOString().slice(0, 10)})</span></li>)}</ul>
+        </section>
+        <EndContentAd />
+        <nav class="sequence" aria-label="Guide sequence">
+          {previous ? <a href={guidePath(previous.data.category, previous.data.slug)}><small>Previous step</small><b>← {previous.data.title}</b></a> : <span />}
+          <div><small>You are here</small><b>{data.title}</b></div>
+          {next ? <a href={guidePath(next.data.category, next.data.slug)}><small>Next step</small><b>{next.data.title} →</b></a> : <span />}
+        </nav>
+        <section class="related"><h2>Related guides</h2><div class="grid">{related.map((item) => <a class="card" href={guidePath(item.data.category, item.data.slug)}>{item.data.title}<span>Read guide →</span></a>)}</div></section>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .guide-hero { padding-block: 2rem 3.6rem; background: var(--navy-900); color: #dce8ee; }
+  .guide-hero :global(.breadcrumbs a), .guide-hero :global(.breadcrumbs span) { color: #dce8ee; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 2rem; align-items: end; }
+  h1 { max-width: 850px; margin: 2rem 0 1rem; color: white; font-size: clamp(2.25rem, 6vw, 4.2rem); }
+  .dek { max-width: 700px; color: #bcd0db; font-size: 1.12rem; }
+  .verification-card { padding: 1rem; border: 1px solid rgba(255,255,255,.16); border-radius: 14px; background: rgba(255,255,255,.06); }
+  dl { margin-bottom: 0; }
+  dl div { display: flex; justify-content: space-between; gap: .7rem; margin-top: .65rem; }
+  dt { color: #a9c0cb; font-size: .75rem; } dd { margin: 0; color: white; font-size: .82rem; font-weight: 750; }
+  .article-grid { display: grid; grid-template-columns: 210px minmax(0, 760px); gap: clamp(2rem, 6vw, 5rem); justify-content: center; padding-block: 2.5rem 5rem; }
+  .toc { position: sticky; top: 96px; align-self: start; font-size: .82rem; }
+  .toc ol { padding-left: 1.1rem; } .toc li { margin-block: .55rem; }
+  .direct-answer { padding: 1.25rem 1.4rem; border: 1px solid rgba(243,107,69,.35); border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); font-size: 1.12rem; }
+  .direct-answer p:last-child { margin-bottom: 0; }
+  .source-note { margin-top: 3rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--sand-100); font-size: .88rem; }
+  .source-note h2 { margin-top: 0; font-size: 1.4rem; }
+  .source-note span { color: var(--muted); }
+  .sequence { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin-top: 3rem; }
+  .sequence > * { min-width: 0; padding: .9rem; border-top: 2px solid var(--line); text-decoration: none; }
+  .sequence small, .sequence b { display: block; } .sequence small { margin-bottom: .35rem; color: var(--muted); }
+  .related { margin-top: 3rem; }
+  .related .grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .related a { display: flex; flex-direction: column; justify-content: space-between; min-height: 130px; padding: 1rem; color: var(--navy-950); font-family: Georgia, serif; font-size: 1.05rem; font-weight: 750; text-decoration: none; box-shadow: none; }
+  .related a span { color: var(--coral-dark); font-family: "Segoe UI", sans-serif; font-size: .76rem; }
+  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; } .article-grid { grid-template-columns: 1fr; } .toc { position: static; padding: 1rem; border: 1px solid var(--line); border-radius: 12px; } }
+  @media (max-width: 600px) { .sequence { grid-template-columns: 1fr; } .sequence span { display: none; } }
+</style>

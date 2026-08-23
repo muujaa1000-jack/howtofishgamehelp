@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "howtofishgamehelp",
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-08-23",
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": true
+  },
+  "routes": [
+    {
+      "pattern": "howtofishgamehelp.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.howtofishgamehelp.com",
+      "custom_domain": true
+    }
+  ],
+  "env": {
+    "preview": {
+      "name": "howtofishgamehelp-preview",
+      "workers_dev": true,
+      "preview_urls": true,
+      "routes": []
+    }
+  }
+}
+

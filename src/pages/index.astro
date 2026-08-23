@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GuideCard from '../components/GuideCard.astro';
+import SearchBox from '../components/SearchBox.astro';
+import { categories, site } from '../config/site';
+const guides = await getCollection('guides', ({ data }) => !data.draft);
+const featured = guides.filter((entry) => entry.data.featured).slice(0, 6);
+const latest = [...guides].sort((a, b) => b.data.updatedAt.valueOf() - a.data.updatedAt.valueOf()).slice(0, 4);
+const jsonLd = { '@context': 'https://schema.org', '@graph': [
+  { '@type': 'WebSite', '@id': `${site.url}/#website`, name: site.name, url: site.url, description: site.description, potentialAction: { '@type': 'SearchAction', target: `${site.url}/search/?q={search_term_string}`, 'query-input': 'required name=search_term_string' } },
+  { '@type': 'Organization', '@id': `${site.url}/#organization`, name: site.name, url: site.url, logo: `${site.url}/brand-mark.svg` },
+  { '@type': 'VideoGame', name: 'How to Fish', url: 'https://store.steampowered.com/app/4001890/How_to_Fish/', author: { '@type': 'Organization', name: 'Dazed Games' }, gamePlatform: 'Windows', playMode: ['SinglePlayer', 'MultiPlayer', 'CoOp'] },
+] };
+---
+<BaseLayout title={site.title} description={site.description} jsonLd={jsonLd}>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Unofficial field guide · Steam app 4001890</p>
+        <h1>How to Fish Game Guides, Bosses, Islands & Fixes</h1>
+        <p class="lead">Clear walkthroughs, boss strategies, island progression, achievements, item locations, and troubleshooting for <em>How to Fish</em>.</p>
+        <SearchBox />
+      </div>
+      <aside class="route-card" aria-label="Main progression route"><span>MAIN ROUTE</span><ol><li>Lighthouse</li><li>Forest island</li><li>Desert island</li><li>Rock island</li><li>Volcano</li></ol><p>Follow the item → boss → trophy chain.</p></aside>
+    </div>
+  </section>
+  <section class="trust-strip"><div class="container"><p>{site.disclaimer}</p></div></section>
+  <section class="container section"><div class="section-heading"><div><p class="eyebrow">Choose your problem</p><h2>Find the next useful answer</h2></div><a href="/search/">Search every guide →</a></div><div class="category-grid">{categories.map((category, index) => <a href={`/${category.slug}/`}><span>{String(index + 1).padStart(2, '0')}</span><h3>{category.label}</h3><p>{category.description}</p></a>)}</div></section>
+  <section class="popular section"><div class="container"><div class="section-heading"><div><p class="eyebrow">High-friction moments</p><h2>Popular player questions</h2></div></div>{featured.length ? <div class="grid guide-grid">{featured.map((entry) => <GuideCard entry={entry} />)}</div> : <div class="notice">Guides appear here only after their evidence ledger and content checks pass.</div>}</div></section>
+  <section class="container section"><div class="section-heading"><div><p class="eyebrow">Patch-aware</p><h2>Latest verified updates</h2></div></div>{latest.length ? <div class="grid guide-grid">{latest.map((entry) => <GuideCard entry={entry} />)}</div> : <p>Research is being verified against the current release and patch notes.</p>}</section>
+</BaseLayout>
+<style>
+  .hero { position: relative; overflow: hidden; padding-block: clamp(3.5rem, 8vw, 7rem); background: var(--navy-950); color: #dce8ee; }
+  .hero::before { content: ""; position: absolute; inset: 0; opacity: .22; background-image: url('/chart-lines.svg'); background-size: cover; }
+  .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: clamp(2rem, 6vw, 5rem); align-items: end; }
+  h1 { max-width: 800px; margin: .6rem 0 1.2rem; color: white; }
+  .lead { max-width: 700px; margin-bottom: 1.7rem; color: #bdd1db; font-size: clamp(1.05rem, 2.2vw, 1.28rem); }
+  .route-card { transform: rotate(1.5deg); padding: 1.3rem; border: 1px solid rgba(255,255,255,.17); border-radius: 8px 20px 8px 8px; background: var(--sand-100); color: var(--ink); box-shadow: 14px 16px 0 rgba(243,107,69,.85); }
+  .route-card > span { font-size: .7rem; font-weight: 900; letter-spacing: .15em; }
+  .route-card ol { padding-left: 1.35rem; }
+  .route-card li { margin: .4rem 0; font-family: Georgia, serif; font-weight: 750; }
+  .route-card p { font-size: .78rem; color: var(--muted); }
+  .trust-strip { padding-block: .8rem; background: var(--coral); color: var(--navy-950); font-size: .78rem; font-weight: 700; }
+  .trust-strip p { max-width: 100%; margin: 0; }
+  .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+  .section-heading h2 { margin: 0; }
+  .section-heading > a { font-weight: 800; }
+  .category-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: .8rem; }
+  .category-grid a { grid-column: span 4; min-height: 205px; padding: 1.2rem; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.72); color: var(--ink); text-decoration: none; }
+  .category-grid a:nth-child(4), .category-grid a:nth-child(5), .category-grid a:nth-child(6), .category-grid a:nth-child(7) { grid-column: span 3; }
+  .category-grid span { color: var(--coral-dark); font-size: .72rem; font-weight: 900; }
+  .category-grid h3 { margin-bottom: .5rem; font-size: 1.55rem; }
+  .category-grid p { color: var(--muted); font-size: .88rem; }
+  .popular { background: var(--sand-100); }
+  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; } .route-card { max-width: 360px; } .category-grid a, .category-grid a:nth-child(n) { grid-column: span 6; } }
+  @media (max-width: 520px) { .category-grid a, .category-grid a:nth-child(n) { grid-column: 1 / -1; min-height: auto; } .section-heading { align-items: start; flex-direction: column; } }
+</style>
+

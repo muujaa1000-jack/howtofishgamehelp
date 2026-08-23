@@ -1,0 +1,24 @@
+---
+import Logo from './Logo.astro';
+import { site } from '../config/site';
+---
+<footer>
+  <div class="container footer-grid">
+    <div><Logo /><p class="small">Fast, evidence-labeled help for the Steam game by Dazed Games.</p></div>
+    <nav aria-label="Legal and site links">
+      <a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="/rss.xml">Updates feed</a>
+    </nav>
+  </div>
+  <div class="container legal"><p>{site.disclaimer}</p><p>© {new Date().getFullYear()} How to Fish Game Help.</p></div>
+</footer>
+<style>
+  footer { padding-block: 3rem 1.5rem; background: var(--navy-950); color: #dce8ee; }
+  .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; }
+  .small { font-size: .9rem; color: #aebfca; }
+  nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem 1rem; align-content: start; }
+  nav a { color: white; text-decoration: none; }
+  .legal { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.12); font-size: .76rem; color: #9db0bc; }
+  .legal p { max-width: 95ch; }
+  @media (max-width: 650px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>
+

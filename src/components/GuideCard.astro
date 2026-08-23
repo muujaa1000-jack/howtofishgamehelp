@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { guidePath } from '../config/site';
+interface Props { entry: CollectionEntry<'guides'>; }
+const { entry } = Astro.props;
+---
+<article class="guide-card card">
+  <div class="meta"><span>{entry.data.category}</span><span>{entry.data.priority}</span></div>
+  <h3><a href={guidePath(entry.data.category, entry.data.slug)}>{entry.data.title}</a></h3>
+  <p>{entry.data.description}</p>
+  <a class="read" href={guidePath(entry.data.category, entry.data.slug)}>Open guide <span aria-hidden="true">→</span></a>
+</article>
+<style>
+  .guide-card { position: relative; padding: 1.25rem; box-shadow: none; transition: transform .18s ease, box-shadow .18s ease; }
+  .guide-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .meta { display: flex; justify-content: space-between; gap: .5rem; color: var(--coral-dark); font-size: .7rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+  h3 { margin: .7rem 0 .55rem; }
+  h3 a { color: var(--navy-950); text-decoration: none; }
+  p { color: var(--muted); font-size: .91rem; }
+  .read { font-weight: 800; text-decoration: none; }
+</style>
+

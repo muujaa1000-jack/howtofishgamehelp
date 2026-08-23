@@ -1,0 +1,14 @@
+---
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<a class="brand" href="/" aria-label="How to Fish Game Help home">
+  <img src="/brand-mark.svg" width="48" height="48" alt="" />
+  {!compact && <span>How to Fish<br /><b>Game Help</b></span>}
+</a>
+<style>
+  .brand { display: inline-flex; align-items: center; gap: .7rem; color: inherit; font-family: Georgia, serif; font-size: .98rem; line-height: 1.05; text-decoration: none; }
+  .brand img { flex: 0 0 42px; width: 42px; height: 42px; }
+  .brand b { color: var(--coral); font-family: "Segoe UI", sans-serif; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+</style>
+

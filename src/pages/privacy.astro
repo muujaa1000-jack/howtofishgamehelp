@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+---
+<BaseLayout title="Privacy Policy" description="The privacy policy for How to Fish Game Help reflects its current cookie-free, ads-off, analytics-off launch configuration." canonicalPath="/privacy/">
+  <article class="narrow section prose"><p class="eyebrow">Effective August 23, 2026</p><h1>Privacy policy</h1><p>This site currently serves static pages. Advertising is <strong>{site.adsEnabled ? 'enabled' : 'disabled'}</strong> and analytics is <strong>{site.analyticsEnabled ? 'enabled' : 'disabled'}</strong>.</p><h2>Data we do not collect directly</h2><p>There are no user accounts, comments, purchases, newsletters, or contact forms. We do not set our own advertising or analytics cookies while those features are disabled.</p><h2>Hosting logs</h2><p>Cloudflare may process limited request data such as IP address, browser information, requested URL, and security signals to deliver and protect the site. Those infrastructure logs are governed by Cloudflare’s practices.</p><h2>External links</h2><p>Links to Steam, developer pages, media, videos, and community sources take you to third-party sites with their own privacy policies.</p><h2>Changes</h2><p>If analytics or advertising is enabled later, this page will be updated before those scripts are loaded.</p></article>
+</BaseLayout>
+

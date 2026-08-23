@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import { guidePath } from '../../config/site';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('guides', ({ data }) => !data.draft);
+  return entries.map((entry) => ({ params: { category: entry.data.category, slug: entry.data.slug }, props: { entry, entries } }));
+}
+
+const { entry, entries } = Astro.props;
+const { Content, headings } = await render(entry);
+const byPath = new Map(entries.map((item) => [guidePath(item.data.category, item.data.slug), item]));
+const previous = entry.data.previousGuide ? byPath.get(entry.data.previousGuide) : undefined;
+const next = entry.data.nextGuide ? byPath.get(entry.data.nextGuide) : undefined;
+const related = entry.data.relatedGuides
+  .map((path: string) => byPath.get(path))
+  .filter((item): item is CollectionEntry<'guides'> => item !== undefined);
+---
+<GuideLayout entry={entry} headings={headings} previous={previous} next={next} related={related}>
+  <Content />
+</GuideLayout>

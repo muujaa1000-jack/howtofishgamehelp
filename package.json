@@ -1,0 +1,35 @@
+{
+  "name": "howtofishgamehelp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check && tsc --noEmit -p tsconfig.worker.json",
+    "build": "astro build && pagefind --site dist",
+    "test": "node --test tests/*.test.mjs",
+    "test:built": "node --test tests/built-site.test.mjs",
+    "validate": "node scripts/validate-content.mjs",
+    "docs:content": "node scripts/export-content-docs.mjs",
+    "preview": "astro preview",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:preview": "npm run build && wrangler deploy --env preview",
+    "deploy:temporary": "npm run build && wrangler deploy --temporary --env preview"
+  },
+  "dependencies": {
+    "@astrojs/rss": "4.0.19",
+    "@astrojs/sitemap": "3.7.3",
+    "astro": "7.2.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@cloudflare/workers-types": "5.20260823.1",
+    "@types/node": "26.2.0",
+    "pagefind": "1.5.2",
+    "typescript": "6.0.3",
+    "wrangler": "4.125.0"
+  }
+}
