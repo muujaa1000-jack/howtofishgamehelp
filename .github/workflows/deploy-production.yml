@@ -1,0 +1,56 @@
+name: Deploy production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Validate, build, and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      PUBLIC_CONTACT_EMAIL_ENABLED: "true"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+
+      - name: Validate content
+        run: npm run validate
+
+      - name: Test source contracts
+        run: node --test tests/source-contract.test.mjs tests/content-quality.test.mjs tests/validate-script.test.mjs
+
+      - name: Type check
+        run: npm run check
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Test generated site
+        run: npm run test:built
+
+      - name: Deploy production Worker
+        run: npx wrangler deploy
