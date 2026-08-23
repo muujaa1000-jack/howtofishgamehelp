@@ -26,7 +26,8 @@ Build, verify, deploy, and prepare the apex-domain launch of a fast English Astr
 - [x] Onboard Email Routing, activate one exact contact route with catch-all disabled, enable the public address, deploy, and complete production-domain checks.
 - [x] Verify the Search Console domain property by DNS and submit the production sitemap successfully.
 - [x] Complete Cloudflare account-email verification and create a stable account-owned noindex `workers.dev` preview.
-- [ ] After the user completes GitHub's one-time email-code prompt, connect Workers Builds to the GitHub `main` branch and verify the first automatic build.
+- [x] Complete GitHub's one-time verification, preserve existing GitHub App repository access, revoke the exposed setup token, and create a replacement restricted Cloudflare deployment credential plus Workers Builds token.
+- [ ] Restore continuous deployment. Native Workers Builds is blocked by Cloudflare SCM error `8000008` (disconnected shared GitHub App); use the user-approved low-impact GitHub Actions fallback or explicitly authorize the shared App reinstall before creating and verifying the first automatic build.
 
 ## Test-first checkpoints
 

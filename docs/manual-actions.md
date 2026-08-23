@@ -1,11 +1,14 @@
 # Manual Actions
 
-The formal site, stable noindex preview, Email Routing configuration, Search Console ownership verification, and sitemap submission are complete. One GitHub security check remains before Cloudflare Workers Builds can be connected.
+The formal site, stable noindex preview, Email Routing configuration, Search Console ownership verification, sitemap submission, GitHub verification, and restricted Cloudflare deployment credential are complete.
 
-## Required now
+## Continuous deployment decision
 
-1. In the GitHub page already open in Chrome, enter the one-time code GitHub sent to the account email and select **Verify**. Do not send the code in chat.
-2. Reply to the Codex task with `GitHub 已验证`. Codex will then connect the existing Worker to the existing GitHub repository and verify the first automatic build; do not create a second Worker manually.
+Cloudflare's native Workers Builds API reports that the shared Cloudflare Workers and Pages GitHub App installation is disconnected from this Cloudflare account, even though GitHub shows that the App can access `howtofishgamehelp`. Cloudflare's documented native repair is to uninstall and reinstall that shared App. Because the same installation also has access to the existing `PowerUp2Study` repository, that repair could interrupt its new automatic builds and was not performed.
+
+Recommended: approve a repository-only GitHub Actions workflow and allow the restricted Cloudflare token to be stored as an encrypted Actions secret in `muujaa1000-jack/howtofishgamehelp`. This avoids changing the shared GitHub App installation. The secret must never be printed or committed.
+
+Alternative: explicitly authorize uninstalling and reinstalling the shared Cloudflare GitHub App, accepting temporary interruption risk for repositories that currently depend on it. This option is not recommended without first checking the other repository's deployment setup.
 
 ## Optional receipt check
 

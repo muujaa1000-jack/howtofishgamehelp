@@ -2,7 +2,7 @@
 
 Checked: 2026-08-23 (Asia/Singapore)
 
-Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email Routing, Contact publication, Search Console verification, sitemap submission, and the stable noindex preview are complete. GitHub requires one email-code security check before Cloudflare Workers Builds can be connected.
+Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email Routing, Contact publication, Search Console verification, sitemap submission, and the stable noindex preview are complete. GitHub verification and repository access are complete. Native Cloudflare Workers Builds is not yet attached because Cloudflare reports that the shared GitHub App installation is disconnected from this Cloudflare account.
 
 ## Deployment and repository
 
@@ -18,7 +18,12 @@ Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email R
 - GitHub: `https://github.com/muujaa1000-jack/howtofishgamehelp`.
 - Branch: `main`.
 - Final commit: reported by `git rev-parse HEAD` in the Codex delivery response after this report is committed.
-- Workers Builds: Cloudflare reached the existing GitHub App installation, but GitHub requires a one-time email verification code before its installation settings can be opened and the repository connection saved.
+- GitHub verification: complete. The Cloudflare Workers and Pages GitHub App can access both the existing `PowerUp2Study` repository and `howtofishgamehelp`; the existing repository was preserved when access was updated.
+- Cloudflare deployment credential: the first token created during setup was revoked after its one-time display was exposed in local tool output. A replacement user token named `howtofishgamehelp-workers-builds-deploy` is active, limited to the current Cloudflare account, and has only Workers Builds Configuration: Edit and Workers Scripts: Edit. No token secret was written to this repository, Git history, documentation, or static output.
+- Workers Builds token: `howtofishgamehelp-workers-build-token` is registered and active for the replacement credential.
+- Workers Builds repository connection: not created. The official `PUT /builds/repos/connections` request returned Cloudflare code `8000008`: the project is disconnected from the Git account. The GitHub App is installed and has repository access, but Cloudflare does not have a usable account-side SCM connection record.
+- No Workers Builds production or preview trigger exists, and no automatic build has been claimed as successful.
+- Cloudflare's documented native repair is to uninstall and reinstall the shared GitHub App. That would temporarily disable new builds for every repository using that installation, including the unrelated existing repository, so it was not performed without explicit authorization. A lower-impact fallback is a repository-only GitHub Actions deployment using the restricted token as a GitHub Actions secret.
 
 ## Published scope
 
@@ -90,9 +95,9 @@ Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email R
 
 ## Remaining user action and follow-up
 
-- Complete the GitHub email-code prompt already open in the browser, then reply `GitHub 已验证`. Codex will finish connecting Workers Builds to repository `muujaa1000-jack/howtofishgamehelp`, branch `main`, set `PUBLIC_CONTACT_EMAIL_ENABLED=true` for production builds, and verify the first automatic build.
+- Choose the continuous-deployment recovery path recorded in `docs/manual-actions.md`. The recommended low-impact path is GitHub Actions for this repository; it requires explicit approval to store the restricted Cloudflare token as a GitHub Actions secret. The Cloudflare-native alternative requires uninstalling and reinstalling a shared GitHub App and may interrupt automatic builds for the existing unrelated repository.
 - Send one external email to the public Contact address and confirm receipt before calling mail delivery end-to-end verified.
-- No other Cloudflare, nameserver, destination, DNS, GSC, ad, or analytics action is required for the current live site.
+- No other Cloudflare, nameserver, destination, DNS, GSC, ad, or analytics action is required for the current live site. The website remains live independently of the unresolved continuous-deployment connection.
 
 ## Evidence limits
 
