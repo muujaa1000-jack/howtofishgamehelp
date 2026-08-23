@@ -109,7 +109,8 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
     'npm run check',
     'npm run build',
     'npm run test:built',
-    'npx wrangler deploy',
+    'npx wrangler versions upload --env="" --tag "$GITHUB_SHA"',
+    'npx wrangler versions deploy --env="" --version-tag "$GITHUB_SHA" --yes',
   ];
   for (const command of requiredCommands) {
     assert.match(workflow, new RegExp(command.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')), `workflow missing: ${command}`);
@@ -118,5 +119,11 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
   assert.ok(
     requiredCommands.every((command, index) => index === 0 || workflow.indexOf(command) > workflow.indexOf(requiredCommands[index - 1])),
     'validation, build, and deployment commands must remain in safety order',
+  );
+
+  assert.doesNotMatch(
+    workflow,
+    /^\s*run:\s*npx wrangler deploy\s*$/m,
+    'production automation must not rewrite custom-domain routes',
   );
 });
