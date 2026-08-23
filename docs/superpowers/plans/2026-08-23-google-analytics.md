@@ -176,7 +176,7 @@ git commit -m "feat: add conditional GA4 tag"
 
 **Interfaces:**
 - Consumes: `site.analyticsEnabled` from Task 1.
-- Produces: enabled-state privacy text and a Worker CSP that permits `www.googletagmanager.com` scripts plus HTTPS collection requests and image fallbacks to `*.google-analytics.com`.
+- Produces: enabled-state privacy text and a non-advertising Worker CSP that permits `www.googletagmanager.com` scripts; connections to `*.google-analytics.com`, `*.analytics.google.com`, and `www.googletagmanager.com`; and image fallbacks from `*.google-analytics.com` and `www.googletagmanager.com`.
 
 - [ ] **Step 1: Add privacy and CSP regression tests**
 
@@ -202,8 +202,12 @@ test('worker CSP permits only the required Google Analytics origins', async () =
   const worker = await text('worker/index.ts');
   assert.match(worker, /script-src[^"]*https:\/\/www\.googletagmanager\.com/);
   assert.match(worker, /connect-src[^"]*https:\/\/\*\.google-analytics\.com/);
+  assert.match(worker, /connect-src[^"]*https:\/\/\*\.analytics\.google\.com/);
+  assert.match(worker, /connect-src[^"]*https:\/\/www\.googletagmanager\.com/);
   assert.match(worker, /img-src[^"]*https:\/\/\*\.google-analytics\.com/);
+  assert.match(worker, /img-src[^"]*https:\/\/www\.googletagmanager\.com/);
   assert.doesNotMatch(worker, /script-src[^"]*https:\/\/\*/);
+  assert.doesNotMatch(worker, /(?:doubleclick\.net|googleadservices\.com|googlesyndication\.com)/);
 });
 ```
 
@@ -221,7 +225,7 @@ Remove-Item Env:PUBLIC_ANALYTICS_ENABLED
 Remove-Item Env:PUBLIC_ANALYTICS_ID
 ```
 
-Expected: the source-contract test fails because the CSP lacks Google origins, and the built-site test fails because the privacy page still describes analytics as disabled.
+Expected: the source-contract test fails because the CSP lacks the required non-advertising Google origins, including `*.analytics.google.com` and the `www.googletagmanager.com` connection and image fallbacks; the built-site test fails because the privacy page still describes analytics as disabled.
 
 - [ ] **Step 3: Add the enabled-state privacy copy**
 
@@ -266,7 +270,7 @@ import { site } from '../config/site';
 Replace the `Content-Security-Policy` value in `worker/index.ts` with:
 
 ```ts
-  'Content-Security-Policy': "default-src 'self'; base-uri 'self'; connect-src 'self' https://*.google-analytics.com; form-action 'self'; frame-ancestors 'none'; img-src 'self' data: https://*.google-analytics.com; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'",
+  'Content-Security-Policy': "default-src 'self'; base-uri 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self'; frame-ancestors 'none'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'",
 ```
 
 - [ ] **Step 5: Verify GREEN**
@@ -283,7 +287,7 @@ Remove-Item Env:PUBLIC_ANALYTICS_ENABLED
 Remove-Item Env:PUBLIC_ANALYTICS_ID
 ```
 
-Expected: both test commands pass with no failures.
+Expected: both test commands pass with no failures. The CSP contract confirms the exact non-advertising allowlist above, rejects broad wildcard script sources, and rejects DoubleClick, Google Ads, and Google Syndication endpoints.
 
 - [ ] **Step 6: Commit privacy and CSP**
 
@@ -494,12 +498,21 @@ Stop Task 5 here. The subagent-driven workflow performs its whole-branch review 
 Run:
 
 ```powershell
+$pushedHeadSha = (git rev-parse HEAD).Trim()
 git push origin main
-$latestRun = gh run list --workflow deploy-production.yml --branch main --limit 1 --json databaseId,headSha,status,conclusion | ConvertFrom-Json
-if ($latestRun.headSha -ne (git rev-parse HEAD)) {
-  throw 'The latest deployment run does not match the pushed commit.'
+$deployRun = $null
+for ($attempt = 1; $attempt -le 20; $attempt++) {
+  $deployRun = gh run list --workflow deploy-production.yml --branch main --limit 1 --json databaseId,headSha,status,conclusion |
+    ConvertFrom-Json |
+    Where-Object { $_.headSha -eq $pushedHeadSha } |
+    Select-Object -First 1
+  if ($null -ne $deployRun) { break }
+  if ($attempt -lt 20) { Start-Sleep -Seconds 2 }
 }
-gh run watch $latestRun.databaseId --exit-status
+if ($null -eq $deployRun) {
+  throw "No deploy-production.yml run for pushed commit $pushedHeadSha appeared after 20 attempts."
+}
+gh run watch $deployRun.databaseId --exit-status
 ```
 
 Expected: the workflow reaches `completed` with conclusion `success`.
