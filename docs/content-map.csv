@@ -1,0 +1,8 @@
+slug,title,category,primary_intent,priority,status,notes
+/guides/beginner-guide/,How to Fish Beginner Guide,guides,Start the game and reach the first boss,P0,planned,Opening route hub
+/walkthrough/,How to Fish Walkthrough,walkthrough,Follow the main story in order,P0,planned,Story hub without complete claim
+/islands/,How to Fish Island Progression,islands,Understand island unlock order,P0,planned,Hub with verified five-stage route
+/bosses/,How to Fish Boss Guides,bosses,Find boss preparation and tactics,P0,planned,Hub title avoids all until coverage proven
+/achievements/,How to Fish Achievements Guide,achievements,Plan achievement cleanup,P1,planned,Official list currently has 28
+/fixes/,How to Fish Problems and Fixes,fixes,Diagnose current technical problems,P2,planned,Separate confirmed fixes from workarounds
+

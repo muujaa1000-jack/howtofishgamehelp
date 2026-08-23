@@ -1,0 +1,6 @@
+page_slug,primary_intent,source_url,source_type,source_title,verified_at,supported_key_facts,second_source,current_confidence,public_allowed
+/guides/beginner-guide/,start the game,https://store.steampowered.com/app/4001890/How_to_Fish/,official-store,How to Fish on Steam,2026-08-23,"identity; release; core loop; player modes",yes,high,yes
+/walkthrough/,main story route,https://www.destructoid.com/complete-how-to-fish-game-walkthrough-100-completion/,gameplay-guide,Complete How to Fish game walkthrough,2026-08-23,"lighthouse; five island route; quest gates; boss order",yes,medium-high,yes
+/achievements/,achievement planning,https://steamcommunity.com/stats/4001890/achievements/,official-steam,How to Fish Global Achievements,2026-08-23,"current names; descriptions; total count",yes,high,yes
+/fixes/,current confirmed fixes,https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=4001890,official-patch-notes,How to Fish patch announcements,2026-08-23,"1.0.4 and 1.0.5 changes and fixes",no,high,yes
+
