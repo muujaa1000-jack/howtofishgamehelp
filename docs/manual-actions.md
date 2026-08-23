@@ -1,18 +1,14 @@
 # Manual Actions
 
-Local implementation, GitHub publication, and a noindex Workers preview are complete. Production remains behind one Cloudflare account/zone handoff.
+The formal site, Email Routing configuration, Search Console ownership verification, and sitemap submission are complete. One Cloudflare account gate remains for clean Workers Builds and a stable account-owned preview URL.
 
 ## Required now
 
-1. Authenticate the Cloudflare account that should own the production Worker and DNS zone when prompted by Codex.
-2. After Codex adds the zone, replace the two current Spaceship nameservers at the registrar with the exact Cloudflare pair returned for this zone. No exact values are guessed in advance.
-3. If Cloudflare reports that the forwarding destination is not verified, open the single Cloudflare verification email and click its confirmation link. Codex will create the exact route afterward; do not create a catch-all manually.
+1. Open the newest Cloudflare account-verification email and click its verification link. A fresh message was requested from the dashboard on 2026-08-23.
+2. Reply to the Codex task with `已验证`. Codex will then connect the existing Worker to the existing GitHub repository and verify the resulting build/preview; do not create a second Worker manually.
 
-## After production DNS is live
+## Optional receipt check
 
-1. Add the domain property `howtofishgamehelp.com` in Google Search Console.
-2. Use DNS TXT verification. The exact TXT value must come from the live Search Console property; no placeholder value should be published.
-3. Submit `https://howtofishgamehelp.com/sitemap.xml`.
-4. Send one external test email to the public contact address and confirm receipt before calling mail delivery end-to-end verified.
+Send one message from an unrelated external mailbox to `contact@howtofishgamehelp.com` and confirm it reaches the verified destination. This is the only remaining Email Routing validation; configuration-level checks already pass.
 
-Exact account-specific values are intentionally omitted until they can be read from the live account.
+The Search Console domain property is already verified, and `https://howtofishgamehelp.com/sitemap.xml` is already submitted with status `Success`. Account-specific verification values and the private mail destination are intentionally omitted.

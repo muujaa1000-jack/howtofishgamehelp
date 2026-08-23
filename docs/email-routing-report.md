@@ -2,13 +2,15 @@
 
 Checked: 2026-08-23
 
-- Zone onboarded to Cloudflare: **No / not currently delegated**. Authoritative DNS is still at Spaceship.
-- Cloudflare authentication: **Not available** (`wrangler whoami` still reports unauthenticated after the temporary preview deployment).
-- Destination verified: **Unable to inspect**. No private address is recorded in this report.
-- Exact contact routing rule active: **No verified rule yet**. Account state cannot be inspected without authentication.
-- Catch-all: **Not enabled by this project**.
-- Existing mail conflict: **No MX or SPF observed in the final pre-handoff recheck**; no existing provider is evident. DNS must still be rechecked after Cloudflare zone onboarding and immediately before routing changes.
-- End-to-end receipt test: **Not performed**.
-- Public contact address in generated site: **Disabled and not present in generated HTML** until rule activation is verified.
-- Website DNS impact: **None**. The temporary Worker did not change registrar DNS.
-- Next safe action: authenticate the intended Cloudflare account, add the zone, change the registrar nameservers, recheck MX, then inspect or verify the destination before creating exactly one contact rule. Do not enable catch-all.
+- Zone onboarded to Cloudflare: **Yes**. Zone status is `active`, and the externally resolved authoritative nameservers match the assigned Cloudflare pair.
+- Cloudflare authentication: **Available** through the current OAuth session. No token or secret is stored in this repository.
+- Destination verified: **Yes**. Exactly one verified destination was used; its private address is not recorded in this report.
+- Exact contact routing rule active: **Yes**. One enabled literal matcher exists for `contact@howtofishgamehelp.com`, with a forward action to the verified destination.
+- Catch-all: **Disabled**. The default catch-all/drop rule remains disabled; no additional public addresses were created.
+- Existing mail conflict: **None found before onboarding**. There were no prior MX or SPF records. The former parking A records were unrelated and were removed only when the Worker custom domain was attached.
+- DNS readback: **Passed**. Three Cloudflare Email Routing MX records and the Cloudflare SPF record resolve externally. The Cloudflare DKIM record remains present in the dashboard.
+- Routing status: **`ready`**, enabled through the current official Email Routing DNS onboarding endpoint.
+- End-to-end receipt test: **Not performed**. No safe external sending capability was available in this task.
+- Public contact address in generated site: **Enabled** after routing readback. The formal Contact page is indexable and exposes only the public address.
+- Website DNS impact: **No conflict**. Both Worker custom domains and all Email Routing DNS records remain present after formal-site verification.
+- Remaining manual check: send one external test message to the public address and confirm receipt before calling delivery end-to-end verified.

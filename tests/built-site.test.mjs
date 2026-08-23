@@ -4,6 +4,7 @@ import path from 'node:path';
 import test from 'node:test';
 
 const dist = path.resolve('dist');
+const contactEmailEnabled = process.env.PUBLIC_CONTACT_EMAIL_ENABLED === 'true';
 
 async function text(file) {
   return readFile(path.join(dist, file), 'utf8');
@@ -53,8 +54,13 @@ test('build contains the representative launch routes and metadata', async () =>
   assert.equal((home.match(/<h1(?:\s|>)/g) ?? []).length, 1);
 
   const contact = await text('contact/index.html');
-  assert.match(contact, /noindex, nofollow/);
-  assert.doesNotMatch(contact, /contact@howtofishgamehelp\.com/i);
+  if (contactEmailEnabled) {
+    assert.doesNotMatch(contact, /noindex, nofollow/);
+    assert.match(contact, /mailto:contact@howtofishgamehelp\.com/i);
+  } else {
+    assert.match(contact, /noindex, nofollow/);
+    assert.doesNotMatch(contact, /contact@howtofishgamehelp\.com/i);
+  }
 });
 
 test('all generated internal links resolve and launch output contains no private or placeholder configuration', async () => {
@@ -77,10 +83,11 @@ test('all generated internal links resolve and launch output contains no private
   }
 });
 
-test('sitemap contains only the 43 indexable launch URLs', async () => {
+test('sitemap contains only the intended indexable launch URLs', async () => {
   const sitemap = await text('sitemap.xml');
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-  assert.equal(urls.length, 43);
+  assert.equal(urls.length, contactEmailEnabled ? 44 : 43);
   assert.ok(urls.every((url) => url.startsWith('https://howtofishgamehelp.com/')));
-  assert.ok(!urls.some((url) => /\/(?:search|contact|404)\//.test(url)));
+  assert.ok(!urls.some((url) => /\/(?:search|404)\//.test(url)));
+  assert.equal(urls.includes('https://howtofishgamehelp.com/contact/'), contactEmailEnabled);
 });

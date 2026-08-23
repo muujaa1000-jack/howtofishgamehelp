@@ -36,3 +36,14 @@ Checked: 2026-08-23 (Asia/Singapore)
 - Do not publish the contact address in generated HTML until the exact routing rule is active and inspected.
 - Cloudflare login and nameserver changes are deferred until all local work and preview-ready validation are complete.
 
+## Subsequent authenticated readback
+
+These findings were obtained after the local site and noindex preview had passed QA; they do not replace the initial-state record above.
+
+- Cloudflare OAuth is authenticated for account `36e9d90b5b870bef7eb227af87a79be4` with Workers and Email Routing write access plus zone read access. Zone creation through the API was not permitted, so the zone was added through the authenticated dashboard.
+- Cloudflare zone ID: `07c4cf03c4dd8d26e0ac5834e5880e79`; plan: Free Website; final status: active.
+- Assigned nameservers: `anastasia.ns.cloudflare.com` and `matteo.ns.cloudflare.com`. Spaceship accepted both, and an external `1.1.1.1` readback returned the same pair.
+- No existing Worker named `howtofishgamehelp` was present before deployment. The new Worker, its version history, and both custom domains belong to this project.
+- The two imported apex A records were confirmed as the former Spaceship parking targets before deletion. No MX/TXT mail record was deleted or overwritten.
+- Email Routing had no verified route at initial access. One already-verified destination became available after the exact destination was added; the private address is intentionally omitted here.
+- GitHub CLI remained authenticated, and the project repository was created at `https://github.com/muujaa1000-jack/howtofishgamehelp`.

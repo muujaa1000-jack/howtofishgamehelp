@@ -11,6 +11,7 @@ export const GET: APIRoute = async () => {
   const urls: Array<{ path: string; lastmod?: string }> = [
     { path: '/' },
     { path: '/about/' },
+    ...(site.contactEmailEnabled ? [{ path: '/contact/' }] : []),
     { path: '/privacy/' },
     { path: '/terms/' },
     { path: '/disclaimer/' },
