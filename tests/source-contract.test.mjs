@@ -83,3 +83,40 @@ test('repository contains no private forwarding destination or fake monetization
   assert.doesNotMatch(corpus, /ca-pub-[0-9]+/i);
   assert.doesNotMatch(corpus, /(?:^|[^A-Za-z0-9])G-[A-Z0-9]{8,}(?:$|[^A-Za-z0-9])/m);
 });
+
+test('production deployment workflow is main-only, gated, and secret-safe', async () => {
+  const workflow = await text('.github/workflows/deploy-production.yml');
+
+  assert.match(workflow, /^name: Deploy production$/m);
+  assert.match(workflow, /^\s*push:\s*\n\s*branches:\s*\[main\]/m);
+  assert.match(workflow, /^\s*workflow_dispatch:\s*$/m);
+  assert.doesNotMatch(workflow, /^\s*pull_request:/m);
+  assert.doesNotMatch(workflow, /branches:\s*\[['"]?\*['"]?\]/);
+  assert.match(workflow, /^permissions:\s*\n\s*contents: read$/m);
+  assert.match(workflow, /group: production-deploy/);
+  assert.match(workflow, /cancel-in-progress: false/);
+
+  assert.match(workflow, /CLOUDFLARE_API_TOKEN:\s*\$\{\{ secrets\.CLOUDFLARE_API_TOKEN \}\}/);
+  assert.match(workflow, /CLOUDFLARE_ACCOUNT_ID:\s*\$\{\{ vars\.CLOUDFLARE_ACCOUNT_ID \}\}/);
+  assert.match(workflow, /PUBLIC_CONTACT_EMAIL_ENABLED:\s*['"]true['"]/);
+  assert.doesNotMatch(workflow, /cfut_[A-Za-z0-9_-]+/);
+
+  const requiredCommands = [
+    'npm ci',
+    'npm audit --audit-level=high',
+    'npm run validate',
+    'node --test tests/source-contract.test.mjs tests/content-quality.test.mjs tests/validate-script.test.mjs',
+    'npm run check',
+    'npm run build',
+    'npm run test:built',
+    'npx wrangler deploy',
+  ];
+  for (const command of requiredCommands) {
+    assert.match(workflow, new RegExp(command.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')), `workflow missing: ${command}`);
+  }
+
+  assert.ok(
+    requiredCommands.every((command, index) => index === 0 || workflow.indexOf(command) > workflow.indexOf(requiredCommands[index - 1])),
+    'validation, build, and deployment commands must remain in safety order',
+  );
+});
