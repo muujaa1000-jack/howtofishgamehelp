@@ -2,7 +2,31 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../config/site';
 ---
-<BaseLayout title="Privacy Policy" description="The privacy policy for How to Fish Game Help reflects its current cookie-free, ads-off, analytics-off launch configuration." canonicalPath="/privacy/">
-  <article class="narrow section prose"><p class="eyebrow">Effective August 23, 2026</p><h1>Privacy policy</h1><p>This site currently serves static pages. Advertising is <strong>{site.adsEnabled ? 'enabled' : 'disabled'}</strong> and analytics is <strong>{site.analyticsEnabled ? 'enabled' : 'disabled'}</strong>.</p><h2>Data we do not collect directly</h2><p>There are no user accounts, comments, purchases, newsletters, or contact forms. We do not set our own advertising or analytics cookies while those features are disabled.</p><h2>Hosting logs</h2><p>Cloudflare may process limited request data such as IP address, browser information, requested URL, and security signals to deliver and protect the site. Those infrastructure logs are governed by Cloudflare’s practices.</p><h2>External links</h2><p>Links to Steam, developer pages, media, videos, and community sources take you to third-party sites with their own privacy policies.</p><h2>Changes</h2><p>If analytics or advertising is enabled later, this page will be updated before those scripts are loaded.</p></article>
+<BaseLayout title="Privacy Policy" description="How to Fish Game Help explains its analytics, hosting, advertising, and visitor-data practices." canonicalPath="/privacy/">
+  <article class="narrow section prose">
+    <p class="eyebrow">Effective August 23, 2026</p>
+    <h1>Privacy policy</h1>
+    <p>This site serves static pages. Advertising is <strong>{site.adsEnabled ? 'enabled' : 'disabled'}</strong> and Google Analytics is <strong>{site.analyticsEnabled ? 'enabled' : 'disabled'}</strong>.</p>
+    {site.analyticsEnabled ? (
+      <>
+        <h2>Google Analytics</h2>
+        <p>We use Google Analytics to understand visits and improve these guides. Google may process page views, referral information, device and browser information, approximate location, and analytics identifiers or cookies. We have disabled Google Signals and ad-personalization signals.</p>
+        <p>Learn how Google handles information in its <a href="https://policies.google.com/privacy">privacy policy</a>. You can limit cookies in your browser or use the <a href="https://tools.google.com/dlpage/gaoptout">Google Analytics opt-out add-on</a>.</p>
+      </>
+    ) : (
+      <>
+        <h2>Analytics</h2>
+        <p>Google Analytics is disabled in this version of the site, so this site does not set its own analytics cookies.</p>
+      </>
+    )}
+    <h2>Data we do not collect directly</h2>
+    <p>There are no user accounts, comments, purchases, newsletters, or contact forms. We do not send account, purchase, form, or user-ID data to Google Analytics.</p>
+    <h2>Hosting logs</h2>
+    <p>Cloudflare may process limited request data such as IP address, browser information, requested URL, and security signals to deliver and protect the site. Those infrastructure logs are governed by Cloudflare’s practices.</p>
+    <h2>External links</h2>
+    <p>Links to Steam, developer pages, media, videos, community sources, Google policies, and opt-out tools take you to third-party sites with their own privacy policies.</p>
+    <h2>Changes</h2>
+    <p>This page will be updated when the site's analytics, advertising, or data-collection practices change.</p>
+  </article>
 </BaseLayout>
 

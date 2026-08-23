@@ -4,7 +4,7 @@ import path from 'node:path';
 import test from 'node:test';
 
 const root = path.resolve(import.meta.dirname, '..');
-const ignoredDirectories = new Set(['.git', '.worktrees', 'dist', 'node_modules']);
+const ignoredDirectories = new Set(['.git', '.superpowers', '.worktrees', 'dist', 'node_modules']);
 
 async function text(relativePath) {
   return readFile(path.join(root, relativePath), 'utf8');
@@ -128,4 +128,12 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
     /^\s*run:\s*npx wrangler deploy\s*$/m,
     'production automation must not rewrite custom-domain routes',
   );
+});
+
+test('worker CSP permits only the required Google Analytics origins', async () => {
+  const worker = await text('worker/index.ts');
+  assert.match(worker, /script-src[^"]*https:\/\/www\.googletagmanager\.com/);
+  assert.match(worker, /connect-src[^"]*https:\/\/\*\.google-analytics\.com/);
+  assert.match(worker, /img-src[^"]*https:\/\/\*\.google-analytics\.com/);
+  assert.doesNotMatch(worker, /script-src[^"]*https:\/\/\*/);
 });

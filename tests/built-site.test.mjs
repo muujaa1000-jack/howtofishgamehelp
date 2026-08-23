@@ -53,6 +53,7 @@ test('build contains the representative launch routes and metadata', async () =>
 
   const home = await text('index.html');
   const guide = await text('bosses/spider-crab/index.html');
+  const privacy = await text('privacy/index.html');
   assert.match(home, /<link rel="canonical" href="https:\/\/howtofishgamehelp\.com\/">/);
   assert.match(home, /<meta property="og:image" content="https:\/\/howtofishgamehelp\.com\/og-default\.png">/);
   assert.match(home, /application\/ld\+json/);
@@ -72,6 +73,16 @@ test('build contains the representative launch routes and metadata', async () =>
     } else {
       assert.doesNotMatch(html, /googletagmanager\.com|google-analytics\.com|gtag\(/);
     }
+  }
+
+  if (analyticsEnabled) {
+    assert.match(privacy, /Google Analytics is <strong>enabled<\/strong>/);
+    assert.match(privacy, /Google may process page views/);
+    assert.match(privacy, /https:\/\/policies\.google\.com\/privacy/);
+    assert.match(privacy, /https:\/\/tools\.google\.com\/dlpage\/gaoptout/);
+    assert.doesNotMatch(privacy, /analytics-off launch configuration/);
+  } else {
+    assert.match(privacy, /Google Analytics is <strong>disabled<\/strong>/);
   }
 
   const contact = await text('contact/index.html');
