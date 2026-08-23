@@ -141,12 +141,12 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
 
 test('worker CSP permits only the required Google Analytics origins', async () => {
   const worker = await text('worker/index.ts');
-  assert.match(worker, /script-src[^"]*https:\/\/www\.googletagmanager\.com/);
-  assert.match(worker, /connect-src[^"]*https:\/\/\*\.google-analytics\.com/);
-  assert.match(worker, /connect-src[^"]*https:\/\/\*\.analytics\.google\.com/);
-  assert.match(worker, /connect-src[^"]*https:\/\/www\.googletagmanager\.com/);
-  assert.match(worker, /img-src[^"]*https:\/\/\*\.google-analytics\.com/);
-  assert.match(worker, /img-src[^"]*https:\/\/www\.googletagmanager\.com/);
-  assert.doesNotMatch(worker, /script-src[^"]*https:\/\/\*/);
+  assert.match(worker, /script-src[^;"]*https:\/\/www\.googletagmanager\.com/);
+  assert.match(worker, /connect-src[^;"]*https:\/\/\*\.google-analytics\.com/);
+  assert.match(worker, /connect-src[^;"]*https:\/\/\*\.analytics\.google\.com/);
+  assert.match(worker, /connect-src[^;"]*https:\/\/www\.googletagmanager\.com/);
+  assert.match(worker, /img-src[^;"]*https:\/\/\*\.google-analytics\.com/);
+  assert.match(worker, /img-src[^;"]*https:\/\/www\.googletagmanager\.com/);
+  assert.doesNotMatch(worker, /script-src[^;"]*https:\/\/\*/);
   assert.doesNotMatch(worker, /(?:doubleclick\.net|googleadservices\.com|googlesyndication\.com)/);
 });

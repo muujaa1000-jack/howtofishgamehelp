@@ -200,13 +200,13 @@ Add this test to `tests/source-contract.test.mjs`:
 ```js
 test('worker CSP permits only the required Google Analytics origins', async () => {
   const worker = await text('worker/index.ts');
-  assert.match(worker, /script-src[^"]*https:\/\/www\.googletagmanager\.com/);
-  assert.match(worker, /connect-src[^"]*https:\/\/\*\.google-analytics\.com/);
-  assert.match(worker, /connect-src[^"]*https:\/\/\*\.analytics\.google\.com/);
-  assert.match(worker, /connect-src[^"]*https:\/\/www\.googletagmanager\.com/);
-  assert.match(worker, /img-src[^"]*https:\/\/\*\.google-analytics\.com/);
-  assert.match(worker, /img-src[^"]*https:\/\/www\.googletagmanager\.com/);
-  assert.doesNotMatch(worker, /script-src[^"]*https:\/\/\*/);
+  assert.match(worker, /script-src[^;"]*https:\/\/www\.googletagmanager\.com/);
+  assert.match(worker, /connect-src[^;"]*https:\/\/\*\.google-analytics\.com/);
+  assert.match(worker, /connect-src[^;"]*https:\/\/\*\.analytics\.google\.com/);
+  assert.match(worker, /connect-src[^;"]*https:\/\/www\.googletagmanager\.com/);
+  assert.match(worker, /img-src[^;"]*https:\/\/\*\.google-analytics\.com/);
+  assert.match(worker, /img-src[^;"]*https:\/\/www\.googletagmanager\.com/);
+  assert.doesNotMatch(worker, /script-src[^;"]*https:\/\/\*/);
   assert.doesNotMatch(worker, /(?:doubleclick\.net|googleadservices\.com|googlesyndication\.com)/);
 });
 ```
@@ -530,13 +530,34 @@ $csp = [string]$response.Headers['Content-Security-Policy']
 if ($response.StatusCode -ne 200 -or $loaderCount -ne 1 -or $idCount -lt 2) {
   throw 'The live page does not contain the expected single GA4 integration.'
 }
-if ($csp -notmatch 'www\.googletagmanager\.com' -or $csp -notmatch 'google-analytics\.com') {
-  throw 'The live CSP does not permit the required GA4 traffic.'
+$requiredCspPatterns = @(
+  'script-src[^;"]*https://www\.googletagmanager\.com'
+  'connect-src[^;"]*https://\*\.google-analytics\.com'
+  'connect-src[^;"]*https://\*\.analytics\.google\.com'
+  'connect-src[^;"]*https://www\.googletagmanager\.com'
+  'img-src[^;"]*https://\*\.google-analytics\.com'
+  'img-src[^;"]*https://www\.googletagmanager\.com'
+)
+foreach ($requiredCspPattern in $requiredCspPatterns) {
+  if ($csp -notmatch $requiredCspPattern) {
+    throw "The live CSP is missing required directive/source pattern: $requiredCspPattern"
+  }
+}
+$forbiddenAdvertisingPatterns = @(
+  'doubleclick\.net'
+  'googleadservices\.com'
+  'googlesyndication\.com'
+  'adservice\.google\.com'
+)
+foreach ($forbiddenAdvertisingPattern in $forbiddenAdvertisingPatterns) {
+  if ($csp -match $forbiddenAdvertisingPattern) {
+    throw "The live CSP contains forbidden advertising endpoint pattern: $forbiddenAdvertisingPattern"
+  }
 }
 Remove-Variable gaMeasurementId
 ```
 
-Expected: no exception; the homepage is HTTP 200, contains one Google tag loader and the configured ID in both loader and initialization, and returns the required CSP.
+Expected: no exception; the homepage is HTTP 200, contains one Google tag loader and the configured ID in both loader and initialization, returns all six required directive/source combinations, and contains none of the four forbidden advertising endpoints.
 
 - [ ] **Step 3: Verify a real GA4 event**
 
