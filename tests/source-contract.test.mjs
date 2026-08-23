@@ -4,6 +4,7 @@ import path from 'node:path';
 import test from 'node:test';
 
 const root = path.resolve(import.meta.dirname, '..');
+const ignoredDirectories = new Set(['.git', '.worktrees', 'dist', 'node_modules']);
 
 async function text(relativePath) {
   return readFile(path.join(root, relativePath), 'utf8');
@@ -14,6 +15,7 @@ async function walk(relativePath) {
   const entries = await readdir(absolute, { withFileTypes: true });
   const files = [];
   for (const entry of entries) {
+    if (entry.isDirectory() && ignoredDirectories.has(entry.name)) continue;
     const child = path.join(relativePath, entry.name);
     if (entry.isDirectory()) files.push(...(await walk(child)));
     else files.push(child);
