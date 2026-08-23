@@ -423,14 +423,14 @@ Read the Google Analytics stream-details screen again and confirm:
 - stream URL is exactly `https://howtofishgamehelp.com`;
 - only one matching web stream exists.
 
-### Task 5: Full verification, deployment, and real-time receipt
+### Task 5: Full local verification
 
 **Files:**
 - Verify all files changed in Tasks 1-3.
 
 **Interfaces:**
 - Consumes: clean committed code from Tasks 1-3 and the verified GitHub variable from Task 4.
-- Produces: successful local checks, a successful production workflow deployment, live response verification, and one received GA4 real-time visit.
+- Produces: successful local checks and a clean feature branch ready for the required whole-branch review.
 
 - [ ] **Step 1: Run the complete local verification**
 
@@ -478,7 +478,18 @@ git diff --stat origin/main..HEAD
 
 Expected: only the approved Analytics design, plan, conditional tag, privacy/CSP, workflow guard, and their tests are ahead of `origin/main`.
 
-- [ ] **Step 3: Push and wait for the production workflow**
+Stop Task 5 here. The subagent-driven workflow performs its whole-branch review and branch-finishing gate before any push or production deployment.
+
+### Task 6: Post-review integration, deployment, and real-time receipt
+
+**Files:**
+- No additional tracked file changes unless a review finding requires a separately tested fix.
+
+**Interfaces:**
+- Consumes: an approved whole-branch review and local `main` advanced to the exact reviewed feature-branch head.
+- Produces: a successful production workflow deployment, live response verification, and one received GA4 real-time visit.
+
+- [ ] **Step 1: Push and wait for the production workflow**
 
 Run:
 
@@ -493,7 +504,7 @@ gh run watch $latestRun.databaseId --exit-status
 
 Expected: the workflow reaches `completed` with conclusion `success`.
 
-- [ ] **Step 4: Verify the live source and security headers**
+- [ ] **Step 2: Verify the live source and security headers**
 
 Run:
 
@@ -514,13 +525,13 @@ Remove-Variable gaMeasurementId
 
 Expected: no exception; the homepage is HTTP 200, contains one Google tag loader and the configured ID in both loader and initialization, and returns the required CSP.
 
-- [ ] **Step 5: Verify a real GA4 event**
+- [ ] **Step 3: Verify a real GA4 event**
 
 Use Chrome control to open `https://howtofishgamehelp.com/` in a normal tab with extensions that block analytics disabled for this check. In Google Analytics, open `Reports > Realtime` for `How to Fish Game Help` and use the stream's real-time or DebugView controls if needed.
 
 Wait with bounded read-only refreshes for up to five minutes. Completion requires a current active user or `page_view` attributable to the verification visit. If no event appears, inspect the browser network request and console, the live CSP, and the selected GA4 stream before changing code; do not create a duplicate stream or property.
 
-- [ ] **Step 6: Use the configuration rollback only if the live site regresses**
+- [ ] **Step 4: Use the configuration rollback only if the live site regresses**
 
 If the site regresses after deployment, disable collection without deleting the GA4 property or changing its stream:
 
@@ -545,7 +556,7 @@ if ($rollbackPage.Content -match 'googletagmanager\.com|gtag\(') {
 
 Expected when this contingency is used: the workflow succeeds and the live page contains no Google tag. Keep the property and measurement ID unchanged for diagnosis.
 
-- [ ] **Step 7: Record the verified outcome**
+- [ ] **Step 5: Record the verified outcome**
 
 Update the task with four independent results:
 
