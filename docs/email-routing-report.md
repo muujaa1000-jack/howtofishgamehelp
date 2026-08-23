@@ -12,5 +12,5 @@ Checked: 2026-08-23
 - Routing status: **`ready`**, enabled through the current official Email Routing DNS onboarding endpoint.
 - End-to-end receipt test: **Not performed**. No safe external sending capability was available in this task.
 - Public contact address in generated site: **Enabled** after routing readback. The formal Contact page is indexable and exposes only the public address.
-- Website DNS impact: **No conflict**. Both Worker custom domains and all Email Routing DNS records remain present after formal-site verification.
+- Website DNS impact: **No conflict**. Both Worker custom domains and all Email Routing DNS records remain present after formal-site verification. The post-Actions readback still found all three Cloudflare MX records and the Cloudflare SPF record.
 - Remaining manual check: send one external test message to the public address and confirm receipt before calling delivery end-to-end verified.

@@ -1,14 +1,10 @@
 # Manual Actions
 
-The formal site, stable noindex preview, Email Routing configuration, Search Console ownership verification, sitemap submission, GitHub verification, and restricted Cloudflare deployment credential are complete.
+The formal site, stable noindex preview, Email Routing configuration, Search Console ownership verification, sitemap submission, GitHub verification, restricted Cloudflare deployment credential, and `main`-only GitHub Actions deployment are complete.
 
-## Continuous deployment decision
+## Continuous deployment
 
-Cloudflare's native Workers Builds API reports that the shared Cloudflare Workers and Pages GitHub App installation is disconnected from this Cloudflare account, even though GitHub shows that the App can access `howtofishgamehelp`. Cloudflare's documented native repair is to uninstall and reinstall that shared App. Because the same installation also has access to the existing `PowerUp2Study` repository, that repair could interrupt its new automatic builds and was not performed.
-
-Recommended: approve a repository-only GitHub Actions workflow and allow the restricted Cloudflare token to be stored as an encrypted Actions secret in `muujaa1000-jack/howtofishgamehelp`. This avoids changing the shared GitHub App installation. The secret must never be printed or committed.
-
-Alternative: explicitly authorize uninstalling and reinstalling the shared Cloudflare GitHub App, accepting temporary interruption risk for repositories that currently depend on it. This option is not recommended without first checking the other repository's deployment setup.
+No deployment action is required. A repository-only GitHub Actions workflow now validates, builds, uploads, and promotes the production Worker whenever `main` changes. Its first route-safe run completed successfully on 2026-08-23. Native Cloudflare Workers Builds remains unused because its shared GitHub App connection reports Cloudflare SCM error `8000008`; changing that shared installation is unnecessary while the Actions path is healthy.
 
 ## Optional receipt check
 

@@ -2,17 +2,17 @@
 
 Checked: 2026-08-23 (Asia/Singapore)
 
-Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email Routing, Contact publication, Search Console verification, sitemap submission, and the stable noindex preview are complete. GitHub verification and repository access are complete. Native Cloudflare Workers Builds is not yet attached because Cloudflare reports that the shared GitHub App installation is disconnected from this Cloudflare account.
+Status: **Formal site live with automatic production deployment.** Production content, DNS, HTTPS, redirects, Email Routing, Contact publication, Search Console verification, sitemap submission, the stable noindex preview, and `main`-only GitHub Actions deployment are complete. Native Cloudflare Workers Builds is not attached because Cloudflare reports that the shared GitHub App installation is disconnected from this Cloudflare account; the repository-only Actions path is the active replacement.
 
 ## Deployment and repository
 
 - Formal URL: `https://howtofishgamehelp.com/` — live and returning the project home page with status 200.
 - Stable noindex preview: `https://howtofishgamehelp-preview.howtofishgamehelp.workers.dev/`.
 - Production Worker name: `howtofishgamehelp`.
-- Active production version ID: `982f5146-a565-4526-adab-9670360f6af2`.
-- Active deployment: created `2026-08-23T11:31:13.932Z`, routing 100% to the version above.
+- Active production version ID: `05063a2b-ad9b-40b0-a9b8-29cd732a30e0`.
+- Active deployment: promoted by GitHub Actions at `2026-08-23T15:09:46Z`, routing 100% to the version above.
 - Production custom domains: apex ID `6c8f634aa5137d30a9d3cd854dc97cddd4551345`; www ID `06f2274628da5649cc17255db24c1039db59eb70`.
-- Previous production version: `a2e50471-fc26-4595-bf09-a43f849b8239`. Roll back with `npx wrangler rollback a2e50471-fc26-4595-bf09-a43f849b8239`, then recheck Contact because that version predates public contact enablement.
+- Previous production version: `496d6abe-a606-4fd9-b5a4-a5959d209ca1`. Roll back with `npx wrangler rollback 496d6abe-a606-4fd9-b5a4-a5959d209ca1`, then repeat the formal-domain checks.
 - Cloudflare account-email verification is complete. Wrangler subsequently deployed the account-owned preview without the earlier account-subdomain error.
 - Stable preview version ID: `9dc7cceb-23aa-4362-b36d-f7752efd9704`. Home and guide routes return 200 with `X-Robots-Tag: noindex, nofollow`; canonical links point to the formal apex domain. The preview Contact route is 404 and does not publish the contact address.
 - GitHub: `https://github.com/muujaa1000-jack/howtofishgamehelp`.
@@ -21,9 +21,11 @@ Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email R
 - GitHub verification: complete. The Cloudflare Workers and Pages GitHub App can access both the existing `PowerUp2Study` repository and `howtofishgamehelp`; the existing repository was preserved when access was updated.
 - Cloudflare deployment credential: the first token created during setup was revoked after its one-time display was exposed in local tool output. A replacement user token named `howtofishgamehelp-workers-builds-deploy` is active, limited to the current Cloudflare account, and has only Workers Builds Configuration: Edit and Workers Scripts: Edit. No token secret was written to this repository, Git history, documentation, or static output.
 - Workers Builds token: `howtofishgamehelp-workers-build-token` is registered and active for the replacement credential.
-- Workers Builds repository connection: not created. The official `PUT /builds/repos/connections` request returned Cloudflare code `8000008`: the project is disconnected from the Git account. The GitHub App is installed and has repository access, but Cloudflare does not have a usable account-side SCM connection record.
-- No Workers Builds production or preview trigger exists, and no automatic build has been claimed as successful.
-- Cloudflare's documented native repair is to uninstall and reinstall the shared GitHub App. That would temporarily disable new builds for every repository using that installation, including the unrelated existing repository, so it was not performed without explicit authorization. A lower-impact fallback is a repository-only GitHub Actions deployment using the restricted token as a GitHub Actions secret.
+- Native Workers Builds repository connection: not created. The official `PUT /builds/repos/connections` request returned Cloudflare code `8000008`: the project is disconnected from the Git account. The GitHub App is installed and has repository access, but Cloudflare does not have a usable account-side SCM connection record.
+- Automatic deployment uses `.github/workflows/deploy-production.yml`, triggers only on pushes to `main` or manual dispatch, and stores only the encrypted `CLOUDFLARE_API_TOKEN` secret plus the non-secret `CLOUDFLARE_ACCOUNT_ID` repository variable. No credential value is stored in Git.
+- Verified Actions run `32647641557` completed successfully in 45 seconds at commit `a4dc6789304d21b503fec6cfeb553f24031346c0`. All gates passed before version `05063a2b-ad9b-40b0-a9b8-29cd732a30e0` was promoted to 100%.
+- The initial Actions run `32647317534` uploaded and deployed version `496d6abe-a606-4fd9-b5a4-a5959d209ca1` but ended with an authentication error when the normal deploy command attempted to read custom-domain routes. The corrected workflow uses version upload and promotion, preserving the restricted token and leaving route ownership unchanged.
+- Cloudflare's native repair would require changing the shared GitHub App installation and could affect the unrelated existing repository. It was not needed or performed.
 
 ## Published scope
 
@@ -61,6 +63,7 @@ Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email R
 - Screenshots are stored in `docs/qa-screenshots/`.
 - Lighthouse local production build: Performance 100, Accessibility 100, Best Practices 100, SEO 100; FCP 0.799 s, LCP 0.908 s, CLS 0. The report completed before a Windows temporary-directory cleanup warning.
 - Production security headers verified: CSP, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy`, and `X-Frame-Options: DENY`.
+- GitHub Actions runner note: GitHub currently forces the v4 checkout and Node setup actions from their Node 20 runtime to Node 24. This is a platform deprecation warning, not a build or deployment failure; the workflow's project runtime remains Node 22.12.0.
 
 ## Formal-domain verification
 
@@ -75,6 +78,7 @@ Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email R
 - HTTPS: active Cloudflare certificates exist for apex and www.
 - Old parking A records: both exact imported Spaceship targets were reviewed and removed after preview QA; email records were preserved.
 - Authoritative DNS: Cloudflare zone `07c4cf03c4dd8d26e0ac5834e5880e79` is active on the Free Website plan. External resolver readback matches the assigned nameservers.
+- Post-Actions verification repeated the apex, www, HTTP, representative content, Contact, sitemap, robots, missing-route, preview-noindex, canonical, MX, SPF, GSC TXT, and nameserver checks successfully.
 
 ## Email Routing and Contact
 
@@ -95,9 +99,8 @@ Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email R
 
 ## Remaining user action and follow-up
 
-- Choose the continuous-deployment recovery path recorded in `docs/manual-actions.md`. The recommended low-impact path is GitHub Actions for this repository; it requires explicit approval to store the restricted Cloudflare token as a GitHub Actions secret. The Cloudflare-native alternative requires uninstalling and reinstalling a shared GitHub App and may interrupt automatic builds for the existing unrelated repository.
 - Send one external email to the public Contact address and confirm receipt before calling mail delivery end-to-end verified.
-- No other Cloudflare, nameserver, destination, DNS, GSC, ad, or analytics action is required for the current live site. The website remains live independently of the unresolved continuous-deployment connection.
+- No other Cloudflare, GitHub, nameserver, destination, DNS, GSC, ad, analytics, or deployment action is required for the current live site.
 
 ## Evidence limits
 
