@@ -15,15 +15,15 @@ Build, verify, deploy, and prepare the apex-domain launch of a fast English Astr
 
 ## Delivery stages
 
-- [ ] Audit local tools, accounts, DNS, mail, current hosting, and official game identity.
-- [ ] Initialize Git; add repository rules, configuration, source-ledger documents, and test-first validation.
-- [ ] Research official facts, current patch notes, gameplay-backed walkthroughs, achievements, and community problems.
-- [ ] Build the design system, navigation, search, category paths, guide layout, trust notes, SEO, structured data, and original SVG assets.
-- [ ] Publish the evidence-cleared launch set; mark unsupported or patch-sensitive candidates draft/noindex.
-- [ ] Run type/build/content/metadata/link/sitemap/audit checks and desktop/mobile browser QA with screenshots.
-- [ ] Commit and push to GitHub if available; deploy a Workers preview and verify it.
-- [ ] After preview success, authenticate Cloudflare, inspect the account/zone/Worker/email state, then bind domains and configure exact mail forwarding only if safe.
-- [ ] Verify apex, `www`, HTTP/HTTPS, canonical, contact routing state, and document rollback/manual actions.
+- [x] Audit local tools, accounts, DNS, mail, current hosting, and official game identity.
+- [x] Initialize Git; add repository rules, configuration, source-ledger documents, and test-first validation.
+- [x] Research official facts, current patch notes, gameplay-backed walkthroughs, achievements, and community problems.
+- [x] Build the design system, navigation, search, category paths, guide layout, trust notes, SEO, structured data, and original assets.
+- [x] Publish the evidence-cleared launch set; unsupported candidates were excluded instead of padded into thin pages.
+- [x] Run type/build/content/metadata/link/sitemap/audit checks and desktop/mobile browser QA with screenshots.
+- [x] Commit and push to GitHub; deploy and verify a noindex Workers preview.
+- [ ] Authenticate the intended Cloudflare account, add/delegate the zone, inspect existing Worker/email state, and bind production domains.
+- [ ] Activate and verify the exact contact route, enable the public address, redeploy, and complete production-domain checks.
 
 ## Test-first checkpoints
 
@@ -35,4 +35,3 @@ Build, verify, deploy, and prepare the apex-domain launch of a fast English Astr
 ## Stop conditions
 
 Only pause for a required account login/authorization, registrar nameserver action, destination verification click, paid/irreversible action, or a real existing-mail conflict. All other failures are investigated and recorded while work continues.
-

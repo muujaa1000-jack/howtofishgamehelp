@@ -1,13 +1,18 @@
 # Manual Actions
 
-No action is requested yet. Local implementation, verification, GitHub publication, and a temporary Workers preview should be completed first.
+Local implementation, GitHub publication, and a noindex Workers preview are complete. Production remains behind one Cloudflare account/zone handoff.
 
-Likely final human gates, only if still required after automated checks:
+## Required now
 
-1. Authenticate Wrangler to the Cloudflare account that should own the site.
-2. Change the domain's registrar nameservers from Spaceship to the exact Cloudflare pair shown after zone onboarding.
-3. Click the one Cloudflare destination-verification email if the routing destination is not already verified.
-4. After launch, add the domain property in Google Search Console and submit `https://howtofishgamehelp.com/sitemap.xml` if no authenticated GSC access is available here.
+1. Authenticate the Cloudflare account that should own the production Worker and DNS zone when prompted by Codex.
+2. After Codex adds the zone, replace the two current Spaceship nameservers at the registrar with the exact Cloudflare pair returned for this zone. No exact values are guessed in advance.
+3. If Cloudflare reports that the forwarding destination is not verified, open the single Cloudflare verification email and click its confirmation link. Codex will create the exact route afterward; do not create a catch-all manually.
+
+## After production DNS is live
+
+1. Add the domain property `howtofishgamehelp.com` in Google Search Console.
+2. Use DNS TXT verification. The exact TXT value must come from the live Search Console property; no placeholder value should be published.
+3. Submit `https://howtofishgamehelp.com/sitemap.xml`.
+4. Send one external test email to the public contact address and confirm receipt before calling mail delivery end-to-end verified.
 
 Exact account-specific values are intentionally omitted until they can be read from the live account.
-
