@@ -2,23 +2,23 @@
 
 Checked: 2026-08-23 (Asia/Singapore)
 
-Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email Routing, Contact publication, Search Console verification, and sitemap submission are complete. One account-level verification click remains before Workers Builds and a stable account-owned `workers.dev` preview can be configured.
+Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email Routing, Contact publication, Search Console verification, sitemap submission, and the stable noindex preview are complete. GitHub requires one email-code security check before Cloudflare Workers Builds can be connected.
 
 ## Deployment and repository
 
 - Formal URL: `https://howtofishgamehelp.com/` — live and returning the project home page with status 200.
-- Previously verified noindex temporary preview: `https://howtofishgamehelp-preview.confused-column.workers.dev/`.
+- Stable noindex preview: `https://howtofishgamehelp-preview.howtofishgamehelp.workers.dev/`.
 - Production Worker name: `howtofishgamehelp`.
 - Active production version ID: `982f5146-a565-4526-adab-9670360f6af2`.
 - Active deployment: created `2026-08-23T11:31:13.932Z`, routing 100% to the version above.
 - Production custom domains: apex ID `6c8f634aa5137d30a9d3cd854dc97cddd4551345`; www ID `06f2274628da5649cc17255db24c1039db59eb70`.
 - Previous production version: `a2e50471-fc26-4595-bf09-a43f849b8239`. Roll back with `npx wrangler rollback a2e50471-fc26-4595-bf09-a43f849b8239`, then recheck Contact because that version predates public contact enablement.
-- Wrangler uploaded and activated the production versions successfully, but its follow-up attempt to configure the account `workers.dev` subdomain returned Cloudflare code `10034` because the account email is not verified. The formal custom domains were attached through Cloudflare's official Workers Domains API and are live.
-- Temporary preview version ID: `a2eb0bba-7054-418b-b445-910ada354dcc`. It was verified with noindex headers when deployed; a final handoff recheck from this environment hit a TLS handshake failure, so stable preview availability remains a post-verification follow-up.
+- Cloudflare account-email verification is complete. Wrangler subsequently deployed the account-owned preview without the earlier account-subdomain error.
+- Stable preview version ID: `9dc7cceb-23aa-4362-b36d-f7752efd9704`. Home and guide routes return 200 with `X-Robots-Tag: noindex, nofollow`; canonical links point to the formal apex domain. The preview Contact route is 404 and does not publish the contact address.
 - GitHub: `https://github.com/muujaa1000-jack/howtofishgamehelp`.
 - Branch: `main`.
 - Final commit: reported by `git rev-parse HEAD` in the Codex delivery response after this report is committed.
-- Workers Builds: not connected yet because Cloudflare first requires the newly requested account-email verification click.
+- Workers Builds: Cloudflare reached the existing GitHub App installation, but GitHub requires a one-time email verification code before its installation settings can be opened and the repository connection saved.
 
 ## Published scope
 
@@ -90,10 +90,9 @@ Status: **Formal site live.** Production content, DNS, HTTPS, redirects, Email R
 
 ## Remaining user action and follow-up
 
-- A fresh Cloudflare account-verification email was requested. The user must click that link once and reply `已验证`.
-- After that click, connect Workers Builds to GitHub repository `muujaa1000-jack/howtofishgamehelp`, branch `main`, set `PUBLIC_CONTACT_EMAIL_ENABLED=true` for production builds, and verify a stable noindex preview build.
+- Complete the GitHub email-code prompt already open in the browser, then reply `GitHub 已验证`. Codex will finish connecting Workers Builds to repository `muujaa1000-jack/howtofishgamehelp`, branch `main`, set `PUBLIC_CONTACT_EMAIL_ENABLED=true` for production builds, and verify the first automatic build.
 - Send one external email to the public Contact address and confirm receipt before calling mail delivery end-to-end verified.
-- No other login, nameserver, destination, DNS, GSC, ad, or analytics action is required for the current live site.
+- No other Cloudflare, nameserver, destination, DNS, GSC, ad, or analytics action is required for the current live site.
 
 ## Evidence limits
 

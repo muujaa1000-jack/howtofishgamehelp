@@ -1,11 +1,11 @@
 # Manual Actions
 
-The formal site, Email Routing configuration, Search Console ownership verification, and sitemap submission are complete. One Cloudflare account gate remains for clean Workers Builds and a stable account-owned preview URL.
+The formal site, stable noindex preview, Email Routing configuration, Search Console ownership verification, and sitemap submission are complete. One GitHub security check remains before Cloudflare Workers Builds can be connected.
 
 ## Required now
 
-1. Open the newest Cloudflare account-verification email and click its verification link. A fresh message was requested from the dashboard on 2026-08-23.
-2. Reply to the Codex task with `已验证`. Codex will then connect the existing Worker to the existing GitHub repository and verify the resulting build/preview; do not create a second Worker manually.
+1. In the GitHub page already open in Chrome, enter the one-time code GitHub sent to the account email and select **Verify**. Do not send the code in chat.
+2. Reply to the Codex task with `GitHub 已验证`. Codex will then connect the existing Worker to the existing GitHub repository and verify the first automatic build; do not create a second Worker manually.
 
 ## Optional receipt check
 

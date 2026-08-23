@@ -25,7 +25,8 @@ Build, verify, deploy, and prepare the apex-domain launch of a fast English Astr
 - [x] Authenticate Cloudflare, add and delegate the zone, inspect existing Worker/email state, remove only the confirmed parking A records, and bind both production custom domains.
 - [x] Onboard Email Routing, activate one exact contact route with catch-all disabled, enable the public address, deploy, and complete production-domain checks.
 - [x] Verify the Search Console domain property by DNS and submit the production sitemap successfully.
-- [ ] After the user clicks the newly sent Cloudflare account-verification email, connect Workers Builds to the GitHub `main` branch and create a stable account-owned `workers.dev` preview.
+- [x] Complete Cloudflare account-email verification and create a stable account-owned noindex `workers.dev` preview.
+- [ ] After the user completes GitHub's one-time email-code prompt, connect Workers Builds to the GitHub `main` branch and verify the first automatic build.
 
 ## Test-first checkpoints
 
