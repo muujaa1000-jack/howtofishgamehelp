@@ -56,7 +56,7 @@ jobs:
         run: node -e "const enabled = process.env.PUBLIC_ANALYTICS_ENABLED; const id = process.env.PUBLIC_ANALYTICS_ID ?? ''; if (!['true', 'false'].includes(enabled)) { console.error('::error::PUBLIC_ANALYTICS_ENABLED must be true or false.'); process.exit(1); } if (enabled === 'true' && !/^G-[A-Z0-9]{8,}$/.test(id)) { console.error('::error::PUBLIC_ANALYTICS_ID must be a GA4 measurement ID when analytics is enabled.'); process.exit(1); }"
 
       - name: Validate advertising configuration
-        run: node -e "const names = ['PUBLIC_ADS_ENABLED', 'PUBLIC_ADSTERRA_NATIVE_ENABLED', 'PUBLIC_ADSTERRA_BANNER_320X50_ENABLED']; for (const name of names) { if (!['true', 'false'].includes(process.env[name])) { console.error('::error::' + name + ' must be true or false.'); process.exit(1); } if (process.env[name] !== 'true') { console.error('::error::' + name + ' must be true for production.'); process.exit(1); } } if (process.env.PUBLIC_ADS_DEPLOYMENT !== 'production') { console.error('::error::PUBLIC_ADS_DEPLOYMENT must be production.'); process.exit(1); }"
+        run: node -e "const names = ['PUBLIC_ADS_ENABLED', 'PUBLIC_ADSTERRA_NATIVE_ENABLED', 'PUBLIC_ADSTERRA_BANNER_320X50_ENABLED']; for (const name of names) { if (!['true', 'false'].includes(process.env[name])) { console.error('::error::' + name + ' must be true or false.'); process.exit(1); } } if (process.env.PUBLIC_ADS_DEPLOYMENT !== 'production') { console.error('::error::PUBLIC_ADS_DEPLOYMENT must be production.'); process.exit(1); }"
 
       - name: Build production site
         run: npm run build

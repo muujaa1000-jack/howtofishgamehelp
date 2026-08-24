@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
@@ -146,6 +147,39 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
     /^\s*run:\s*npx wrangler deploy\s*$/m,
     'production automation must not rewrite custom-domain routes',
   );
+});
+
+test('production advertising guard accepts false flags and rejects missing or invalid values', async () => {
+  const workflow = await text('.github/workflows/deploy-production.yml');
+  const match = workflow.match(/name: Validate advertising configuration\r?\n\s+run: node -e "([^"]+)"/);
+  assert.ok(match, 'advertising guard command must be present');
+
+  const runGuard = (values) => spawnSync(process.execPath, ['-e', match[1]], {
+    env: { ...process.env, ...values },
+    encoding: 'utf8',
+  });
+  const validProduction = {
+    PUBLIC_ADS_DEPLOYMENT: 'production',
+    PUBLIC_ADS_ENABLED: 'false',
+    PUBLIC_ADSTERRA_NATIVE_ENABLED: 'true',
+    PUBLIC_ADSTERRA_BANNER_320X50_ENABLED: 'false',
+  };
+
+  const accepted = runGuard(validProduction);
+  assert.equal(accepted.status, 0, accepted.stderr);
+
+  for (const [name, value] of [
+    ['PUBLIC_ADS_DEPLOYMENT', 'preview'],
+    ['PUBLIC_ADS_ENABLED', undefined],
+    ['PUBLIC_ADSTERRA_NATIVE_ENABLED', 'TRUE'],
+    ['PUBLIC_ADSTERRA_BANNER_320X50_ENABLED', ''],
+  ]) {
+    const invalid = { ...validProduction };
+    if (value === undefined) delete invalid[name];
+    else invalid[name] = value;
+    const rejected = runGuard(invalid);
+    assert.notEqual(rejected.status, 0, `${name} should be rejected`);
+  }
 });
 
 test('worker CSP permits only the required Google Analytics origins', async () => {

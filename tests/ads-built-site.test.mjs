@@ -5,10 +5,16 @@ import test from 'node:test';
 
 const dist = path.resolve('dist');
 const categories = new Set(['guides', 'walkthrough', 'islands', 'bosses', 'items', 'achievements', 'fixes']);
-const liveAds = process.env.PUBLIC_ADS_DEPLOYMENT === 'production' &&
-  process.env.PUBLIC_ADS_ENABLED === 'true' &&
-  process.env.PUBLIC_ADSTERRA_NATIVE_ENABLED === 'true' &&
-  process.env.PUBLIC_ADSTERRA_BANNER_320X50_ENABLED === 'true';
+const production = process.env.PUBLIC_ADS_DEPLOYMENT === 'production';
+const adsEnabled = process.env.PUBLIC_ADS_ENABLED === 'true';
+const expectedModes = {
+  banner: production
+    ? (adsEnabled && process.env.PUBLIC_ADSTERRA_BANNER_320X50_ENABLED === 'true' ? 'live' : 'off')
+    : 'placeholder',
+  native: production
+    ? (adsEnabled && process.env.PUBLIC_ADSTERRA_NATIVE_ENABLED === 'true' ? 'live' : 'off')
+    : 'placeholder',
+};
 
 async function walk(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -23,6 +29,42 @@ function count(html, pattern) {
   return (html.match(pattern) ?? []).length;
 }
 
+function assertAdUnit(html, unit, mode, file) {
+  const marker = new RegExp(`data-adsterra-unit="${unit}"`, 'g');
+  if (mode === 'off') {
+    assert.equal(count(html, marker), 0, file);
+    if (unit === 'banner-320x50') {
+      assert.doesNotMatch(html, /highrevenueformat|31358e95bdfca07885ad4d825c43845b|atOptions\s*=/, file);
+    } else {
+      assert.doesNotMatch(html, /profitableratecpmnetwork|container-cd35885d41c8db0e720a6e017aadbf77/, file);
+    }
+    return;
+  }
+
+  assert.equal(count(html, marker), 1, file);
+  const slot = html.match(new RegExp(`<aside[^>]*data-adsterra-unit="${unit}" data-ad-mode="${mode}"[\\s\\S]*?</aside>`))?.[0] ?? '';
+  assert.ok(slot, file);
+  if (mode === 'placeholder') {
+    assert.match(slot, /Advertisement placeholder/, file);
+    if (unit === 'banner-320x50') {
+      assert.doesNotMatch(html, /highrevenueformat|31358e95bdfca07885ad4d825c43845b|atOptions\s*=/, file);
+    } else {
+      assert.doesNotMatch(html, /profitableratecpmnetwork|container-cd35885d41c8db0e720a6e017aadbf77/, file);
+    }
+    return;
+  }
+
+  if (unit === 'banner-320x50') {
+    assert.equal(count(html, /www\.highrevenueformat\.com\/31358e95bdfca07885ad4d825c43845b\/invoke\.js/g), 1, file);
+    assert.equal(count(html, /atOptions\s*=/g), 1, file);
+    assert.ok(html.indexOf('atOptions =') < html.indexOf('www.highrevenueformat.com'), file);
+  } else {
+    assert.equal(count(html, /pl30995799\.profitableratecpmnetwork\.com\/cd35885d41c8db0e720a6e017aadbf77\/invoke\.js/g), 1, file);
+    assert.equal(count(html, /id="container-cd35885d41c8db0e720a6e017aadbf77"/g), 1, file);
+    assert.ok(html.indexOf('<body') < html.indexOf('pl30995799.profitableratecpmnetwork.com'), file);
+  }
+}
+
 test('all concrete guides contain exactly one correctly placed unit of each approved type', async () => {
   const files = await walk(dist);
   const guides = files.filter((file) => {
@@ -33,8 +75,8 @@ test('all concrete guides contain exactly one correctly placed unit of each appr
 
   for (const file of guides) {
     const html = await readFile(file, 'utf8');
-    assert.equal(count(html, /data-adsterra-unit="banner-320x50"/g), 1, file);
-    assert.equal(count(html, /data-adsterra-unit="native"/g), 1, file);
+    assertAdUnit(html, 'banner-320x50', expectedModes.banner, file);
+    assertAdUnit(html, 'native', expectedModes.native, file);
 
     const quick = html.indexOf('<h2 id="quick-steps">');
     const banner = html.indexOf('data-adsterra-unit="banner-320x50"');
@@ -42,19 +84,11 @@ test('all concrete guides contain exactly one correctly placed unit of each appr
     const sources = html.indexOf('<section class="source-note"');
     const native = html.indexOf('data-adsterra-unit="native"');
     const sequence = html.indexOf('<nav class="sequence"');
-    assert.ok(quick !== -1 && quick < banner && banner < nextH2, `${file} banner boundary`);
-    assert.ok(sources !== -1 && sources < native && native < sequence, `${file} native boundary`);
-
-    if (liveAds) {
-      assert.equal(count(html, /pl30995799\.profitableratecpmnetwork\.com\/cd35885d41c8db0e720a6e017aadbf77\/invoke\.js/g), 1, file);
-      assert.equal(count(html, /id="container-cd35885d41c8db0e720a6e017aadbf77"/g), 1, file);
-      assert.equal(count(html, /www\.highrevenueformat\.com\/31358e95bdfca07885ad4d825c43845b\/invoke\.js/g), 1, file);
-      assert.equal(count(html, /atOptions\s*=/g), 1, file);
-      assert.ok(html.indexOf('atOptions =') < html.indexOf('www.highrevenueformat.com'), file);
-      assert.ok(html.indexOf('<body') < html.indexOf('pl30995799.profitableratecpmnetwork.com'), file);
-    } else {
-      assert.equal(count(html, /Advertisement placeholder/g), 2, file);
-      assert.doesNotMatch(html, /profitableratecpmnetwork|highrevenueformat|31358e95bdfca07885ad4d825c43845b|container-cd35885d41c8db0e720a6e017aadbf77/);
+    if (expectedModes.banner !== 'off') {
+      assert.ok(quick !== -1 && quick < banner && banner < nextH2, `${file} banner boundary`);
+    }
+    if (expectedModes.native !== 'off') {
+      assert.ok(sources !== -1 && sources < native && native < sequence, `${file} native boundary`);
     }
   }
 });
