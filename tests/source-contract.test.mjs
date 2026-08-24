@@ -154,8 +154,16 @@ test('production advertising guard accepts false flags and rejects missing or in
   const match = workflow.match(/name: Validate advertising configuration\r?\n\s+run: node -e "([^"]+)"/);
   assert.ok(match, 'advertising guard command must be present');
 
+  const baseEnv = { ...process.env };
+  for (const name of [
+    'PUBLIC_ADS_DEPLOYMENT',
+    'PUBLIC_ADS_ENABLED',
+    'PUBLIC_ADSTERRA_NATIVE_ENABLED',
+    'PUBLIC_ADSTERRA_BANNER_320X50_ENABLED',
+  ]) delete baseEnv[name];
+
   const runGuard = (values) => spawnSync(process.execPath, ['-e', match[1]], {
-    env: { ...process.env, ...values },
+    env: { ...baseEnv, ...values },
     encoding: 'utf8',
   });
   const validProduction = {
