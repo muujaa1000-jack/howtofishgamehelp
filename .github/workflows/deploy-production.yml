@@ -64,8 +64,13 @@ jobs:
       - name: Test generated site
         run: npm run test:built
 
+      - name: Set Worker release tag
+        id: worker-release-tag
+        shell: bash
+        run: echo "tag=release-${GITHUB_SHA}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_OUTPUT"
+
       - name: Upload production Worker version
-        run: npx wrangler versions upload --env="" --tag "$GITHUB_SHA"
+        run: npx wrangler versions upload --env="" --tag "${{ steps.worker-release-tag.outputs.tag }}"
 
       - name: Promote production Worker version
-        run: npx wrangler versions deploy --env="" --version-tag "$GITHUB_SHA" --yes
+        run: npx wrangler versions deploy --env="" --version-tag "${{ steps.worker-release-tag.outputs.tag }}" --yes

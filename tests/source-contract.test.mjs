@@ -122,6 +122,15 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
   );
   assert.doesNotMatch(workflow, /cfut_[A-Za-z0-9_-]+/);
 
+  const releaseTagReference = '${{ steps.worker-release-tag.outputs.tag }}';
+  assert.match(
+    workflow,
+    /name: Set Worker release tag\r?\n\s+id: worker-release-tag\r?\n\s+shell: bash\r?\n\s+run: echo "tag=release-\$\{GITHUB_SHA\}-\$\{GITHUB_RUN_ID\}-\$\{GITHUB_RUN_ATTEMPT\}" >> "\$GITHUB_OUTPUT"/,
+    'workflow must create one release tag with the commit, run ID, and run attempt',
+  );
+  assert.doesNotMatch(workflow, /--tag "\$GITHUB_SHA"/);
+  assert.doesNotMatch(workflow, /--version-tag "\$GITHUB_SHA"/);
+
   const requiredCommands = [
     'npm ci',
     'npm audit --audit-level=high',
@@ -130,8 +139,8 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
     'npm run check',
     'npm run build',
     'npm run test:built',
-    'npx wrangler versions upload --env="" --tag "$GITHUB_SHA"',
-    'npx wrangler versions deploy --env="" --version-tag "$GITHUB_SHA" --yes',
+    `npx wrangler versions upload --env="" --tag "${releaseTagReference}"`,
+    `npx wrangler versions deploy --env="" --version-tag "${releaseTagReference}" --yes`,
   ];
   for (const command of requiredCommands) {
     assert.match(workflow, new RegExp(command.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')), `workflow missing: ${command}`);
