@@ -1,0 +1,25 @@
+---
+import { ads } from '../../config/ads';
+const mode = ads.nativeMode;
+---
+{mode !== 'off' && (
+  <aside class="ad-slot ad-slot--native" aria-label="Advertisement" data-adsterra-unit="native" data-ad-mode={mode}>
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-native-frame">
+      {mode === 'placeholder' ? (
+        <div class="ad-placeholder">Advertisement placeholder</div>
+      ) : (
+        <>
+          <script is:inline async="async" data-cfasync="false" src="https://pl30995799.profitableratecpmnetwork.com/cd35885d41c8db0e720a6e017aadbf77/invoke.js"></script>
+          <div id="container-cd35885d41c8db0e720a6e017aadbf77"></div>
+        </>
+      )}
+    </div>
+  </aside>
+)}
+<style>
+  .ad-slot { width: 100%; max-width: 100%; margin-block: 2.5rem; }
+  .ad-label { margin-bottom: .55rem; color: var(--muted); font-size: .68rem; line-height: 1; letter-spacing: .08em; text-transform: uppercase; }
+  .ad-native-frame { width: 100%; min-height: 180px; overflow-x: clip; }
+  .ad-placeholder { display: grid; min-height: 180px; place-items: center; border: 1px dashed var(--line); background: rgba(255,255,255,.55); color: var(--muted); font-size: .72rem; }
+</style>

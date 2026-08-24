@@ -150,3 +150,25 @@ test('worker CSP permits only the required Google Analytics origins', async () =
   assert.doesNotMatch(worker, /script-src[^;"]*https:\/\/\*/);
   assert.doesNotMatch(worker, /(?:doubleclick\.net|googleadservices\.com|googlesyndication\.com)/);
 });
+
+test('approved Adsterra components preserve exact classic-script contracts', async () => {
+  const banner = await text('src/components/ads/AdsterraBanner320x50.astro');
+  const native = await text('src/components/ads/AdsterraNativeBanner.astro');
+
+  assert.match(banner, /'key'\s*:\s*'31358e95bdfca07885ad4d825c43845b'/);
+  assert.match(banner, /'format'\s*:\s*'iframe'/);
+  assert.match(banner, /'height'\s*:\s*50/);
+  assert.match(banner, /'width'\s*:\s*320/);
+  assert.ok(
+    banner.indexOf('atOptions =') < banner.indexOf('https://www.highrevenueformat.com/31358e95bdfca07885ad4d825c43845b/invoke.js'),
+  );
+  assert.doesNotMatch(banner, /type=["']module["']|\basync\b|\bdefer\b/);
+
+  assert.match(native, /async="async"/);
+  assert.match(native, /data-cfasync="false"/);
+  assert.match(native, /https:\/\/pl30995799\.profitableratecpmnetwork\.com\/cd35885d41c8db0e720a6e017aadbf77\/invoke\.js/);
+  assert.ok(
+    native.indexOf('/invoke.js') < native.indexOf('container-cd35885d41c8db0e720a6e017aadbf77'),
+  );
+  assert.doesNotMatch(native, /type=["']module["']/);
+});

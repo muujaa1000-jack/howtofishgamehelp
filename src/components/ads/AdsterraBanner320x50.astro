@@ -1,0 +1,34 @@
+---
+import { ads } from '../../config/ads';
+const mode = ads.banner320x50Mode;
+---
+{mode !== 'off' && (
+  <aside class="ad-slot ad-slot--320x50" aria-label="Advertisement" data-adsterra-unit="banner-320x50" data-ad-mode={mode}>
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-frame">
+      {mode === 'placeholder' ? (
+        <div class="ad-placeholder">Advertisement placeholder</div>
+      ) : (
+        <>
+          <script is:inline>
+            atOptions = {
+              'key' : '31358e95bdfca07885ad4d825c43845b',
+              'format' : 'iframe',
+              'height' : 50,
+              'width' : 320,
+              'params' : {}
+            };
+          </script>
+          <script is:inline src="https://www.highrevenueformat.com/31358e95bdfca07885ad4d825c43845b/invoke.js"></script>
+        </>
+      )}
+    </div>
+  </aside>
+)}
+<style>
+  .ad-slot { width: 320px; max-width: none; margin-block: 2.25rem; margin-inline: calc((100% - 320px) / 2); }
+  .ad-label { margin-bottom: .45rem; color: var(--muted); font-size: .68rem; line-height: 1; letter-spacing: .08em; text-transform: uppercase; }
+  .ad-frame, .ad-placeholder { width: 320px; min-width: 320px; height: 50px; min-height: 50px; }
+  .ad-frame { overflow: visible; }
+  .ad-placeholder { display: grid; place-items: center; border: 1px dashed var(--line); background: rgba(255,255,255,.55); color: var(--muted); font-size: .72rem; }
+</style>
