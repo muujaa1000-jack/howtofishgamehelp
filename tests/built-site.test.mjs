@@ -55,6 +55,7 @@ test('build contains the representative launch routes and metadata', async () =>
   const guide = await text('bosses/spider-crab/index.html');
   const privacy = await text('privacy/index.html');
   assert.match(home, /<link rel="canonical" href="https:\/\/howtofishgamehelp\.com\/">/);
+  assert.match(home, /<meta name="msvalidate\.01" content="2F37111893DE046DA8A16D61DCC4F766">/);
   assert.match(home, /<meta property="og:image" content="https:\/\/howtofishgamehelp\.com\/og-default\.png">/);
   assert.match(home, /application\/ld\+json/);
   assert.equal((home.match(/<h1(?:\s|>)/g) ?? []).length, 1);
