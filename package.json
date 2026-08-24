@@ -10,7 +10,7 @@
     "dev": "astro dev",
     "check": "astro check && tsc --noEmit -p tsconfig.worker.json",
     "build": "astro build && pagefind --site dist",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "test:built": "node --test tests/built-site.test.mjs tests/ads-built-site.test.mjs",
     "validate": "node scripts/validate-content.mjs",
     "docs:content": "node scripts/export-content-docs.mjs",
