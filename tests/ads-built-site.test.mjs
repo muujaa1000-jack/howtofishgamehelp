@@ -81,3 +81,14 @@ test('public cards and guide headers do not expose internal priority or verifica
   assert.doesNotMatch(guide, /<span class="status">mixed<\/span>/i);
   assert.doesNotMatch(about, /<strong>Mixed:<\/strong>/i);
 });
+
+test('privacy page discloses Adsterra without inventing consent controls', async () => {
+  const privacy = await readFile(path.join(dist, 'privacy/index.html'), 'utf8');
+  assert.match(privacy, /uses Adsterra to display third-party advertisements/i);
+  assert.match(privacy, /IP address, browser and device information/i);
+  assert.match(privacy, /cookies, pixels, local storage, or similar technologies/i);
+  assert.match(privacy, /https:\/\/adsterra\.com\/privacy-policy-managed\//);
+  assert.match(privacy, /https:\/\/adsterra\.com\/cookies\//);
+  assert.match(privacy, /Effective August 24, 2026/);
+  assert.doesNotMatch(privacy, /ads? (?:are|is) blocked until (?:you|the user) consent/i);
+});

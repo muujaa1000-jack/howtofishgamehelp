@@ -4,9 +4,9 @@ import { site } from '../config/site';
 ---
 <BaseLayout title="Privacy Policy" description="How to Fish Game Help explains its analytics, hosting, advertising, and visitor-data practices." canonicalPath="/privacy/">
   <article class="narrow section prose">
-    <p class="eyebrow">Effective August 23, 2026</p>
+    <p class="eyebrow">Effective August 24, 2026</p>
     <h1>Privacy policy</h1>
-    <p>This site serves static pages. Advertising is limited to approved production guide pages, and Google Analytics is <strong>{site.analyticsEnabled ? 'enabled' : 'disabled'}</strong>.</p>
+    <p>This site serves static informational pages. It uses Adsterra to display third-party advertisements. Google Analytics is <strong>{site.analyticsEnabled ? 'enabled' : 'disabled'}</strong> in this build.</p>
     {site.analyticsEnabled ? (
       <>
         <h2>Google Analytics</h2>
@@ -16,15 +16,20 @@ import { site } from '../config/site';
     ) : (
       <>
         <h2>Analytics</h2>
-        <p>Google Analytics is disabled in this version of the site, so this site does not set its own analytics cookies.</p>
+        <p>Google Analytics is disabled in this build, so this site does not set its own analytics cookies.</p>
       </>
     )}
+    <h2>Advertising</h2>
+    <p>We use Adsterra to display third-party advertisements. Adsterra and its advertising partners may process technical information needed to deliver, limit, measure, and protect ads. This may include your IP address, browser and device information, the requested page, approximate location, ad impressions and clicks, and anti-fraud or security signals.</p>
+    <p>Adsterra or its partners may use cookies, pixels, local storage, or similar technologies. We do not control every third-party advertisement. If you click an advertisement, the destination has its own privacy policy and terms.</p>
+    <p>The core guides do not require an account or a purchase. Browser privacy settings, content blockers, or cookie controls may prevent advertisements from appearing, but should not prevent access to the core guide text.</p>
+    <p>Read Adsterra's <a href="https://adsterra.com/privacy-policy-managed/">privacy policy</a> and <a href="https://adsterra.com/cookies/">Cookies Policy</a>.</p>
     <h2>Data we do not collect directly</h2>
     <p>There are no user accounts, comments, purchases, newsletters, or contact forms. We do not send account, purchase, form, or user-ID data to Google Analytics.</p>
     <h2>Hosting logs</h2>
-    <p>Cloudflare may process limited request data such as IP address, browser information, requested URL, and security signals to deliver and protect the site. Those infrastructure logs are governed by Cloudflare’s practices.</p>
+    <p>Cloudflare may process limited request data such as IP address, browser information, requested URL, and security signals to deliver and protect the site. Those infrastructure logs are governed by Cloudflare's practices.</p>
     <h2>External links</h2>
-    <p>Links to Steam, developer pages, media, videos, community sources, Google policies, and opt-out tools take you to third-party sites with their own privacy policies.</p>
+    <p>Links to advertisements, Steam, developer pages, media, videos, community sources, Google policies, and opt-out tools take you to third-party sites with their own privacy policies and terms.</p>
     <h2>Changes</h2>
     <p>This page will be updated when the site's analytics, advertising, or data-collection practices change.</p>
   </article>

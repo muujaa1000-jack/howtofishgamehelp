@@ -172,3 +172,11 @@ test('approved Adsterra components preserve exact classic-script contracts', asy
   );
   assert.doesNotMatch(native, /type=["']module["']/);
 });
+
+test('worker CSP permits only the two approved initial Adsterra script origins', async () => {
+  const worker = await text('worker/index.ts');
+  assert.match(worker, /script-src[^;\"]*https:\/\/pl30995799\.profitableratecpmnetwork\.com/);
+  assert.match(worker, /script-src[^;\"]*https:\/\/www\.highrevenueformat\.com/);
+  assert.doesNotMatch(worker, /script-src[^;\"]*https:\/\/\*/);
+  assert.doesNotMatch(worker, /(?:profitableratecpmnetwork|highrevenueformat)[^;\"]*\*/);
+});
