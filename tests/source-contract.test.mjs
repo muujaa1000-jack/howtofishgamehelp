@@ -103,12 +103,21 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
   assert.match(workflow, /PUBLIC_CONTACT_EMAIL_ENABLED:\s*['"]true['"]/);
   assert.match(workflow, /PUBLIC_ANALYTICS_ENABLED:\s*\$\{\{ vars\.PUBLIC_ANALYTICS_ENABLED \}\}/);
   assert.match(workflow, /PUBLIC_ANALYTICS_ID:\s*\$\{\{ vars\.PUBLIC_ANALYTICS_ID \}\}/);
+  assert.match(workflow, /PUBLIC_ADS_DEPLOYMENT:\s*["']production["']/);
+  assert.match(workflow, /PUBLIC_ADS_ENABLED:\s*\$\{\{ vars\.PUBLIC_ADS_ENABLED \}\}/);
+  assert.match(workflow, /PUBLIC_ADSTERRA_NATIVE_ENABLED:\s*\$\{\{ vars\.PUBLIC_ADSTERRA_NATIVE_ENABLED \}\}/);
+  assert.match(workflow, /PUBLIC_ADSTERRA_BANNER_320X50_ENABLED:\s*\$\{\{ vars\.PUBLIC_ADSTERRA_BANNER_320X50_ENABLED \}\}/);
   assert.match(workflow, /name: Validate Analytics configuration/);
   assert.match(workflow, /process\.env\.PUBLIC_ANALYTICS_ENABLED/);
   assert.match(workflow, /\^G-\[A-Z0-9\]\{8,\}\$/);
+  assert.match(workflow, /name: Validate advertising configuration/);
   assert.ok(
     workflow.indexOf('Validate Analytics configuration') < workflow.indexOf('npm run build'),
     'analytics configuration must be validated before the production build',
+  );
+  assert.ok(
+    workflow.indexOf('Validate advertising configuration') < workflow.indexOf('npm run build'),
+    'advertising configuration must be validated before build',
   );
   assert.doesNotMatch(workflow, /cfut_[A-Za-z0-9_-]+/);
 
@@ -116,7 +125,7 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
     'npm ci',
     'npm audit --audit-level=high',
     'npm run validate',
-    'node --test tests/source-contract.test.mjs tests/content-quality.test.mjs tests/validate-script.test.mjs',
+    'node --experimental-strip-types --test tests/ad-placement.test.mjs tests/source-contract.test.mjs tests/content-quality.test.mjs tests/validate-script.test.mjs',
     'npm run check',
     'npm run build',
     'npm run test:built',
