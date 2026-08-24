@@ -1,8 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import EndContentAd from '../components/EndContentAd.astro';
-import TopContentAd from '../components/TopContentAd.astro';
+import AdsterraNativeBanner from '../components/ads/AdsterraNativeBanner.astro';
 import BaseLayout from './BaseLayout.astro';
 import { categories, guidePath, site } from '../config/site';
 
@@ -39,12 +38,11 @@ const articleJsonLd = {
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: category.label, href: `/${category.slug}/` }, { label: data.title }]} />
         <div class="hero-grid">
           <div>
-            <p class="eyebrow">{category.label} · {data.priority}</p>
+            <p class="eyebrow">{category.label}</p>
             <h1>{data.title}</h1>
             <p class="dek">{data.description}</p>
           </div>
           <div class="verification-card">
-            <span class="status">{data.verificationStatus.replace('-', ' ')}</span>
             <dl><div><dt>Last checked</dt><dd>{data.lastVerifiedAt.toLocaleDateString('en-US', { dateStyle: 'medium' })}</dd></div><div><dt>Game version</dt><dd>{data.gameVersion}</dd></div></dl>
           </div>
         </div>
@@ -60,14 +58,15 @@ const articleJsonLd = {
           <p class="eyebrow">Direct answer</p>
           <p>{data.answer}</p>
         </section>
-        <TopContentAd />
         <div class="prose"><slot /></div>
-        <section class="source-note">
-          <h2>Sources and verification</h2>
-          <p>This page synthesizes the specific facts below. It does not claim first-hand testing. Patch-sensitive details are dated so you can judge whether they may have changed.</p>
-          <ul>{data.sources.map((source) => <li><a href={source.url} rel="nofollow noopener">{source.title}</a> <span>({source.type.replaceAll('-', ' ')}, checked {source.accessedAt.toISOString().slice(0, 10)})</span></li>)}</ul>
-        </section>
-        <EndContentAd />
+        {data.sources.length > 0 && (
+          <section class="source-note">
+            <h2>Sources and verification</h2>
+            <p>This page synthesizes the specific facts below. It does not claim first-hand testing. Patch-sensitive details are dated so you can judge whether they may have changed.</p>
+            <ul>{data.sources.map((source) => <li><a href={source.url} rel="nofollow noopener">{source.title}</a> <span>({source.type.replaceAll('-', ' ')}, checked {source.accessedAt.toISOString().slice(0, 10)})</span></li>)}</ul>
+          </section>
+        )}
+        <AdsterraNativeBanner />
         <nav class="sequence" aria-label="Guide sequence">
           {previous ? <a href={guidePath(previous.data.category, previous.data.slug)}><small>Previous step</small><b>← {previous.data.title}</b></a> : <span />}
           <div><small>You are here</small><b>{data.title}</b></div>

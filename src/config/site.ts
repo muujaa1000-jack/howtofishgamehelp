@@ -8,7 +8,6 @@ export const site = {
   url: 'https://howtofishgamehelp.com',
   gameName: 'How to Fish',
   steamAppId: '4001890',
-  adsEnabled: import.meta.env.PUBLIC_ADS_ENABLED === 'true',
   analyticsEnabled: import.meta.env.PUBLIC_ANALYTICS_ENABLED === 'true' && analyticsIdIsValid,
   analyticsId,
   contactEmailEnabled: import.meta.env.PUBLIC_CONTACT_EMAIL_ENABLED === 'true',
