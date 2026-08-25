@@ -165,6 +165,6 @@ test('indexable hubs provide concise editorial routes and remain free of ads', a
     assert.doesNotMatch(html, /(?:ad-slot|adsbygoogle|googlesyndication|data-ad-eligible="true")/i);
   }
   const guides = await text('guides/index.html');
-  assert.match(guides, /<h1>How to Fish Beginner Guides<\/h1>/);
+  assert.match(guides, /<h1[^>]*>How to Fish Beginner Guides<\/h1>/);
   assert.doesNotMatch(guides, /Guides Guides/i);
 });
