@@ -1,10 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { categories } from '../config/site';
 ---
-<BaseLayout title="Search Guides" description="Search How to Fish Game Help for bosses, island progression, items, achievements, and current fixes." canonicalPath="/search/" noindex={true}>
-  <section class="narrow section"><p class="eyebrow">Site search</p><h1>Search the field guide</h1><p>Search results are generated from published guide text. Drafts are excluded.</p><div id="search"></div><noscript><p class="notice">Search needs JavaScript. Browse the category links in the main navigation instead.</p></noscript></section>
+<BaseLayout title="Search Guides" description="Search How to Fish Game Help for bosses, island progression, items, achievements, and current fixes." canonicalPath="/search/" robots="noindex,follow">
+  <section class="narrow section">
+    <p class="eyebrow">Site search</p>
+    <h1>Search the field guide</h1>
+    <p>Search results are generated in your browser from published guide text. A search term does not create a new indexable page, and it is not sent to an advertising script.</p>
+    <div id="search"></div>
+    <noscript><p class="notice">Search needs JavaScript, but every published section remains available below.</p></noscript>
+    <section class="browse-categories" aria-labelledby="browse-title">
+      <h2 id="browse-title">Browse by category</h2>
+      <p>Start with the section closest to the problem blocking your run:</p>
+      <ul>{categories.map((category) => <li><a href={`/${category.slug}/`}>{category.label}</a> — {category.description}</li>)}</ul>
+    </section>
+  </section>
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
   <script is:inline src="/pagefind/pagefind-ui.js"></script>
   <script is:inline>window.addEventListener('DOMContentLoaded', () => { if (window.PagefindUI) { const q = new URLSearchParams(location.search).get('q') || ''; new window.PagefindUI({ element: '#search', showSubResults: true, showImages: false, autofocus: true, translations: { placeholder: 'Search guides' } }); const input = document.querySelector('#search input'); if (input && q) { input.value = q; input.dispatchEvent(new Event('input', { bubbles: true })); } } });</script>
 </BaseLayout>
-
+<style>
+  .browse-categories { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+  .browse-categories li { margin-block: .7rem; }
+</style>

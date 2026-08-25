@@ -1,5 +1,3 @@
-const analyticsId = import.meta.env.PUBLIC_ANALYTICS_ID?.trim() ?? '';
-const analyticsIdIsValid = /^G-[A-Z0-9]{8,}$/.test(analyticsId);
 const adsenseAccount = import.meta.env.PUBLIC_GOOGLE_ADSENSE_ACCOUNT?.trim() ?? '';
 const adsenseAccountIsValid = /^ca-pub-[0-9]{16}$/.test(adsenseAccount);
 
@@ -10,12 +8,9 @@ export const site = {
   url: 'https://howtofishgamehelp.com',
   gameName: 'How to Fish',
   steamAppId: '4001890',
-  analyticsEnabled: import.meta.env.PUBLIC_ANALYTICS_ENABLED === 'true' && analyticsIdIsValid,
-  analyticsId,
   adsenseEnabled: import.meta.env.PUBLIC_ADSENSE_ENABLED === 'true' && adsenseAccountIsValid,
   adsenseAccount,
   adsenseAccountIsValid,
-  contactEmailEnabled: import.meta.env.PUBLIC_CONTACT_EMAIL_ENABLED === 'true',
   contactEmail: 'contact@howtofishgamehelp.com',
   disclaimer: 'How to Fish Game Help is an independent fan-made guide site and is not affiliated with or endorsed by the game’s developer, publisher, Steam, or Valve.',
 } as const;

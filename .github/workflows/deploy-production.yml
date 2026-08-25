@@ -20,9 +20,6 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-      PUBLIC_CONTACT_EMAIL_ENABLED: "true"
-      PUBLIC_ANALYTICS_ENABLED: "false"
-      PUBLIC_ANALYTICS_ID: ${{ vars.PUBLIC_ANALYTICS_ID }}
       PUBLIC_ADSENSE_ENABLED: "false"
       PUBLIC_GOOGLE_ADSENSE_ACCOUNT: ${{ vars.PUBLIC_GOOGLE_ADSENSE_ACCOUNT }}
     steps:
@@ -49,9 +46,6 @@ jobs:
 
       - name: Type check
         run: npm run check
-
-      - name: Validate Analytics configuration
-        run: node -e "const enabled = process.env.PUBLIC_ANALYTICS_ENABLED; const id = process.env.PUBLIC_ANALYTICS_ID ?? ''; if (!['true', 'false'].includes(enabled)) { console.error('::error::PUBLIC_ANALYTICS_ENABLED must be true or false.'); process.exit(1); } if (enabled === 'true' && !/^G-[A-Z0-9]{8,}$/.test(id)) { console.error('::error::PUBLIC_ANALYTICS_ID must be a GA4 measurement ID when analytics is enabled.'); process.exit(1); }"
 
       - name: Validate advertising configuration
         run: node -e "const enabled = process.env.PUBLIC_ADSENSE_ENABLED; const account = (process.env.PUBLIC_GOOGLE_ADSENSE_ACCOUNT ?? '').trim(); if (enabled !== 'false') { console.error('::error::PUBLIC_ADSENSE_ENABLED must remain false during review preparation.'); process.exit(1); } if (account && !/^ca-pub-[0-9]{16}$/.test(account)) { console.error('::error::PUBLIC_GOOGLE_ADSENSE_ACCOUNT must be empty or a valid account value.'); process.exit(1); }"

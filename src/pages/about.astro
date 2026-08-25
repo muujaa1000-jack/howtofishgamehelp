@@ -3,6 +3,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../config/site';
 ---
 <BaseLayout title="About" description="Learn how How to Fish Game Help researches, labels, and updates its independent English guides." canonicalPath="/about/">
-  <article class="narrow section prose"><p class="eyebrow">About this site</p><h1>Help that shows its work</h1><p>{site.disclaimer}</p><h2>What we publish</h2><p>We organize public, attributable evidence into direct answers for progression blocks, bosses, island unlocks, achievements, items, and technical problems. We do not claim a large editorial team or first-hand testing that did not happen.</p><h2>How we handle evidence</h2><ul><li>Developer pages, the Steam store, achievements, and patch notes support official identity and version facts.</li><li>Gameplay guidance uses multiple attributable player sources when official instructions are incomplete.</li><li>Patch-sensitive or incomplete claims remain clearly limited, noindex, or unpublished until the evidence improves.</li></ul><h2>Corrections</h2><p>Every guide shows a source note and last-check date. Use the Contact page for correction and copyright requests once its verified email route is active.</p></article>
-</BaseLayout>
+  <article class="narrow section prose">
+    <p class="eyebrow">About this site</p>
+    <h1>Independent help that shows its evidence</h1>
+    <p>How to Fish Game Help is for players who want a direct answer when an island quest, boss, achievement, item choice, connection problem, or save issue blocks their run. The site is independently operated. It is not an official <em>How to Fish</em> site and is not affiliated with or endorsed by Dazed Games, Steam, or Valve.</p>
 
+    <h2>How the guides are researched</h2>
+    <p>Each guide starts with the narrow player question it is meant to answer. Official sources—such as the Steam store, Dazed Games patch announcements, and the Steam achievement list—support release facts, feature changes, and developer wording. Community sources and attributable gameplay guides can help explain a route or recurring problem when official material is incomplete. They are not promoted to official confirmation.</p>
+    <p>Editorial judgment connects those sources into a useful order, removes unsupported precision, and identifies the safest next check. It does not turn a community report into a guarantee. Unknown spawn rates, hidden damage values, unannounced conditions, and unresolved patch behavior remain unknown or patch-sensitive.</p>
+
+    <h2>Source review is not playtesting</h2>
+    <p>Every guide identifies its source basis and the date on which that evidence was last reviewed. Unless a page explicitly says otherwise and documents the test, it is a source-based guide and was not independently playtested. A source-review date is not an in-game test date, and a build date is never substituted for either one.</p>
+
+    <h2>Corrections and rights requests</h2>
+    <p>Every guide identifies its source basis and the date on which its evidence was last reviewed. We correct factual errors, outdated patch information, broken links, and unclear sourcing when reliable evidence becomes available.</p>
+    <p>For guide corrections, copyright concerns, or general questions, use the <a href="/contact/">Contact page</a> or email <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>. Please include the page URL and the exact statement, image, or source you would like us to review.</p>
+    <p>How to Fish Game Help is independently operated. We do not provide customer support on behalf of Dazed Games, Steam, or Valve.</p>
+  </article>
+</BaseLayout>

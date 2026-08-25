@@ -15,4 +15,4 @@ Available commands:
 - `npm run deploy:temporary` — unauthenticated, noindex Workers preview
 - `npm run deploy` — authenticated custom-domain production deployment after the Cloudflare zone is ready
 
-The production Worker serves only the formal custom domains; the separate preview environment keeps its `workers.dev` URL and noindex headers. Ads, analytics, and the public contact address are disabled by default. See `.env.example` for non-secret switches.
+The production Worker serves only the formal custom domains; the separate preview environment keeps its `workers.dev` URL and noindex headers. Advertising and analytics are disabled during AdSense review preparation. The configured public contact address is shared by About and Contact. See `.env.example` for the optional AdSense verification value.

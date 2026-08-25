@@ -121,19 +121,12 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
 
   assert.match(workflow, /CLOUDFLARE_API_TOKEN:\s*\$\{\{ secrets\.CLOUDFLARE_API_TOKEN \}\}/);
   assert.match(workflow, /CLOUDFLARE_ACCOUNT_ID:\s*\$\{\{ vars\.CLOUDFLARE_ACCOUNT_ID \}\}/);
-  assert.match(workflow, /PUBLIC_CONTACT_EMAIL_ENABLED:\s*['"]true['"]/);
-  assert.match(workflow, /PUBLIC_ANALYTICS_ENABLED:\s*["']false["']/);
+  assert.doesNotMatch(workflow, /PUBLIC_CONTACT_EMAIL_ENABLED/);
+  assert.doesNotMatch(workflow, /PUBLIC_ANALYTICS_ENABLED|PUBLIC_ANALYTICS_ID/);
   assert.match(workflow, /PUBLIC_ADSENSE_ENABLED:\s*["']false["']/);
   assert.match(workflow, /PUBLIC_GOOGLE_ADSENSE_ACCOUNT:\s*\$\{\{ vars\.PUBLIC_GOOGLE_ADSENSE_ACCOUNT \}\}/);
   assert.doesNotMatch(workflow, /PUBLIC_ADS_DEPLOYMENT|PUBLIC_ADS_ENABLED|PUBLIC_ADSTERRA/);
-  assert.match(workflow, /name: Validate Analytics configuration/);
-  assert.match(workflow, /process\.env\.PUBLIC_ANALYTICS_ENABLED/);
-  assert.match(workflow, /\^G-\[A-Z0-9\]\{8,\}\$/);
   assert.match(workflow, /name: Validate advertising configuration/);
-  assert.ok(
-    workflow.indexOf('Validate Analytics configuration') < workflow.indexOf('npm run build'),
-    'analytics configuration must be validated before the production build',
-  );
   assert.ok(
     workflow.indexOf('Validate advertising configuration') < workflow.indexOf('npm run build'),
     'advertising configuration must be validated before build',

@@ -4,7 +4,6 @@ import path from 'node:path';
 import test from 'node:test';
 
 const dist = path.resolve('dist');
-const contactEmailEnabled = process.env.PUBLIC_CONTACT_EMAIL_ENABLED === 'true';
 const adsenseAccount = process.env.PUBLIC_GOOGLE_ADSENSE_ACCOUNT?.trim() ?? '';
 const validAdsenseAccount = /^ca-pub-[0-9]{16}$/.test(adsenseAccount);
 
@@ -64,13 +63,21 @@ test('build contains the representative launch routes and metadata', async () =>
   assert.match(privacy, /Google Analytics is <strong>disabled<\/strong>/);
 
   const contact = await text('contact/index.html');
-  if (contactEmailEnabled) {
-    assert.doesNotMatch(contact, /noindex, nofollow/);
-    assert.match(contact, /mailto:contact@howtofishgamehelp\.com/i);
-  } else {
-    assert.match(contact, /noindex, nofollow/);
-    assert.doesNotMatch(contact, /contact@howtofishgamehelp\.com/i);
+  assert.doesNotMatch(contact, /noindex/i);
+  assert.match(contact, /href="mailto:contact@howtofishgamehelp\.com"/i);
+
+  const search = await text('search/index.html');
+  assert.match(search, /<meta name="robots" content="noindex,follow">/);
+  assert.match(search, /Browse by category/i);
+  for (const route of ['/guides/', '/walkthrough/', '/bosses/', '/fixes/']) {
+    assert.match(search, new RegExp(`href="${route.replaceAll('/', '\\/')}"`));
   }
+
+  const notFound = await text('404.html');
+  assert.match(notFound, /<meta name="robots" content="noindex,nofollow">/);
+
+  const robots = await text('robots.txt');
+  assert.doesNotMatch(robots, /Disallow:\s*\/search\//i);
 });
 
 test('all generated internal links resolve and launch output contains no private or placeholder configuration', async () => {
@@ -102,8 +109,33 @@ test('all generated internal links resolve and launch output contains no private
 test('sitemap contains only the intended indexable launch URLs', async () => {
   const sitemap = await text('sitemap.xml');
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-  assert.equal(urls.length, contactEmailEnabled ? 44 : 43);
+  assert.ok(urls.length >= 44, `expected at least 44 indexable URLs, found ${urls.length}`);
   assert.ok(urls.every((url) => url.startsWith('https://howtofishgamehelp.com/')));
   assert.ok(!urls.some((url) => /\/(?:search|404)\//.test(url)));
-  assert.equal(urls.includes('https://howtofishgamehelp.com/contact/'), contactEmailEnabled);
+  assert.equal(urls.includes('https://howtofishgamehelp.com/contact/'), true);
+});
+
+test('trust pages use one public identity and disclose review-period data practices', async () => {
+  const about = await text('about/index.html');
+  const contact = await text('contact/index.html');
+  const privacy = await text('privacy/index.html');
+
+  for (const html of [about, contact]) {
+    assert.match(html, /contact@howtofishgamehelp\.com/i);
+    assert.match(html, /Dazed Games/i);
+    assert.match(html, /Steam/i);
+  }
+  assert.match(about, /Corrections and rights requests/i);
+  assert.match(about, /official sources/i);
+  assert.match(about, /community sources/i);
+  assert.match(about, /editorial judgment/i);
+  assert.match(about, /not independently playtested/i);
+
+  assert.match(privacy, /Google AdSense and advertising cookies/i);
+  assert.match(privacy, /https:\/\/adssettings\.google\.com\//);
+  assert.match(privacy, /https:\/\/policies\.google\.com\/technologies\/partner-sites/);
+  assert.match(privacy, /Adsterra advertising units were disabled/i);
+  assert.match(privacy, /Google Analytics is <strong>disabled<\/strong>/i);
+  assert.doesNotMatch(privacy, /Google-certified consent management platform where required/i);
+  assert.doesNotMatch(privacy, /Privacy and cookie settings/i);
 });

@@ -7,7 +7,7 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => !['/search/', '/404/', '/contact/'].some((route) => page.includes(route)),
+      filter: (page) => !['/search/', '/404/'].some((route) => page.includes(route)),
     }),
   ],
   build: {
