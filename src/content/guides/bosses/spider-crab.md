@@ -5,9 +5,14 @@ slug: "spider-crab"
 category: "bosses"
 primaryIntent: "Defeat Spider Crab and complete the lighthouse boss hand-in"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -18,6 +23,10 @@ sources:
     url: "https://nerdschalk.com/how-to-fish-spider-crab-boss/"
     type: "gameplay-guide"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/walkthrough/lighthouse-first-island/"
 nextGuide: "/guides/unlock-next-island/"
 relatedGuides:
@@ -58,7 +67,10 @@ Do not kite across the entire island. The walkthrough warns that distance can en
 
 Solo players should prioritize clean cycles—bait, sidestep, two or three hits, reset. In co-op, one player can stand forward to draw the charge while teammates stay off the line and attack the rear during the stun. Do not surround so tightly that the charge direction becomes hard to read.
 
+## Difficulty note for 1.0.9
+
+The charge windows and quest sequence here remain source-based, while creature health and damage now depend on Easy, Normal, or Hard. The official note does not provide Spider Crab’s base values or a player-count formula. Choose a mode with the [difficulty guide](/guides/difficulty-settings/), then prepare before consuming the Empty Beer Can and preserve the resulting trophy.
+
 ## What to do next
 
 Return the drop and follow [how to unlock the next island](/guides/unlock-next-island/). The next story fight is [Giant Piranha](/bosses/giant-piranha/), which does not offer the same self-stun rhythm.
-

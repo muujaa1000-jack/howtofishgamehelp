@@ -5,9 +5,14 @@ slug: "island-four-rocks"
 category: "islands"
 primaryIntent: "Complete the rocky island Tuna and terrorizing bird progression chain"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -61,4 +66,3 @@ Solo players should choose cover with a clear exit and avoid chasing the bird ac
 ## What to do next
 
 Open the focused [terrorizing bird strategy](/bosses/terrorizing-bird/) before placing the Tuna. After the hand-in, prepare with [volcano endgame progression](/islands/volcano-endgame/).
-

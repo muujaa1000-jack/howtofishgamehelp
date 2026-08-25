@@ -5,9 +5,14 @@ slug: "unlock-next-island"
 category: "guides"
 primaryIntent: "Unlock and navigate from the lighthouse to the forest island"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "mixed"
 sources:
   - title: "How to Fish Patch 1.0.5"
@@ -61,4 +66,3 @@ In co-op, use the host’s active quest state as the reference and complete the 
 ## What to do next
 
 On the forest island, continue with [the three-leech progression guide](/islands/island-two-leeches/). If navigation itself is unclear, read [how the radar works](/items/radar-guide/).
-

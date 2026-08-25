@@ -5,9 +5,14 @@ slug: "boss-guide"
 category: "bosses"
 primaryIntent: "Identify the story boss order and choose the right detailed boss guide"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "mixed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -18,6 +23,10 @@ sources:
     url: "https://allthings.how/how-to-fish-full-island-and-boss-progression-walkthrough/"
     type: "gameplay-guide"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/islands/island-progression/"
 nextGuide: "/bosses/spider-crab/"
 relatedGuides:
@@ -63,7 +72,10 @@ The regular whale before the finale is part of the last chain, but the mutated/l
 
 Solo fights are viable, but later mistakes are more expensive because nobody can revive you. Enter with open inventory slots and healing. In co-op, split roles without scattering: one player keeps attention, others deliver damage, and one named player holds the trophy. Everyone should regroup before the quest turn-in.
 
+## Patch 1.0.9 difficulty boundary
+
+Easy gives creatures 25% less health and makes them deal 50% less damage. Normal retains the earlier balance. Hard gives creatures 25% more health and damage. Those are global creature modifiers from the official note; no reviewed source establishes hidden health totals, per-boss scaling, or a different trophy rule. Use [difficulty settings](/guides/difficulty-settings/) to choose the pressure, then follow the same documented summon and hand-in chain.
+
 ## What to do next
 
 Start with [Spider Crab](/bosses/spider-crab/) or jump to the boss blocking your current island. For gear choices, read [weapon progression](/items/weapon-progression/) before you spend.
-

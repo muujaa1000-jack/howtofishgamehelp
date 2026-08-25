@@ -5,7 +5,7 @@ import { z } from 'astro/zod';
 const sourceSchema = z.object({
   title: z.string().min(3),
   url: z.url(),
-  type: z.enum(['official-store', 'official-patch', 'official-achievement', 'gameplay-guide', 'gameplay-video', 'community-thread']),
+  type: z.enum(['official-store', 'official-patch', 'official-achievement', 'official-doc', 'gameplay-guide', 'gameplay-video', 'community-thread']),
   accessedAt: z.coerce.date(),
   notes: z.string().optional(),
 });

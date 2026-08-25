@@ -5,9 +5,14 @@ slug: "what-to-do-after-pufferfish"
 category: "guides"
 primaryIntent: "Continue progression immediately after defeating the Pufferfish boss"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -18,6 +23,10 @@ sources:
     url: "https://allthings.how/how-to-fish-full-island-and-boss-progression-walkthrough/"
     type: "gameplay-guide"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/bosses/pufferfish/"
 nextGuide: "/islands/island-four-rocks/"
 relatedGuides:
@@ -58,7 +67,10 @@ The next stage changes combat range. Island 4 asks you to catch Tuna and use it 
 
 In co-op, do not let the trophy carrier disconnect before the tourist hand-in. Confirm the host’s objective updates, then travel together. Solo players can use the pause between islands to cook, sell spare catches, and keep the key drop isolated from ordinary inventory.
 
+## Prepare for the selected difficulty
+
+The travel and Tuna gate are not announced as changed, while later creatures use the Easy, Normal, or Hard modifiers added in 1.0.9. Keep the Pufferfish trophy return and next coordinates as separate checks, then review [difficulty settings](/guides/difficulty-settings/) before the next encounter instead of assuming older combat pacing.
+
 ## What to do next
 
 Continue with [Island 4 rocky progression](/islands/island-four-rocks/). If your boat navigation is the blocker, review the [radar guide](/items/radar-guide/).
-

@@ -7,8 +7,13 @@ const required = [
   'lastVerifiedAt', 'gameVersion', 'verificationStatus', 'sources', 'previousGuide',
   'nextGuide', 'relatedGuides', 'draft', 'noindex',
 ];
+const reviewMetadata = [
+  'lastSourceReview', 'evidenceThroughVersion', 'firstHandTested', 'patchSensitive',
+  'adEligible', 'answer',
+];
 const allowedVerification = new Set(['official', 'community-confirmed', 'mixed', 'needs-review']);
 const errors = [];
+const warnings = [];
 
 async function walk(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -28,6 +33,10 @@ function report(file, message) {
   errors.push(`${path.relative(process.cwd(), file)}: ${message}`);
 }
 
+function warn(file, message) {
+  warnings.push(`${path.relative(process.cwd(), file)}: ${message}`);
+}
+
 const files = await walk(root);
 const guides = [];
 
@@ -43,6 +52,9 @@ for (const file of files) {
   const body = parts.slice(2).join('---').trim();
   for (const field of required) {
     if (!new RegExp(`^${field}:`, 'm').test(frontmatter)) report(file, `missing ${field}`);
+  }
+  for (const field of reviewMetadata) {
+    if (!new RegExp(`^${field}:`, 'm').test(frontmatter)) warn(file, `missing review metadata ${field}`);
   }
 
   const title = scalar(frontmatter, 'title');
@@ -85,8 +97,8 @@ for (const guide of publicGuides) {
   }
 }
 
-if (publicGuides.length < 28 || publicGuides.length > 32) {
-  errors.push(`Launch set has ${publicGuides.length} public guides; expected 28 to 32.`);
+if (publicGuides.length !== 34) {
+  errors.push(`Reviewed set has ${publicGuides.length} public guides; expected 34.`);
 }
 
 if (errors.length) {
@@ -95,4 +107,9 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Content validation passed: ${publicGuides.length} public guides, ${guides.length - publicGuides.length} drafts, 0 validation errors.`);
+if (warnings.length) {
+  console.warn(`Content validation passed with ${warnings.length} warnings:`);
+  for (const warning of warnings) console.warn(`- ${warning}`);
+}
+
+console.log(`Content validation passed: ${publicGuides.length} public guides, ${guides.length - publicGuides.length} drafts, 0 validation errors, ${warnings.length} warnings.`);

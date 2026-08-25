@@ -8,20 +8,25 @@ import { categories, categoryFieldNotes, site } from '../../config/site';
 export function getStaticPaths() { return categories.map((category) => ({ params: { category: category.slug }, props: { category } })); }
 const { category } = Astro.props;
 const entries = (await getCollection('guides', ({ data }) => !data.draft && data.category === category.slug)).sort((a, b) => a.data.title.localeCompare(b.data.title));
-const title = `${category.label} Guides`;
+const title = category.slug === 'guides' ? 'How to Fish Beginner Guides' : `${category.label} Guides`;
 const fieldNote = categoryFieldNotes[category.slug];
 const jsonLd = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: title, description: category.description, url: `${site.url}/${category.slug}/`, isPartOf: { '@type': 'WebSite', name: site.name, url: site.url } };
 ---
 <BaseLayout title={title} description={category.description} canonicalPath={`/${category.slug}/`} jsonLd={jsonLd}>
   <header class="category-hero"><div class="container"><Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: category.label }]} /><p class="eyebrow">Field section · {entries.length} guides</p><h1>{title}</h1><p>{category.description}</p></div></header>
   <section class="container section">
-    <div class="hub-note">
+    <div class="hub-note" data-hub-copy>
       <div>
         <p class="eyebrow">Start here</p>
         <h2>A practical route through {category.label.toLowerCase()}</h2>
         <p>{fieldNote.start}</p>
       </div>
       <ol>{fieldNote.route.map((step) => <li>{step}</li>)}</ol>
+      <div class="hub-overview">
+        {fieldNote.overview.map((paragraph) => <p>{paragraph}</p>)}
+        <h2>Current patch context</h2>
+        <p>{fieldNote.patchNote}</p>
+      </div>
       <p class="caution"><strong>Evidence note:</strong> {fieldNote.caution}</p>
     </div>
     {entries.length ? <div class="grid guide-grid">{entries.map((entry) => <GuideCard entry={entry} />)}</div> : <div class="notice"><h2>Evidence review in progress</h2><p>No page in this section has cleared the publishing gate yet. We do not publish thin placeholders just to fill a category.</p></div>}
@@ -37,6 +42,8 @@ const jsonLd = { '@context': 'https://schema.org', '@type': 'CollectionPage', na
   .hub-note ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1.25rem 0; padding: 0; list-style: none; counter-reset: route; }
   .hub-note li { position: relative; min-height: 86px; padding: 1rem 1rem 1rem 3.1rem; border-radius: 12px; background: var(--sand-100); counter-increment: route; font-weight: 750; }
   .hub-note li::before { content: counter(route); position: absolute; left: 1rem; top: .9rem; width: 1.55rem; height: 1.55rem; display: grid; place-items: center; border-radius: 50%; background: var(--navy-900); color: white; font-size: .8rem; }
+  .hub-overview { max-width: 78ch; }
+  .hub-overview h2 { margin-top: 1.6rem; }
   .caution { margin: 0; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--ink-soft); }
   @media (max-width: 700px) { .hub-note ol { grid-template-columns: 1fr; } .hub-note li { min-height: auto; } }
 </style>

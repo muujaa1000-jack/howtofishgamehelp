@@ -5,9 +5,14 @@ slug: "private-lobby-invites"
 category: "fixes"
 primaryIntent: "Create an invite-only How to Fish lobby and troubleshoot joining"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "official"
 sources:
   - title: "How to Fish Patch 1.0.5"
@@ -18,6 +23,10 @@ sources:
     url: "https://store.steampowered.com/app/4001890/How_to_Fish/"
     type: "official-store"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/fixes/multiplayer-black-screen/"
 nextGuide: "/fixes/camera-invert-controls/"
 relatedGuides:
@@ -58,7 +67,10 @@ The patch adds an in-game session-type control but explicitly says a restart is 
 
 There is no invite flow in solo, but a solo load proves the host can open the save. In co-op, keep the first test to one host and one joiner. Once stable, invite the rest of the party and verify quest state before continuing progression.
 
+## Check relay status before recreating the lobby
+
+If patch 1.0.9 shows a red Steam relay status, record who sees it and when before changing invite or lobby settings. Rebuilding the lobby may create a useful comparison, but it is not proof that the invite itself caused the relay failure. Follow the [relay diagnostic guide](/fixes/steam-relay-connection-failed/) and keep the host, joiner, and game versions explicit.
+
 ## What to do next
 
 If the screen fails during the join, use [multiplayer black screen](/fixes/multiplayer-black-screen/). For a broader diagnostic checklist, return to [problems and fixes](/fixes/problems-and-fixes/).
-

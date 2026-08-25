@@ -5,9 +5,14 @@ slug: "volcano-endgame"
 category: "islands"
 primaryIntent: "Complete the volcano route and finish the main story after the final boss"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -18,6 +23,10 @@ sources:
     url: "https://nerdschalk.com/how-to-finish-how-to-fish-ending/"
     type: "gameplay-guide"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/bosses/terrorizing-bird/"
 nextGuide: "/bosses/mutated-bowhead-whale/"
 relatedGuides:
@@ -58,7 +67,10 @@ After the mutated whale dies, the story still has two interactions. Take its dis
 
 Solo players should stage healing near a safe, memorable point before activating the chain. In co-op, split fire while preserving room to dodge; revives help, but clustered players can all be hit by one area attack. Keep the final trophy with the host until the scientist hand-in finishes.
 
+## Difficulty and save boundary
+
+The whale encounters use the current difficulty’s creature health and damage modifiers, while no alternate ending condition is announced. Preserve the final trophy and complete the scientist return before experimenting. If this save fails while loading or crashes on weapon equip, stop repeating the ending and follow the [preservation-first crash guide](/fixes/save-file-corrupted-or-weapon-crash/).
+
 ## What to do next
 
 Read the [mutated whale strategy](/bosses/mutated-bowhead-whale/) before starting. After the ending, move to the [achievement cleanup plan](/achievements/achievement-guide/).
-

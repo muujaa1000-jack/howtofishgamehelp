@@ -5,9 +5,14 @@ slug: "achievement-not-unlocking"
 category: "achievements"
 primaryIntent: "Troubleshoot a How to Fish Steam achievement that did not unlock"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "official"
 sources:
   - title: "How to Fish Patch 1.0.4"
@@ -61,4 +66,3 @@ Solo isolates ownership and is best for short action achievements. In co-op, kee
 ## What to do next
 
 Return to the [achievement cleanup plan](/achievements/achievement-guide/) and mark only confirmed unlocks. For general launch issues, use [problems and fixes](/fixes/problems-and-fixes/).
-

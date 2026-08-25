@@ -5,9 +5,14 @@ slug: "hardest-achievements"
 category: "achievements"
 primaryIntent: "Plan efficient attempts for the hardest and rarest How to Fish achievements"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "mixed"
 sources:
   - title: "How to Fish Global Achievements"
@@ -18,6 +23,10 @@ sources:
     url: "https://allthings.how/how-to-fish-how-to-get-all-28-achievements/"
     type: "gameplay-guide"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/achievements/story-achievements/"
 nextGuide: "/achievements/achievement-not-unlocking/"
 relatedGuides:
@@ -58,7 +67,10 @@ A completionist run naturally explores and farms, while a speed run rejects both
 
 Personal action requirements are simplest solo. Co-op can accelerate collection sweeps, but verify that your account receives credit for the relevant kill or find. For Handyman and Bean, extra players add coordination risk; only use a party with a rehearsed plan.
 
+## Difficulty boundary for challenge attempts
+
+Patch 1.0.9 changes creature health and damage but does not state whether difficulty changes achievement eligibility. Choose a mode knowingly, record it when diagnosing a failed unlock, and do not promise that Easy enables or Hard rewards a condition. The official achievement text remains the authority for the named action.
+
 ## What to do next
 
 Check [achievement not unlocking](/achievements/achievement-not-unlocking/) before repeating a valid-looking condition. Use [weapon progression](/items/weapon-progression/) to prepare the Easy cleanup attempt.
-

@@ -1,0 +1,51 @@
+# Patch Impact Matrix
+
+Review date: 2026-08-25 (Asia/Singapore)
+
+Latest official release evidence reviewed: [How to Fish Patch 1.0.9](https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352). Earlier official announcements were rechecked where they remain material: [Patch 1.0.8](https://steamcommunity.com/games/4001890/announcements/detail/1841579228674959), [Patch 1.0.6](https://steamcommunity.com/games/4001890/announcements/detail/1841579228674042), [Patch 1.0.5](https://steamcommunity.com/games/4001890/announcements/detail/1841579228671636), and [Patch 1.0.4](https://steamcommunity.com/games/4001890/announcements/detail/1841579228669389).
+
+`Evidence reviewed through 1.0.9` means the listed official announcements were checked for conflicts. It does not mean the page was independently playtested on that version. Existing `gameVersion: 1.0.5` labels remain where the detailed route evidence itself has not been replayed or replaced; no global version replacement was performed.
+
+| Page | Current version label | Latest official patch impact | Action | Source | Status |
+|---|---|---|---|---|---|
+| `/achievements/achievement-guide/` | 1.0.5 | 1.0.9 adds difficulty but does not state whether difficulty changes achievement eligibility. | Expand cleanup workflow; add explicit difficulty unknown; retain Steam's current 28-achievement evidence. | Patch 1.0.9; Steam Global Achievements | updated-for-difficulty |
+| `/achievements/achievement-not-unlocking/` | 1.0.5 | No achievement fix is listed after 1.0.5; 1.0.9 difficulty eligibility is undocumented. | Preserve 1.0.4/1.0.5 fix history; warn against assuming Easy disables or preserves every unlock. | Patches 1.0.4, 1.0.5, 1.0.9 | reviewed-no-direct-change |
+| `/achievements/hardest-achievements/` | 1.0.5 | 1.0.9 can change combat difficulty; achievement effects are not specified. | Add a patch boundary: choose mode knowingly and record it when reporting a failed unlock. | Patch 1.0.9; Steam Global Achievements | updated-for-difficulty |
+| `/achievements/story-achievements/` | 1.0.5 | Story order is not changed in 1.0.6–1.0.9. | Keep quest order; add that difficulty affects creature combat, not an announced hand-in rule. | Patches 1.0.6, 1.0.8, 1.0.9 | reviewed-no-direct-change |
+| `/bosses/boss-guide/` | 1.0.5 | 1.0.9 changes all creature health/damage by selected mode. | Add difficulty-selection boundary; do not invent per-boss or player-count scaling. | Patch 1.0.9 | updated-for-difficulty |
+| `/bosses/giant-piranha/` | 1.0.5 | Creature health/damage varies by 1.0.9 difficulty. | Retain route/tactics; link difficulty guide; label damage pacing mode-sensitive. | Patch 1.0.9 | updated-for-difficulty |
+| `/bosses/mutated-bowhead-whale/` | 1.0.5 | Creature health/damage varies by 1.0.9 difficulty. | Retain source-based finale route; add difficulty and save-safety links; no hidden health values. | Patches 1.0.9, 1.0.6 | updated-for-difficulty |
+| `/bosses/pufferfish/` | 1.0.5 | 1.0.9 difficulty directly changes creature health/damage; the earlier 1.0.4 nerf still lacks published numeric detail. | Expand to a complete guide; separate official mode modifiers from source-based encounter tactics. | Patches 1.0.4, 1.0.9 | updated-for-difficulty |
+| `/bosses/spider-crab/` | 1.0.5 | Creature health/damage varies by 1.0.9 difficulty. | Retain charge-window route; add difficulty link and no-scaling-formula boundary. | Patch 1.0.9 | updated-for-difficulty |
+| `/bosses/terrorizing-bird/` | 1.0.5 | Creature health/damage varies by 1.0.9 difficulty. | Retain source-based encounter steps; add difficulty warning. | Patch 1.0.9 | updated-for-difficulty |
+| `/fixes/camera-invert-controls/` | 1.0.5 | 1.0.8 changes PlayStation controller glyph display; 1.0.9 does not change inversion. | Add glyph-specific check without claiming input remapping was fixed. | Patches 1.0.8, 1.0.9 | reviewed-no-direct-change |
+| `/fixes/leeches-not-spawning/` | 1.0.5 | Patches 1.0.6–1.0.9 do not publish a leech-spawn change. | Keep spawn timing unknown and preserve non-destructive reload advice. | Patches 1.0.6, 1.0.8, 1.0.9 | reviewed-no-direct-change |
+| `/fixes/multiplayer-black-screen/` | 1.0.5 | 1.0.9 adds a red Steam relay status diagnostic; 1.0.4 still used “hopefully” for display fixes. | Add relay isolation and link the dedicated relay page; keep qualified black-screen status. | Patches 1.0.4, 1.0.9 | updated-for-connection |
+| `/fixes/private-lobby-invites/` | 1.0.5 | Private lobbies remain; 1.0.9 adds relay diagnostics relevant before invite troubleshooting. | Add check for red relay status before recreating lobby/session state. | Patches 1.0.5, 1.0.9 | updated-for-connection |
+| `/fixes/problems-and-fixes/` | 1.0.9 | 1.0.6 changes save validation/write timing; 1.0.8 has input/audio fixes; 1.0.9 adds relay diagnostics and a qualified save fix. | Expand into a current triage hub with safe branches and links to the two new detailed fixes. | Patches 1.0.4–1.0.9 | updated-for-save-safety |
+| `/guides/beginner-guide/` | 1.0.5 | 1.0.9 adds Easy/Normal/Hard difficulty. | Expand opening route; explain when to choose a mode without inventing an optimal setting or undocumented selector behavior. | Patch 1.0.9; official store | updated-for-difficulty |
+| `/guides/unlock-next-island/` | 1.0.5 | Unlock order is unchanged; difficulty can change the boss gate only. | Keep intended unlock chain and link difficulty guidance for the fight. | Patches 1.0.5, 1.0.9 | reviewed-no-direct-change |
+| `/guides/what-to-do-after-pufferfish/` | 1.0.5 | Route is unchanged; subsequent creatures use selected 1.0.9 difficulty. | Retain route and add mode-sensitive preparation note. | Patch 1.0.9 | reviewed-no-direct-change |
+| `/islands/island-four-rocks/` | 1.0.5 | Island order is unchanged; combat difficulty varies. | Keep quest chain and add difficulty boundary for the encounter. | Patch 1.0.9 | reviewed-no-direct-change |
+| `/islands/island-progression/` | 1.0.5 | 1.0.9 does not restore the 1.0.5 locked-island shortcut; difficulty affects gates, not announced unlock order. | Retain intended route; add current-mode note. | Patches 1.0.5, 1.0.9 | reviewed-no-direct-change |
+| `/islands/island-three-desert/` | 1.0.5 | Route unchanged; Pufferfish combat varies by difficulty. | Keep endangered-catch/bait chain; link complete Pufferfish and difficulty pages. | Patch 1.0.9 | updated-for-difficulty |
+| `/islands/island-two-leeches/` | 1.0.5 | No leech or island-chain change published; Giant Piranha combat varies. | Keep pickup count/source boundary; add difficulty link for boss stage. | Patch 1.0.9 | reviewed-no-direct-change |
+| `/islands/volcano-endgame/` | 1.0.5 | Finale creature health/damage varies; save handling changed in 1.0.6/1.0.9. | Add difficulty and save-preservation notes; retain source-based route. | Patches 1.0.6, 1.0.9 | updated-for-save-safety |
+| `/items/early-upgrades/` | 1.0.5 | Difficulty can change combat pressure but no prices/upgrades were changed in official notes. | Keep bottleneck-based purchasing advice; avoid a universal best build. | Patch 1.0.9 | reviewed-no-direct-change |
+| `/items/grilling-guide/` | 1.0.5 | 1.0.8 links fire sizzling to the FX volume slider; no cooking-economy change announced. | Add narrow audio note; retain source-limited value discussion. | Patch 1.0.8 | reviewed-no-direct-change |
+| `/items/lures-and-bait/` | 1.0.5 | No lure requirement change announced; creature difficulty changes do not establish bait changes. | State no published bait change and keep precise unsupported rates omitted. | Patch 1.0.9 | reviewed-no-direct-change |
+| `/items/money-fast/` | 1.0.5 | No economy change announced in 1.0.6–1.0.9. | Keep tactics source-based; do not infer mode-dependent earnings. | Patches 1.0.6, 1.0.8, 1.0.9 | reviewed-no-direct-change |
+| `/items/radar-guide/` | 1.0.5 | No Radar change announced; the locked-island fix remains relevant. | Keep intended progression route and label missing/lost behavior evidence-limited. | Patches 1.0.5, 1.0.9 | evidence-limited |
+| `/items/weapon-progression/` | 1.0.5 | 1.0.9 specifically mentions remaining crashes when equipping weapons. | Add non-destructive save/crash link; do not recommend editing save data without an official procedure. | Patches 1.0.6, 1.0.9 | updated-for-save-safety |
+| `/walkthrough/lighthouse-first-island/` | 1.0.5 | Opening route unchanged; first boss uses selected difficulty. | Keep source-based route and link difficulty guidance. | Patch 1.0.9 | reviewed-no-direct-change |
+| `/walkthrough/story-walkthrough/` | 1.0.5 | Story order unchanged; all creature gates vary by difficulty and save safety changed after 1.0.5. | Expand full route; add pre-boss mode check, unique-drop protection, and recovery boundaries. | Patches 1.0.6, 1.0.9 | updated-for-save-safety |
+| `/guides/difficulty-settings/` | New | Directly supported by 1.0.9. | Publish a complete comparison using only official modifiers and explicit unknowns. | Patch 1.0.9; official store | updated-for-difficulty |
+| `/fixes/steam-relay-connection-failed/` | New | Directly supported by the 1.0.9 red relay diagnostic. | Publish bounded triage; explain what relay means; avoid claiming one universal network fix. | Patch 1.0.9; Valve SDR documentation | updated-for-connection |
+| `/fixes/save-file-corrupted-or-weapon-crash/` | New | 1.0.6 changes save validation/writes; 1.0.9 says “hopefully fixed” and mentions equipped-weapon crashes. | Publish preservation-first triage; distinguish file verification from save repair and keep manual save editing out of the core path. | Patches 1.0.6, 1.0.9; Steam Support | updated-for-save-safety |
+
+## Review summary
+
+- 10 existing pages require direct difficulty-related updates, plus the new difficulty page.
+- 6 existing pages require connection or save-safety updates, plus two new fix pages.
+- The remaining pages were reviewed for conflicts and keep their narrower 1.0.5 gameplay evidence where later official notes do not replace it.
+- All pages will display a 2026-08-25 source-review date and evidence-through version separately from first-hand testing status.

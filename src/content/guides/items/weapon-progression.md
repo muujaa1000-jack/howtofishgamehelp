@@ -5,9 +5,14 @@ slug: "weapon-progression"
 category: "items"
 primaryIntent: "Choose weapons that fit each island and boss stage"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -18,6 +23,10 @@ sources:
     url: "https://nerdschalk.com/how-to-fish-terrorizing-bird-boss/"
     type: "gameplay-guide"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/items/early-upgrades/"
 nextGuide: "/items/lures-and-bait/"
 relatedGuides:
@@ -57,6 +66,10 @@ That pattern supports a small arsenal with distinct jobs: melee for dependable c
 ## Solo and co-op notes
 
 Solo players need one flexible gun plus a fallback because every range is their responsibility. Co-op teams can split weapon roles: one close-range player handles adds while others maintain ranged pressure. Still, everyone should be able to finish a normal creature if separated.
+
+## If equipping a weapon crashes the game
+
+Patch 1.0.9 asks players to report saves that crash when a weapon is equipped. Do not keep cycling that item, edit the save, or overwrite the only copy to follow an equipment recommendation. Preserve the state and use the [save or weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/). A progression preference is separate from an unresolved stability symptom.
 
 ## What to do next
 

@@ -5,9 +5,14 @@ slug: "mutated-bowhead-whale"
 category: "bosses"
 primaryIntent: "Defeat the final mutated whale boss and trigger the ending"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -18,6 +23,10 @@ sources:
     url: "https://nerdschalk.com/how-to-beat-whale-boss-how-to-fish/"
     type: "gameplay-guide"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/islands/volcano-endgame/"
 nextGuide: "/achievements/achievement-guide/"
 relatedGuides:
@@ -58,7 +67,10 @@ The mutated whale adds area denial. Lava pools and falling attacks matter as muc
 
 Solo players should keep a wide loop around the arena and interrupt shooting whenever ground hazards close that loop. In co-op, spread so one area attack cannot knock down the entire party. Rotate revives: one player helps while the others keep the boss moving away.
 
+## Difficulty and save-safety note
+
+Patch 1.0.9 makes creature health and damage mode-dependent, but it does not publish a whale health value or a different ending reward. Preserve the final drop and return it before experimenting with settings. If the save crashes while loading or when equipping a weapon, stop repeating the finale and use the [save and weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/); the developer still requested reports about those cases.
+
 ## What to do next
 
 Use the RHIB to complete the story, then open the [achievement cleanup plan](/achievements/achievement-guide/). Save the bare-hands final-boss attempt for the separate [hardest achievements guide](/achievements/hardest-achievements/).
-

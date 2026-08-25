@@ -5,9 +5,14 @@ slug: "grilling-guide"
 category: "items"
 primaryIntent: "Unlock the grill and cook fish for healing, value, and achievements"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -61,4 +66,3 @@ Solo players should build a personal reserve before each boss. Co-op groups can 
 ## What to do next
 
 Prepare for the [Pufferfish fight](/bosses/pufferfish/) after unlocking the grill. For a broader earning plan, combine correct cooking with [safe money methods](/items/money-fast/).
-

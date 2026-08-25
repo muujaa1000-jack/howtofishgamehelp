@@ -5,9 +5,14 @@ slug: "island-two-leeches"
 category: "islands"
 primaryIntent: "Find the three leeches and start the Giant Piranha quest on Island 2"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -61,4 +66,3 @@ In co-op, have everyone report pickups against the host’s visible quest counte
 ## What to do next
 
 Open the [Giant Piranha strategy](/bosses/giant-piranha/) before using the bait. If a complete sweep produces fewer than three pickups, follow [leeches not spawning](/fixes/leeches-not-spawning/).
-

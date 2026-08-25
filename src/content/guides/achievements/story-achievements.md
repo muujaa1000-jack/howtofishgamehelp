@@ -5,9 +5,14 @@ slug: "story-achievements"
 category: "achievements"
 primaryIntent: "Unlock every achievement tied directly to the main story and island quests"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "mixed"
 sources:
   - title: "How to Fish Global Achievements"
@@ -61,4 +66,3 @@ These conditions can be reached solo. In co-op, personal unlock timing may depen
 ## What to do next
 
 After the normal story, plan the [hardest achievements](/achievements/hardest-achievements/). If a completed condition remains locked on 1.0.5, use [achievement not unlocking](/achievements/achievement-not-unlocking/).
-

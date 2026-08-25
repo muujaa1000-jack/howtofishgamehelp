@@ -5,9 +5,14 @@ slug: "terrorizing-bird"
 category: "bosses"
 primaryIntent: "Defeat the large bird story boss on Island 4 and unlock the volcano"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -18,6 +23,10 @@ sources:
     url: "https://nerdschalk.com/how-to-fish-terrorizing-bird-boss/"
     type: "gameplay-guide"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/islands/island-four-rocks/"
 nextGuide: "/islands/volcano-endgame/"
 relatedGuides:
@@ -58,7 +67,10 @@ Choose cover before placing the Tuna. From safety, follow the target marker or s
 
 Solo players should use one building and repeat a patient peek-and-fire rhythm. In co-op, spread around different sides of the same cover so the bird cannot pressure every firing angle at once. Call each pass, reload inside, and avoid reviving a teammate in open ground.
 
+## Difficulty note for 1.0.9
+
+Patch 1.0.9 changes creature health and damage through the selected mode. It does not announce a different Tuna trigger or hand-in. Treat older combat pacing as Normal-context guidance, avoid invented health thresholds, and use [difficulty settings](/guides/difficulty-settings/) when the aerial encounter feels out of step with an older walkthrough.
+
 ## What to do next
 
 Finish the hand-in and travel to [volcano endgame progression](/islands/volcano-endgame/). Prepare the final loadout with [weapon progression](/items/weapon-progression/) before starting the whale chain.
-

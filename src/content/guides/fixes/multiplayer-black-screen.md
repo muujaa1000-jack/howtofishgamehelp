@@ -5,9 +5,14 @@ slug: "multiplayer-black-screen"
 category: "fixes"
 primaryIntent: "Fix or safely diagnose a black screen when joining How to Fish multiplayer"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "official"
 sources:
   - title: "How to Fish Patch 1.0.4"
@@ -18,6 +23,10 @@ sources:
     url: "https://steamcommunity.com/games/4001890/announcements/detail/1841579228671636"
     type: "official-patch"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/fixes/problems-and-fixes/"
 nextGuide: "/fixes/private-lobby-invites/"
 relatedGuides:
@@ -58,7 +67,10 @@ The same 1.0.4 notes also say special characters in server names could break a s
 
 Solo is a diagnostic control: if both players can load solo but one fails only as joiner, the network or session path is more likely than basic startup. Add players one at a time and avoid changing graphics, files, host, and lobby name simultaneously.
 
+## Check the 1.0.9 relay indicator
+
+Patch 1.0.9 adds a red status when a Steam relay connection fails and asks affected players to report it. Record that status separately from the black screen: one is a connection diagnostic and the other is the display symptom. Do not open ports or disable security tools based on the color alone. Use [Steam relay connection failed](/fixes/steam-relay-connection-failed/) for the controlled host-and-joiner comparison.
+
 ## What to do next
 
 Set up the controlled session with [private lobby invites](/fixes/private-lobby-invites/). If the game starts but camera direction is wrong, use [invert camera controls](/fixes/camera-invert-controls/).
-

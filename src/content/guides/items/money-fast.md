@@ -5,9 +5,14 @@ slug: "money-fast"
 category: "items"
 primaryIntent: "Earn money efficiently for weapons, boat upgrades, lures, and healing"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "How to Fish on Steam"
@@ -61,4 +66,3 @@ Solo players should favor low-variance loops and sell before a boss. Co-op can p
 ## What to do next
 
 Spend the first stable surplus with [early upgrades](/items/early-upgrades/) or the broader [weapon progression guide](/items/weapon-progression/). Unlock and practice [grilling](/items/grilling-guide/) before using high-value catches.
-

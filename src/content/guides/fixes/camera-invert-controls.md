@@ -5,9 +5,14 @@ slug: "camera-invert-controls"
 category: "fixes"
 primaryIntent: "Invert horizontal or vertical camera controls in How to Fish"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "official"
 sources:
   - title: "How to Fish Patch 1.0.5"
@@ -18,6 +23,10 @@ sources:
     url: "https://store.steampowered.com/app/4001890/How_to_Fish/"
     type: "official-store"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.8"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/1841579228674959"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/fixes/private-lobby-invites/"
 nextGuide: null
 relatedGuides:
@@ -58,7 +67,10 @@ The Steam store currently lists full controller support. That confirms controlle
 
 Camera settings are local and do not require a multiplayer session. Adjust them in solo or a safe area before joining friends, so a control test does not interrupt a boss or boat sequence. Other players do not need to match your inversion choice.
 
+## Controller glyph boundary
+
+Patch 1.0.8 says PlayStation controller glyphs should display when a PlayStation controller is used. That is a presentation change, not evidence that every remapping or inversion issue was fixed. If an icon looks wrong, record the connected controller and displayed glyph separately from the camera-axis behavior, then change only the relevant setting.
+
 ## What to do next
 
 For startup or joining failures rather than camera direction, return to [problems and fixes](/fixes/problems-and-fixes/) or the focused [multiplayer black screen guide](/fixes/multiplayer-black-screen/).
-

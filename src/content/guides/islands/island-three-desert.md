@@ -5,9 +5,14 @@ slug: "island-three-desert"
 category: "islands"
 primaryIntent: "Complete the desert island quests and unlock the Pufferfish boss"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -18,6 +23,10 @@ sources:
     url: "https://nerdschalk.com/get-endangered-fish-for-tourist-how-to-fish/"
     type: "gameplay-guide"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/bosses/giant-piranha/"
 nextGuide: "/bosses/pufferfish/"
 relatedGuides:
@@ -58,7 +67,10 @@ Do not confuse “endangered” with “Drip.” The source-backed tourist guide
 
 Solo players benefit from unlocking the grill before the boss and carrying several cooked items. In co-op, assign one player to keep Pufferfish moving through open space while the others shoot from different angles. Keep everyone out of the same poison path.
 
+## Difficulty note for the island boss
+
+The endangered-catch and Carrot sequence is unchanged in the reviewed announcement, but Pufferfish health and damage now depend on difficulty. Use the complete [Pufferfish strategy](/bosses/pufferfish/) for the encounter and [difficulty settings](/guides/difficulty-settings/) for the official modifiers; do not rely on a universal fight-time estimate.
+
 ## What to do next
 
 Read the [Pufferfish fight guide](/bosses/pufferfish/) before using the Carrot. After the kill, follow [what to do after Pufferfish](/guides/what-to-do-after-pufferfish/).
-

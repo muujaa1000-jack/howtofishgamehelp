@@ -5,9 +5,14 @@ slug: "leeches-not-spawning"
 category: "fixes"
 primaryIntent: "Troubleshoot missing leech pickups during the Island 2 quest"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "How to Fish Full Island and Boss Progression Walkthrough"

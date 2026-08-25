@@ -9,6 +9,6 @@ test('content validator reports the launch set and exits cleanly', () => {
   });
 
   assert.equal(result.status, 0, result.stderr || result.stdout);
-  assert.match(result.stdout, /31 public guides/);
+  assert.match(result.stdout, /34 public guides/);
   assert.match(result.stdout, /0 validation errors/);
 });

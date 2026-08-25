@@ -5,9 +5,14 @@ slug: "lures-and-bait"
 category: "items"
 primaryIntent: "Understand which lures are bought and which boss bait comes from quests"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -61,4 +66,3 @@ Solo players should never use limited story bait without a complete loadout. In 
 ## What to do next
 
 Use the [boss fight order](/bosses/boss-guide/) to match each bait to its encounter. If optional lures are consuming your progression money, switch to [the safe economy loop](/items/money-fast/).
-

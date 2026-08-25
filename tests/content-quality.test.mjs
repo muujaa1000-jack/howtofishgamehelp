@@ -30,16 +30,38 @@ async function entries() {
   return Promise.all(files.map(async (file) => ({ file, source: await readFile(path.join(contentDir, file), 'utf8') })));
 }
 
-test('launch set contains 28 to 32 substantive public guides', async () => {
+function routeOf(frontmatter) {
+  return `/${scalar(frontmatter, 'category')}/${scalar(frontmatter, 'slug')}/`;
+}
+
+const longFormRoutes = new Set([
+  '/guides/beginner-guide/',
+  '/walkthrough/story-walkthrough/',
+  '/bosses/pufferfish/',
+  '/achievements/achievement-guide/',
+  '/fixes/problems-and-fixes/',
+  '/guides/difficulty-settings/',
+  '/fixes/steam-relay-connection-failed/',
+  '/fixes/save-file-corrupted-or-weapon-crash/',
+]);
+
+test('review set contains 34 substantive public guides', async () => {
   const items = await entries();
-  assert.ok(items.length >= 28 && items.length <= 32, `expected 28-32 guides, found ${items.length}`);
+  assert.equal(items.length, 34, `expected 34 guides, found ${items.length}`);
   for (const item of items) {
     const frontmatter = frontmatterOf(item.source);
+    const route = routeOf(frontmatter);
     assert.equal(scalar(frontmatter, 'draft'), 'false', `${item.file} must be public`);
     assert.notEqual(scalar(frontmatter, 'verificationStatus'), 'needs-review', `${item.file} needs review`);
     const body = item.source.replace(/^---[\s\S]*?---/, '');
     const words = body.match(/[A-Za-z][A-Za-z’'-]*/g) ?? [];
     assert.ok(words.length >= 220, `${item.file} is thin (${words.length} words)`);
+    if (longFormRoutes.has(route)) {
+      assert.ok(words.length >= 800 && words.length <= 1500, `${item.file} long-form depth is ${words.length} words`);
+      for (const heading of ['## Applies to', '## Quick steps', '## Common mistakes', '## Safe recovery', '## Patch history and limitations', '## FAQ']) {
+        assert.match(body, new RegExp(`^${heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'm'), `${item.file} missing ${heading}`);
+      }
+    }
     for (const heading of ['## Quick steps', '## Why it may not work', '## What to do next']) {
       assert.match(body, new RegExp(`^${heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'm'), `${item.file} missing ${heading}`);
     }
@@ -76,14 +98,43 @@ test('titles, descriptions, and routes are unique and internally resolvable', as
 });
 
 test('launch content keeps current verification metadata and avoids evidence overclaims', async () => {
+  const eligibleRoutes = [];
   for (const item of await entries()) {
     const frontmatter = frontmatterOf(item.source);
-    assert.equal(scalar(frontmatter, 'publishedAt'), '2026-08-23');
-    assert.equal(scalar(frontmatter, 'updatedAt'), '2026-08-23');
-    assert.equal(scalar(frontmatter, 'lastVerifiedAt'), '2026-08-23');
-    assert.equal(scalar(frontmatter, 'gameVersion'), '1.0.5');
-    assert.doesNotMatch(item.source, /\b(I tested|we tested|personally tested|official guide)\b/i, `${item.file} makes an unsupported testing claim`);
+    const route = routeOf(frontmatter);
+    const isNew = ['/guides/difficulty-settings/', '/fixes/steam-relay-connection-failed/', '/fixes/save-file-corrupted-or-weapon-crash/'].includes(route);
+    assert.equal(scalar(frontmatter, 'publishedAt'), isNew ? '2026-08-25' : '2026-08-23');
+    assert.equal(scalar(frontmatter, 'updatedAt'), '2026-08-25');
+    assert.equal(scalar(frontmatter, 'lastSourceReview'), '2026-08-25');
+    assert.equal(scalar(frontmatter, 'evidenceThroughVersion'), '1.0.9');
+    assert.equal(scalar(frontmatter, 'firstHandTested'), 'false');
+    assert.match(scalar(frontmatter, 'patchSensitive'), /^(?:true|false)$/);
+    assert.match(scalar(frontmatter, 'adEligible'), /^(?:true|false)$/);
+    assert.ok(['1.0.5', '1.0.9'].includes(scalar(frontmatter, 'gameVersion')));
+    if (scalar(frontmatter, 'adEligible') === 'true') eligibleRoutes.push(route);
+    assert.doesNotMatch(item.source, /\b(I tested|we tested|personally tested|tested on Steam Deck|verified in-game|official guide)\b/i, `${item.file} makes an unsupported testing claim`);
     assert.doesNotMatch(item.source, /\bguaranteed\b/i, `${item.file} makes an absolute claim`);
   }
+  assert.deepEqual(eligibleRoutes.sort(), [...longFormRoutes].sort());
 });
 
+test('Patch 1.0.9 issue pages use official evidence and qualified fix language', async () => {
+  const byRoute = new Map();
+  for (const item of await entries()) {
+    const frontmatter = frontmatterOf(item.source);
+    byRoute.set(routeOf(frontmatter), item.source);
+  }
+
+  const difficulty = byRoute.get('/guides/difficulty-settings/');
+  const relay = byRoute.get('/fixes/steam-relay-connection-failed/');
+  const save = byRoute.get('/fixes/save-file-corrupted-or-weapon-crash/');
+  for (const source of [difficulty, relay, save]) {
+    assert.ok(source, 'missing Patch 1.0.9 issue page');
+    assert.match(source, /steamcommunity\.com\/games\/4001890\/announcements\/detail\/711158520539514352/);
+    assert.match(source, /official-patch/);
+  }
+  assert.match(relay, /partner\.steamgames\.com\/doc\/features\/multiplayer\/steamdatagramrelay/);
+  assert.match(save, /help\.steampowered\.com\/en\/faqs\/view\/(?:0C48-FCBD-DA71-93EB|68D2-35AB-09A9-7678)/);
+  assert.match(save, /hopefully/i);
+  assert.doesNotMatch(save, /\b(?:completely|permanently|fully) fixed\b/i);
+});

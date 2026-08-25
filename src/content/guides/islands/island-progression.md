@@ -5,9 +5,14 @@ slug: "island-progression"
 category: "islands"
 primaryIntent: "Understand the island order and what unlocks every next destination"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "mixed"
 sources:
   - title: "How to Fish on Steam"
@@ -66,4 +71,3 @@ Island order does not change with party size. Patch 1.0.5 also closed an uninten
 ## What to do next
 
 If you are at the beginning, follow the [lighthouse route](/walkthrough/lighthouse-first-island/). If the first boat is already available, use [how to unlock the next island](/guides/unlock-next-island/).
-

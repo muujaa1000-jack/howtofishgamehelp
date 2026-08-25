@@ -5,9 +5,14 @@ slug: "giant-piranha"
 category: "bosses"
 primaryIntent: "Defeat Giant Piranha and finish the forest island quest"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-23
+updatedAt: 2026-08-25
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
+lastSourceReview: 2026-08-25
+evidenceThroughVersion: "1.0.9"
+firstHandTested: false
+patchSensitive: true
+adEligible: false
 verificationStatus: "community-confirmed"
 sources:
   - title: "Complete How to Fish game walkthrough"
@@ -18,6 +23,10 @@ sources:
     url: "https://nerdschalk.com/how-to-fish-piranha-boss/"
     type: "gameplay-guide"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-25
 previousGuide: "/islands/island-two-leeches/"
 nextGuide: "/islands/island-three-desert/"
 relatedGuides:
@@ -58,7 +67,10 @@ Unlike Spider Crab, this boss is not built around waiting for a generous self-st
 
 Solo players should alternate priorities: boss damage while the arena is clear, add control when it is not. In co-op, assign one player to remove small piranhas while the others keep the boss moving and shoot from offset angles. Avoid all standing in the same escape path.
 
+## Difficulty note for 1.0.9
+
+The official difficulty settings change creature health and damage, so the pace of this fight is mode-sensitive even though no quest change was announced. This page does not infer a base health value or a fixed number of attacks. Review [Easy, Normal, and Hard](/guides/difficulty-settings/) and keep the source-supported leech, encounter, trophy, and return sequence unchanged.
+
 ## What to do next
 
 Return the drop, receive the next coordinates, and continue to [Island 3 desert progression](/islands/island-three-desert/). The next boss is [Pufferfish](/bosses/pufferfish/).
-
