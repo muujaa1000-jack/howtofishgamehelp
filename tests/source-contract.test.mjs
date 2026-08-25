@@ -209,6 +209,25 @@ test('worker CSP blocks advertising and analytics origins during review', async 
   assert.doesNotMatch(worker, /script-src[^;"]*https:\/\/\*/);
 });
 
+test('worker prevents Cloudflare analytics injection into HTML responses', async () => {
+  const worker = (await import('../worker/index.ts')).default;
+  const response = await worker.fetch(
+    new Request('https://howtofishgamehelp.com/'),
+    {
+      ASSETS: {
+        fetch: async () => new Response('<!doctype html><title>Guide</title>', {
+          headers: {
+            'Cache-Control': 'public, max-age=0, must-revalidate',
+            'Content-Type': 'text/html; charset=utf-8',
+          },
+        }),
+      },
+    },
+  );
+
+  assert.match(response.headers.get('Cache-Control') ?? '', /(?:^|,)\s*no-transform(?:,|$)/i);
+});
+
 test('shared head validates and conditionally emits one AdSense account meta', async () => {
   const siteConfig = await text('src/config/site.ts');
   const layout = await text('src/layouts/BaseLayout.astro');

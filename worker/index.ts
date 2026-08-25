@@ -28,6 +28,16 @@ export default {
     const assetResponse = await env.ASSETS.fetch(request);
     const headers = new Headers(assetResponse.headers);
     for (const [name, value] of Object.entries(securityHeaders)) headers.set(name, value);
+    if (headers.get('Content-Type')?.toLowerCase().startsWith('text/html')) {
+      const cacheDirectives = (headers.get('Cache-Control') ?? '')
+        .split(',')
+        .map((directive) => directive.trim())
+        .filter(Boolean);
+      if (!cacheDirectives.some((directive) => directive.toLowerCase() === 'no-transform')) {
+        cacheDirectives.push('no-transform');
+      }
+      headers.set('Cache-Control', cacheDirectives.join(', '));
+    }
     if (url.hostname.endsWith('.workers.dev') || url.hostname.endsWith('.workers.dev.localhost')) {
       headers.set('X-Robots-Tag', 'noindex, nofollow');
     }
