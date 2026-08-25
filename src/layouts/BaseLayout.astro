@@ -47,6 +47,31 @@ const robotsContent = robots ?? (noindex ? 'noindex,nofollow' : undefined);
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
+    {site.analyticsEnabled && (
+      <>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+          });
+          gtag('set', 'ads_data_redaction', true);
+        </script>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(site.analyticsId)}`}></script>
+        <script is:inline define:vars={{ analyticsId: site.analyticsId }}>
+          gtag('js', new Date());
+          gtag('config', analyticsId, {
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false,
+            page_location: window.location.origin + window.location.pathname,
+            page_path: window.location.pathname,
+          });
+        </script>
+      </>
+    )}
     {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>
   <body>

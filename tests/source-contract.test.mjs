@@ -238,3 +238,28 @@ test('shared head validates and conditionally emits one AdSense account meta', a
   assert.match(layout, /name="google-adsense-account"/);
   assert.match(layout, /site\.adsenseAccountIsValid/);
 });
+
+test('shared head validates Analytics and defaults consent before loading GA4', async () => {
+  const siteConfig = await text('src/config/site.ts');
+  const layout = await text('src/layouts/BaseLayout.astro');
+
+  assert.match(siteConfig, /PUBLIC_ANALYTICS_ENABLED/);
+  assert.match(siteConfig, /PUBLIC_ANALYTICS_ID/);
+  assert.match(siteConfig, /\^G-\[A-Z0-9\]\{8,\}\$/);
+  assert.match(siteConfig, /analyticsEnabled:/);
+  assert.match(siteConfig, /analyticsId,/);
+
+  const consentIndex = layout.indexOf("gtag('consent', 'default'");
+  const loaderIndex = layout.indexOf('googletagmanager.com/gtag/js');
+  assert.ok(consentIndex >= 0, 'shared head must set a default Consent Mode state');
+  assert.ok(loaderIndex > consentIndex, 'Consent Mode defaults must run before the Google tag loader');
+  for (const consent of ['analytics_storage', 'ad_storage', 'ad_user_data', 'ad_personalization']) {
+    assert.match(layout, new RegExp(`${consent}: 'denied'`));
+  }
+  assert.match(layout, /gtag\('set', 'ads_data_redaction', true\)/);
+  assert.match(layout, /allow_google_signals: false/);
+  assert.match(layout, /allow_ad_personalization_signals: false/);
+  assert.match(layout, /page_location: window\.location\.origin \+ window\.location\.pathname/);
+  assert.match(layout, /page_path: window\.location\.pathname/);
+  assert.doesNotMatch(layout, /(?:analytics_storage|ad_storage|ad_user_data|ad_personalization): 'granted'/);
+});

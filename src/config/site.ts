@@ -1,3 +1,5 @@
+const analyticsId = import.meta.env.PUBLIC_ANALYTICS_ID?.trim() ?? '';
+const analyticsIdIsValid = /^G-[A-Z0-9]{8,}$/.test(analyticsId);
 const adsenseAccount = import.meta.env.PUBLIC_GOOGLE_ADSENSE_ACCOUNT?.trim() ?? '';
 const adsenseAccountIsValid = /^ca-pub-[0-9]{16}$/.test(adsenseAccount);
 
@@ -8,6 +10,8 @@ export const site = {
   url: 'https://howtofishgamehelp.com',
   gameName: 'How to Fish',
   steamAppId: '4001890',
+  analyticsEnabled: import.meta.env.PUBLIC_ANALYTICS_ENABLED === 'true' && analyticsIdIsValid,
+  analyticsId,
   adsenseEnabled: import.meta.env.PUBLIC_ADSENSE_ENABLED === 'true' && adsenseAccountIsValid,
   adsenseAccount,
   adsenseAccountIsValid,
