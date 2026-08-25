@@ -122,11 +122,17 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
   assert.match(workflow, /CLOUDFLARE_API_TOKEN:\s*\$\{\{ secrets\.CLOUDFLARE_API_TOKEN \}\}/);
   assert.match(workflow, /CLOUDFLARE_ACCOUNT_ID:\s*\$\{\{ vars\.CLOUDFLARE_ACCOUNT_ID \}\}/);
   assert.doesNotMatch(workflow, /PUBLIC_CONTACT_EMAIL_ENABLED/);
-  assert.doesNotMatch(workflow, /PUBLIC_ANALYTICS_ENABLED|PUBLIC_ANALYTICS_ID/);
+  assert.match(workflow, /PUBLIC_ANALYTICS_ENABLED:\s*\$\{\{ vars\.PUBLIC_ANALYTICS_ENABLED \}\}/);
+  assert.match(workflow, /PUBLIC_ANALYTICS_ID:\s*\$\{\{ vars\.PUBLIC_ANALYTICS_ID \}\}/);
   assert.match(workflow, /PUBLIC_ADSENSE_ENABLED:\s*["']false["']/);
   assert.match(workflow, /PUBLIC_GOOGLE_ADSENSE_ACCOUNT:\s*\$\{\{ vars\.PUBLIC_GOOGLE_ADSENSE_ACCOUNT \}\}/);
   assert.doesNotMatch(workflow, /PUBLIC_ADS_DEPLOYMENT|PUBLIC_ADS_ENABLED|PUBLIC_ADSTERRA/);
+  assert.match(workflow, /name: Validate Analytics configuration/);
   assert.match(workflow, /name: Validate advertising configuration/);
+  assert.ok(
+    workflow.indexOf('Validate Analytics configuration') < workflow.indexOf('npm run build'),
+    'Analytics configuration must be validated before build',
+  );
   assert.ok(
     workflow.indexOf('Validate advertising configuration') < workflow.indexOf('npm run build'),
     'advertising configuration must be validated before build',
@@ -201,17 +207,45 @@ test('production advertising guard accepts an empty account and rejects invalid 
   assert.notEqual(invalidAccount.status, 0, 'invalid account format should be rejected');
 });
 
-test('worker CSP blocks advertising and analytics origins during review', async () => {
+test('worker CSP allows only approved analytics origins and blocks advertising origins', async () => {
   const worker = await text('worker/index.ts');
-  assert.doesNotMatch(worker, /googletagmanager|google-analytics|analytics\.google|googlesyndication|doubleclick/i);
+  assert.match(worker, /connect-src 'self' https:\/\/\*\.google-analytics\.com https:\/\/\*\.analytics\.google\.com https:\/\/www\.googletagmanager\.com/);
+  assert.match(worker, /img-src 'self' data: https:\/\/\*\.google-analytics\.com https:\/\/www\.googletagmanager\.com/);
+  assert.match(worker, /script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https:\/\/www\.googletagmanager\.com https:\/\/static\.cloudflareinsights\.com/);
+  assert.doesNotMatch(worker, /googlesyndication|doubleclick/i);
   assert.doesNotMatch(worker, /profitableratecpmnetwork|highrevenueformat|adsterra/i);
-  assert.match(worker, /connect-src 'self'/);
   assert.match(worker, /script-src[^;"]*'wasm-unsafe-eval'/);
   assert.doesNotMatch(worker, /script-src[^;"]*'unsafe-eval'/);
   assert.doesNotMatch(worker, /script-src[^;"]*https:\/\/\*/);
 });
 
-test('worker prevents Cloudflare analytics injection into HTML responses', async () => {
+test('production Analytics guard accepts disabled or valid configuration and rejects invalid values', async () => {
+  const workflow = await text('.github/workflows/deploy-production.yml');
+  const match = workflow.match(/name: Validate Analytics configuration\r?\n\s+run: node -e "([^"]+)"/);
+  assert.ok(match, 'Analytics guard command must be present');
+
+  const baseEnv = { ...process.env };
+  for (const name of ['PUBLIC_ANALYTICS_ENABLED', 'PUBLIC_ANALYTICS_ID']) delete baseEnv[name];
+  const runGuard = (values) => spawnSync(process.execPath, ['-e', match[1]], {
+    env: { ...baseEnv, ...values },
+    encoding: 'utf8',
+  });
+
+  const disabled = runGuard({ PUBLIC_ANALYTICS_ENABLED: 'false', PUBLIC_ANALYTICS_ID: '' });
+  assert.equal(disabled.status, 0, disabled.stderr);
+
+  const validAnalyticsId = `G-${'A'.repeat(10)}`;
+  const enabled = runGuard({ PUBLIC_ANALYTICS_ENABLED: 'true', PUBLIC_ANALYTICS_ID: validAnalyticsId });
+  assert.equal(enabled.status, 0, enabled.stderr);
+
+  const invalidFlag = runGuard({ PUBLIC_ANALYTICS_ENABLED: 'sometimes', PUBLIC_ANALYTICS_ID: validAnalyticsId });
+  assert.notEqual(invalidFlag.status, 0, 'Analytics flag must be true or false');
+
+  const invalidId = runGuard({ PUBLIC_ANALYTICS_ENABLED: 'true', PUBLIC_ANALYTICS_ID: 'not-a-measurement-id' });
+  assert.notEqual(invalidId.status, 0, 'enabled Analytics must require a valid measurement ID');
+});
+
+test('worker leaves HTML transformable for Cloudflare Web Analytics injection', async () => {
   const worker = (await import('../worker/index.ts')).default;
   const response = await worker.fetch(
     new Request('https://howtofishgamehelp.com/'),
@@ -227,7 +261,8 @@ test('worker prevents Cloudflare analytics injection into HTML responses', async
     },
   );
 
-  assert.match(response.headers.get('Cache-Control') ?? '', /(?:^|,)\s*no-transform(?:,|$)/i);
+  assert.equal(response.headers.get('Cache-Control'), 'public, max-age=0, must-revalidate');
+  assert.doesNotMatch(response.headers.get('Cache-Control') ?? '', /(?:^|,)\s*no-transform(?:,|$)/i);
 });
 
 test('shared head validates and conditionally emits one AdSense account meta', async () => {

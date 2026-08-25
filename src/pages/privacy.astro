@@ -1,14 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
 ---
 <BaseLayout title="Privacy Policy" description="How to Fish Game Help explains its analytics, hosting, advertising, and visitor-data practices." canonicalPath="/privacy/">
   <article class="narrow section prose">
     <p class="eyebrow">Effective August 25, 2026</p>
     <h1>Privacy policy</h1>
-    <p>This site serves static informational guides. Google Analytics is <strong>disabled</strong> in the current review build, Adsterra advertising units are disabled, and Google AdSense advertisements are not yet enabled.</p>
+    <p>This site serves static informational guides. Google Analytics is <strong>{site.analyticsEnabled ? 'enabled' : 'disabled'}</strong> in this build, Cloudflare Web Analytics is enabled on the production domain, Adsterra advertising units are disabled, and Google AdSense advertisements are not enabled.</p>
 
-    <h2>Analytics</h2>
-    <p>The current site does not load Google Analytics or set its own analytics cookies. Google Analytics configuration and consent settings are reviewed when analytics features change. We do not intentionally send account, purchase, form, email, phone-number, or user-ID data to Google Analytics.</p>
+    <h2>Google Analytics</h2>
+    {site.analyticsEnabled ? (
+      <>
+        <p>We use Google Analytics 4 to understand traffic sources, page use, and unusual traffic patterns. Before a certified consent message can update a visitor's choice, the site sets analytics storage, advertising storage, advertising user data, and ad personalization to denied. Google Analytics may therefore receive cookieless measurement pings for basic measurement and modeling, but this site does not allow Analytics or advertising cookies in that default state.</p>
+        <p>The site tag disables Google Signals and ad-personalization signals. Its initial page-view configuration sends the site origin and path without search parameters. We do not intentionally send account, purchase, form, email, phone-number, or user-ID data to Google Analytics.</p>
+      </>
+    ) : (
+      <p>Google Analytics is disabled in this build, so this build sends no GA4 measurement request. Analytics configuration and consent settings are reviewed when analytics features change.</p>
+    )}
 
     <h2>Google AdSense and advertising cookies</h2>
     <p>This site may use Google AdSense to display third-party advertisements. When advertising is enabled, third-party vendors, including Google, may use cookies, local storage, web beacons, IP addresses, and similar identifiers to deliver, limit, personalize, secure, and measure advertisements.</p>
@@ -25,8 +33,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h2>Contact</h2>
     <p>There is no contact form, user account, comment system, purchase flow, or newsletter on this site. Selecting the public email link opens the visitor's email software or provider; the resulting message is handled by the sender's provider and the site's configured receiving route, not by a form database on this website.</p>
 
-    <h2>Hosting and security logs</h2>
-    <p>Cloudflare delivers and protects the site. It may process limited request and security data such as IP address, browser and device information, requested URL, approximate location, and abuse or threat signals. Cloudflare handles that infrastructure data under its own policies and retention controls.</p>
+    <h2>Cloudflare analytics, hosting and security</h2>
+    <p>Cloudflare Web Analytics is enabled on the production domain to provide aggregate traffic and performance measurement. Cloudflare also delivers and protects the site. It may process limited request and security data such as IP address, browser and device information, requested URL, approximate location, and abuse or threat signals. Cloudflare handles that infrastructure data under its own policies and retention controls.</p>
 
     <h2>External links</h2>
     <p>Links to Steam, Dazed Games announcements, media, videos, community sources, email providers, Google settings, and policy pages open third-party services with their own privacy terms. Following a link is not required to read the main guide text.</p>

@@ -7,6 +7,8 @@ import { parse } from 'parse5';
 const dist = path.resolve('dist');
 const adsenseAccount = process.env.PUBLIC_GOOGLE_ADSENSE_ACCOUNT?.trim() ?? '';
 const validAdsenseAccount = /^ca-pub-[0-9]{16}$/.test(adsenseAccount);
+const analyticsId = process.env.PUBLIC_ANALYTICS_ID?.trim() ?? '';
+const analyticsEnabled = process.env.PUBLIC_ANALYTICS_ENABLED === 'true' && /^G-[A-Z0-9]{8,}$/.test(analyticsId);
 
 async function text(file) {
   return readFile(path.join(dist, file), 'utf8');
@@ -73,9 +75,21 @@ test('build contains the representative launch routes and metadata', async () =>
   assert.equal((home.match(/<h1(?:\s|>)/g) ?? []).length, 1);
 
   for (const html of [home, guide]) {
-    assert.doesNotMatch(html, /googletagmanager\.com|google-analytics\.com|gtag\(/);
+    if (analyticsEnabled) {
+      assert.equal((html.match(/googletagmanager\.com\/gtag\/js/g) ?? []).length, 1);
+      assert.match(html, new RegExp(`id=${analyticsId}`));
+      assert.match(html, /analytics_storage:\s*'denied'/);
+      assert.match(html, /ad_storage:\s*'denied'/);
+      assert.match(html, /page_location:\s*window\.location\.origin \+ window\.location\.pathname/);
+      assert.match(html, /allow_google_signals:\s*false/);
+      assert.match(html, /allow_ad_personalization_signals:\s*false/);
+    } else {
+      assert.doesNotMatch(html, /googletagmanager\.com|google-analytics\.com|gtag\(/);
+    }
   }
-  assert.match(privacy, /Google Analytics is <strong>disabled<\/strong>/);
+  assert.match(privacy, analyticsEnabled
+    ? /Google Analytics is <strong>enabled<\/strong>/
+    : /Google Analytics is <strong>disabled<\/strong>/);
 
   const contact = await text('contact/index.html');
   assert.doesNotMatch(contact, /noindex/i);
@@ -107,7 +121,13 @@ test('all generated internal links resolve and launch output contains no private
   } else {
     assert.doesNotMatch(corpus, /ca-pub-[0-9]+/i);
   }
-  assert.doesNotMatch(corpus, /(?:^|[^A-Za-z0-9])G-[A-Z0-9]{8,}(?:$|[^A-Za-z0-9])/m);
+  if (analyticsEnabled) {
+    const analyticsMentions = corpus.match(/G-[A-Z0-9]{8,}/g) ?? [];
+    assert.ok(analyticsMentions.length > 0, 'configured Analytics ID should appear in generated HTML');
+    assert.ok(analyticsMentions.every((value) => value === analyticsId));
+  } else {
+    assert.doesNotMatch(corpus, /(?:^|[^A-Za-z0-9])G-[A-Z0-9]{8,}(?:$|[^A-Za-z0-9])/m);
+  }
   assert.doesNotMatch(corpus, /foxmail\.com/i);
 
   for (const file of htmlFiles) {
@@ -150,7 +170,9 @@ test('trust pages use one public identity and disclose review-period data practi
   assert.match(privacy, /https:\/\/adssettings\.google\.com\//);
   assert.match(privacy, /https:\/\/policies\.google\.com\/technologies\/partner-sites/);
   assert.match(privacy, /Adsterra advertising units were disabled/i);
-  assert.match(privacy, /Google Analytics is <strong>disabled<\/strong>/i);
+  assert.match(privacy, analyticsEnabled
+    ? /Google Analytics is <strong>enabled<\/strong>/i
+    : /Google Analytics is <strong>disabled<\/strong>/i);
   assert.doesNotMatch(privacy, /Google-certified consent management platform where required/i);
   assert.doesNotMatch(privacy, /Privacy and cookie settings/i);
 });
