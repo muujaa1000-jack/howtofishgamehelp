@@ -27,7 +27,7 @@ async function walk(relativePath) {
 test('project declares the required static Astro and Cloudflare commands', async () => {
   const pkg = JSON.parse(await text('package.json'));
   assert.equal(pkg.type, 'module');
-  for (const script of ['dev', 'check', 'build', 'test', 'validate', 'preview', 'deploy']) {
+  for (const script of ['dev', 'check', 'build', 'test', 'validate', 'audit:adsense', 'preview', 'deploy']) {
     assert.equal(typeof pkg.scripts[script], 'string', `missing npm script: ${script}`);
   }
 
@@ -149,6 +149,7 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
     'node --experimental-strip-types --test tests/ad-placement.test.mjs tests/source-contract.test.mjs tests/content-quality.test.mjs tests/validate-script.test.mjs',
     'npm run check',
     'npm run build',
+    'npm run audit:adsense',
     'npm run test:built',
     `npx wrangler versions upload --env="" --tag "${releaseTagReference}"`,
     `npx wrangler versions deploy --env="" --version-tag "${releaseTagReference}" --yes`,

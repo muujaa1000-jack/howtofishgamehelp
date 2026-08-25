@@ -53,6 +53,9 @@ jobs:
       - name: Build production site
         run: npm run build
 
+      - name: Audit AdSense readiness
+        run: npm run audit:adsense
+
       - name: Test generated site
         run: npm run test:built
 

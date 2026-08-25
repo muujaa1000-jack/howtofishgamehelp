@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
+import { parse } from 'parse5';
 
 const dist = path.resolve('dist');
 const adsenseAccount = process.env.PUBLIC_GOOGLE_ADSENSE_ACCOUNT?.trim() ?? '';
@@ -30,6 +31,20 @@ function hrefToFile(href) {
   if (pathname === '/') return 'index.html';
   if (path.extname(pathname)) return pathname.slice(1);
   return `${pathname.slice(1).replace(/\/$/, '')}/index.html`;
+}
+
+function findByAttribute(node, name) {
+  if (node.attrs?.some((attribute) => attribute.name === name)) return node;
+  for (const child of node.childNodes ?? []) {
+    const match = findByAttribute(child, name);
+    if (match) return match;
+  }
+  return null;
+}
+
+function textContent(node) {
+  if (node.nodeName === '#text') return node.value;
+  return (node.childNodes ?? []).map(textContent).join(' ');
 }
 
 test('build contains the representative launch routes and metadata', async () => {
@@ -138,4 +153,18 @@ test('trust pages use one public identity and disclose review-period data practi
   assert.match(privacy, /Google Analytics is <strong>disabled<\/strong>/i);
   assert.doesNotMatch(privacy, /Google-certified consent management platform where required/i);
   assert.doesNotMatch(privacy, /Privacy and cookie settings/i);
+});
+
+test('indexable hubs provide concise editorial routes and remain free of ads', async () => {
+  for (const category of ['guides', 'walkthrough', 'islands', 'bosses', 'items', 'achievements', 'fixes']) {
+    const html = await text(`${category}/index.html`);
+    const hub = findByAttribute(parse(html), 'data-hub-copy');
+    assert.ok(hub, `${category} hub is missing editorial copy`);
+    const words = textContent(hub).match(/[A-Za-z][A-Za-z’'-]*/g) ?? [];
+    assert.ok(words.length >= 350 && words.length <= 600, `${category} hub has ${words.length} editorial words`);
+    assert.doesNotMatch(html, /(?:ad-slot|adsbygoogle|googlesyndication|data-ad-eligible="true")/i);
+  }
+  const guides = await text('guides/index.html');
+  assert.match(guides, /<h1>How to Fish Beginner Guides<\/h1>/);
+  assert.doesNotMatch(guides, /Guides Guides/i);
 });

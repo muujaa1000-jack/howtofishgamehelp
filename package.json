@@ -13,6 +13,7 @@
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "test:built": "node --test tests/built-site.test.mjs tests/ads-built-site.test.mjs",
     "validate": "node scripts/validate-content.mjs",
+    "audit:adsense": "node scripts/audit-adsense-readiness.mjs",
     "docs:content": "node scripts/export-content-docs.mjs",
     "preview": "astro preview",
     "deploy": "npm run build && wrangler deploy",
