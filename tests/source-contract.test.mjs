@@ -206,6 +206,8 @@ test('worker CSP blocks advertising and analytics origins during review', async 
   assert.doesNotMatch(worker, /googletagmanager|google-analytics|analytics\.google|googlesyndication|doubleclick/i);
   assert.doesNotMatch(worker, /profitableratecpmnetwork|highrevenueformat|adsterra/i);
   assert.match(worker, /connect-src 'self'/);
+  assert.match(worker, /script-src[^;"]*'wasm-unsafe-eval'/);
+  assert.doesNotMatch(worker, /script-src[^;"]*'unsafe-eval'/);
   assert.doesNotMatch(worker, /script-src[^;"]*https:\/\/\*/);
 });
 
