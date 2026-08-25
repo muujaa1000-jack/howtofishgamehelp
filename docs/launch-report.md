@@ -1,5 +1,7 @@
 # Launch Report
 
+Historical note added 2026-08-25: this report is the 2026-08-23 launch snapshot. Its page counts, deployment IDs, and analytics-disabled statement have been superseded by the current outcome in \`docs/adsense-readiness-audit.md\`.
+
 Checked: 2026-08-23 (Asia/Singapore)
 
 Status: **Formal site live with automatic production deployment.** Production content, DNS, HTTPS, redirects, Email Routing, Contact publication, Search Console verification, sitemap submission, the stable noindex preview, and `main`-only GitHub Actions deployment are complete. Native Cloudflare Workers Builds is not attached because Cloudflare reports that the shared GitHub App installation is disconnected from this Cloudflare account; the repository-only Actions path is the active replacement.

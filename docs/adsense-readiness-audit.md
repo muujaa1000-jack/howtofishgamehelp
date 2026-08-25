@@ -18,7 +18,7 @@ This document separates confirmed observations from open checks. It is not evide
 | Production sitemap checked | `https://howtofishgamehelp.com/sitemap-0.xml` contained 43 URLs |
 | Production ads.txt | `https://howtofishgamehelp.com/ads.txt` returned HTTP 404; no placeholder seller line was published |
 
-The current production deployment is not changed by this feature branch. A production release requires separate owner approval.
+This table records the starting production state. It is superseded by the post-remediation outcome at the end of this document.
 
 ## Page and template baseline
 
@@ -45,7 +45,7 @@ Confirmed from repository code, current GitHub repository variables, current pro
 - No AdSense Auto ads loader was found in the repository or checked production HTML.
 - No Google-certified CMP or consent-choice interface was found. GA4 loaded when its environment switch was enabled, without a user choice in the site code.
 
-Required branch action: remove all active Adsterra code and CSP allowances, keep analytics/advertising disabled until a real consent path exists where required, and add only validated AdSense-account meta capability.
+Baseline requirement: remove all active Adsterra code and CSP allowances, keep advertising disabled, place retained GA4 measurement behind denied Consent Mode defaults, and add only validated AdSense-account meta capability. The post-remediation section records the completed result.
 
 ## Game release and evidence baseline
 
@@ -76,7 +76,7 @@ These announcements do not prove first-hand play, hidden numbers, complete bug r
 
 The per-file review and usage basis will be recorded in `docs/asset-rights-ledger.md`.
 
-## Confirmed problems
+## Confirmed problems at baseline
 
 1. Production concrete guides currently load Adsterra and GA4.
 2. Active Adsterra domains and code remain in components, configuration, workflow variables, tests, and Worker CSP.
@@ -89,7 +89,7 @@ The per-file review and usage basis will be recorded in `docs/asset-rights-ledge
 9. Priority guides and category Hub explanations are too brief for the intended independent intents.
 10. No automated AdSense readiness command exists.
 
-## Open or manual checks
+## Open or manual checks at baseline
 
 - End-to-end receipt at `contact@howtofishgamehelp.com` has not been demonstrated; only routing/configuration and public-page evidence exists.
 - Whether the owner already has an AdSense account cannot be determined from the repository.
@@ -100,3 +100,32 @@ The per-file review and usage basis will be recorded in `docs/asset-rights-ledge
 ## Gate status at baseline
 
 **Not ready.** The live site loads Adsterra on guide pages, uses outdated release metadata, lacks the AdSense cookie disclosure and default-deny guide eligibility, and has not completed the requested content, audit, Preview, or browser checks.
+
+## Post-remediation live outcome
+
+Verified on 2026-08-25 after owner-approved production deployment:
+
+| Item | Confirmed outcome |
+|---|---|
+| Analytics implementation commit | \`44daf7e45cd14224f2cd602fd001fbfe2c804825\` |
+| Verified Analytics production version | \`61ab99b7-bd61-484c-94cb-d701dc5d8a76\` |
+| Analytics release run | \`32835748226\` completed successfully |
+| Preview | \`https://howtofishgamehelp-preview.howtofishgamehelp.workers.dev/\`, version \`8bc29e72-4f50-4b90-a289-40fa7f6c10d7\` |
+| Production pages | 49 generated HTML pages; 34 substantive guide pages |
+| Production sitemap | 47 apex-domain URLs; Search and 404 are excluded |
+| Search | \`noindex,follow\`, apex canonical, no advertising elements |
+| Advertising | Adsterra execution paths and domains removed; AdSense display and Auto ads disabled; no advertising hosts observed in production browser traffic |
+| Analytics | GA4 retained with all four Consent Mode categories denied by default; Google Signals and ad-personalization signals disabled; initial page location omits query strings |
+| Cloudflare | Web Analytics beacon and same-origin RUM request observed on production |
+| Browser storage | No cookies or local-storage entries were created during the denied-consent production check |
+| AdSense account meta | Not emitted because no validated account value is configured |
+| ads.txt | Not published; no placeholder seller line exists |
+| CMP | Not configured or published; no footer settings link or live-CMP claim |
+
+The live homepage returned HTTP 200, \`www\` returned one HTTP 301 to the apex homepage, production HTML contained one GA4 loader and one Cloudflare beacon, and the Content Security Policy allowed only the required Analytics origins while continuing to exclude advertising origins.
+
+The owner confirmed that \`contact@howtofishgamehelp.com\` can receive mail and stated that there is no existing AdSense account. These are owner statements, not repository-derived evidence.
+
+## Current gate status
+
+**Ready for AdSense manual setup.** The site-side remediation, production deployment, and browser checks are complete. Account registration, real publisher identifiers, a certified CMP, a real \`ads.txt\`, and the eventual Request review action remain owner-controlled steps and must not be represented as complete.

@@ -33,11 +33,11 @@ Test the published message for visitors in:
 For each applicable region, verify:
 
 - Consent allows only the configured purposes and vendors.
-- Do not consent prevents non-essential advertising and analytics tags from loading.
+- Do not consent prevents advertising storage and non-essential advertising tags. If the site continues to use advanced Consent Mode, GA4 may still send cookieless pings while analytics storage remains denied.
 - Manage options accurately changes individual choices.
 - A visitor can later withdraw or change consent.
 - Google advertising Consent Mode receives the expected state.
-- GA4 analytics consent receives the expected state before any analytics request.
+- GA4 receives the expected consent default before the Google tag loads, and denied-choice measurement requests retain the denied state.
 - Reloading and revisiting preserve or re-request choices according to the configured policy.
 - The core guides remain readable without an account, purchase, newsletter subscription, or ad click.
 
