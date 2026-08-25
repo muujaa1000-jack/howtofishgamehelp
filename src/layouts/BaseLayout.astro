@@ -25,6 +25,7 @@ const pageTitle = title === site.title ? title : `${title} | ${site.name}`;
     <meta name="viewport" content="width=device-width" />
     <meta name="theme-color" content="#061b2e" />
     <meta name="msvalidate.01" content="2F37111893DE046DA8A16D61DCC4F766" />
+    {site.adsenseAccountIsValid && <meta name="google-adsense-account" content={site.adsenseAccount} />}
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -44,20 +45,6 @@ const pageTitle = title === site.title ? title : `${title} | ${site.name}`;
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
-    {site.analyticsEnabled && (
-      <>
-        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(site.analyticsId)}`}></script>
-        <script is:inline define:vars={{ analyticsId: site.analyticsId }}>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', analyticsId, {
-            allow_google_signals: false,
-            allow_ad_personalization_signals: false,
-          });
-        </script>
-      </>
-    )}
     {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>
   <body>

@@ -5,16 +5,9 @@ import test from 'node:test';
 
 const dist = path.resolve('dist');
 const categories = new Set(['guides', 'walkthrough', 'islands', 'bosses', 'items', 'achievements', 'fixes']);
-const production = process.env.PUBLIC_ADS_DEPLOYMENT === 'production';
-const adsEnabled = process.env.PUBLIC_ADS_ENABLED === 'true';
-const expectedModes = {
-  banner: production
-    ? (adsEnabled && process.env.PUBLIC_ADSTERRA_BANNER_320X50_ENABLED === 'true' ? 'live' : 'off')
-    : 'placeholder',
-  native: production
-    ? (adsEnabled && process.env.PUBLIC_ADSTERRA_NATIVE_ENABLED === 'true' ? 'live' : 'off')
-    : 'placeholder',
-};
+const prohibitedRuntime = /data-adsterra-unit|profitableratecpmnetwork|highrevenueformat|atOptions\s*=|invoke\.js|adsbygoogle|googlesyndication|doubleclick|data-ad-mode|Advertisement placeholder/i;
+const adsenseAccount = process.env.PUBLIC_GOOGLE_ADSENSE_ACCOUNT?.trim() ?? '';
+const validAdsenseAccount = /^ca-pub-[0-9]{16}$/.test(adsenseAccount);
 
 async function walk(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -25,75 +18,25 @@ async function walk(directory) {
   return nested.flat();
 }
 
-function count(html, pattern) {
-  return (html.match(pattern) ?? []).length;
-}
-
-function assertAdUnit(html, unit, mode, file) {
-  const marker = new RegExp(`data-adsterra-unit="${unit}"`, 'g');
-  if (mode === 'off') {
-    assert.equal(count(html, marker), 0, file);
-    if (unit === 'banner-320x50') {
-      assert.doesNotMatch(html, /highrevenueformat|31358e95bdfca07885ad4d825c43845b|atOptions\s*=/, file);
-    } else {
-      assert.doesNotMatch(html, /profitableratecpmnetwork|container-cd35885d41c8db0e720a6e017aadbf77/, file);
-    }
-    return;
-  }
-
-  assert.equal(count(html, marker), 1, file);
-  const slot = html.match(new RegExp(`<aside[^>]*data-adsterra-unit="${unit}" data-ad-mode="${mode}"[\\s\\S]*?</aside>`))?.[0] ?? '';
-  assert.ok(slot, file);
-  if (mode === 'placeholder') {
-    assert.match(slot, /Advertisement placeholder/, file);
-    if (unit === 'banner-320x50') {
-      assert.doesNotMatch(html, /highrevenueformat|31358e95bdfca07885ad4d825c43845b|atOptions\s*=/, file);
-    } else {
-      assert.doesNotMatch(html, /profitableratecpmnetwork|container-cd35885d41c8db0e720a6e017aadbf77/, file);
-    }
-    return;
-  }
-
-  if (unit === 'banner-320x50') {
-    assert.equal(count(html, /www\.highrevenueformat\.com\/31358e95bdfca07885ad4d825c43845b\/invoke\.js/g), 1, file);
-    assert.equal(count(html, /atOptions\s*=/g), 1, file);
-    assert.ok(html.indexOf('atOptions =') < html.indexOf('www.highrevenueformat.com'), file);
-  } else {
-    assert.equal(count(html, /pl30995799\.profitableratecpmnetwork\.com\/cd35885d41c8db0e720a6e017aadbf77\/invoke\.js/g), 1, file);
-    assert.equal(count(html, /id="container-cd35885d41c8db0e720a6e017aadbf77"/g), 1, file);
-    assert.ok(html.indexOf('<body') < html.indexOf('pl30995799.profitableratecpmnetwork.com'), file);
-  }
-}
-
-test('all concrete guides contain exactly one correctly placed unit of each approved type', async () => {
+test('concrete guides contain evidence labels but no advertising runtime or empty slot', async () => {
   const files = await walk(dist);
   const guides = files.filter((file) => {
     const relative = path.relative(dist, file).split(path.sep);
     return relative.length === 3 && categories.has(relative[0]) && relative[2] === 'index.html';
   });
-  assert.equal(guides.length, 31);
+  assert.ok(guides.length >= 31, `expected at least 31 concrete guides, found ${guides.length}`);
 
   for (const file of guides) {
     const html = await readFile(file, 'utf8');
-    assertAdUnit(html, 'banner-320x50', expectedModes.banner, file);
-    assertAdUnit(html, 'native', expectedModes.native, file);
-
-    const quick = html.indexOf('<h2 id="quick-steps">');
-    const banner = html.indexOf('data-adsterra-unit="banner-320x50"');
-    const nextH2 = html.indexOf('<h2', quick + 1);
-    const sources = html.indexOf('<section class="source-note"');
-    const native = html.indexOf('data-adsterra-unit="native"');
-    const sequence = html.indexOf('<nav class="sequence"');
-    if (expectedModes.banner !== 'off') {
-      assert.ok(quick !== -1 && quick < banner && banner < nextH2, `${file} banner boundary`);
-    }
-    if (expectedModes.native !== 'off') {
-      assert.ok(sources !== -1 && sources < native && native < sequence, `${file} native boundary`);
-    }
+    assert.doesNotMatch(html, prohibitedRuntime, file);
+    assert.doesNotMatch(html, /class="ad-slot|aria-label="Advertisement"/i, file);
+    assert.match(html, /Last source review/i, file);
+    assert.match(html, /Evidence reviewed through/i, file);
+    assert.match(html, /Source-based guide; not independently playtested/i, file);
   }
 });
 
-test('excluded HTML pages contain no ad unit, script, key, or native container', async () => {
+test('controlled routes and the complete built corpus contain no advertising runtime', async () => {
   const excluded = [
     'index.html', 'guides/index.html', 'walkthrough/index.html', 'islands/index.html',
     'bosses/index.html', 'items/index.html', 'achievements/index.html', 'fixes/index.html',
@@ -102,11 +45,24 @@ test('excluded HTML pages contain no ad unit, script, key, or native container',
   ];
   for (const relative of excluded) {
     const html = await readFile(path.join(dist, relative), 'utf8');
-    assert.doesNotMatch(html, /data-adsterra-unit|profitableratecpmnetwork|highrevenueformat|31358e95bdfca07885ad4d825c43845b|container-cd35885d41c8db0e720a6e017aadbf77/, relative);
+    assert.doesNotMatch(html, prohibitedRuntime, relative);
+    assert.doesNotMatch(html, /class="ad-slot|aria-label="Advertisement"/i, relative);
+  }
+
+  const files = await walk(dist);
+  const corpus = (await Promise.all(
+    files.filter((file) => /\.(?:html|xml|txt|js|css)$/.test(file)).map((file) => readFile(file, 'utf8')),
+  )).join('\n');
+  assert.doesNotMatch(corpus, prohibitedRuntime);
+  for (const file of files.filter((file) => file.endsWith('.html'))) {
+    const html = await readFile(file, 'utf8');
+    const metas = html.match(/<meta name="google-adsense-account" content="([^"]+)">/g) ?? [];
+    assert.equal(metas.length, validAdsenseAccount ? 1 : 0, file);
+    if (validAdsenseAccount) assert.match(metas[0], new RegExp(`content="${adsenseAccount}"`), file);
   }
 });
 
-test('public cards and guide headers do not expose internal priority or verification labels', async () => {
+test('public cards and guide headers do not expose internal priority or review-status codes', async () => {
   const home = await readFile(path.join(dist, 'index.html'), 'utf8');
   const category = await readFile(path.join(dist, 'bosses/index.html'), 'utf8');
   const guide = await readFile(path.join(dist, 'bosses/spider-crab/index.html'), 'utf8');
@@ -114,15 +70,4 @@ test('public cards and guide headers do not expose internal priority or verifica
   for (const html of [home, category, guide]) assert.doesNotMatch(html, />P[012]</);
   assert.doesNotMatch(guide, /<span class="status">mixed<\/span>/i);
   assert.doesNotMatch(about, /<strong>Mixed:<\/strong>/i);
-});
-
-test('privacy page discloses Adsterra without inventing consent controls', async () => {
-  const privacy = await readFile(path.join(dist, 'privacy/index.html'), 'utf8');
-  assert.match(privacy, /uses Adsterra to display third-party advertisements/i);
-  assert.match(privacy, /IP address, browser and device information/i);
-  assert.match(privacy, /cookies, pixels, local storage, or similar technologies/i);
-  assert.match(privacy, /https:\/\/adsterra\.com\/privacy-policy-managed\//);
-  assert.match(privacy, /https:\/\/adsterra\.com\/cookies\//);
-  assert.match(privacy, /Effective August 24, 2026/);
-  assert.doesNotMatch(privacy, /ads? (?:are|is) blocked until (?:you|the user) consent/i);
 });

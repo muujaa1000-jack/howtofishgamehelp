@@ -22,6 +22,11 @@ const guides = defineCollection({
     updatedAt: z.coerce.date(),
     lastVerifiedAt: z.coerce.date(),
     gameVersion: z.string().default('Unknown'),
+    lastSourceReview: z.coerce.date().optional(),
+    evidenceThroughVersion: z.string().default('Unknown'),
+    firstHandTested: z.boolean().default(false),
+    patchSensitive: z.boolean().default(true),
+    adEligible: z.boolean().default(false),
     verificationStatus: z.enum(['official', 'community-confirmed', 'mixed', 'needs-review']),
     sources: z.array(sourceSchema).min(1),
     previousGuide: z.string().nullable().default(null),
@@ -36,6 +41,8 @@ const guides = defineCollection({
     message: 'updatedAt cannot be earlier than publishedAt',
   }).refine((data) => data.verificationStatus !== 'needs-review' || data.noindex, {
     message: 'needs-review entries must be noindex',
+  }).refine((data) => !data.adEligible || (!data.draft && !data.noindex), {
+    message: 'adEligible entries must be public and indexable',
   }),
 });
 

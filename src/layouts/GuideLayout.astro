@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import AdsterraNativeBanner from '../components/ads/AdsterraNativeBanner.astro';
 import BaseLayout from './BaseLayout.astro';
 import { categories, guidePath, site } from '../config/site';
 
@@ -18,6 +17,11 @@ const { entry, headings, previous, next, related } = Astro.props;
 const data = entry.data;
 const category = categories.find((item) => item.slug === data.category)!;
 const canonicalPath = guidePath(data.category, data.slug);
+const sourceReviewDate = data.lastSourceReview ?? data.lastVerifiedAt;
+const evidenceVersion = data.evidenceThroughVersion === 'Unknown' ? data.gameVersion : data.evidenceThroughVersion;
+const testingStatus = data.firstHandTested
+  ? 'Includes independently documented playtesting'
+  : 'Source-based guide; not independently playtested';
 const articleJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -43,7 +47,11 @@ const articleJsonLd = {
             <p class="dek">{data.description}</p>
           </div>
           <div class="verification-card">
-            <dl><div><dt>Last checked</dt><dd>{data.lastVerifiedAt.toLocaleDateString('en-US', { dateStyle: 'medium' })}</dd></div><div><dt>Game version</dt><dd>{data.gameVersion}</dd></div></dl>
+            <dl>
+              <div><dt>Last source review</dt><dd>{sourceReviewDate.toLocaleDateString('en-US', { dateStyle: 'medium' })}</dd></div>
+              <div><dt>Evidence reviewed through</dt><dd>Patch {evidenceVersion}</dd></div>
+              <div><dt>Testing status</dt><dd>{testingStatus}</dd></div>
+            </dl>
           </div>
         </div>
       </div>
@@ -66,7 +74,6 @@ const articleJsonLd = {
             <ul>{data.sources.map((source) => <li><a href={source.url} rel="nofollow noopener">{source.title}</a> <span>({source.type.replaceAll('-', ' ')}, checked {source.accessedAt.toISOString().slice(0, 10)})</span></li>)}</ul>
           </section>
         )}
-        <AdsterraNativeBanner />
         <nav class="sequence" aria-label="Guide sequence">
           {previous ? <a href={guidePath(previous.data.category, previous.data.slug)}><small>Previous step</small><b>← {previous.data.title}</b></a> : <span />}
           <div><small>You are here</small><b>{data.title}</b></div>

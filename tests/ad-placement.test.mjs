@@ -68,27 +68,3 @@ test('summary tolerates isolated skips and fails at an 80 percent skip ratio', (
   assert.equal(broadFailure.skipRatio, 0.8);
   assert.equal(broadFailure.shouldFailBuild, true);
 });
-
-import { resolveAdMode } from '../src/lib/ads/resolveAdMode.ts';
-
-test('ad mode is placeholder outside a marked production deployment', () => {
-  assert.equal(resolveAdMode({
-    isProductionBuild: false,
-    deployment: 'production',
-    adsEnabled: true,
-    unitEnabled: true,
-  }), 'placeholder');
-  assert.equal(resolveAdMode({
-    isProductionBuild: true,
-    deployment: undefined,
-    adsEnabled: true,
-    unitEnabled: true,
-  }), 'placeholder');
-});
-
-test('production mode is live only when both switches are enabled', () => {
-  const base = { isProductionBuild: true, deployment: 'production' };
-  assert.equal(resolveAdMode({ ...base, adsEnabled: true, unitEnabled: true }), 'live');
-  assert.equal(resolveAdMode({ ...base, adsEnabled: false, unitEnabled: true }), 'off');
-  assert.equal(resolveAdMode({ ...base, adsEnabled: true, unitEnabled: false }), 'off');
-});

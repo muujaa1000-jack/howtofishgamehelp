@@ -1,50 +1,23 @@
 ---
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import AdsterraBanner320x50 from '../../components/ads/AdsterraBanner320x50.astro';
 import GuideLayout from '../../layouts/GuideLayout.astro';
 import { guidePath } from '../../config/site';
-import {
-  splitGuideContentAfterQuickSteps,
-  summarizeGuideAdPlacements,
-  type GuideContentSplitResult,
-} from '../../lib/ads/splitGuideContent';
 
 interface PageProps {
   entry: CollectionEntry<'guides'>;
   entries: CollectionEntry<'guides'>[];
-  placement: GuideContentSplitResult;
 }
 
 export async function getStaticPaths() {
   const entries = await getCollection('guides', ({ data }) => !data.draft);
-  const placements = entries.map((entry) => {
-    const route = guidePath(entry.data.category, entry.data.slug);
-    return splitGuideContentAfterQuickSteps(entry.rendered?.html, route);
-  });
-  const summary = summarizeGuideAdPlacements(placements);
-
-  for (const placement of placements) {
-    if (placement.status === 'skipped') {
-      console.warn(`[ads] Skipping 320x50 on ${placement.route}: ${placement.reason}`);
-    }
-  }
-  console.info(
-    `[ads] 320x50 placement summary: ${summary.totalRoutes - summary.skippedRoutes.length} placed, ${summary.skippedRoutes.length} skipped` +
-    (summary.skippedRoutes.length ? ` (${summary.skippedRoutes.join(', ')})` : ''),
-  );
-  if (summary.shouldFailBuild) {
-    throw new Error(`[ads] Quick steps placement failed for ${Math.round(summary.skipRatio * 100)}% of guide routes.`);
-  }
-
-  return entries.map((entry, index) => ({
+  return entries.map((entry) => ({
     params: { category: entry.data.category, slug: entry.data.slug },
-    props: { entry, entries, placement: placements[index] },
+    props: { entry, entries },
   }));
 }
 
-const { entry, entries, placement } = Astro.props as PageProps;
-const splitPlacement = placement.status === 'split' ? placement : undefined;
+const { entry, entries } = Astro.props as PageProps;
 const { Content, headings } = await render(entry);
 const byPath = new Map(entries.map((item) => [guidePath(item.data.category, item.data.slug), item]));
 const previous = entry.data.previousGuide ? byPath.get(entry.data.previousGuide) : undefined;
@@ -54,11 +27,5 @@ const related = entry.data.relatedGuides
   .filter((item): item is CollectionEntry<'guides'> => item !== undefined);
 ---
 <GuideLayout entry={entry} headings={headings} previous={previous} next={next} related={related}>
-  {splitPlacement ? (
-    <>
-      <Fragment set:html={splitPlacement.beforeBanner} />
-      <AdsterraBanner320x50 />
-      <Fragment set:html={splitPlacement.afterBanner} />
-    </>
-  ) : <Content />}
+  <Content />
 </GuideLayout>

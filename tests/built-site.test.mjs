@@ -5,10 +5,8 @@ import test from 'node:test';
 
 const dist = path.resolve('dist');
 const contactEmailEnabled = process.env.PUBLIC_CONTACT_EMAIL_ENABLED === 'true';
-const analyticsId = process.env.PUBLIC_ANALYTICS_ID?.trim() ?? '';
-const analyticsEnabled =
-  process.env.PUBLIC_ANALYTICS_ENABLED === 'true' &&
-  /^G-[A-Z0-9]{8,}$/.test(analyticsId);
+const adsenseAccount = process.env.PUBLIC_GOOGLE_ADSENSE_ACCOUNT?.trim() ?? '';
+const validAdsenseAccount = /^ca-pub-[0-9]{16}$/.test(adsenseAccount);
 
 async function text(file) {
   return readFile(path.join(dist, file), 'utf8');
@@ -61,30 +59,9 @@ test('build contains the representative launch routes and metadata', async () =>
   assert.equal((home.match(/<h1(?:\s|>)/g) ?? []).length, 1);
 
   for (const html of [home, guide]) {
-    if (analyticsEnabled) {
-      assert.equal(
-        (html.match(/www\.googletagmanager\.com\/gtag\/js/g) ?? []).length,
-        1,
-        'enabled pages must load one Google tag',
-      );
-      assert.match(html, new RegExp(analyticsId));
-      assert.match(html, /gtag\(['"]config['"],\s*analyticsId/);
-      assert.match(html, /allow_google_signals:\s*false/);
-      assert.match(html, /allow_ad_personalization_signals:\s*false/);
-    } else {
-      assert.doesNotMatch(html, /googletagmanager\.com|google-analytics\.com|gtag\(/);
-    }
+    assert.doesNotMatch(html, /googletagmanager\.com|google-analytics\.com|gtag\(/);
   }
-
-  if (analyticsEnabled) {
-    assert.match(privacy, /Google Analytics is <strong>enabled<\/strong>/);
-    assert.match(privacy, /Google may process page views/);
-    assert.match(privacy, /https:\/\/policies\.google\.com\/privacy/);
-    assert.match(privacy, /https:\/\/tools\.google\.com\/dlpage\/gaoptout/);
-    assert.doesNotMatch(privacy, /analytics-off launch configuration/);
-  } else {
-    assert.match(privacy, /Google Analytics is <strong>disabled<\/strong>/);
-  }
+  assert.match(privacy, /Google Analytics is <strong>disabled<\/strong>/);
 
   const contact = await text('contact/index.html');
   if (contactEmailEnabled) {
@@ -101,12 +78,14 @@ test('all generated internal links resolve and launch output contains no private
   const htmlFiles = files.filter((file) => file.endsWith('.html'));
   const corpus = (await Promise.all(files.filter((file) => /\.(?:html|xml|txt|js|css)$/.test(file)).map((file) => readFile(file, 'utf8')))).join('\n');
   assert.doesNotMatch(corpus, /localhost/i);
-  assert.doesNotMatch(corpus, /ca-pub-[0-9]+/i);
-  if (analyticsEnabled) {
-    assert.match(corpus, new RegExp(analyticsId));
+  if (validAdsenseAccount) {
+    const accountMentions = corpus.match(/ca-pub-[0-9]+/gi) ?? [];
+    assert.ok(accountMentions.length > 0, 'configured account should appear in generated HTML');
+    assert.ok(accountMentions.every((value) => value === adsenseAccount));
   } else {
-    assert.doesNotMatch(corpus, /(?:^|[^A-Za-z0-9])G-[A-Z0-9]{8,}(?:$|[^A-Za-z0-9])/m);
+    assert.doesNotMatch(corpus, /ca-pub-[0-9]+/i);
   }
+  assert.doesNotMatch(corpus, /(?:^|[^A-Za-z0-9])G-[A-Z0-9]{8,}(?:$|[^A-Za-z0-9])/m);
   assert.doesNotMatch(corpus, /foxmail\.com/i);
 
   for (const file of htmlFiles) {

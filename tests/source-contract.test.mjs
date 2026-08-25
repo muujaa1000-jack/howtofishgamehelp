@@ -47,12 +47,16 @@ test('content schema contains every editorial evidence field', async () => {
     'title', 'description', 'slug', 'category', 'primaryIntent', 'publishedAt',
     'updatedAt', 'lastVerifiedAt', 'gameVersion', 'verificationStatus', 'sources',
     'previousGuide', 'nextGuide', 'relatedGuides', 'draft', 'noindex',
+    'lastSourceReview', 'evidenceThroughVersion', 'firstHandTested',
+    'patchSensitive', 'adEligible',
   ]) {
     assert.match(schema, new RegExp(`\\b${field}\\b`), `schema missing ${field}`);
   }
   assert.match(schema, /official/);
   assert.match(schema, /community-confirmed/);
   assert.match(schema, /needs-review/);
+  assert.match(schema, /adEligible:\s*z\.boolean\(\)\.default\(false\)/);
+  assert.match(schema, /firstHandTested:\s*z\.boolean\(\)\.default\(false\)/);
 });
 
 test('required public, legal, search, feed, and error routes exist', async () => {
@@ -84,7 +88,23 @@ test('repository contains no private forwarding destination or fake monetization
   const corpus = (await Promise.all(files.map((file) => text(file)))).join('\n');
   assert.doesNotMatch(corpus, /foxmail\.com/i);
   assert.doesNotMatch(corpus, /ca-pub-[0-9]+/i);
+  assert.doesNotMatch(corpus, /pub-(?:X{4,}|0{16})/i);
   assert.doesNotMatch(corpus, /(?:^|[^A-Za-z0-9])G-[A-Z0-9]{8,}(?:$|[^A-Za-z0-9])/m);
+});
+
+test('active runtime and deployment files contain no Adsterra execution path', async () => {
+  const activeFiles = [
+    ...(await walk('src')).filter((file) => file !== path.join('src', 'pages', 'privacy.astro')),
+    ...(await walk('worker')),
+    ...(await walk('.github')),
+    '.env.example',
+    'package.json',
+  ];
+  const corpus = (await Promise.all(activeFiles.map((file) => text(file)))).join('\n');
+  assert.doesNotMatch(
+    corpus,
+    /adsterra|profitableratecpmnetwork|highrevenueformat|atOptions|invoke\.js|popunder|social bar|interstitial|direct link/i,
+  );
 });
 
 test('production deployment workflow is main-only, gated, and secret-safe', async () => {
@@ -102,12 +122,10 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
   assert.match(workflow, /CLOUDFLARE_API_TOKEN:\s*\$\{\{ secrets\.CLOUDFLARE_API_TOKEN \}\}/);
   assert.match(workflow, /CLOUDFLARE_ACCOUNT_ID:\s*\$\{\{ vars\.CLOUDFLARE_ACCOUNT_ID \}\}/);
   assert.match(workflow, /PUBLIC_CONTACT_EMAIL_ENABLED:\s*['"]true['"]/);
-  assert.match(workflow, /PUBLIC_ANALYTICS_ENABLED:\s*\$\{\{ vars\.PUBLIC_ANALYTICS_ENABLED \}\}/);
-  assert.match(workflow, /PUBLIC_ANALYTICS_ID:\s*\$\{\{ vars\.PUBLIC_ANALYTICS_ID \}\}/);
-  assert.match(workflow, /PUBLIC_ADS_DEPLOYMENT:\s*["']production["']/);
-  assert.match(workflow, /PUBLIC_ADS_ENABLED:\s*\$\{\{ vars\.PUBLIC_ADS_ENABLED \}\}/);
-  assert.match(workflow, /PUBLIC_ADSTERRA_NATIVE_ENABLED:\s*\$\{\{ vars\.PUBLIC_ADSTERRA_NATIVE_ENABLED \}\}/);
-  assert.match(workflow, /PUBLIC_ADSTERRA_BANNER_320X50_ENABLED:\s*\$\{\{ vars\.PUBLIC_ADSTERRA_BANNER_320X50_ENABLED \}\}/);
+  assert.match(workflow, /PUBLIC_ANALYTICS_ENABLED:\s*["']false["']/);
+  assert.match(workflow, /PUBLIC_ADSENSE_ENABLED:\s*["']false["']/);
+  assert.match(workflow, /PUBLIC_GOOGLE_ADSENSE_ACCOUNT:\s*\$\{\{ vars\.PUBLIC_GOOGLE_ADSENSE_ACCOUNT \}\}/);
+  assert.doesNotMatch(workflow, /PUBLIC_ADS_DEPLOYMENT|PUBLIC_ADS_ENABLED|PUBLIC_ADSTERRA/);
   assert.match(workflow, /name: Validate Analytics configuration/);
   assert.match(workflow, /process\.env\.PUBLIC_ANALYTICS_ENABLED/);
   assert.match(workflow, /\^G-\[A-Z0-9\]\{8,\}\$/);
@@ -158,85 +176,50 @@ test('production deployment workflow is main-only, gated, and secret-safe', asyn
   );
 });
 
-test('production advertising guard accepts false flags and rejects missing or invalid values', async () => {
+test('production advertising guard accepts an empty account and rejects invalid account values', async () => {
   const workflow = await text('.github/workflows/deploy-production.yml');
   const match = workflow.match(/name: Validate advertising configuration\r?\n\s+run: node -e "([^"]+)"/);
   assert.ok(match, 'advertising guard command must be present');
 
   const baseEnv = { ...process.env };
-  for (const name of [
-    'PUBLIC_ADS_DEPLOYMENT',
-    'PUBLIC_ADS_ENABLED',
-    'PUBLIC_ADSTERRA_NATIVE_ENABLED',
-    'PUBLIC_ADSTERRA_BANNER_320X50_ENABLED',
-  ]) delete baseEnv[name];
+  for (const name of ['PUBLIC_ADSENSE_ENABLED', 'PUBLIC_GOOGLE_ADSENSE_ACCOUNT']) delete baseEnv[name];
 
   const runGuard = (values) => spawnSync(process.execPath, ['-e', match[1]], {
     env: { ...baseEnv, ...values },
     encoding: 'utf8',
   });
-  const validProduction = {
-    PUBLIC_ADS_DEPLOYMENT: 'production',
-    PUBLIC_ADS_ENABLED: 'false',
-    PUBLIC_ADSTERRA_NATIVE_ENABLED: 'true',
-    PUBLIC_ADSTERRA_BANNER_320X50_ENABLED: 'false',
-  };
-
-  const accepted = runGuard(validProduction);
+  const accepted = runGuard({
+    PUBLIC_ADSENSE_ENABLED: 'false',
+    PUBLIC_GOOGLE_ADSENSE_ACCOUNT: '',
+  });
   assert.equal(accepted.status, 0, accepted.stderr);
 
-  for (const [name, value] of [
-    ['PUBLIC_ADS_DEPLOYMENT', 'preview'],
-    ['PUBLIC_ADS_ENABLED', undefined],
-    ['PUBLIC_ADSTERRA_NATIVE_ENABLED', 'TRUE'],
-    ['PUBLIC_ADSTERRA_BANNER_320X50_ENABLED', ''],
-  ]) {
-    const invalid = { ...validProduction };
-    if (value === undefined) delete invalid[name];
-    else invalid[name] = value;
-    const rejected = runGuard(invalid);
-    assert.notEqual(rejected.status, 0, `${name} should be rejected`);
-  }
+  const invalidEnabled = runGuard({
+    PUBLIC_ADSENSE_ENABLED: 'true',
+    PUBLIC_GOOGLE_ADSENSE_ACCOUNT: '',
+  });
+  assert.notEqual(invalidEnabled.status, 0, 'review build must reject enabled advertising');
+
+  const invalidAccount = runGuard({
+    PUBLIC_ADSENSE_ENABLED: 'false',
+    PUBLIC_GOOGLE_ADSENSE_ACCOUNT: 'not-a-publisher-account',
+  });
+  assert.notEqual(invalidAccount.status, 0, 'invalid account format should be rejected');
 });
 
-test('worker CSP permits only the required Google Analytics origins', async () => {
+test('worker CSP blocks advertising and analytics origins during review', async () => {
   const worker = await text('worker/index.ts');
-  assert.match(worker, /script-src[^;"]*https:\/\/www\.googletagmanager\.com/);
-  assert.match(worker, /connect-src[^;"]*https:\/\/\*\.google-analytics\.com/);
-  assert.match(worker, /connect-src[^;"]*https:\/\/\*\.analytics\.google\.com/);
-  assert.match(worker, /connect-src[^;"]*https:\/\/www\.googletagmanager\.com/);
-  assert.match(worker, /img-src[^;"]*https:\/\/\*\.google-analytics\.com/);
-  assert.match(worker, /img-src[^;"]*https:\/\/www\.googletagmanager\.com/);
+  assert.doesNotMatch(worker, /googletagmanager|google-analytics|analytics\.google|googlesyndication|doubleclick/i);
+  assert.doesNotMatch(worker, /profitableratecpmnetwork|highrevenueformat|adsterra/i);
+  assert.match(worker, /connect-src 'self'/);
   assert.doesNotMatch(worker, /script-src[^;"]*https:\/\/\*/);
-  assert.doesNotMatch(worker, /(?:doubleclick\.net|googleadservices\.com|googlesyndication\.com)/);
 });
 
-test('approved Adsterra components preserve exact classic-script contracts', async () => {
-  const banner = await text('src/components/ads/AdsterraBanner320x50.astro');
-  const native = await text('src/components/ads/AdsterraNativeBanner.astro');
-
-  assert.match(banner, /'key'\s*:\s*'31358e95bdfca07885ad4d825c43845b'/);
-  assert.match(banner, /'format'\s*:\s*'iframe'/);
-  assert.match(banner, /'height'\s*:\s*50/);
-  assert.match(banner, /'width'\s*:\s*320/);
-  assert.ok(
-    banner.indexOf('atOptions =') < banner.indexOf('https://www.highrevenueformat.com/31358e95bdfca07885ad4d825c43845b/invoke.js'),
-  );
-  assert.doesNotMatch(banner, /type=["']module["']|\basync\b|\bdefer\b/);
-
-  assert.match(native, /async="async"/);
-  assert.match(native, /data-cfasync="false"/);
-  assert.match(native, /https:\/\/pl30995799\.profitableratecpmnetwork\.com\/cd35885d41c8db0e720a6e017aadbf77\/invoke\.js/);
-  assert.ok(
-    native.indexOf('/invoke.js') < native.indexOf('container-cd35885d41c8db0e720a6e017aadbf77'),
-  );
-  assert.doesNotMatch(native, /type=["']module["']/);
-});
-
-test('worker CSP permits only the two approved initial Adsterra script origins', async () => {
-  const worker = await text('worker/index.ts');
-  assert.match(worker, /script-src[^;\"]*https:\/\/pl30995799\.profitableratecpmnetwork\.com/);
-  assert.match(worker, /script-src[^;\"]*https:\/\/www\.highrevenueformat\.com/);
-  assert.doesNotMatch(worker, /script-src[^;\"]*https:\/\/\*/);
-  assert.doesNotMatch(worker, /(?:profitableratecpmnetwork|highrevenueformat)[^;\"]*\*/);
+test('shared head validates and conditionally emits one AdSense account meta', async () => {
+  const siteConfig = await text('src/config/site.ts');
+  const layout = await text('src/layouts/BaseLayout.astro');
+  assert.match(siteConfig, /\^ca-pub-\[0-9\]\{16\}\$/);
+  assert.match(siteConfig, /PUBLIC_GOOGLE_ADSENSE_ACCOUNT/);
+  assert.match(layout, /name="google-adsense-account"/);
+  assert.match(layout, /site\.adsenseAccountIsValid/);
 });
