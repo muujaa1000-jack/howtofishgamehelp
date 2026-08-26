@@ -97,8 +97,8 @@ for (const guide of publicGuides) {
   }
 }
 
-if (publicGuides.length !== 34) {
-  errors.push(`Reviewed set has ${publicGuides.length} public guides; expected 34.`);
+if (publicGuides.length !== 35) {
+  errors.push(`Reviewed set has ${publicGuides.length} public guides; expected 35.`);
 }
 
 if (errors.length) {

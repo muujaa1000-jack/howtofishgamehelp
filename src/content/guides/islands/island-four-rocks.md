@@ -5,10 +5,10 @@ slug: "island-four-rocks"
 category: "islands"
 primaryIntent: "Complete the rocky island Tuna and terrorizing bird progression chain"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
-lastVerifiedAt: 2026-08-23
+updatedAt: 2026-08-27
+lastVerifiedAt: 2026-08-27
 gameVersion: "1.0.5"
-lastSourceReview: 2026-08-25
+lastSourceReview: 2026-08-27
 evidenceThroughVersion: "1.0.9"
 firstHandTested: false
 patchSensitive: true
@@ -18,14 +18,15 @@ sources:
   - title: "Complete How to Fish game walkthrough"
     url: "https://www.destructoid.com/complete-how-to-fish-game-walkthrough-100-completion/"
     type: "gameplay-guide"
-    accessedAt: 2026-08-23
+    accessedAt: 2026-08-27
   - title: "How to Fish Terrorizing Bird Boss"
     url: "https://nerdschalk.com/how-to-fish-terrorizing-bird-boss/"
     type: "gameplay-guide"
-    accessedAt: 2026-08-23
+    accessedAt: 2026-08-27
 previousGuide: "/guides/what-to-do-after-pufferfish/"
-nextGuide: "/bosses/terrorizing-bird/"
+nextGuide: "/bosses/tuna/"
 relatedGuides:
+  - "/bosses/tuna/"
   - "/items/lures-and-bait/"
   - "/items/weapon-progression/"
   - "/islands/volcano-endgame/"
@@ -47,7 +48,7 @@ priority: "P0"
 
 ## This island has a two-target chain
 
-Tuna is not the story boss. It is the bait-producing mini-boss that begins the main bird encounter. That distinction prevents two common mistakes: eating or selling the Tuna, and leaving after the Tuna kill as if the island were complete.
+[Tuna is the bait-producing mini-boss](/bosses/tuna/), not the story boss. That distinction prevents two common mistakes: eating or selling the Tuna, and leaving after the Tuna kill as if the island were complete.
 
 Both gameplay sources recommend ranged fire for the bird. The Destructoid walkthrough describes an Uzi or sniper-style approach and warns against treating a short-range shotgun as the ideal choice. The focused boss guide adds a useful positional rule: use a building to break the dive or ranged attack, then expose yourself only during the recovery.
 
@@ -65,4 +66,4 @@ Solo players should choose cover with a clear exit and avoid chasing the bird ac
 
 ## What to do next
 
-Open the focused [terrorizing bird strategy](/bosses/terrorizing-bird/) before placing the Tuna. After the hand-in, prepare with [volcano endgame progression](/islands/volcano-endgame/).
+Open the focused [Tuna mini-boss guide](/bosses/tuna/) before casting the special lure, then read the [terrorizing bird strategy](/bosses/terrorizing-bird/) before placing the body. After the hand-in, prepare with [volcano endgame progression](/islands/volcano-endgame/).

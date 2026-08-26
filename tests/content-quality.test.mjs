@@ -45,9 +45,22 @@ const longFormRoutes = new Set([
   '/fixes/save-file-corrupted-or-weapon-crash/',
 ]);
 
-test('review set contains 34 substantive public guides', async () => {
+const publishedOnAugust25 = new Set([
+  '/guides/difficulty-settings/',
+  '/fixes/steam-relay-connection-failed/',
+  '/fixes/save-file-corrupted-or-weapon-crash/',
+]);
+const publishedOnAugust27 = new Set(['/bosses/tuna/']);
+const refreshedOnAugust27 = new Set([
+  '/bosses/tuna/',
+  '/bosses/terrorizing-bird/',
+  '/islands/island-four-rocks/',
+  '/islands/island-three-desert/',
+]);
+
+test('review set contains 35 substantive public guides', async () => {
   const items = await entries();
-  assert.equal(items.length, 34, `expected 34 guides, found ${items.length}`);
+  assert.equal(items.length, 35, `expected 35 guides, found ${items.length}`);
   for (const item of items) {
     const frontmatter = frontmatterOf(item.source);
     const route = routeOf(frontmatter);
@@ -102,11 +115,18 @@ test('launch content keeps current verification metadata and avoids evidence ove
   for (const item of await entries()) {
     const frontmatter = frontmatterOf(item.source);
     const route = routeOf(frontmatter);
-    const isNew = ['/guides/difficulty-settings/', '/fixes/steam-relay-connection-failed/', '/fixes/save-file-corrupted-or-weapon-crash/'].includes(route);
-    assert.equal(scalar(frontmatter, 'publishedAt'), isNew ? '2026-08-25' : '2026-08-23');
-    const refreshedOnAugust26 = route === '/achievements/achievement-not-unlocking/';
-    assert.equal(scalar(frontmatter, 'updatedAt'), refreshedOnAugust26 ? '2026-08-26' : '2026-08-25');
-    assert.equal(scalar(frontmatter, 'lastSourceReview'), refreshedOnAugust26 ? '2026-08-26' : '2026-08-25');
+    const expectedPublishedAt = publishedOnAugust27.has(route)
+      ? '2026-08-27'
+      : publishedOnAugust25.has(route) ? '2026-08-25' : '2026-08-23';
+    const expectedUpdatedAt = refreshedOnAugust27.has(route)
+      ? '2026-08-27'
+      : route === '/achievements/achievement-not-unlocking/' ? '2026-08-26' : '2026-08-25';
+    const expectedSourceReview = refreshedOnAugust27.has(route)
+      ? '2026-08-27'
+      : route === '/achievements/achievement-not-unlocking/' ? '2026-08-26' : '2026-08-25';
+    assert.equal(scalar(frontmatter, 'publishedAt'), expectedPublishedAt);
+    assert.equal(scalar(frontmatter, 'updatedAt'), expectedUpdatedAt);
+    assert.equal(scalar(frontmatter, 'lastSourceReview'), expectedSourceReview);
     assert.equal(scalar(frontmatter, 'evidenceThroughVersion'), '1.0.9');
     assert.equal(scalar(frontmatter, 'firstHandTested'), 'false');
     assert.match(scalar(frontmatter, 'patchSensitive'), /^(?:true|false)$/);
@@ -117,6 +137,33 @@ test('launch content keeps current verification metadata and avoids evidence ove
     assert.doesNotMatch(item.source, /\bguaranteed\b/i, `${item.file} makes an absolute claim`);
   }
   assert.deepEqual(eligibleRoutes.sort(), [...longFormRoutes].sort());
+});
+
+test('Island 3 variants stay canonical and Tuna has an evidence-backed route', async () => {
+  const byRoute = new Map();
+  for (const item of await entries()) {
+    const frontmatter = frontmatterOf(item.source);
+    byRoute.set(routeOf(frontmatter), { frontmatter, source: item.source });
+  }
+
+  const islandThree = byRoute.get('/islands/island-three-desert/');
+  assert.ok(islandThree, 'missing canonical Island 3 page');
+  assert.match(scalar(islandThree.frontmatter, 'title'), /get to.*beat island 3/i);
+  assert.match(scalar(islandThree.frontmatter, 'answer'), /third island/i);
+  assert.match(islandThree.source, /How to get to the third island/i);
+  assert.equal([...byRoute.keys()].filter((route) => /island-three|third-island/.test(route)).length, 1);
+
+  const tuna = byRoute.get('/bosses/tuna/');
+  assert.ok(tuna, 'missing focused Tuna mini-boss page');
+  assert.equal(scalar(tuna.frontmatter, 'verificationStatus'), 'community-confirmed');
+  assert.equal(scalar(tuna.frontmatter, 'gameVersion'), '1.0.9');
+  assert.match(tuna.source, /Professional Boss Lure/);
+  assert.match(tuna.source, /preserve|keep the Tuna|do not sell or cook/i);
+  assert.match(tuna.source, /\/bosses\/terrorizing-bird\//);
+  assert.match(tuna.source, /steamcommunity\.com\/games\/4001890\/announcements\/detail\/711158520539514352/);
+
+  assert.match(byRoute.get('/bosses/terrorizing-bird/').source, /\/bosses\/tuna\//);
+  assert.match(byRoute.get('/islands/island-four-rocks/').source, /\/bosses\/tuna\//);
 });
 
 test('achievement troubleshooting directs players to the current Steam build while preserving historical fixes', async () => {

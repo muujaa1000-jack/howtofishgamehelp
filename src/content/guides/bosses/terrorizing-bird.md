@@ -5,10 +5,10 @@ slug: "terrorizing-bird"
 category: "bosses"
 primaryIntent: "Defeat the large bird story boss on Island 4 and unlock the volcano"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
-lastVerifiedAt: 2026-08-23
+updatedAt: 2026-08-27
+lastVerifiedAt: 2026-08-27
 gameVersion: "1.0.5"
-lastSourceReview: 2026-08-25
+lastSourceReview: 2026-08-27
 evidenceThroughVersion: "1.0.9"
 firstHandTested: false
 patchSensitive: true
@@ -18,18 +18,19 @@ sources:
   - title: "Complete How to Fish game walkthrough"
     url: "https://www.destructoid.com/complete-how-to-fish-game-walkthrough-100-completion/"
     type: "gameplay-guide"
-    accessedAt: 2026-08-23
+    accessedAt: 2026-08-27
   - title: "How to Fish Terrorizing Bird Boss"
     url: "https://nerdschalk.com/how-to-fish-terrorizing-bird-boss/"
     type: "gameplay-guide"
-    accessedAt: 2026-08-23
+    accessedAt: 2026-08-27
   - title: "How to Fish Patch 1.0.9"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
     type: "official-patch"
-    accessedAt: 2026-08-25
-previousGuide: "/islands/island-four-rocks/"
+    accessedAt: 2026-08-27
+previousGuide: "/bosses/tuna/"
 nextGuide: "/islands/volcano-endgame/"
 relatedGuides:
+  - "/bosses/tuna/"
   - "/items/lures-and-bait/"
   - "/items/weapon-progression/"
   - "/achievements/story-achievements/"
@@ -43,7 +44,7 @@ priority: "P0"
 ## Quick steps
 
 1. Speak to the island NPC and activate the large-bird request.
-2. Catch Tuna with the Professional Boss Lure and defeat it.
+2. Follow the [Tuna mini-boss guide](/bosses/tuna/) to catch it with the Professional Boss Lure and preserve the body.
 3. Place the Tuna body on the ground near reliable building cover.
 4. Move under the roof as soon as the aerial encounter begins.
 5. Track the bird, wait for an attack to finish, then step out and fire.

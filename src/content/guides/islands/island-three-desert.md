@@ -1,14 +1,14 @@
 ---
-title: "How to Fish Island 3 Desert Progression"
-description: "Complete the desert island’s grill and tourist routes, earn the Carrot bait, defeat Pufferfish, and secure the coordinates to Island 4."
+title: "How to Get to and Beat Island 3 in How to Fish"
+description: "Reach the third island, complete its grill and tourist quests, beat Pufferfish with the Carrot bait, and unlock the route to Island 4."
 slug: "island-three-desert"
 category: "islands"
-primaryIntent: "Complete the desert island quests and unlock the Pufferfish boss"
+primaryIntent: "Reach the third island, beat its quest chain, and unlock Island 4"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
-lastVerifiedAt: 2026-08-23
+updatedAt: 2026-08-27
+lastVerifiedAt: 2026-08-27
 gameVersion: "1.0.5"
-lastSourceReview: 2026-08-25
+lastSourceReview: 2026-08-27
 evidenceThroughVersion: "1.0.9"
 firstHandTested: false
 patchSensitive: true
@@ -18,15 +18,15 @@ sources:
   - title: "Complete How to Fish game walkthrough"
     url: "https://www.destructoid.com/complete-how-to-fish-game-walkthrough-100-completion/"
     type: "gameplay-guide"
-    accessedAt: 2026-08-23
+    accessedAt: 2026-08-27
   - title: "How to Fish Pufferfish Bait Tourist Quest"
     url: "https://nerdschalk.com/get-endangered-fish-for-tourist-how-to-fish/"
     type: "gameplay-guide"
-    accessedAt: 2026-08-23
+    accessedAt: 2026-08-27
   - title: "How to Fish Patch 1.0.9"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
     type: "official-patch"
-    accessedAt: 2026-08-25
+    accessedAt: 2026-08-27
 previousGuide: "/bosses/giant-piranha/"
 nextGuide: "/bosses/pufferfish/"
 relatedGuides:
@@ -35,7 +35,7 @@ relatedGuides:
   - "/items/lures-and-bait/"
 draft: false
 noindex: false
-answer: "Island 3 has two useful quest lines. Complete the grill-side creature request so you can start cooking, then help the tourist by catching a fish the game marks as endangered. Give that catch to the tourist to receive the Carrot, which is the Pufferfish boss bait. Prepare cooked healing items, use the Carrot to summon the boss, avoid its rolling attacks and later poison trail, then return its distinct drop to receive Island 4 coordinates."
+answer: "To get to the third island, finish the forest island’s Giant Piranha hand-in and follow the new coordinates to the desert. On Island 3, complete the grill-side request, then give the tourist a fish the game marks as endangered to receive the Carrot. Use that bait to summon and beat Pufferfish, preserve its distinct drop, and return it to the tourist to unlock Island 4."
 featured: true
 priority: "P0"
 ---
@@ -48,6 +48,12 @@ priority: "P0"
 4. Catch a species the game flags as endangered and give it to the tourist.
 5. Take the Carrot reward, stock cooked fish, and summon Pufferfish.
 6. Return the Pufferfish drop to the tourist for the next coordinates.
+
+## How to get to the third island
+
+Island 3 is the desert location that follows the forest route. Defeat Giant Piranha, preserve the distinct item it drops, and return that item to the forest quest giver. The completed hand-in awards the coordinates that point your radar toward the third island. If you still need that return step, use the [Island 2 leech and Giant Piranha route](/islands/island-two-leeches/) before sailing. The [island progression overview](/islands/island-progression/) shows the same gate in the full route.
+
+Reaching the shoreline does not complete the third island. Speak to the grill NPC and the tourist before gathering their requested catches, then finish the Carrot and Pufferfish chain below to beat Island 3 and receive the next coordinates.
 
 ## Run the two quests in a useful order
 
