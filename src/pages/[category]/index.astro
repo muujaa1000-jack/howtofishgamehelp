@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideCard from '../../components/GuideCard.astro';
-import { categories, categoryFieldNotes, site } from '../../config/site';
+import QuickAnswerLinks from '../../components/QuickAnswerLinks.astro';
+import { categories, categoryFieldNotes, categoryQuickAnswers, site } from '../../config/site';
 
 export function getStaticPaths() { return categories.map((category) => ({ params: { category: category.slug }, props: { category } })); }
 const { category } = Astro.props;
@@ -19,6 +20,7 @@ const hubTitles = {
 } as const;
 const title = hubTitles[category.slug];
 const fieldNote = categoryFieldNotes[category.slug];
+const quickAnswers = categoryQuickAnswers[category.slug] ?? [];
 const jsonLd = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: title, description: category.description, url: `${site.url}/${category.slug}/`, isPartOf: { '@type': 'WebSite', name: site.name, url: site.url } };
 ---
 <BaseLayout title={title} description={category.description} canonicalPath={`/${category.slug}/`} jsonLd={jsonLd}>
@@ -38,6 +40,7 @@ const jsonLd = { '@context': 'https://schema.org', '@type': 'CollectionPage', na
       </div>
       <p class="caution"><strong>Evidence note:</strong> {fieldNote.caution}</p>
     </div>
+    <QuickAnswerLinks title={`Common ${category.label.toLowerCase()} questions`} links={quickAnswers} />
     {entries.length ? <div class="grid guide-grid">{entries.map((entry) => <GuideCard entry={entry} />)}</div> : <div class="notice"><h2>Evidence review in progress</h2><p>No page in this section has cleared the publishing gate yet. We do not publish thin placeholders just to fill a category.</p></div>}
   </section>
 </BaseLayout>

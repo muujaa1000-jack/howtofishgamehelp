@@ -2,8 +2,9 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GuideCard from '../components/GuideCard.astro';
+import QuickAnswerLinks from '../components/QuickAnswerLinks.astro';
 import SearchBox from '../components/SearchBox.astro';
-import { categories, site } from '../config/site';
+import { categories, homeQuickAnswers, site } from '../config/site';
 const guides = await getCollection('guides', ({ data }) => !data.draft);
 const featured = guides.filter((entry) => entry.data.featured).slice(0, 6);
 const latest = [...guides].sort((a, b) => b.data.updatedAt.valueOf() - a.data.updatedAt.valueOf()).slice(0, 4);
@@ -26,7 +27,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [
     </div>
   </section>
   <section class="trust-strip"><div class="container"><p>{site.disclaimer}</p></div></section>
-  <section class="container section"><div class="section-heading"><div><p class="eyebrow">Choose your problem</p><h2>Find the next useful answer</h2></div><a href="/search/">Search every guide →</a></div><div class="category-grid">{categories.map((category, index) => <a href={`/${category.slug}/`}><span>{String(index + 1).padStart(2, '0')}</span><h3>{category.label}</h3><p>{category.description}</p></a>)}</div></section>
+  <section class="container section"><div class="section-heading"><div><p class="eyebrow">Choose your problem</p><h2>Find the next useful answer</h2></div><a href="/search/">Search every guide →</a></div><QuickAnswerLinks title="Quick answers to current blockers" links={homeQuickAnswers} /><div class="category-grid">{categories.map((category, index) => <a href={`/${category.slug}/`}><span>{String(index + 1).padStart(2, '0')}</span><h3>{category.label}</h3><p>{category.description}</p></a>)}</div></section>
   <section class="popular section"><div class="container"><div class="section-heading"><div><p class="eyebrow">High-friction moments</p><h2>Popular player questions</h2></div></div>{featured.length ? <div class="grid guide-grid">{featured.map((entry) => <GuideCard entry={entry} />)}</div> : <div class="notice">Guides appear here only after their evidence ledger and content checks pass.</div>}</div></section>
   <section class="container section"><div class="section-heading"><div><p class="eyebrow">Patch-aware</p><h2>Latest verified updates</h2></div></div>{latest.length ? <div class="grid guide-grid">{latest.map((entry) => <GuideCard entry={entry} />)}</div> : <p>Research is being verified against the current release and patch notes.</p>}</section>
 </BaseLayout>

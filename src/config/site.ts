@@ -134,6 +134,37 @@ export const categoryFieldNotes: Record<CategorySlug, CategoryFieldNote> = {
   },
 };
 
+export type QuickAnswerLink = {
+  label: string;
+  href: `/${string}/`;
+};
+
+const boatKeys: QuickAnswerLink = {
+  label: 'Get the boat keys and unlock the next island',
+  href: '/guides/unlock-next-island/',
+};
+const radar: QuickAnswerLink = {
+  label: 'Find and use the radar',
+  href: '/items/radar-guide/',
+};
+const islandThree: QuickAnswerLink = {
+  label: 'Reach and beat Island 3',
+  href: '/islands/island-three-desert/',
+};
+const tuna: QuickAnswerLink = {
+  label: 'Catch and defeat Tuna',
+  href: '/bosses/tuna/',
+};
+
+export const homeQuickAnswers = [boatKeys, radar, islandThree, tuna] as const;
+
+export const categoryQuickAnswers: Partial<Record<CategorySlug, readonly QuickAnswerLink[]>> = {
+  guides: [boatKeys],
+  items: [radar],
+  islands: [islandThree],
+  bosses: [tuna],
+};
+
 export function guidePath(category: CategorySlug, slug: string) {
   return `/${category}/${slug}/`;
 }

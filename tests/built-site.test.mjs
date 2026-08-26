@@ -209,3 +209,27 @@ test('indexable hubs provide concise editorial routes and remain free of ads', a
   const corpus = (await Promise.all([...expectedHubTitles.keys()].map((category) => text(`${category}/index.html`)))).join('\n');
   assert.doesNotMatch(corpus, /(?:Guides Guides|Fixes Guides|Items Guides|Bosses Guides)/i);
 });
+
+test('homepage and relevant hubs expose focused quick-answer routes', async () => {
+  const expected = new Map([
+    ['index.html', [
+      '/guides/unlock-next-island/',
+      '/items/radar-guide/',
+      '/islands/island-three-desert/',
+      '/bosses/tuna/',
+    ]],
+    ['guides/index.html', ['/guides/unlock-next-island/']],
+    ['items/index.html', ['/items/radar-guide/']],
+    ['islands/index.html', ['/islands/island-three-desert/']],
+    ['bosses/index.html', ['/bosses/tuna/']],
+  ]);
+
+  for (const [file, routes] of expected) {
+    const html = await text(file);
+    const quickAnswers = findByAttribute(parse(html), 'data-quick-answers');
+    assert.ok(quickAnswers, `${file} is missing quick answers`);
+    for (const route of routes) {
+      assert.match(html, new RegExp(`href="${route.replaceAll('/', '\\/')}"`), `${file} missing ${route}`);
+    }
+  }
+});
