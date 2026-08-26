@@ -5,10 +5,10 @@ slug: "achievement-not-unlocking"
 category: "achievements"
 primaryIntent: "Troubleshoot a How to Fish Steam achievement that did not unlock"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-08-26
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
-lastSourceReview: 2026-08-25
+lastSourceReview: 2026-08-26
 evidenceThroughVersion: "1.0.9"
 firstHandTested: false
 patchSensitive: true
@@ -23,6 +23,10 @@ sources:
     url: "https://steamcommunity.com/games/4001890/announcements/detail/1841579228671636"
     type: "official-patch"
     accessedAt: 2026-08-23
+  - title: "How to Fish Patch 1.0.9"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
+    type: "official-patch"
+    accessedAt: 2026-08-26
 previousGuide: "/achievements/hardest-achievements/"
 nextGuide: null
 relatedGuides:
@@ -31,7 +35,7 @@ relatedGuides:
   - "/fixes/problems-and-fixes/"
 draft: false
 noindex: false
-answer: "Update to version 1.0.5, restart Steam and the game, then read the achievement’s exact current condition on Steam. Patch 1.0.4 fixed the final-boss bare-hands result for everyone, and patch 1.0.5 fixed the all-Drip trigger that previously needed one extra find. For story goals, finish the NPC return step. For personal actions in co-op, perform the condition on your own account. Preserve the save and avoid repeating a long run until those checks are complete."
+answer: "Update How to Fish to the current Steam version before repeating the achievement condition. Restart Steam and the game, then read the achievement’s exact current wording on Steam. Patch 1.0.4 fixed the final-boss bare-hands result for everyone, and patch 1.0.5 fixed the all-Drip trigger that previously needed one extra find. For story goals, finish the NPC return step. For personal actions in co-op, perform the condition on your own account. Preserve the save before repeating a long run."
 featured: false
 priority: "P2"
 ---
@@ -43,13 +47,15 @@ priority: "P2"
 3. Read the exact official description rather than relying on a guide shorthand.
 4. Finish any associated trophy, dinner, tourist, scientist, or RHIB hand-in.
 5. Repeat a short personal action yourself if a teammate performed it before.
-6. Preserve the save and document the condition if a valid 1.0.5 attempt still fails.
+6. Preserve the save and document the condition if a current-version attempt still fails.
 
 ## Start with known fixed triggers
 
 The official 1.0.4 notes specifically mention a fix for the achievement tied to beating the final boss with bare hands so that everyone receives it. The 1.0.5 notes specifically mention the all-Drip achievement no longer requiring an unintended extra Drip. Those are stronger evidence than release-day forum advice.
 
 Other failures often come from the condition boundary. “Finish the game” includes the final RHIB interaction. “Catch dinner” includes delivering the requested result. A multiplier or stunt is measured at the kill. In co-op, a teammate’s action may not satisfy a personal trigger on your account.
+
+Patch 1.0.9 does not document another achievement-trigger fix. It adds difficulty settings, but the official note does not say whether Easy, Normal, or Hard changes achievement eligibility. Keep the selected difficulty in any bug report instead of assuming that Easy either disables or preserves every unlock.
 
 ## Why it may not work
 

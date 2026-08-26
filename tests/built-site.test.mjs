@@ -167,9 +167,15 @@ test('trust pages use one public identity and disclose review-period data practi
   assert.match(about, /not independently playtested/i);
 
   assert.match(privacy, /Google AdSense and advertising cookies/i);
+  assert.match(privacy, /Google Analytics and consent/i);
+  assert.match(privacy, /Google Analytics operates with Google Consent Mode/i);
+  assert.match(privacy, /does not read or write Analytics cookies/i);
+  assert.match(privacy, /cookieless measurement signals/i);
   assert.match(privacy, /https:\/\/adssettings\.google\.com\//);
   assert.match(privacy, /https:\/\/policies\.google\.com\/technologies\/partner-sites/);
-  assert.match(privacy, /Adsterra advertising units were disabled/i);
+  assert.match(privacy, /Google and its advertising partners may use advertising cookies/i);
+  assert.match(privacy, /Adsterra advertising units are currently disabled/i);
+  assert.match(privacy, /This policy will be updated if another advertising provider is enabled in the future/i);
   assert.match(privacy, analyticsEnabled
     ? /Google Analytics is <strong>enabled<\/strong>/i
     : /Google Analytics is <strong>disabled<\/strong>/i);
@@ -186,7 +192,20 @@ test('indexable hubs provide concise editorial routes and remain free of ads', a
     assert.ok(words.length >= 350 && words.length <= 600, `${category} hub has ${words.length} editorial words`);
     assert.doesNotMatch(html, /(?:ad-slot|adsbygoogle|googlesyndication|data-ad-eligible="true")/i);
   }
-  const guides = await text('guides/index.html');
-  assert.match(guides, /<h1[^>]*>How to Fish Beginner Guides<\/h1>/);
-  assert.doesNotMatch(guides, /Guides Guides/i);
+  const expectedHubTitles = new Map([
+    ['guides', 'How to Fish Beginner Guides'],
+    ['walkthrough', 'How to Fish Walkthrough'],
+    ['islands', 'How to Fish Island Guides'],
+    ['bosses', 'How to Fish Boss Guides'],
+    ['items', 'How to Fish Item Guides'],
+    ['achievements', 'How to Fish Achievement Guides'],
+    ['fixes', 'How to Fish Troubleshooting Guides'],
+  ]);
+  for (const [category, title] of expectedHubTitles) {
+    const html = await text(`${category}/index.html`);
+    assert.match(html, new RegExp(`<h1[^>]*>${title}<\\/h1>`), category);
+    assert.match(html, new RegExp(`<title>${title} \\| How to Fish Game Help<\\/title>`), category);
+  }
+  const corpus = (await Promise.all([...expectedHubTitles.keys()].map((category) => text(`${category}/index.html`)))).join('\n');
+  assert.doesNotMatch(corpus, /(?:Guides Guides|Fixes Guides|Items Guides|Bosses Guides)/i);
 });

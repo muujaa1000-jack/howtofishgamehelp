@@ -8,7 +8,16 @@ import { categories, categoryFieldNotes, site } from '../../config/site';
 export function getStaticPaths() { return categories.map((category) => ({ params: { category: category.slug }, props: { category } })); }
 const { category } = Astro.props;
 const entries = (await getCollection('guides', ({ data }) => !data.draft && data.category === category.slug)).sort((a, b) => a.data.title.localeCompare(b.data.title));
-const title = category.slug === 'guides' ? 'How to Fish Beginner Guides' : `${category.label} Guides`;
+const hubTitles = {
+  guides: 'How to Fish Beginner Guides',
+  walkthrough: 'How to Fish Walkthrough',
+  islands: 'How to Fish Island Guides',
+  bosses: 'How to Fish Boss Guides',
+  items: 'How to Fish Item Guides',
+  achievements: 'How to Fish Achievement Guides',
+  fixes: 'How to Fish Troubleshooting Guides',
+} as const;
+const title = hubTitles[category.slug];
 const fieldNote = categoryFieldNotes[category.slug];
 const jsonLd = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: title, description: category.description, url: `${site.url}/${category.slug}/`, isPartOf: { '@type': 'WebSite', name: site.name, url: site.url } };
 ---

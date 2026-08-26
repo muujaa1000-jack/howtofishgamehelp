@@ -104,8 +104,9 @@ test('launch content keeps current verification metadata and avoids evidence ove
     const route = routeOf(frontmatter);
     const isNew = ['/guides/difficulty-settings/', '/fixes/steam-relay-connection-failed/', '/fixes/save-file-corrupted-or-weapon-crash/'].includes(route);
     assert.equal(scalar(frontmatter, 'publishedAt'), isNew ? '2026-08-25' : '2026-08-23');
-    assert.equal(scalar(frontmatter, 'updatedAt'), '2026-08-25');
-    assert.equal(scalar(frontmatter, 'lastSourceReview'), '2026-08-25');
+    const refreshedOnAugust26 = route === '/achievements/achievement-not-unlocking/';
+    assert.equal(scalar(frontmatter, 'updatedAt'), refreshedOnAugust26 ? '2026-08-26' : '2026-08-25');
+    assert.equal(scalar(frontmatter, 'lastSourceReview'), refreshedOnAugust26 ? '2026-08-26' : '2026-08-25');
     assert.equal(scalar(frontmatter, 'evidenceThroughVersion'), '1.0.9');
     assert.equal(scalar(frontmatter, 'firstHandTested'), 'false');
     assert.match(scalar(frontmatter, 'patchSensitive'), /^(?:true|false)$/);
@@ -116,6 +117,19 @@ test('launch content keeps current verification metadata and avoids evidence ove
     assert.doesNotMatch(item.source, /\bguaranteed\b/i, `${item.file} makes an absolute claim`);
   }
   assert.deepEqual(eligibleRoutes.sort(), [...longFormRoutes].sort());
+});
+
+test('achievement troubleshooting directs players to the current Steam build while preserving historical fixes', async () => {
+  const item = (await entries()).find(({ file }) => file.endsWith('achievement-not-unlocking.md'));
+  assert.ok(item, 'achievement-not-unlocking.md is missing');
+  const frontmatter = frontmatterOf(item.source);
+
+  assert.match(scalar(frontmatter, 'answer'), /Update How to Fish to the current Steam version/i);
+  assert.doesNotMatch(scalar(frontmatter, 'answer'), /Update to version 1\.0\.5/i);
+  assert.match(item.source, /title: "How to Fish Patch 1\.0\.9"/);
+  assert.match(item.source, /accessedAt: 2026-08-26/);
+  assert.match(item.source, /Patch 1\.0\.4 fixed/i);
+  assert.match(item.source, /Patch 1\.0\.5 fixed/i);
 });
 
 test('Patch 1.0.9 issue pages use official evidence and qualified fix language', async () => {

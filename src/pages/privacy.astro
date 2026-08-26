@@ -4,27 +4,31 @@ import { site } from '../config/site';
 ---
 <BaseLayout title="Privacy Policy" description="How to Fish Game Help explains its analytics, hosting, advertising, and visitor-data practices." canonicalPath="/privacy/">
   <article class="narrow section prose">
-    <p class="eyebrow">Effective August 25, 2026</p>
+    <p class="eyebrow">Effective August 26, 2026</p>
     <h1>Privacy policy</h1>
-    <p>This site serves static informational guides. Google Analytics is <strong>{site.analyticsEnabled ? 'enabled' : 'disabled'}</strong> in this build, Cloudflare Web Analytics is enabled on the production domain, Adsterra advertising units are disabled, and Google AdSense advertisements are not enabled.</p>
+    <p>This site serves static informational guides. Google Analytics is <strong>{site.analyticsEnabled ? 'enabled' : 'disabled'}</strong> in this build, Cloudflare Web Analytics is enabled on the production domain, Adsterra advertising units are currently disabled, and Google AdSense advertisements are not enabled.</p>
 
-    <h2>Google Analytics</h2>
+    <h2>Google Analytics and consent</h2>
     {site.analyticsEnabled ? (
       <>
-        <p>We use Google Analytics 4 to understand traffic sources, page use, and unusual traffic patterns. Before a certified consent message can update a visitor's choice, the site sets analytics storage, advertising storage, advertising user data, and ad personalization to denied. Google Analytics may therefore receive cookieless measurement pings for basic measurement and modeling, but this site does not allow Analytics or advertising cookies in that default state.</p>
-        <p>The site tag disables Google Signals and ad-personalization signals. Its initial page-view configuration sends the site origin and path without search parameters. We do not intentionally send account, purchase, form, email, phone-number, or user-ID data to Google Analytics.</p>
+        <p>This site uses Google Analytics 4 to understand general site usage and improve its guides.</p>
+        <p>Google Analytics operates with Google Consent Mode. Before the Google tag loads, analytics storage, advertising storage, advertising user data, and ad personalization are set to denied. The current site does not provide an on-site control that grants or updates those consent states, so they remain denied.</p>
+        <p>In this state, Google Analytics does not read or write Analytics cookies, but may send limited cookieless measurement signals to Google. These signals may include technical and contextual information such as the requested page, event type, timestamp, browser or device information, screen resolution, referrer, consent state, and information transmitted as part of ordinary internet communication.</p>
+        <p>The site tag disables Google Signals and ad-personalization signals. Its initial page-view configuration sends the site origin and path without search parameters. We do not intentionally send names, email addresses, phone numbers, account identifiers, form contents, purchase details, or other directly identifying information to Google Analytics.</p>
       </>
     ) : (
-      <p>Google Analytics is disabled in this build, so this build sends no GA4 measurement request. Analytics configuration and consent settings are reviewed when analytics features change.</p>
+      <>
+        <p>Google Analytics is disabled in this build, so this build sends no GA4 measurement request.</p>
+        <p>Google Analytics operates with Google Consent Mode when enabled. Analytics storage, advertising storage, advertising user data, and ad personalization default to denied before the tag loads. In that state, Google Analytics does not read or write Analytics cookies, but may send limited cookieless measurement signals to Google.</p>
+      </>
     )}
 
     <h2>Google AdSense and advertising cookies</h2>
     <p>This site may use Google AdSense to display third-party advertisements. When advertising is enabled, third-party vendors, including Google, may use cookies, local storage, web beacons, IP addresses, and similar identifiers to deliver, limit, personalize, secure, and measure advertisements.</p>
-    <p>Google and its advertising partners may select advertisements based on a visitor’s previous visits to this website or other websites.</p>
+    <p>Google and its advertising partners may use advertising cookies to select advertisements based on a visitor’s previous visits to this website or other websites.</p>
     <p>Visitors can manage personalized Google advertising through <a href="https://adssettings.google.com/">Google Ads Settings</a>.</p>
     <p>Information about how Google uses data from websites and apps that use its services is available in <a href="https://policies.google.com/technologies/partner-sites">Google's partner-sites notice</a>.</p>
-    <p>Other advertising providers will be identified in this policy whenever they are enabled on the site.</p>
-    <p>At the time this policy was last updated, Adsterra advertising units were disabled.</p>
+    <p>Adsterra advertising units are currently disabled. This policy will be updated if another advertising provider is enabled in the future.</p>
     <p>Visitors can access the core guide content without creating an account, making a purchase, subscribing to a newsletter, or clicking an advertisement.</p>
 
     <h2>Search and browser processing</h2>
