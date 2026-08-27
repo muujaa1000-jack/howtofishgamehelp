@@ -76,6 +76,17 @@ test('required public, legal, search, feed, and error routes exist', async () =>
   await Promise.all(required.map((file) => text(file)));
 });
 
+test('public ads.txt authorizes only the owner Google seller account', async () => {
+  let adsTxt = '';
+  try {
+    adsTxt = await text('public/ads.txt');
+  } catch (error) {
+    assert.equal(error?.code, 'ENOENT');
+  }
+
+  assert.equal(adsTxt, 'google.com, pub-1734822721111637, DIRECT, f08c47fec0942fa0\n');
+});
+
 test('repository contains no private forwarding destination or fake monetization identifiers', async () => {
   const textExtensions = new Set(['.astro', '.csv', '.css', '.html', '.js', '.json', '.jsonc', '.md', '.mjs', '.svg', '.ts', '.txt', '.yml', '.yaml']);
   const files = (await walk('.')).filter((file) =>

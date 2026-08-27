@@ -1,16 +1,12 @@
-# ads.txt Setup After a Real Publisher ID Exists
+# ads.txt Setup
 
-No `public/ads.txt` is included in this branch because no real AdSense publisher ID was provided or verified. A missing file is safer than a public placeholder that falsely identifies a seller account.
-
-## Create the file only after AdSense supplies the ID
-
-After the owner obtains and verifies the real `pub` identifier, create `public/ads.txt` with one plain-text line in this format:
+`public/ads.txt` contains the AdSense publisher record supplied by the site owner:
 
 ```text
-google.com, pub-真实ID, DIRECT, f08c47fec0942fa0
+google.com, pub-1734822721111637, DIRECT, f08c47fec0942fa0
 ```
 
-Replace `pub-真实ID` with the exact publisher ID shown in the same AdSense account used for this site. Do not guess, shorten, copy an ID from another publisher, or commit an example numeric value.
+The numeric `pub` portion matches the configured `ca-pub` account value. Do not add placeholder IDs or records for unapproved advertising systems.
 
 ## Verification after deployment
 
