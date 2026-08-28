@@ -12,12 +12,13 @@ interface Props {
   robots?: 'noindex,follow' | 'noindex,nofollow';
   image?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  appendSiteName?: boolean;
 }
 
-const { title, description, canonicalPath = Astro.url.pathname, noindex = false, robots, image = '/og-default.png', jsonLd } = Astro.props;
+const { title, description, canonicalPath = Astro.url.pathname, noindex = false, robots, image = '/og-default.png', jsonLd, appendSiteName = true } = Astro.props;
 const canonical = new URL(canonicalPath, site.url).toString();
 const socialImage = new URL(image, site.url).toString();
-const pageTitle = title === site.title ? title : `${title} | ${site.name}`;
+const pageTitle = !appendSiteName || title === site.title ? title : `${title} | ${site.name}`;
 const robotsContent = robots ?? (noindex ? 'noindex,nofollow' : undefined);
 ---
 <!doctype html>

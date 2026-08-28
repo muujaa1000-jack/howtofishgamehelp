@@ -109,6 +109,15 @@ test('build contains the representative launch routes and metadata', async () =>
   assert.doesNotMatch(robots, /Disallow:\s*\/search\//i);
 });
 
+test('guide titles omit the repeated site name while static pages keep it', async () => {
+  const guide = await text('walkthrough/lighthouse-first-island/index.html');
+  const about = await text('about/index.html');
+
+  assert.match(guide, /<title>How to Fish Lighthouse and First Island Walkthrough<\/title>/);
+  assert.doesNotMatch(guide, /<title>[^<]+ \| How to Fish Game Help<\/title>/);
+  assert.match(about, /<title>About \| How to Fish Game Help<\/title>/);
+});
+
 test('all generated internal links resolve and launch output contains no private or placeholder configuration', async () => {
   const files = await walk(dist);
   const htmlFiles = files.filter((file) => file.endsWith('.html'));
