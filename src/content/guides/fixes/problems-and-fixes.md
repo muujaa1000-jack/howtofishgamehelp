@@ -5,11 +5,11 @@ slug: "problems-and-fixes"
 category: "fixes"
 primaryIntent: "Find a safe first troubleshooting route for current How to Fish issues"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
-lastVerifiedAt: 2026-08-23
-gameVersion: "1.0.9"
-lastSourceReview: 2026-08-25
-evidenceThroughVersion: "1.0.9"
+updatedAt: 2026-08-30
+lastVerifiedAt: 2026-08-30
+gameVersion: "1.0.10"
+lastSourceReview: 2026-08-30
+evidenceThroughVersion: "1.0.10"
 firstHandTested: false
 patchSensitive: true
 adEligible: true
@@ -27,6 +27,10 @@ sources:
     url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
     type: "official-patch"
     accessedAt: 2026-08-25
+  - title: "How to Fish Patch 1.0.10"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927073"
+    type: "official-patch"
+    accessedAt: 2026-08-30
   - title: "Verify Integrity of Game Files"
     url: "https://help.steampowered.com/en/faqs/view/0C48-FCBD-DA71-93EB"
     type: "official-doc"
@@ -41,7 +45,7 @@ relatedGuides:
   - "/fixes/save-file-corrupted-or-weapon-crash/"
 draft: false
 noindex: false
-answer: "Update How to Fish before trying launch-week workarounds. Official patches through 1.0.9 address several display, lobby, save, achievement, progression, and input issues, but some notes use qualified language and 1.0.9 still asks players with loading or weapon-equip crashes to report them. Reproduce the problem once, separate solo from host or joiner behavior, preserve saves, and change one reversible variable at a time."
+answer: "Update How to Fish before trying launch-week workarounds. Official patches through 1.0.10 address display, lobby, save, item, achievement, progression, and input issues, but qualified fixes are not universal guarantees. Reproduce the problem once, separate solo from host or joiner behavior, preserve saves, and change one reversible variable at a time."
 featured: true
 priority: "P2"
 ---
@@ -52,7 +56,7 @@ Start with evidence, not a long list of random fixes. Update the game and Steam,
 
 ## Applies to
 
-This troubleshooting index was updated after reviewing official patches through 1.0.9 on August 25, 2026. It separates actions confirmed by developer notes from Steam’s general file-verification feature and from editorial diagnostic steps. No device or save was independently tested for this update. Patch 1.0.9 uses “Hopefully fixed” for save corruption and explicitly says the team was still investigating loading and weapon-equip crashes, so those issues are not presented as resolved.
+This troubleshooting index was updated after reviewing official patches through 1.0.10 on August 30, 2026. It separates actions confirmed by developer notes from Steam’s general file-verification feature and from editorial diagnostic steps. No device or save was independently tested for this update. Patch 1.0.10 adds ground-item saving and uses qualified language for some item placement and level-loading fixes, so those changes are not presented as universal recovery guarantees.
 
 ## Quick steps
 
@@ -77,7 +81,7 @@ Patch 1.0.5 added private lobbies. Patch 1.0.9 added a red Steam relay status in
 
 ### Save loading or weapon-equip crashes
 
-Patch 1.0.9 says the team hopefully fixed save corruption but was still trying to understand some saves that fail while loading or crash when equipping a weapon. That distinction is important. An update may prevent or repair some cases without resolving every existing save. Preserve the files, avoid repeatedly equipping the triggering item, and use the [save and weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/).
+Patch 1.0.9 says the team hopefully fixed save corruption but was still trying to understand some saves that fail while loading or crash when equipping a weapon. Patch 1.0.10 says dropped ground items now persist between sessions, up to 64 total with priority given to weapons, tools, quest items, and creatures. It also says items spawning far away when equipped and items falling through the level on load or lobby join were “hopefully” fixed. Preserve the files, avoid repeatedly equipping the triggering item, and use the [save and weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/).
 
 ### Progression and achievements
 
@@ -99,7 +103,7 @@ Patch 1.0.5 added axis inversion, while later patch notes include additional inp
 
 ## Why it may not work
 
-One party member may still be on a different build. A legacy lobby or save may retain a state that a new session does not. The symptom may belong to a different layer: installation files, save data, lobby state, Steam connectivity, or a quest dependency. Some 1.0.9 cases are explicitly unresolved in the official note. When a reversible check does not change the result, that is useful evidence; it is not a reason to escalate immediately to destructive steps.
+One party member may still be on a different build. A legacy lobby or save may retain a state that a new session does not. The symptom may belong to a different layer: installation files, save data, lobby state, Steam connectivity, or a quest dependency. Some 1.0.9 cases were explicitly unresolved, and some 1.0.10 item fixes remain qualified in the official notes. When a reversible check does not change the result, that is useful evidence; it is not a reason to escalate immediately to destructive steps.
 
 ## Safe recovery
 
@@ -113,7 +117,7 @@ A solo test answers whether the installation and save can reach gameplay without
 
 ## Patch history and limitations
 
-Patch 1.0.4 covers several joining, startup, UI, filename, and achievement issues. Patch 1.0.5 adds private lobbies and invert-axis controls while listing more progression and achievement fixes. Later releases include further changes, and 1.0.9 adds difficulty, the red relay diagnostic, a qualified save-corruption change, and an explicit request for reports about certain load or weapon crashes. This index does not infer results beyond the published wording.
+Patch 1.0.4 covers several joining, startup, UI, filename, and achievement issues. Patch 1.0.5 adds private lobbies and invert-axis controls while listing more progression and achievement fixes. Patch 1.0.9 adds difficulty, the red relay diagnostic, and a qualified save-corruption change. Patch 1.0.10 adds ground-item saving, fixes the Tuna-to-albatross respawn lock, limits explosion velocity, and qualifies some item placement and level-loading fixes. This index does not infer results beyond the published wording.
 
 ## FAQ
 

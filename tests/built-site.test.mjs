@@ -201,21 +201,50 @@ test('indexable hubs provide concise editorial routes and remain free of ads', a
     assert.ok(words.length >= 350 && words.length <= 600, `${category} hub has ${words.length} editorial words`);
     assert.doesNotMatch(html, /(?:ad-slot|adsbygoogle|googlesyndication|data-ad-eligible="true")/i);
   }
-  const expectedHubTitles = new Map([
-    ['guides', 'How to Fish Beginner Guides'],
-    ['walkthrough', 'How to Fish Walkthrough'],
-    ['islands', 'How to Fish Island Guides'],
-    ['bosses', 'How to Fish Boss Guides'],
-    ['items', 'How to Fish Item Guides'],
-    ['achievements', 'How to Fish Achievement Guides'],
-    ['fixes', 'How to Fish Troubleshooting Guides'],
+  const expectedHubs = new Map([
+    ['guides', {
+      title: 'How to Fish Beginner Guides',
+      heading: 'How to Fish Beginner Guides &amp; Progression Help',
+      description: 'Start How to Fish with a beginner route, difficulty choices, early spending advice, and focused progression guides for your next objective.',
+    }],
+    ['walkthrough', {
+      title: 'How to Fish Walkthrough',
+      heading: 'How to Fish Walkthrough',
+      description: 'Follow the main quest chain from the lighthouse to the end route.',
+    }],
+    ['islands', {
+      title: 'How to Fish Island Guides',
+      heading: 'How to Fish Island Guides',
+      description: 'Unlock each destination and understand the item or boss gate in the way.',
+    }],
+    ['bosses', {
+      title: 'How to Fish Bosses',
+      heading: 'How to Fish Bosses: Fight Order, Bait &amp; Strategies',
+      description: 'See the How to Fish boss order, required quest bait, safe fight patterns, trophy hand-ins, and links to each evidence-backed boss guide.',
+    }],
+    ['items', {
+      title: 'How to Fish Items Guide',
+      heading: 'How to Fish Items: Weapons, Lures, Radar &amp; Upgrades',
+      description: 'Find what to keep, buy, upgrade, or use next: weapons, lures, boss bait, radar, grilling, money, and other How to Fish items.',
+    }],
+    ['achievements', {
+      title: 'How to Fish Achievement Guides',
+      heading: 'How to Fish Achievement Guides',
+      description: 'Separate story unlocks from cleanup, challenge runs, and collection goals.',
+    }],
+    ['fixes', {
+      title: 'How to Fish Fixes',
+      heading: 'How to Fish Fixes &amp; Troubleshooting',
+      description: 'Find the right How to Fish fix for crashes, black screens, Steam relay errors, private lobbies, save problems, missing leeches, and camera controls.',
+    }],
   ]);
-  for (const [category, title] of expectedHubTitles) {
+  for (const [category, expected] of expectedHubs) {
     const html = await text(`${category}/index.html`);
-    assert.match(html, new RegExp(`<h1[^>]*>${title}<\\/h1>`), category);
-    assert.match(html, new RegExp(`<title>${title} \\| How to Fish Game Help<\\/title>`), category);
+    assert.match(html, new RegExp(`<h1[^>]*>${expected.heading}<\\/h1>`), `${category} heading`);
+    assert.ok(html.includes(`<title>${expected.title} | How to Fish Game Help</title>`), `${category} title`);
+    assert.ok(html.includes(`<meta name="description" content="${expected.description}">`), `${category} description`);
   }
-  const corpus = (await Promise.all([...expectedHubTitles.keys()].map((category) => text(`${category}/index.html`)))).join('\n');
+  const corpus = (await Promise.all([...expectedHubs.keys()].map((category) => text(`${category}/index.html`)))).join('\n');
   assert.doesNotMatch(corpus, /(?:Guides Guides|Fixes Guides|Items Guides|Bosses Guides)/i);
 });
 
@@ -240,5 +269,15 @@ test('homepage and relevant hubs expose focused quick-answer routes', async () =
     for (const route of routes) {
       assert.match(html, new RegExp(`href="${route.replaceAll('/', '\\/')}"`), `${file} missing ${route}`);
     }
+  }
+
+  const home = await text('index.html');
+  const guides = await text('guides/index.html');
+  const bosses = await text('bosses/index.html');
+  for (const html of [home, guides]) {
+    assert.match(html, />Get the boat keys and unlock Island 2</);
+  }
+  for (const html of [home, bosses]) {
+    assert.match(html, />Tuna boss guide: lure, fight and next step</);
   }
 });

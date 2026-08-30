@@ -5,7 +5,7 @@ slug: "radar-guide"
 category: "items"
 primaryIntent: "Obtain the radar and use it to navigate to unlocked islands"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-08-30
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -65,4 +65,4 @@ In co-op, one navigator should call the heading while the driver keeps the boat 
 
 ## What to do next
 
-Use [unlock the next island](/guides/unlock-next-island/) for the first trip. For the complete chain of destinations, open [island progression](/islands/island-progression/).
+Use the [boat keys and next-island route](/guides/unlock-next-island/) for the first trip. For the complete chain of destinations, open [island progression](/islands/island-progression/).

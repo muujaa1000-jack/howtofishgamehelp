@@ -5,7 +5,7 @@ slug: "lighthouse-first-island"
 category: "walkthrough"
 primaryIntent: "Complete the lighthouse opening and leave the first island"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-08-30
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -65,4 +65,4 @@ Solo players should enter with health and weapon preparation complete. In co-op,
 
 ## What to do next
 
-Use [how to unlock the next island](/guides/unlock-next-island/) once the boat is usable. If the crab is still alive, open the focused [Spider Crab strategy](/bosses/spider-crab/).
+Use [get the boat keys and leave the first island](/guides/unlock-next-island/) once the crab is defeated. If the crab is still alive, open the focused [Spider Crab strategy](/bosses/spider-crab/).

@@ -57,6 +57,23 @@ const refreshedOnAugust27 = new Set([
   '/islands/island-four-rocks/',
   '/islands/island-three-desert/',
 ]);
+const refreshedOnAugust30 = new Set([
+  '/bosses/boss-guide/',
+  '/bosses/spider-crab/',
+  '/bosses/tuna/',
+  '/fixes/problems-and-fixes/',
+  '/guides/beginner-guide/',
+  '/guides/unlock-next-island/',
+  '/islands/island-progression/',
+  '/items/lures-and-bait/',
+  '/items/radar-guide/',
+  '/walkthrough/lighthouse-first-island/',
+  '/walkthrough/story-walkthrough/',
+]);
+const sourceReviewedOnAugust30 = new Set([
+  '/bosses/tuna/',
+  '/fixes/problems-and-fixes/',
+]);
 
 test('review set contains 35 substantive public guides', async () => {
   const items = await entries();
@@ -118,20 +135,24 @@ test('launch content keeps current verification metadata and avoids evidence ove
     const expectedPublishedAt = publishedOnAugust27.has(route)
       ? '2026-08-27'
       : publishedOnAugust25.has(route) ? '2026-08-25' : '2026-08-23';
-    const expectedUpdatedAt = refreshedOnAugust27.has(route)
+    const expectedUpdatedAt = refreshedOnAugust30.has(route)
+      ? '2026-08-30'
+      : refreshedOnAugust27.has(route)
       ? '2026-08-27'
       : route === '/achievements/achievement-not-unlocking/' ? '2026-08-26' : '2026-08-25';
-    const expectedSourceReview = refreshedOnAugust27.has(route)
+    const expectedSourceReview = sourceReviewedOnAugust30.has(route)
+      ? '2026-08-30'
+      : refreshedOnAugust27.has(route)
       ? '2026-08-27'
       : route === '/achievements/achievement-not-unlocking/' ? '2026-08-26' : '2026-08-25';
     assert.equal(scalar(frontmatter, 'publishedAt'), expectedPublishedAt);
     assert.equal(scalar(frontmatter, 'updatedAt'), expectedUpdatedAt);
     assert.equal(scalar(frontmatter, 'lastSourceReview'), expectedSourceReview);
-    assert.equal(scalar(frontmatter, 'evidenceThroughVersion'), '1.0.9');
+    assert.equal(scalar(frontmatter, 'evidenceThroughVersion'), sourceReviewedOnAugust30.has(route) ? '1.0.10' : '1.0.9');
     assert.equal(scalar(frontmatter, 'firstHandTested'), 'false');
     assert.match(scalar(frontmatter, 'patchSensitive'), /^(?:true|false)$/);
     assert.match(scalar(frontmatter, 'adEligible'), /^(?:true|false)$/);
-    assert.ok(['1.0.5', '1.0.9'].includes(scalar(frontmatter, 'gameVersion')));
+    assert.ok(['1.0.5', '1.0.9', '1.0.10'].includes(scalar(frontmatter, 'gameVersion')));
     if (scalar(frontmatter, 'adEligible') === 'true') eligibleRoutes.push(route);
     assert.doesNotMatch(item.source, /\b(I tested|we tested|personally tested|tested on Steam Deck|verified in-game|official guide)\b/i, `${item.file} makes an unsupported testing claim`);
     assert.doesNotMatch(item.source, /\bguaranteed\b/i, `${item.file} makes an absolute claim`);
@@ -157,13 +178,41 @@ test('Island 3 variants stay canonical and Tuna has an evidence-backed route', a
   assert.ok(tuna, 'missing focused Tuna mini-boss page');
   assert.equal(scalar(tuna.frontmatter, 'verificationStatus'), 'community-confirmed');
   assert.equal(scalar(tuna.frontmatter, 'gameVersion'), '1.0.9');
+  assert.equal(scalar(tuna.frontmatter, 'evidenceThroughVersion'), '1.0.10');
   assert.match(tuna.source, /Professional Boss Lure/);
   assert.match(tuna.source, /preserve|keep the Tuna|do not sell or cook/i);
   assert.match(tuna.source, /\/bosses\/terrorizing-bird\//);
   assert.match(tuna.source, /steamcommunity\.com\/games\/4001890\/announcements\/detail\/711158520539514352/);
+  assert.match(tuna.source, /steamcommunity\.com\/games\/4001890\/announcements\/detail\/698774255287927073/);
 
   assert.match(byRoute.get('/bosses/terrorizing-bird/').source, /\/bosses\/tuna\//);
   assert.match(byRoute.get('/islands/island-four-rocks/').source, /\/bosses\/tuna\//);
+});
+
+test('boat keys and Tuna boss queries resolve to focused pages with descriptive anchors', async () => {
+  const byRoute = new Map();
+  for (const item of await entries()) {
+    const frontmatter = frontmatterOf(item.source);
+    byRoute.set(routeOf(frontmatter), { frontmatter, source: item.source });
+  }
+
+  const boat = byRoute.get('/guides/unlock-next-island/');
+  assert.equal(scalar(boat.frontmatter, 'title'), 'How to Get Boat Keys and Unlock Island 2 in How to Fish');
+  assert.equal(scalar(boat.frontmatter, 'description'), 'Defeat Spider Crab, return its drop to the lighthouse keeper, collect the boat keys and radar, then follow the coordinates to the forest island.');
+  assert.match(scalar(boat.frontmatter, 'answer'), /^To get the boat keys,/);
+  assert.match(byRoute.get('/guides/beginner-guide/').source, /\[boat keys and Island 2 unlock guide\]\(\/guides\/unlock-next-island\/\)/);
+  assert.match(byRoute.get('/walkthrough/lighthouse-first-island/').source, /\[get the boat keys and leave the first island\]\(\/guides\/unlock-next-island\/\)/);
+  assert.match(byRoute.get('/bosses/spider-crab/').source, /\[get the boat keys and unlock Island 2\]\(\/guides\/unlock-next-island\/\)/);
+  assert.match(byRoute.get('/items/radar-guide/').source, /\[boat keys and next-island route\]\(\/guides\/unlock-next-island\/\)/);
+  assert.match(byRoute.get('/islands/island-progression/').source, /\[first boat keys and Island 2 unlock\]\(\/guides\/unlock-next-island\/\)/);
+
+  const tuna = byRoute.get('/bosses/tuna/');
+  assert.equal(scalar(tuna.frontmatter, 'title'), 'How to Catch and Beat the Tuna Boss in How to Fish');
+  assert.equal(scalar(tuna.frontmatter, 'description'), 'Use the Professional Boss Lure to catch the Tuna boss, dodge its jumping attack, keep the body, and start the Island 4 bird encounter.');
+  assert.match(scalar(tuna.frontmatter, 'answer'), /^To catch and beat the Tuna boss,/);
+  assert.match(byRoute.get('/bosses/boss-guide/').source, /\[Tuna boss guide\]\(\/bosses\/tuna\/\)/);
+  assert.match(byRoute.get('/walkthrough/story-walkthrough/').source, /\[catch and beat the Tuna boss\]\(\/bosses\/tuna\/\)/);
+  assert.match(byRoute.get('/items/lures-and-bait/').source, /\[Professional Boss Lure for the Tuna boss\]\(\/bosses\/tuna\/\)/);
 });
 
 test('achievement troubleshooting directs players to the current Steam build while preserving historical fixes', async () => {

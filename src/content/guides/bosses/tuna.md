@@ -1,15 +1,15 @@
 ---
-title: "How to Catch and Beat Tuna in How to Fish"
-description: "Use the Professional Boss Lure to catch and defeat the Tuna mini-boss, preserve its body, and prepare the Island 4 bird encounter."
+title: "How to Catch and Beat the Tuna Boss in How to Fish"
+description: "Use the Professional Boss Lure to catch the Tuna boss, dodge its jumping attack, keep the body, and start the Island 4 bird encounter."
 slug: "tuna"
 category: "bosses"
 primaryIntent: "Catch and defeat the Tuna mini-boss without losing the bird bait"
 publishedAt: 2026-08-27
-updatedAt: 2026-08-27
-lastVerifiedAt: 2026-08-27
+updatedAt: 2026-08-30
+lastVerifiedAt: 2026-08-30
 gameVersion: "1.0.9"
-lastSourceReview: 2026-08-27
-evidenceThroughVersion: "1.0.9"
+lastSourceReview: 2026-08-30
+evidenceThroughVersion: "1.0.10"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
@@ -27,6 +27,10 @@ sources:
     url: "https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352"
     type: "official-patch"
     accessedAt: 2026-08-27
+  - title: "How to Fish Patch 1.0.10"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927073"
+    type: "official-patch"
+    accessedAt: 2026-08-30
 previousGuide: "/islands/island-four-rocks/"
 nextGuide: "/bosses/terrorizing-bird/"
 relatedGuides:
@@ -35,7 +39,7 @@ relatedGuides:
   - "/islands/island-four-rocks/"
 draft: false
 noindex: false
-answer: "Activate the large-bird request on Island 4, equip the Professional Boss Lure, and cast for Tuna. When the Tuna mini-boss comes ashore, move out of its jumping line and attack after it lands. Pick up and preserve the defeated Tuna instead of selling or cooking it. Place the body on open ground near building cover to begin the terrorizing bird encounter."
+answer: "To catch and beat the Tuna boss, activate the Island 4 bird request, equip the Professional Boss Lure, and cast. Dodge across its jumping line, attack after it lands, then keep the body instead of selling or cooking it; placing it near cover starts the bird encounter."
 featured: true
 priority: "P0"
 ---
@@ -71,9 +75,9 @@ The body is the important result. Pick it up after the fight and preserve it. Do
 
 Solo players should clear normal threats and choose the bird-fight cover before casting. In co-op, decide who will carry the Tuna so it is not sold, cooked, or dropped accidentally. Keep the group together when the body is placed because that action transitions directly into the next encounter.
 
-## Patch 1.0.9 difficulty boundary
+## Patch 1.0.9 difficulty and 1.0.10 recovery boundary
 
-Patch 1.0.9 officially changes creature health and damage through Easy, Normal, and Hard. The announcement does not publish Tuna health, a fixed fight time, or a different lure and hand-in chain. Follow the same setup on every mode and expect combat pressure to vary.
+Patch 1.0.9 officially changes creature health and damage through Easy, Normal, and Hard. Patch 1.0.10 says it fixed a state where a player could die to Tuna, spawn the albatross, and then become unable to respawn. Neither announcement publishes Tuna health, a fixed fight time, or a different lure and hand-in chain. Follow the same setup on every mode and expect combat pressure to vary.
 
 ## What to do next
 

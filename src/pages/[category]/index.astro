@@ -9,22 +9,22 @@ import { categories, categoryFieldNotes, categoryQuickAnswers, site } from '../.
 export function getStaticPaths() { return categories.map((category) => ({ params: { category: category.slug }, props: { category } })); }
 const { category } = Astro.props;
 const entries = (await getCollection('guides', ({ data }) => !data.draft && data.category === category.slug)).sort((a, b) => a.data.title.localeCompare(b.data.title));
-const hubTitles = {
-  guides: 'How to Fish Beginner Guides',
-  walkthrough: 'How to Fish Walkthrough',
-  islands: 'How to Fish Island Guides',
-  bosses: 'How to Fish Boss Guides',
-  items: 'How to Fish Item Guides',
-  achievements: 'How to Fish Achievement Guides',
-  fixes: 'How to Fish Troubleshooting Guides',
+const hubMetadata = {
+  guides: { title: 'How to Fish Beginner Guides', heading: 'How to Fish Beginner Guides & Progression Help' },
+  walkthrough: { title: 'How to Fish Walkthrough', heading: 'How to Fish Walkthrough' },
+  islands: { title: 'How to Fish Island Guides', heading: 'How to Fish Island Guides' },
+  bosses: { title: 'How to Fish Bosses', heading: 'How to Fish Bosses: Fight Order, Bait & Strategies' },
+  items: { title: 'How to Fish Items Guide', heading: 'How to Fish Items: Weapons, Lures, Radar & Upgrades' },
+  achievements: { title: 'How to Fish Achievement Guides', heading: 'How to Fish Achievement Guides' },
+  fixes: { title: 'How to Fish Fixes', heading: 'How to Fish Fixes & Troubleshooting' },
 } as const;
-const title = hubTitles[category.slug];
+const { title, heading } = hubMetadata[category.slug];
 const fieldNote = categoryFieldNotes[category.slug];
 const quickAnswers = categoryQuickAnswers[category.slug] ?? [];
 const jsonLd = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: title, description: category.description, url: `${site.url}/${category.slug}/`, isPartOf: { '@type': 'WebSite', name: site.name, url: site.url } };
 ---
 <BaseLayout title={title} description={category.description} canonicalPath={`/${category.slug}/`} jsonLd={jsonLd}>
-  <header class="category-hero"><div class="container"><Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: category.label }]} /><p class="eyebrow">Field section · {entries.length} guides</p><h1>{title}</h1><p>{category.description}</p></div></header>
+  <header class="category-hero"><div class="container"><Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: category.label }]} /><p class="eyebrow">Field section · {entries.length} guides</p><h1>{heading}</h1><p>{category.description}</p></div></header>
   <section class="container section">
     <div class="hub-note" data-hub-copy>
       <div>
