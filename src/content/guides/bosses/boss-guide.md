@@ -5,7 +5,7 @@ slug: "boss-guide"
 category: "bosses"
 primaryIntent: "Identify the story boss order and choose the right detailed boss guide"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-08-30
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -60,6 +60,8 @@ priority: "P0"
 | Mutated whale | Scientist request → regular whale → volcano | Carry sustained firepower and healing for two linked fights |
 
 The regular whale before the finale is part of the last chain, but the mutated/lava version is the final wall. Community naming differs—“Albatross,” “large bird,” and “terrorizing bird” can describe the same story encounter—so this hub uses the achievement wording when possible.
+
+Tuna is the Island 4 setup mini-boss rather than a separate trophy hand-in. Use the [Tuna boss guide](/bosses/tuna/) for its lure, landing attack, body preservation, and transition into the bird fight.
 
 ## Why it may not work
 

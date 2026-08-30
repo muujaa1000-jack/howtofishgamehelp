@@ -1,11 +1,11 @@
 ---
-title: "How to Unlock the Next Island in How to Fish"
-description: "Use the boat keys, radar, quest coordinates, and required boss hand-in to unlock the next How to Fish island without chasing old shortcuts."
+title: "How to Get Boat Keys and Unlock Island 2 in How to Fish"
+description: "Defeat Spider Crab, return its drop to the lighthouse keeper, collect the boat keys and radar, then follow the coordinates to the forest island."
 slug: "unlock-next-island"
 category: "guides"
-primaryIntent: "Unlock and navigate from the lighthouse to the forest island"
+primaryIntent: "Get the lighthouse boat keys and unlock travel to the forest island"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-08-30
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -31,7 +31,7 @@ relatedGuides:
   - "/islands/island-progression/"
 draft: false
 noindex: false
-answer: "Defeat Spider Crab with the Empty Beer Can quest bait, keep its drop, and return it to the lighthouse keeper. That hand-in produces the boat keys; obtain the radar and follow the awarded coordinates toward the forest island. Patch 1.0.5 fixed unintended travel to locked islands, so do not rely on launch-day shortcut videos. If the destination does not appear, recheck the keeper’s completed dialogue, your boat access, and the radar state."
+answer: "To get the boat keys, finish the lighthouse keeper’s beer request, use the Empty Beer Can to summon Spider Crab, collect the boss drop, and return it. Then take the radar and follow the awarded coordinates to the forest island. Patch 1.0.5 fixed unintended travel to locked islands, so do not rely on launch-day shortcut videos."
 featured: true
 priority: "P0"
 ---

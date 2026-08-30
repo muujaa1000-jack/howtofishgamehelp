@@ -5,7 +5,7 @@ slug: "beginner-guide"
 category: "guides"
 primaryIntent: "Start How to Fish and reach the first boss without losing progression items"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-08-30
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -43,7 +43,7 @@ priority: "P0"
 
 ## Direct answer
 
-Treat the first island as one connected route: accept the lighthouse keeper’s request, use ordinary catches to build a small cash reserve, buy only the equipment needed for that request, obtain the Empty Beer Can bait, defeat Spider Crab, and return its drop. The boat keys open travel, but the radar is what makes the next coordinates useful. Leaving before both rewards are secured is the most avoidable early mistake.
+Treat the first island as one connected route: accept the lighthouse keeper’s request, use ordinary catches to build a small cash reserve, buy only the equipment needed for that request, obtain the Empty Beer Can bait, defeat Spider Crab, and return its drop. The boat keys open travel, but the radar is what makes the next coordinates useful. The focused [boat keys and Island 2 unlock guide](/guides/unlock-next-island/) covers that final handoff. Leaving before both rewards are secured is the most avoidable early mistake.
 
 ## Applies to
 

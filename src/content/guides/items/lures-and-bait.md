@@ -5,7 +5,7 @@ slug: "lures-and-bait"
 category: "items"
 primaryIntent: "Understand which lures are bought and which boss bait comes from quests"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-08-30
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -49,7 +49,7 @@ priority: "P1"
 
 **Normal lures** expand the regular creature pool as you move through islands. They support selling, cooking, and collection. **Mini-boss lures** are bought and can summon optional tougher targets; the Beginner Boss Lure documented on Island 2 is an example. **Story bait** comes from quest progress and points to a specific required encounter.
 
-The story chain demonstrates the difference. Beer becomes the first boss trigger. Ground leeches are converted by the forest NPC. An endangered catch earns a Carrot from the tourist. A professional lure catches Tuna, but Tuna itself becomes the bird bait. At the volcano, the scientist provides the whale trigger after his request.
+The story chain demonstrates the difference. Beer becomes the first boss trigger. Ground leeches are converted by the forest NPC. An endangered catch earns a Carrot from the tourist. The [Professional Boss Lure for the Tuna boss](/bosses/tuna/) produces the body that becomes the bird bait. At the volcano, the scientist provides the whale trigger after his request.
 
 ## Why it may not work
 

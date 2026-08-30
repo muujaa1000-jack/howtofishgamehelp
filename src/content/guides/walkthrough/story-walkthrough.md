@@ -5,7 +5,7 @@ slug: "story-walkthrough"
 category: "walkthrough"
 primaryIntent: "Follow the main How to Fish quest chain in progression order"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-08-30
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -82,7 +82,7 @@ Unlock the grill and speak to the tourist. The documented gate asks for an endan
 
 ### Rock island and the terrorizing bird
 
-The next dependency is a Tuna. Obtain the lure required by the local sequence, catch the fish, and keep it for the aerial encounter rather than selling it. After the terrorizing bird is defeated, preserve its drop and finish the island hand-in before following later coordinates.
+The next dependency is a Tuna. Use the focused route to [catch and beat the Tuna boss](/bosses/tuna/), then keep its body for the aerial encounter rather than selling it. After the terrorizing bird is defeated, preserve its drop and finish the island hand-in before following later coordinates.
 
 ### Volcano and ending
 

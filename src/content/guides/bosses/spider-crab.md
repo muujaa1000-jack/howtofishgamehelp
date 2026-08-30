@@ -5,7 +5,7 @@ slug: "spider-crab"
 category: "bosses"
 primaryIntent: "Defeat Spider Crab and complete the lighthouse boss hand-in"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-08-30
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -73,4 +73,4 @@ The charge windows and quest sequence here remain source-based, while creature h
 
 ## What to do next
 
-Return the drop and follow [how to unlock the next island](/guides/unlock-next-island/). The next story fight is [Giant Piranha](/bosses/giant-piranha/), which does not offer the same self-stun rhythm.
+Return the drop and follow [get the boat keys and unlock Island 2](/guides/unlock-next-island/). The next story fight is [Giant Piranha](/bosses/giant-piranha/), which does not offer the same self-stun rhythm.

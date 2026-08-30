@@ -20,13 +20,13 @@ export const site = {
 } as const;
 
 export const categories = [
-  { slug: 'guides', label: 'Guides', description: 'Start clean, learn the core loop, and make early choices with fewer resets.' },
+  { slug: 'guides', label: 'Guides', description: 'Start How to Fish with a beginner route, difficulty choices, early spending advice, and focused progression guides for your next objective.' },
   { slug: 'walkthrough', label: 'Walkthrough', description: 'Follow the main quest chain from the lighthouse to the end route.' },
   { slug: 'islands', label: 'Islands', description: 'Unlock each destination and understand the item or boss gate in the way.' },
-  { slug: 'bosses', label: 'Bosses', description: 'Prepare the bait, read the attack, preserve the trophy, and keep moving.' },
-  { slug: 'items', label: 'Items', description: 'Spend carefully on weapons, lures, radar, upgrades, and useful resources.' },
+  { slug: 'bosses', label: 'Bosses', description: 'See the How to Fish boss order, required quest bait, safe fight patterns, trophy hand-ins, and links to each evidence-backed boss guide.' },
+  { slug: 'items', label: 'Items', description: 'Find what to keep, buy, upgrade, or use next: weapons, lures, boss bait, radar, grilling, money, and other How to Fish items.' },
   { slug: 'achievements', label: 'Achievements', description: 'Separate story unlocks from cleanup, challenge runs, and collection goals.' },
-  { slug: 'fixes', label: 'Fixes', description: 'Try confirmed fixes first and keep patch-sensitive workarounds clearly labeled.' },
+  { slug: 'fixes', label: 'Fixes', description: 'Find the right How to Fish fix for crashes, black screens, Steam relay errors, private lobbies, save problems, missing leeches, and camera controls.' },
 ] as const;
 
 export type CategorySlug = (typeof categories)[number]['slug'];
@@ -89,7 +89,7 @@ export const categoryFieldNotes: Record<CategorySlug, CategoryFieldNote> = {
       'In co-op, spread far enough to read the target and assign one trophy carrier. Reviving in a persistent hazard or disconnecting before a hand-in can add a second failure after the fight. In solo, prepare before equipping one-use quest bait and keep enough recovery resources to avoid repeating the setup.',
       'Recommended reading starts with the complete Boss Guide, then moves to the named encounter in story order. Use the Pufferfish page when you need the most detailed example of terrain, healing, difficulty boundaries, recovery, and hand-in logic. Return to the island or walkthrough section after the trophy is secure, because combat completion and route completion are separate checks.',
     ],
-    patchNote: 'Easy reduces creature health by 25% and creature damage by 50%; Hard increases both health and damage by 25%; Normal keeps the earlier balance. These official modifiers do not supply base boss values or different quest rewards.',
+    patchNote: 'Patch 1.0.9 defines the Easy, Normal, and Hard creature modifiers. Patch 1.0.10 fixes a specific Tuna-to-albatross respawn lock, but it does not publish base boss values, change the lure route, or announce different quest rewards.',
     caution: 'Attack timing is supported by current gameplay guides, but balance and edge-case behavior can change after patches.',
   },
   items: {
@@ -102,7 +102,7 @@ export const categoryFieldNotes: Record<CategorySlug, CategoryFieldNote> = {
       'If equipping a weapon crashes the game, stop treating it as an equipment-choice question. Preserve the save, avoid repeating the transition, and move to the dedicated Fixes page. Installation-file verification and save recovery are different tasks, and no item recommendation should encourage overwriting the only evidence of an unresolved crash.',
       'A sensible reading order is Early Upgrades, Weapon Progression, then the utility page required by the current objective: Lures and Bait, Radar, Grilling, or Money. This section does not manufacture separate pages for every weapon or fish. A new page should exist only when it solves an independently useful question with enough evidence to support the answer.',
     ],
-    patchNote: 'Patch 1.0.9 changes creature health and damage by mode and still requests reports about some weapon-equip crashes. It does not publish new item values, so this Hub keeps exact prices and damage outside the evidence boundary.',
+    patchNote: 'Patch 1.0.10 adds saving for up to 64 dropped ground items, prioritizing weapons, tools, quest items, and creatures. It also removes the radar death-position X and uses qualified wording for some item placement and loading fixes; it does not publish new prices or damage values.',
     caution: 'Exact prices and damage values are deliberately omitted where current public evidence is incomplete.',
   },
   achievements: {
@@ -129,7 +129,7 @@ export const categoryFieldNotes: Record<CategorySlug, CategoryFieldNote> = {
       'For multiplayer, record host and joiner roles. A red relay indicator, a black screen, and a save that fails in solo are different observations even if they occur in one session. For installation problems, Steam’s Verify Integrity feature checks game files; it should not be described as a universal save repair.',
       'Recommended reading starts with Problems and Fixes. Branch to Steam Relay when red status appears, Multiplayer Black Screen when the joiner has no image, Private Lobby Invites for session setup, or Save Corrupted or Weapon Equip Crash for preserved-data diagnosis. Return to the index instead of combining several remedies when the symptom changes.',
     ],
-    patchNote: 'Patch 1.0.9 adds a red Steam relay diagnostic and requests reports when it appears. It also uses qualified language for save corruption and names remaining load or weapon-equip crashes. The current pages preserve those limits.',
+    patchNote: 'Patch 1.0.10 adds ground-item saving and fixes a specific Tuna-to-albatross respawn lock. Its item-placement and level-loading notes remain qualified, so the troubleshooting pages preserve saves and do not promise universal recovery.',
     caution: 'A workaround is not a permanent fix. Pages distinguish official patch notes, repeated community reports, and unresolved bugs.',
   },
 };
@@ -140,7 +140,7 @@ export type QuickAnswerLink = {
 };
 
 const boatKeys: QuickAnswerLink = {
-  label: 'Get the boat keys and unlock the next island',
+  label: 'Get the boat keys and unlock Island 2',
   href: '/guides/unlock-next-island/',
 };
 const radar: QuickAnswerLink = {
@@ -152,7 +152,7 @@ const islandThree: QuickAnswerLink = {
   href: '/islands/island-three-desert/',
 };
 const tuna: QuickAnswerLink = {
-  label: 'Catch and defeat Tuna',
+  label: 'Tuna boss guide: lure, fight and next step',
   href: '/bosses/tuna/',
 };
 

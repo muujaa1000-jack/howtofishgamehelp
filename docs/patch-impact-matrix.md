@@ -1,10 +1,10 @@
 # Patch Impact Matrix
 
-Review date: 2026-08-25 (Asia/Singapore)
+Review date: 2026-08-30 (Asia/Singapore)
 
-Latest official release evidence reviewed: [How to Fish Patch 1.0.9](https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352). Earlier official announcements were rechecked where they remain material: [Patch 1.0.8](https://steamcommunity.com/games/4001890/announcements/detail/1841579228674959), [Patch 1.0.6](https://steamcommunity.com/games/4001890/announcements/detail/1841579228674042), [Patch 1.0.5](https://steamcommunity.com/games/4001890/announcements/detail/1841579228671636), and [Patch 1.0.4](https://steamcommunity.com/games/4001890/announcements/detail/1841579228669389).
+Latest official release evidence reviewed: [How to Fish Patch 1.0.10](https://steamcommunity.com/games/4001890/announcements/detail/698774255287927073). Earlier official announcements were rechecked where they remain material: [Patch 1.0.9](https://steamcommunity.com/games/4001890/announcements/detail/711158520539514352), [Patch 1.0.8](https://steamcommunity.com/games/4001890/announcements/detail/1841579228674959), [Patch 1.0.6](https://steamcommunity.com/games/4001890/announcements/detail/1841579228674042), [Patch 1.0.5](https://steamcommunity.com/games/4001890/announcements/detail/1841579228671636), and [Patch 1.0.4](https://steamcommunity.com/games/4001890/announcements/detail/1841579228669389).
 
-`Evidence reviewed through 1.0.9` means the listed official announcements were checked for conflicts. It does not mean the page was independently playtested on that version. Existing `gameVersion: 1.0.5` labels remain where the detailed route evidence itself has not been replayed or replaced; no global version replacement was performed.
+`Evidence reviewed through 1.0.10` is used only on pages whose claims were checked against that announcement. It does not mean the page was independently playtested on that version. Existing `gameVersion: 1.0.5` and `evidenceThroughVersion: 1.0.9` labels remain where the detailed route evidence was not re-reviewed; no global version replacement was performed.
 
 | Page | Current version label | Latest official patch impact | Action | Source | Status |
 |---|---|---|---|---|---|
@@ -18,11 +18,12 @@ Latest official release evidence reviewed: [How to Fish Patch 1.0.9](https://ste
 | `/bosses/pufferfish/` | 1.0.5 | 1.0.9 difficulty directly changes creature health/damage; the earlier 1.0.4 nerf still lacks published numeric detail. | Expand to a complete guide; separate official mode modifiers from source-based encounter tactics. | Patches 1.0.4, 1.0.9 | updated-for-difficulty |
 | `/bosses/spider-crab/` | 1.0.5 | Creature health/damage varies by 1.0.9 difficulty. | Retain charge-window route; add difficulty link and no-scaling-formula boundary. | Patch 1.0.9 | updated-for-difficulty |
 | `/bosses/terrorizing-bird/` | 1.0.5 | Creature health/damage varies by 1.0.9 difficulty. | Retain source-based encounter steps; add difficulty warning. | Patch 1.0.9 | updated-for-difficulty |
+| `/bosses/tuna/` | 1.0.9 | 1.0.10 fixes a specific state where dying to Tuna and spawning the albatross could block respawning. It does not announce a lure, health, or route change. | Keep the source-based lure and body-preservation route; add the narrow recovery boundary without changing the underlying gameplay version label. | Patches 1.0.9, 1.0.10 | reviewed-through-1.0.10 |
 | `/fixes/camera-invert-controls/` | 1.0.5 | 1.0.8 changes PlayStation controller glyph display; 1.0.9 does not change inversion. | Add glyph-specific check without claiming input remapping was fixed. | Patches 1.0.8, 1.0.9 | reviewed-no-direct-change |
 | `/fixes/leeches-not-spawning/` | 1.0.5 | Patches 1.0.6–1.0.9 do not publish a leech-spawn change. | Keep spawn timing unknown and preserve non-destructive reload advice. | Patches 1.0.6, 1.0.8, 1.0.9 | reviewed-no-direct-change |
 | `/fixes/multiplayer-black-screen/` | 1.0.5 | 1.0.9 adds a red Steam relay status diagnostic; 1.0.4 still used “hopefully” for display fixes. | Add relay isolation and link the dedicated relay page; keep qualified black-screen status. | Patches 1.0.4, 1.0.9 | updated-for-connection |
 | `/fixes/private-lobby-invites/` | 1.0.5 | Private lobbies remain; 1.0.9 adds relay diagnostics relevant before invite troubleshooting. | Add check for red relay status before recreating lobby/session state. | Patches 1.0.5, 1.0.9 | updated-for-connection |
-| `/fixes/problems-and-fixes/` | 1.0.9 | 1.0.6 changes save validation/write timing; 1.0.8 has input/audio fixes; 1.0.9 adds relay diagnostics and a qualified save fix. | Expand into a current triage hub with safe branches and links to the two new detailed fixes. | Patches 1.0.4–1.0.9 | updated-for-save-safety |
+| `/fixes/problems-and-fixes/` | 1.0.10 | 1.0.10 adds ground-item saving, fixes a Tuna/albatross respawn lock, limits explosion velocity, and qualifies some item placement and level-loading fixes. | Keep preservation-first triage; add only the published 1.0.10 changes and retain qualified language. | Patches 1.0.4–1.0.10 | reviewed-through-1.0.10 |
 | `/guides/beginner-guide/` | 1.0.5 | 1.0.9 adds Easy/Normal/Hard difficulty. | Expand opening route; explain when to choose a mode without inventing an optimal setting or undocumented selector behavior. | Patch 1.0.9; official store | updated-for-difficulty |
 | `/guides/unlock-next-island/` | 1.0.5 | Unlock order is unchanged; difficulty can change the boss gate only. | Keep intended unlock chain and link difficulty guidance for the fight. | Patches 1.0.5, 1.0.9 | reviewed-no-direct-change |
 | `/guides/what-to-do-after-pufferfish/` | 1.0.5 | Route is unchanged; subsequent creatures use selected 1.0.9 difficulty. | Retain route and add mode-sensitive preparation note. | Patch 1.0.9 | reviewed-no-direct-change |
@@ -35,7 +36,7 @@ Latest official release evidence reviewed: [How to Fish Patch 1.0.9](https://ste
 | `/items/grilling-guide/` | 1.0.5 | 1.0.8 links fire sizzling to the FX volume slider; no cooking-economy change announced. | Add narrow audio note; retain source-limited value discussion. | Patch 1.0.8 | reviewed-no-direct-change |
 | `/items/lures-and-bait/` | 1.0.5 | No lure requirement change announced; creature difficulty changes do not establish bait changes. | State no published bait change and keep precise unsupported rates omitted. | Patch 1.0.9 | reviewed-no-direct-change |
 | `/items/money-fast/` | 1.0.5 | No economy change announced in 1.0.6–1.0.9. | Keep tactics source-based; do not infer mode-dependent earnings. | Patches 1.0.6, 1.0.8, 1.0.9 | reviewed-no-direct-change |
-| `/items/radar-guide/` | 1.0.5 | No Radar change announced; the locked-island fix remains relevant. | Keep intended progression route and label missing/lost behavior evidence-limited. | Patches 1.0.5, 1.0.9 | evidence-limited |
+| `/items/radar-guide/` | 1.0.5 | 1.0.10 removes the radar X that marked the last death position; it does not change the coordinate-based unlock route. | Keep intended progression guidance and avoid presenting the removed X as a destination marker. | Patches 1.0.5, 1.0.10 | reviewed-no-route-change |
 | `/items/weapon-progression/` | 1.0.5 | 1.0.9 specifically mentions remaining crashes when equipping weapons. | Add non-destructive save/crash link; do not recommend editing save data without an official procedure. | Patches 1.0.6, 1.0.9 | updated-for-save-safety |
 | `/walkthrough/lighthouse-first-island/` | 1.0.5 | Opening route unchanged; first boss uses selected difficulty. | Keep source-based route and link difficulty guidance. | Patch 1.0.9 | reviewed-no-direct-change |
 | `/walkthrough/story-walkthrough/` | 1.0.5 | Story order unchanged; all creature gates vary by difficulty and save safety changed after 1.0.5. | Expand full route; add pre-boss mode check, unique-drop protection, and recovery boundaries. | Patches 1.0.6, 1.0.9 | updated-for-save-safety |
@@ -45,7 +46,7 @@ Latest official release evidence reviewed: [How to Fish Patch 1.0.9](https://ste
 
 ## Review summary
 
-- 10 existing pages require direct difficulty-related updates, plus the new difficulty page.
-- 6 existing pages require connection or save-safety updates, plus two new fix pages.
-- The remaining pages were reviewed for conflicts and keep their narrower 1.0.5 gameplay evidence where later official notes do not replace it.
-- All pages will display a 2026-08-25 source-review date and evidence-through version separately from first-hand testing status.
+- Patch 1.0.10 directly changes the evidence boundary for the Tuna boss page and the main troubleshooting index.
+- The radar Hub context now notes the removed death-position X, without changing the route evidence on the detailed page.
+- Other content retains its narrower gameplay version and review date unless the new announcement was actually checked against that page.
+- Source-review dates, evidence-through versions, and first-hand testing status remain separate fields.

@@ -5,7 +5,7 @@ slug: "island-progression"
 category: "islands"
 primaryIntent: "Understand the island order and what unlocks every next destination"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-08-30
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -70,4 +70,4 @@ Island order does not change with party size. Patch 1.0.5 also closed an uninten
 
 ## What to do next
 
-If you are at the beginning, follow the [lighthouse route](/walkthrough/lighthouse-first-island/). If the first boat is already available, use [how to unlock the next island](/guides/unlock-next-island/).
+If you are at the beginning, follow the [lighthouse route](/walkthrough/lighthouse-first-island/). For the complete handoff, use the [first boat keys and Island 2 unlock](/guides/unlock-next-island/).
