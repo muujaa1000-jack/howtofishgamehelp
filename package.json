@@ -16,9 +16,10 @@
     "audit:adsense": "node scripts/audit-adsense-readiness.mjs",
     "docs:content": "node scripts/export-content-docs.mjs",
     "preview": "astro preview",
-    "deploy": "npm run build && wrangler deploy",
+    "deploy": "npm run build && wrangler deploy && npm run indexnow:submit",
     "deploy:preview": "npm run build && wrangler deploy --env preview",
-    "deploy:temporary": "npm run build && wrangler deploy --temporary --env preview"
+    "deploy:temporary": "npm run build && wrangler deploy --temporary --env preview",
+    "indexnow:submit": "node --experimental-strip-types scripts/indexnow.ts --production"
   },
   "dependencies": {
     "@astrojs/rss": "4.0.19",
