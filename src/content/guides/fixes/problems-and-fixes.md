@@ -5,16 +5,20 @@ slug: "problems-and-fixes"
 category: "fixes"
 primaryIntent: "Find a safe first troubleshooting route for current How to Fish issues"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-30
-lastVerifiedAt: 2026-08-30
-gameVersion: "1.0.10"
-lastSourceReview: 2026-08-30
-evidenceThroughVersion: "1.0.10"
+updatedAt: 2026-09-04
+lastVerifiedAt: 2026-09-04
+gameVersion: "1.0.11"
+lastSourceReview: 2026-09-04
+evidenceThroughVersion: "1.0.11"
 firstHandTested: false
 patchSensitive: true
 adEligible: true
 verificationStatus: "official"
 sources:
+  - title: "How to Fish Patch 1.0.11"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927885"
+    type: "official-patch"
+    accessedAt: 2026-09-04
   - title: "How to Fish Patch 1.0.4"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/1841579228669389"
     type: "official-patch"
@@ -45,7 +49,7 @@ relatedGuides:
   - "/fixes/save-file-corrupted-or-weapon-crash/"
 draft: false
 noindex: false
-answer: "Update How to Fish before trying launch-week workarounds. Official patches through 1.0.10 address display, lobby, save, item, achievement, progression, and input issues, but qualified fixes are not universal guarantees. Reproduce the problem once, separate solo from host or joiner behavior, preserve saves, and change one reversible variable at a time."
+answer: "Update How to Fish before trying launch-week workarounds. Patch 1.0.11 adds pre-load corruption checks, save backups, new control options, and a qualified inventory-on-join invisibility fix. It does not publish a manual backup-restore path or guarantee that every older crash is resolved. Reproduce the problem once, separate solo from host or joiner behavior, preserve saves, and change one reversible variable at a time."
 featured: true
 priority: "P2"
 ---
@@ -56,7 +60,7 @@ Start with evidence, not a long list of random fixes. Update the game and Steam,
 
 ## Applies to
 
-This troubleshooting index was updated after reviewing official patches through 1.0.10 on August 30, 2026. It separates actions confirmed by developer notes from Steam’s general file-verification feature and from editorial diagnostic steps. No device or save was independently tested for this update. Patch 1.0.10 adds ground-item saving and uses qualified language for some item placement and level-loading fixes, so those changes are not presented as universal recovery guarantees.
+This troubleshooting index was updated after reviewing official patches through 1.0.11 on September 4, 2026. It separates actions confirmed by developer notes from Steam’s general file-verification feature and from editorial diagnostic steps. No device or save was independently tested for this update. Patch 1.0.11 adds pre-load corruption checks and backups while using qualified language for the inventory-on-join invisibility fix, so those changes are not presented as a universal restore or multiplayer repair.
 
 ## Quick steps
 
@@ -81,7 +85,7 @@ Patch 1.0.5 added private lobbies. Patch 1.0.9 added a red Steam relay status in
 
 ### Save loading or weapon-equip crashes
 
-Patch 1.0.9 says the team hopefully fixed save corruption but was still trying to understand some saves that fail while loading or crash when equipping a weapon. Patch 1.0.10 says dropped ground items now persist between sessions, up to 64 total with priority given to weapons, tools, quest items, and creatures. It also says items spawning far away when equipped and items falling through the level on load or lobby join were “hopefully” fixed. Preserve the files, avoid repeatedly equipping the triggering item, and use the [save and weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/).
+Patch 1.0.9 says the team hopefully fixed save corruption but was still trying to understand some saves that fail while loading or crash when equipping a weapon. Patch 1.0.10 adds dropped-ground-item persistence and qualifies some placement fixes. Patch 1.0.11 says save files are always checked that they are not corrupt before loading and now have backups in case they become corrupt. The announcement does not name the backup files or publish a manual restore sequence. Preserve the files, avoid repeatedly equipping the triggering item, and use the [save and weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/).
 
 ### Progression and achievements
 
@@ -89,7 +93,7 @@ Patches 1.0.4 and 1.0.5 list fixes for stuck UI states, boss or quest behavior, 
 
 ### Controls and presentation
 
-Patch 1.0.5 added axis inversion, while later patch notes include additional input and presentation changes. Use the [camera and invert controls guide](/fixes/camera-invert-controls/) for settings behavior. Do not reinstall the game merely because an option moved or an old guide shows a different label.
+Patch 1.0.5 added axis inversion. Patch 1.0.11 adds toggle aiming, toggle sprinting, hold-to-attack, and nametag toggling. Use the [camera and invert controls guide](/fixes/camera-invert-controls/) to separate look direction from aim-button behavior. Do not reinstall the game merely because an option moved or an old guide shows a different label.
 
 ## Common mistakes
 
@@ -103,7 +107,7 @@ Patch 1.0.5 added axis inversion, while later patch notes include additional inp
 
 ## Why it may not work
 
-One party member may still be on a different build. A legacy lobby or save may retain a state that a new session does not. The symptom may belong to a different layer: installation files, save data, lobby state, Steam connectivity, or a quest dependency. Some 1.0.9 cases were explicitly unresolved, and some 1.0.10 item fixes remain qualified in the official notes. When a reversible check does not change the result, that is useful evidence; it is not a reason to escalate immediately to destructive steps.
+One party member may still be on a different build. A legacy lobby or save may retain a state that a new session does not. The symptom may belong to a different layer: installation files, save data, lobby state, Steam connectivity, or a quest dependency. Some 1.0.9 cases were explicitly unresolved, some 1.0.10 item fixes remain qualified, and 1.0.11 still uses “hopefully fixed” for inventory-on-join invisibility. When a reversible check does not change the result, that is useful evidence; it is not a reason to escalate immediately to destructive steps.
 
 ## Safe recovery
 
@@ -117,7 +121,7 @@ A solo test answers whether the installation and save can reach gameplay without
 
 ## Patch history and limitations
 
-Patch 1.0.4 covers several joining, startup, UI, filename, and achievement issues. Patch 1.0.5 adds private lobbies and invert-axis controls while listing more progression and achievement fixes. Patch 1.0.9 adds difficulty, the red relay diagnostic, and a qualified save-corruption change. Patch 1.0.10 adds ground-item saving, fixes the Tuna-to-albatross respawn lock, limits explosion velocity, and qualifies some item placement and level-loading fixes. This index does not infer results beyond the published wording.
+Patch 1.0.4 covers several joining, startup, UI, filename, and achievement issues. Patch 1.0.5 adds private lobbies and invert-axis controls. Patch 1.0.9 adds difficulty, the red relay diagnostic, and a qualified save-corruption change. Patch 1.0.10 adds ground-item saving, fixes the Tuna-to-albatross respawn lock, and qualifies some item placement and level-loading fixes. Patch 1.0.11 adds save checks and backups, four control options, platform support, and a qualified inventory-on-join invisibility fix. This index does not infer results beyond the published wording.
 
 ## FAQ
 
@@ -129,9 +133,9 @@ Update and classify the symptom first. Verification is a safe official Steam too
 
 The 1.0.9 note presents it as a connection-failure indicator. It does not instruct players to expose ports. Record the status and use a controlled lobby comparison.
 
-### Is save corruption fixed in 1.0.9?
+### What does patch 1.0.11 add for saves?
 
-The developer wrote that it was “hopefully” fixed while separately asking for reports about some loading and weapon-equip crashes. The accurate status is improved or attempted, not universally resolved.
+The developer says saves are always checked for corruption before loading and now have backups in case they become corrupt. The note does not publish filenames, retention, a manual restore procedure, or a promise that every older damaged save is automatically recovered.
 
 ### What should a useful bug report contain?
 

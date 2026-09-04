@@ -5,16 +5,20 @@ slug: "weapon-progression"
 category: "items"
 primaryIntent: "Choose weapons that fit each island and boss stage"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
-lastVerifiedAt: 2026-08-23
+updatedAt: 2026-09-04
+lastVerifiedAt: 2026-09-04
 gameVersion: "1.0.5"
-lastSourceReview: 2026-08-25
-evidenceThroughVersion: "1.0.9"
+lastSourceReview: 2026-09-04
+evidenceThroughVersion: "1.0.11"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
 verificationStatus: "community-confirmed"
 sources:
+  - title: "How to Fish Patch 1.0.11"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927885"
+    type: "official-patch"
+    accessedAt: 2026-09-04
   - title: "Complete How to Fish game walkthrough"
     url: "https://www.destructoid.com/complete-how-to-fish-game-walkthrough-100-completion/"
     type: "gameplay-guide"
@@ -35,7 +39,7 @@ relatedGuides:
   - "/items/grilling-guide/"
 draft: false
 noindex: false
-answer: "Use one sharpened melee weapon for the lighthouse and Spider Crab, then make the shotgun your first major firearm on the forest island. It remains useful against Giant Piranha, Pufferfish, and Tuna, but the flying bird needs sustained or accurate ranged fire such as an Uzi or sniper-style option. For the volcano sequence, prepare an assault rifle with useful attachments because the final encounter requires long, mobile damage. Upgrade a proven weapon before buying several overlapping ones."
+answer: "Use one sharpened melee weapon for the lighthouse and Spider Crab, then add a shotgun and later an accurate ranged option for the bird and volcano. Patch 1.0.11 removes Iron Sight as a purchase, prevents downgrading a Suppressor to a Compensator, and marks dropped weapons with orange dots. Upgrade a proven weapon before buying overlapping ones, and do not rely on an older shop guide for those two attachment actions."
 featured: false
 priority: "P1"
 ---
@@ -55,6 +59,12 @@ Weapon progression is not a single damage ranking. Spider Crab gives a safe mele
 
 That pattern supports a small arsenal with distinct jobs: melee for dependable close work, shotgun for strong mid-story bursts, an Uzi or precision option for the aerial target, and an attached assault rifle for the finale. Attachments should improve the gun you will actually carry rather than decorate an obsolete purchase.
 
+## Attachment and dropped-weapon changes in 1.0.11
+
+Patch 1.0.11 removes Iron Sight as a purchasable option because players were buying it by mistake and losing expensive attachments. It also says a Suppressor can no longer be downgraded to a Compensator. These are current shop rules; the announcement does not publish new weapon damage, attachment prices, or a complete best-in-slot order.
+
+The same patch changes item-dot colors so dropped weapons are orange and dead players are turquoise. Use the orange marker when recovering a dropped weapon, but do not treat the color as proof that the item is safe to sell or no longer needed for a build.
+
 ## Why it may not work
 
 - **The “best” gun misses the boss:** match range and attack window, not only displayed damage.
@@ -69,7 +79,7 @@ Solo players need one flexible gun plus a fallback because every range is their 
 
 ## If equipping a weapon crashes the game
 
-Patch 1.0.9 asks players to report saves that crash when a weapon is equipped. Do not keep cycling that item, edit the save, or overwrite the only copy to follow an equipment recommendation. Preserve the state and use the [save or weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/). A progression preference is separate from an unresolved stability symptom.
+Patch 1.0.9 asks players to report saves that crash when a weapon is equipped. Patch 1.0.11 adds pre-load corruption checks and save backups, but it does not specifically say the weapon-equip crash is fixed. Do not keep cycling that item, edit the save, or overwrite the only copy to follow an equipment recommendation. Preserve the state and use the [save or weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/).
 
 ## What to do next
 

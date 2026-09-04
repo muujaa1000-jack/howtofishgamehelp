@@ -1,20 +1,24 @@
 ---
 title: "How to Invert Camera Controls in How to Fish"
-description: "Use the official 1.0.5 X- and Y-axis inversion settings, confirm the correct look direction, and isolate controller problems without remapping blindly."
+description: "Invert the X or Y camera axis, use the separate Patch 1.0.11 aim toggle, and isolate controller problems without remapping blindly."
 slug: "camera-invert-controls"
 category: "fixes"
 primaryIntent: "Invert horizontal or vertical camera controls in How to Fish"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
-lastVerifiedAt: 2026-08-23
+updatedAt: 2026-09-04
+lastVerifiedAt: 2026-09-04
 gameVersion: "1.0.5"
-lastSourceReview: 2026-08-25
-evidenceThroughVersion: "1.0.9"
+lastSourceReview: 2026-09-04
+evidenceThroughVersion: "1.0.11"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
 verificationStatus: "official"
 sources:
+  - title: "How to Fish Patch 1.0.11"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927885"
+    type: "official-patch"
+    accessedAt: 2026-09-04
   - title: "How to Fish Patch 1.0.5"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/1841579228671636"
     type: "official-patch"
@@ -35,14 +39,14 @@ relatedGuides:
   - "/guides/beginner-guide/"
 draft: false
 noindex: false
-answer: "Install version 1.0.5 or later, open the game’s look or camera settings, and enable inversion separately for the X axis, Y axis, or both. X changes horizontal look direction; Y changes vertical look direction. Apply one axis at a time, return to a safe area, and move the mouse or right stick slowly to confirm it feels correct. If the option is absent, update first. If input still behaves unpredictably, test one controller and disable external remapping temporarily."
+answer: "Install the current update, then set X- and Y-axis camera inversion separately. Patch 1.0.11 also adds an option to use toggle for aiming, but that changes whether aim stays active after an input; it does not replace camera-axis inversion. Change one setting at a time, test in a safe area, and temporarily disable external remapping if the result is inconsistent."
 featured: false
 priority: "P2"
 ---
 
 ## Quick steps
 
-1. Close the game and confirm Steam has installed patch 1.0.5 or later.
+1. Close the game and confirm Steam has installed the current patch.
 2. Open the game settings and find the look or camera control section.
 3. Enable X-axis inversion only if horizontal look should reverse.
 4. Enable Y-axis inversion only if vertical look should reverse.
@@ -54,6 +58,10 @@ priority: "P2"
 The official 1.0.5 notes added separate inversion options for looking around on X and Y. Horizontal inversion changes left and right. Vertical inversion changes up and down. Players who only want flight-style vertical control should invert Y without touching X; enabling both reverses both directions.
 
 The Steam store currently lists full controller support. That confirms controller use is intended, but it does not prove every third-party remapping layer is compatible. If the in-game setting and an external tool both invert the same axis, the two reversals can cancel or produce confusing menu-versus-game behavior.
+
+## Aim toggle is a separate 1.0.11 option
+
+Patch 1.0.11 added the option to use toggle for aiming. It also added toggle sprinting, hold-to-attack, and nametag toggling. These are input-behavior choices, while X and Y inversion change look direction. If aiming feels wrong, first decide whether the problem is direction or whether the aim state stays active, then change only the matching option. The announcement confirms that the options exist; it does not document their exact menu labels, default state, or interaction with third-party remappers.
 
 ## Why it may not work
 

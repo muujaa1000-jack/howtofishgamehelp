@@ -5,16 +5,20 @@ slug: "multiplayer-black-screen"
 category: "fixes"
 primaryIntent: "Fix or safely diagnose a black screen when joining How to Fish multiplayer"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
-lastVerifiedAt: 2026-08-23
+updatedAt: 2026-09-04
+lastVerifiedAt: 2026-09-04
 gameVersion: "1.0.5"
-lastSourceReview: 2026-08-25
-evidenceThroughVersion: "1.0.9"
+lastSourceReview: 2026-09-04
+evidenceThroughVersion: "1.0.11"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
 verificationStatus: "official"
 sources:
+  - title: "How to Fish Patch 1.0.11"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927885"
+    type: "official-patch"
+    accessedAt: 2026-09-04
   - title: "How to Fish Patch 1.0.4"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/1841579228669389"
     type: "official-patch"
@@ -35,7 +39,7 @@ relatedGuides:
   - "/achievements/achievement-not-unlocking/"
 draft: false
 noindex: false
-answer: "Install the current update on every player’s machine before using workarounds. Patch 1.0.4 says the developer addressed a black screen when joining a lobby and a gray screen at startup, though the note itself used cautious wording. Restart Steam, create a new private lobby with a plain server name, and test one host with one joiner. If that works, add players back. If it fails, compare solo startup and host versus join behavior without deleting the affected save."
+answer: "Install the current update on every player’s machine before using workarounds. Patch 1.0.4 addressed black and gray screens with qualified wording; Patch 1.0.11 separately says it hopefully fixed an inventory bug on join that made players invisible. Restart Steam, test one host and one joiner in a fresh private lobby, and record whether the symptom is a blank screen, an invisible player, or a red relay status instead of treating them as one bug."
 featured: false
 priority: "P2"
 ---
@@ -47,7 +51,7 @@ priority: "P2"
 3. Have one player create a new private lobby with a plain alphanumeric name.
 4. Invite one player and record whether the host or joiner sees the black screen.
 5. Swap host once to determine whether the symptom follows a machine or a save.
-6. Preserve both saves and report exact reproduction steps if 1.0.5 still fails.
+6. Preserve both saves and report exact reproduction steps if the current build still fails.
 
 ## What the patch confirms
 
@@ -70,6 +74,10 @@ Solo is a diagnostic control: if both players can load solo but one fails only a
 ## Check the 1.0.9 relay indicator
 
 Patch 1.0.9 adds a red status when a Steam relay connection fails and asks affected players to report it. Record that status separately from the black screen: one is a connection diagnostic and the other is the display symptom. Do not open ports or disable security tools based on the color alone. Use [Steam relay connection failed](/fixes/steam-relay-connection-failed/) for the controlled host-and-joiner comparison.
+
+## Distinguish the 1.0.11 invisible-player fix
+
+Patch 1.0.11 says it “hopefully fixed” an inventory bug on join that was making players invisible. That is not the same published symptom as a black screen, and the qualified wording is not a guarantee for every lobby. If the world renders but one player model is missing, record that as invisibility after joining. If the joining player sees no scene, keep it classified as a black-screen symptom. This distinction gives the developer a clearer report and avoids claiming that the newer patch directly fixed the older display issue.
 
 ## What to do next
 

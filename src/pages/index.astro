@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import GuideCard from '../components/GuideCard.astro';
 import QuickAnswerLinks from '../components/QuickAnswerLinks.astro';
 import SearchBox from '../components/SearchBox.astro';
+import { gameRelease } from '../config/gameRelease';
 import { categories, homeQuickAnswers, site } from '../config/site';
 const guides = await getCollection('guides', ({ data }) => !data.draft);
 const featured = guides.filter((entry) => entry.data.featured).slice(0, 6);
@@ -21,6 +22,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [
         <p class="eyebrow">Unofficial field guide · Steam app 4001890</p>
         <h1>How to Fish Game Guides, Bosses, Islands & Fixes</h1>
         <p class="lead">Clear walkthroughs, boss strategies, island progression, achievements, item locations, and troubleshooting for <em>How to Fish</em>.</p>
+        <p class="release-status">Current official release: <a href={gameRelease.officialAnnouncementUrl}>Patch {gameRelease.latestKnownVersion}</a> · Steam Deck Verified · Playable through GeForce NOW.</p>
         <SearchBox />
       </div>
       <aside class="route-card" aria-label="Main progression route"><span>MAIN ROUTE</span><ol><li>Lighthouse</li><li>Forest island</li><li>Desert island</li><li>Rock island</li><li>Volcano</li></ol><p>Follow the item → boss → trophy chain.</p></aside>
@@ -37,6 +39,8 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [
   .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: clamp(2rem, 6vw, 5rem); align-items: end; }
   h1 { max-width: 800px; margin: .6rem 0 1.2rem; color: white; }
   .lead { max-width: 700px; margin-bottom: 1.7rem; color: #bdd1db; font-size: clamp(1.05rem, 2.2vw, 1.28rem); }
+  .release-status { max-width: 700px; margin: -0.8rem 0 1.7rem; color: #dce8ee; font-size: .9rem; font-weight: 700; }
+  .release-status a { color: white; }
   .route-card { transform: rotate(1.5deg); padding: 1.3rem; border: 1px solid rgba(255,255,255,.17); border-radius: 8px 20px 8px 8px; background: var(--sand-100); color: var(--ink); box-shadow: 14px 16px 0 rgba(243,107,69,.85); }
   .route-card > span { font-size: .7rem; font-weight: 900; letter-spacing: .15em; }
   .route-card ol { padding-left: 1.35rem; }

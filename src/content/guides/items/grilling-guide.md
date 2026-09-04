@@ -5,16 +5,20 @@ slug: "grilling-guide"
 category: "items"
 primaryIntent: "Unlock the grill and cook fish for healing, value, and achievements"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
-lastVerifiedAt: 2026-08-23
+updatedAt: 2026-09-04
+lastVerifiedAt: 2026-09-04
 gameVersion: "1.0.5"
-lastSourceReview: 2026-08-25
-evidenceThroughVersion: "1.0.9"
+lastSourceReview: 2026-09-04
+evidenceThroughVersion: "1.0.11"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
 verificationStatus: "community-confirmed"
 sources:
+  - title: "How to Fish Patch 1.0.11"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927885"
+    type: "official-patch"
+    accessedAt: 2026-09-04
   - title: "Complete How to Fish game walkthrough"
     url: "https://www.destructoid.com/complete-how-to-fish-game-walkthrough-100-completion/"
     type: "gameplay-guide"
@@ -31,7 +35,7 @@ relatedGuides:
   - "/bosses/mutated-bowhead-whale/"
 draft: false
 noindex: false
-answer: "On the desert island, complete the creature request beside the grill and speak to that NPC to receive the lighter or start access. Place ordinary catches on the grill and remove them at the cooked state; cooked fish can support healing and, in launch walkthrough evidence, improves sale value. Practice with cheap catches before using rare or quest-related items. For Pufferfish and the volcano, prepare several cooked fish in advance instead of opening the cooking interaction during combat."
+answer: "On the desert island, complete the creature request beside the grill and speak to that NPC to receive the lighter or start access. Place ordinary catches on the grill and remove them at the cooked state; cooked fish can support healing and, in launch walkthrough evidence, improves sale value. Patch 1.0.11 specifically fixes Drip Parrotfish not being cooked. Practice with cheap catches before using rare or quest-related items."
 featured: false
 priority: "P1"
 ---
@@ -62,6 +66,10 @@ Those goals should not be mixed. Normal boss preparation wants correctly cooked 
 ## Solo and co-op notes
 
 Solo players should build a personal reserve before each boss. Co-op groups can divide gathering and cooking, but every combatant needs access to healing; do not leave the entire supply in one player’s inventory if that player can be knocked down.
+
+## Drip Parrotfish in patch 1.0.11
+
+Patch 1.0.11 lists a fix for Drip Parrotfish not being cooked. If that specific catch failed in an older build, update and retry with one ordinary cooking attempt before changing the broader grill route. The note does not say that every possible cooking failure, timing problem, or burnt-food outcome was changed, so the fix should stay limited to the named creature.
 
 ## What to do next
 

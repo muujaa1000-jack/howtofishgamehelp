@@ -102,7 +102,7 @@ export const categoryFieldNotes: Record<CategorySlug, CategoryFieldNote> = {
       'If equipping a weapon crashes the game, stop treating it as an equipment-choice question. Preserve the save, avoid repeating the transition, and move to the dedicated Fixes page. Installation-file verification and save recovery are different tasks, and no item recommendation should encourage overwriting the only evidence of an unresolved crash.',
       'A sensible reading order is Early Upgrades, Weapon Progression, then the utility page required by the current objective: Lures and Bait, Radar, Grilling, or Money. This section does not manufacture separate pages for every weapon or fish. A new page should exist only when it solves an independently useful question with enough evidence to support the answer.',
     ],
-    patchNote: 'Patch 1.0.10 adds saving for up to 64 dropped ground items, prioritizing weapons, tools, quest items, and creatures. It also removes the radar death-position X and uses qualified wording for some item placement and loading fixes; it does not publish new prices or damage values.',
+    patchNote: 'Patch 1.0.10 adds saving for up to 64 dropped ground items. Patch 1.0.11 makes dropped weapons easier to identify with orange dots, removes Iron Sight from purchases, and blocks a Suppressor-to-Compensator downgrade; it does not publish new prices or damage values.',
     caution: 'Exact prices and damage values are deliberately omitted where current public evidence is incomplete.',
   },
   achievements: {
@@ -125,11 +125,11 @@ export const categoryFieldNotes: Record<CategorySlug, CategoryFieldNote> = {
     overview: [
       'Use the troubleshooting index first when the symptom is unclear. Then move to the narrow page for a black screen, private lobby, camera control, missing leeches, red Steam relay status, or save and weapon crash. Each page separates developer patch statements, official platform tools, community observations, and editorial diagnosis so one evidence level is not mistaken for another.',
       'Preserve state before experimenting. Update the game, record the exact transition, compare solo with co-op only when relevant, and change one reversible variable. Deleting saves, exposing router ports, disabling security controls, or installing unknown repair tools are not safe first steps. A repeatable unchanged result is useful evidence for a developer report.',
-      'Patch wording matters. “Fixed” is a developer claim about a release, not proof for every machine. “Hopefully fixed” is explicitly qualified. Patch 1.0.9 uses that caution for corruption while still asking players to report saves that crash during loading or when a weapon is equipped. This section keeps those statements together.',
+      'Patch wording matters. “Fixed” is a developer claim about a release, not proof for every machine. Patch 1.0.9 used qualified language for corruption. Patch 1.0.11 adds pre-load corruption checks and save backups, but does not publish backup filenames, a manual restore procedure, or a guarantee that every older damaged save is restored.',
       'For multiplayer, record host and joiner roles. A red relay indicator, a black screen, and a save that fails in solo are different observations even if they occur in one session. For installation problems, Steam’s Verify Integrity feature checks game files; it should not be described as a universal save repair.',
       'Recommended reading starts with Problems and Fixes. Branch to Steam Relay when red status appears, Multiplayer Black Screen when the joiner has no image, Private Lobby Invites for session setup, or Save Corrupted or Weapon Equip Crash for preserved-data diagnosis. Return to the index instead of combining several remedies when the symptom changes.',
     ],
-    patchNote: 'Patch 1.0.10 adds ground-item saving and fixes a specific Tuna-to-albatross respawn lock. Its item-placement and level-loading notes remain qualified, so the troubleshooting pages preserve saves and do not promise universal recovery.',
+    patchNote: 'Patch 1.0.11 adds pre-load save corruption checks and backups, plus an attempted fix for an inventory-on-join invisibility bug. The announcement does not publish a manual restore path or say that every older crash and multiplayer display symptom is resolved.',
     caution: 'A workaround is not a permanent fix. Pages distinguish official patch notes, repeated community reports, and unresolved bugs.',
   },
 };

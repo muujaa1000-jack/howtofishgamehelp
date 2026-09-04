@@ -41,6 +41,20 @@ test('project declares the required static Astro and Cloudflare commands', async
   assert.match(wrangler, /"not_found_handling"\s*:\s*"404-page"/);
 });
 
+test('current official release metadata and platform status are published from one source', async () => {
+  const release = await text('src/config/gameRelease.ts');
+  const home = await text('src/pages/index.astro');
+
+  assert.match(release, /latestKnownVersion:\s*'1\.0\.11'/);
+  assert.match(release, /latestPatchDate:\s*'2026-09-02'/);
+  assert.match(release, /latestSourceReview:\s*'2026-09-04'/);
+  assert.match(release, /698774255287927885/);
+  assert.match(home, /gameRelease\.latestKnownVersion/);
+  assert.match(home, /Steam Deck Verified/);
+  assert.match(home, /GeForce NOW/);
+  assert.doesNotMatch(home, /Steam Cloud/);
+});
+
 test('content schema contains every editorial evidence field', async () => {
   const schema = await text('src/content.config.ts');
   for (const field of [

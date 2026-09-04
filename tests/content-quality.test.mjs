@@ -74,6 +74,15 @@ const sourceReviewedOnAugust30 = new Set([
   '/bosses/tuna/',
   '/fixes/problems-and-fixes/',
 ]);
+const refreshedOnSeptember4 = new Set([
+  '/fixes/camera-invert-controls/',
+  '/fixes/multiplayer-black-screen/',
+  '/fixes/problems-and-fixes/',
+  '/fixes/save-file-corrupted-or-weapon-crash/',
+  '/items/grilling-guide/',
+  '/items/money-fast/',
+  '/items/weapon-progression/',
+]);
 
 test('review set contains 35 substantive public guides', async () => {
   const items = await entries();
@@ -135,12 +144,16 @@ test('launch content keeps current verification metadata and avoids evidence ove
     const expectedPublishedAt = publishedOnAugust27.has(route)
       ? '2026-08-27'
       : publishedOnAugust25.has(route) ? '2026-08-25' : '2026-08-23';
-    const expectedUpdatedAt = refreshedOnAugust30.has(route)
+    const expectedUpdatedAt = refreshedOnSeptember4.has(route)
+      ? '2026-09-04'
+      : refreshedOnAugust30.has(route)
       ? '2026-08-30'
       : refreshedOnAugust27.has(route)
       ? '2026-08-27'
       : route === '/achievements/achievement-not-unlocking/' ? '2026-08-26' : '2026-08-25';
-    const expectedSourceReview = sourceReviewedOnAugust30.has(route)
+    const expectedSourceReview = refreshedOnSeptember4.has(route)
+      ? '2026-09-04'
+      : sourceReviewedOnAugust30.has(route)
       ? '2026-08-30'
       : refreshedOnAugust27.has(route)
       ? '2026-08-27'
@@ -148,11 +161,12 @@ test('launch content keeps current verification metadata and avoids evidence ove
     assert.equal(scalar(frontmatter, 'publishedAt'), expectedPublishedAt);
     assert.equal(scalar(frontmatter, 'updatedAt'), expectedUpdatedAt);
     assert.equal(scalar(frontmatter, 'lastSourceReview'), expectedSourceReview);
-    assert.equal(scalar(frontmatter, 'evidenceThroughVersion'), sourceReviewedOnAugust30.has(route) ? '1.0.10' : '1.0.9');
+    assert.equal(scalar(frontmatter, 'evidenceThroughVersion'), refreshedOnSeptember4.has(route) ? '1.0.11' : sourceReviewedOnAugust30.has(route) ? '1.0.10' : '1.0.9');
+    if (refreshedOnSeptember4.has(route)) assert.equal(scalar(frontmatter, 'lastVerifiedAt'), '2026-09-04');
     assert.equal(scalar(frontmatter, 'firstHandTested'), 'false');
     assert.match(scalar(frontmatter, 'patchSensitive'), /^(?:true|false)$/);
     assert.match(scalar(frontmatter, 'adEligible'), /^(?:true|false)$/);
-    assert.ok(['1.0.5', '1.0.9', '1.0.10'].includes(scalar(frontmatter, 'gameVersion')));
+    assert.ok(['1.0.5', '1.0.9', '1.0.10', '1.0.11'].includes(scalar(frontmatter, 'gameVersion')));
     if (scalar(frontmatter, 'adEligible') === 'true') eligibleRoutes.push(route);
     assert.doesNotMatch(item.source, /\b(I tested|we tested|personally tested|tested on Steam Deck|verified in-game|official guide)\b/i, `${item.file} makes an unsupported testing claim`);
     assert.doesNotMatch(item.source, /\bguaranteed\b/i, `${item.file} makes an absolute claim`);
@@ -247,4 +261,32 @@ test('Patch 1.0.9 issue pages use official evidence and qualified fix language',
   assert.match(save, /help\.steampowered\.com\/en\/faqs\/view\/(?:0C48-FCBD-DA71-93EB|68D2-35AB-09A9-7678)/);
   assert.match(save, /hopefully/i);
   assert.doesNotMatch(save, /\b(?:completely|permanently|fully) fixed\b/i);
+});
+
+test('Patch 1.0.11 facts update only the directly affected guide boundaries', async () => {
+  const byRoute = new Map();
+  for (const item of await entries()) {
+    const frontmatter = frontmatterOf(item.source);
+    byRoute.set(routeOf(frontmatter), { frontmatter, source: item.source });
+  }
+
+  const patchUrl = /steamcommunity\.com\/games\/4001890\/announcements\/detail\/698774255287927885/;
+  for (const route of refreshedOnSeptember4) {
+    const item = byRoute.get(route);
+    assert.ok(item, `missing Patch 1.0.11 affected page ${route}`);
+    assert.equal(scalar(item.frontmatter, 'evidenceThroughVersion'), '1.0.11');
+    assert.match(item.source, patchUrl, `${route} must cite the official Patch 1.0.11 announcement`);
+  }
+
+  assert.match(byRoute.get('/fixes/camera-invert-controls/').source, /toggle (?:for )?aiming/i);
+  assert.match(byRoute.get('/fixes/save-file-corrupted-or-weapon-crash/').source, /checked.+corrupt.+before loading/is);
+  assert.match(byRoute.get('/fixes/save-file-corrupted-or-weapon-crash/').source, /backup/i);
+  assert.match(byRoute.get('/fixes/multiplayer-black-screen/').source, /inventory bug on join.+invisible/is);
+  assert.match(byRoute.get('/items/grilling-guide/').source, /Drip Parrotfish/i);
+  assert.match(byRoute.get('/items/money-fast/').source, /held once before selling/i);
+  assert.match(byRoute.get('/items/weapon-progression/').source, /iron sight/i);
+  assert.match(byRoute.get('/items/weapon-progression/').source, /suppressor.+compensator/is);
+
+  assert.equal(scalar(byRoute.get('/guides/difficulty-settings/').frontmatter, 'evidenceThroughVersion'), '1.0.9');
+  assert.equal(scalar(byRoute.get('/walkthrough/story-walkthrough/').frontmatter, 'evidenceThroughVersion'), '1.0.9');
 });

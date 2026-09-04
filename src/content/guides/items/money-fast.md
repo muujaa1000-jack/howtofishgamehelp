@@ -5,16 +5,20 @@ slug: "money-fast"
 category: "items"
 primaryIntent: "Earn money efficiently for weapons, boat upgrades, lures, and healing"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
-lastVerifiedAt: 2026-08-23
+updatedAt: 2026-09-04
+lastVerifiedAt: 2026-09-04
 gameVersion: "1.0.5"
-lastSourceReview: 2026-08-25
-evidenceThroughVersion: "1.0.9"
+lastSourceReview: 2026-09-04
+evidenceThroughVersion: "1.0.11"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
 verificationStatus: "community-confirmed"
 sources:
+  - title: "How to Fish Patch 1.0.11"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927885"
+    type: "official-patch"
+    accessedAt: 2026-09-04
   - title: "How to Fish on Steam"
     url: "https://store.steampowered.com/app/4001890/How_to_Fish/"
     type: "official-store"
@@ -31,7 +35,7 @@ relatedGuides:
   - "/achievements/achievement-guide/"
 draft: false
 noindex: false
-answer: "The safe money loop is catch creatures you can kill consistently, add deliberate killscore bonuses without risking the catch, cook when the grill is available, and sell before carrying too many valuable items into a boss attempt. New islands offer stronger catches but also higher combat risk, so move up only when your weapon can finish them cleanly. Treat roulette and slot machines as achievement or entertainment spending, not reliable income for the next quest or engine upgrade."
+answer: "The safe money loop is catch creatures you can kill consistently, add deliberate killscore bonuses, cook when the grill is available, and sell in regular batches. Patch 1.0.11 requires an item to have been held once before it can be sold, so pick up an unrecognized catch before treating the shop as broken. New islands raise combat risk, and gambling remains entertainment rather than dependable progression income."
 featured: false
 priority: "P1"
 ---
@@ -42,7 +46,7 @@ priority: "P1"
 2. Use a suitable weapon so the catch does not escape or damage you heavily.
 3. Add simple, repeatable killscore actions rather than forcing risky stunt chains.
 4. Cook valid catches after the grill unlocks to improve value and usefulness.
-5. Sell in regular batches and keep a separate budget for the next story item.
+5. Hold each item at least once before selling, then keep a separate budget for the next story item.
 6. Use gambling only when you can afford to lose the entire stake.
 
 ## Improve value per safe minute
@@ -50,6 +54,8 @@ priority: "P1"
 The official Steam page confirms that trick shots increase money and gambling exists, but those two systems have different reliability. Killscore rewards skilled actions attached to a creature you already control. Gambling can return nothing useful. For progression, consistency beats the biggest possible screenshot.
 
 Choose catches that match your current gun. A longer struggle lowers the number of safe cycles and increases healing costs. After Island 3, cooking can raise sale value while also creating healing food, so a catch can support both economy and survival. At the volcano, gameplay guides also describe fast bulk fishing methods, but those are endgame tools rather than beginner advice.
+
+Patch 1.0.11 changes one shop precondition: items need to have been held once before selling. If an item is present but the shop will not accept it, hold it once and return to the selling flow before assuming the save or vendor is broken. The announcement does not publish new sale prices, multipliers, or an hourly earning rate.
 
 ## Why it may not work
 
