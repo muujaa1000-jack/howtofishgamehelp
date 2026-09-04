@@ -1,9 +1,13 @@
-import { readFile, readdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 export const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow';
 export const MAX_URLS_PER_REQUEST = 10_000;
+export const MAX_RESPONSE_BODY_BYTES = 8_192;
+const MAX_KEY_BODY_BYTES = 1_024;
+const MAX_SITEMAP_BODY_BYTES = 2_000_000;
 
 type FetchLike = (input: string | URL | Request, init?: RequestInit) => Promise<Response>;
 type Sleep = (milliseconds: number) => Promise<void>;
@@ -26,6 +30,7 @@ export interface BatchResult {
   status: number;
   urlCount: number;
   responseBody: string;
+  responseBodyUnavailable?: boolean;
 }
 
 interface SubmissionErrorOptions {
@@ -33,6 +38,9 @@ interface SubmissionErrorOptions {
   responseBody?: string;
   batch?: number;
   attempts?: number;
+  postAttempted?: boolean;
+  resultAmbiguous?: boolean;
+  responseBodyUnavailable?: boolean;
   cause?: unknown;
 }
 
@@ -41,6 +49,9 @@ export class IndexNowSubmissionError extends Error {
   readonly responseBody?: string;
   readonly batch?: number;
   readonly attempts?: number;
+  readonly postAttempted: boolean;
+  readonly resultAmbiguous: boolean;
+  readonly responseBodyUnavailable: boolean;
 
   constructor(message: string, options: SubmissionErrorOptions = {}) {
     super(message, options.cause === undefined ? undefined : { cause: options.cause });
@@ -49,7 +60,34 @@ export class IndexNowSubmissionError extends Error {
     this.responseBody = options.responseBody;
     this.batch = options.batch;
     this.attempts = options.attempts;
+    this.postAttempted = options.postAttempted ?? false;
+    this.resultAmbiguous = options.resultAmbiguous ?? false;
+    this.responseBodyUnavailable = options.responseBodyUnavailable ?? false;
   }
+}
+
+export async function readResponseBodyBounded(response: Response, maxBytes = MAX_RESPONSE_BODY_BYTES): Promise<string> {
+  if (!Number.isInteger(maxBytes) || maxBytes < 1) throw new Error('response_body_limit_invalid');
+  if (!response.body) return '';
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let total = 0;
+  let text = '';
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > maxBytes) {
+      try {
+        await reader.cancel('response_body_limit_exceeded');
+      } catch {
+        // The body is already unusable; retain the bounded-read error even if cancellation also fails.
+      }
+      throw new Error('response_body_limit_exceeded');
+    }
+    text += decoder.decode(value, { stream: true });
+  }
+  return text + decoder.decode();
 }
 
 const excludedPaths = new Set([
@@ -153,7 +191,7 @@ export async function collectSitemapUrls({
     });
     if (!response.ok) throw new Error(`Sitemap fetch failed for ${current}: HTTP ${response.status}.`);
 
-    const document = parseSitemap(await response.text());
+    const document = parseSitemap(await readResponseBodyBounded(response, MAX_SITEMAP_BODY_BYTES));
     if (document.kind === 'index') {
       for (const location of document.locations) {
         const nested = normalizeSameOriginUrl(location, canonicalOrigin);
@@ -251,7 +289,7 @@ export async function waitForPublishedKey({
         redirect: 'error',
       });
       lastStatus = response.status;
-      if (response.status === 200 && (await response.text()).trim() === key) {
+      if (response.status === 200 && (await readResponseBodyBounded(response, MAX_KEY_BODY_BYTES)).trim() === key) {
         return { attempts: attempt, status: response.status };
       }
     } catch {
@@ -279,52 +317,67 @@ export async function submitIndexNowPayloads({
   sleep?: Sleep;
   retryDelayMs?: number;
 }): Promise<BatchResult[]> {
+  void verifyKey;
+  void sleep;
+  void retryDelayMs;
   const results: BatchResult[] = [];
 
   for (const [index, payload] of payloads.entries()) {
     const batch = index + 1;
-    for (let attempt = 1; attempt <= 2; attempt += 1) {
-      let response: Response;
-      try {
-        response = await fetchImpl(endpoint, {
-          method: 'POST',
-          headers: { Accept: 'application/json,text/plain,*/*', 'Content-Type': 'application/json; charset=utf-8' },
-          body: JSON.stringify(payload),
-          redirect: 'error',
-        });
-      } catch (error) {
-        throw new IndexNowSubmissionError(
-          `IndexNow batch ${batch} failed without an HTTP response: ${error instanceof Error ? error.message : String(error)}`,
-          { batch, attempts: attempt, cause: error },
-        );
-      }
-
-      const responseBody = await response.text();
-      if (response.status === 200) {
-        results.push({ batch, attempts: attempt, status: response.status, urlCount: payload.urlList.length, responseBody });
-        break;
-      }
-
-      if (response.status === 202 && attempt === 1) {
-        await verifyKey();
-        await sleep(retryDelayMs);
-        continue;
-      }
-
+    let response: Response;
+    try {
+      response = await fetchImpl(endpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json,text/plain,*/*', 'Content-Type': 'application/json; charset=utf-8' },
+        body: JSON.stringify(payload),
+        redirect: 'error',
+      });
+    } catch (error) {
       throw new IndexNowSubmissionError(
-        `IndexNow batch ${batch} returned HTTP ${response.status} after ${attempt} attempt${attempt === 1 ? '' : 's'}.`,
-        { status: response.status, responseBody, batch, attempts: attempt },
+        `IndexNow batch ${batch} failed without an HTTP response: ${error instanceof Error ? error.message : String(error)}`,
+        { batch, attempts: 1, postAttempted: true, resultAmbiguous: true, cause: error },
       );
     }
+
+    let responseBody = '';
+    let responseBodyUnavailable = false;
+    try {
+      responseBody = await readResponseBodyBounded(response, MAX_RESPONSE_BODY_BYTES);
+    } catch {
+      responseBodyUnavailable = true;
+    }
+    if (response.status === 200 || response.status === 202) {
+      results.push({
+        batch,
+        attempts: 1,
+        status: response.status,
+        urlCount: payload.urlList.length,
+        responseBody,
+        ...(responseBodyUnavailable ? { responseBodyUnavailable: true } : {}),
+      });
+      continue;
+    }
+    throw new IndexNowSubmissionError(`IndexNow batch ${batch} returned HTTP ${response.status} after 1 attempt.`, {
+      status: response.status,
+      responseBody,
+      batch,
+      attempts: 1,
+      postAttempted: true,
+      responseBodyUnavailable,
+    });
   }
 
   return results;
 }
 
+export function parseIndexNowMode(args: string[]): 'dry-run' | 'production' {
+  if (args.length === 0) return 'dry-run';
+  if (args.length === 1 && args[0] === '--production') return 'production';
+  throw new Error('IndexNow usage: no arguments for dry-run, or the exact --production flag.');
+}
+
 export function assertProductionInvocation(args: string[]): void {
-  if (args.length !== 1 || args[0] !== '--production') {
-    throw new Error('IndexNow submission is production-only and requires the exact --production flag.');
-  }
+  if (parseIndexNowMode(args) !== 'production') throw new Error('IndexNow submission requires --production.');
 }
 
 async function loadRepositoryKey(publicDirectory: string): Promise<string> {
@@ -343,54 +396,140 @@ async function loadRepositoryKey(publicDirectory: string): Promise<string> {
   return candidate;
 }
 
-async function main(args: string[]): Promise<void> {
-  assertProductionInvocation(args);
+function contentHash(urls: string[]): string {
+  return createHash('sha256').update(urls.join('\n'), 'utf8').digest('hex');
+}
 
-  const startedAtUtc = new Date().toISOString();
+function receiptBase({
+  startedAt,
+  completedAt,
+  sitemapUrl,
+  urls,
+  mode,
+  keyLocation,
+}: {
+  startedAt: string;
+  completedAt: string;
+  sitemapUrl: string;
+  urls: string[];
+  mode: 'dry-run' | 'production';
+  keyLocation: string;
+}) {
+  return {
+    site: 'howtofishgamehelp.com',
+    started_at: startedAt,
+    completed_at: completedAt,
+    sitemap_url: sitemapUrl,
+    url_count: urls.length,
+    content_hash: contentHash(urls),
+    mode,
+    key_location: keyLocation,
+    limitations: ['no_indexing_guarantee', 'unknown_change_type'],
+  };
+}
+
+export async function runIndexNow({
+  mode = 'dry-run',
+  key,
+  fetchImpl = fetch,
+  now = () => new Date(),
+}: {
+  mode?: 'dry-run' | 'production';
+  key: string;
+  fetchImpl?: FetchLike;
+  now?: () => Date;
+}) {
+  if (mode !== 'dry-run' && mode !== 'production') throw new Error('invalid_indexnow_mode');
+  const startedAt = now().toISOString();
   const canonicalOrigin = 'https://howtofishgamehelp.com';
   const sitemapUrl = `${canonicalOrigin}/sitemap.xml`;
-  const key = await loadRepositoryKey(path.resolve('public'));
   const keyLocation = `${canonicalOrigin}/${key}.txt`;
-  const keyReadback = await waitForPublishedKey({ key, keyLocation });
-  const collection = await collectSitemapUrls({ sitemapUrl, canonicalOrigin });
-  const payloads = buildIndexNowPayloads({ urls: collection.urls, canonicalOrigin, key, keyLocation });
-  const batchResults = await submitIndexNowPayloads({
-    payloads,
-    verifyKey: () => waitForPublishedKey({ key, keyLocation, attempts: 3 }),
-  });
+  let urls: string[] = [];
+  try {
+    await waitForPublishedKey({ key, keyLocation, attempts: 1, fetchImpl, sleep: async () => undefined });
+    const collection = await collectSitemapUrls({ sitemapUrl, canonicalOrigin, fetchImpl });
+    urls = collection.urls;
+    const payloads = buildIndexNowPayloads({ urls, canonicalOrigin, key, keyLocation });
+    if (mode === 'dry-run') {
+      return {
+        state: 'DRY_RUN_COMPLETE',
+        ...receiptBase({ startedAt, completedAt: now().toISOString(), sitemapUrl, urls, mode, keyLocation }),
+        http_status: null,
+        response_body: '',
+        limitations: ['no_indexing_guarantee', 'unknown_change_type', 'dry_run_no_indexnow_post'],
+      };
+    }
+    const results = await submitIndexNowPayloads({ payloads, fetchImpl, verifyKey: async () => undefined });
+    const last = results.at(-1);
+    const responseBodyUnavailable = results.some((result) => result.responseBodyUnavailable);
+    return {
+      state: 'URL_SUBMISSION_RECEIVED',
+      ...receiptBase({ startedAt, completedAt: now().toISOString(), sitemapUrl, urls, mode, keyLocation }),
+      http_status: last?.status ?? null,
+      response_body: last?.responseBody ?? '',
+      limitations: [
+        'no_indexing_guarantee',
+        'unknown_change_type',
+        'indexnow_receipt_only',
+        ...(responseBodyUnavailable ? ['response_body_unavailable'] : []),
+      ],
+    };
+  } catch (error) {
+    const submission = error instanceof IndexNowSubmissionError ? error : undefined;
+    return {
+      state: 'URL_SUBMISSION_FAILED',
+      ...receiptBase({ startedAt, completedAt: now().toISOString(), sitemapUrl, urls, mode, keyLocation }),
+      http_status: submission?.status ?? null,
+      response_body: submission?.responseBody ?? '',
+      limitations: [
+        'no_indexing_guarantee',
+        'unknown_change_type',
+        'submission_failed_no_retry',
+        ...(submission?.postAttempted ? ['post_attempted', 'no_automatic_retry'] : []),
+        ...(submission?.resultAmbiguous ? ['result_ambiguous'] : []),
+        ...(submission?.responseBodyUnavailable ? ['response_body_unavailable'] : []),
+      ],
+    };
+  }
+}
 
-  const report = {
-    ok: true,
-    state: 'URL_SUBMISSION_RECEIVED',
-    note: 'HTTP 200 means IndexNow received the URLs; it does not prove indexing.',
-    startedAtUtc,
-    completedAtUtc: new Date().toISOString(),
-    endpoint: INDEXNOW_ENDPOINT,
-    host: new URL(canonicalOrigin).hostname,
-    sitemapUrl,
-    sitemapCount: collection.sitemapUrls.length,
-    urlCount: collection.urls.length,
-    batchCount: payloads.length,
-    keyLocation,
-    keyReadback,
-    sampleUrls: collection.urls.slice(0, 5),
-    batches: batchResults,
-  };
-  console.log(JSON.stringify(report, null, 2));
+const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+async function writeReceipt(receipt: Awaited<ReturnType<typeof runIndexNow>>): Promise<string> {
+  const directory = path.join(repositoryRoot, 'analysis', 'search-ops', 'indexnow-receipts', receipt.site);
+  await mkdir(directory, { recursive: true });
+  const runId = receipt.completed_at.replaceAll('-', '').replaceAll(':', '').replace('.', '');
+  const receiptPath = path.join(directory, `${runId}.json`);
+  await writeFile(receiptPath, `${JSON.stringify(receipt, null, 2)}\n`, { encoding: 'utf8', flag: 'wx' });
+  return receiptPath;
+}
+
+async function main(args: string[]): Promise<void> {
+  const mode = parseIndexNowMode(args);
+  const key = await loadRepositoryKey(path.join(repositoryRoot, 'public'));
+  const receipt = await runIndexNow({ mode, key });
+  const receiptPath = await writeReceipt(receipt);
+  console.log(JSON.stringify({ ...receipt, receipt_path: receiptPath }, null, 2));
+  if (receipt.state === 'URL_SUBMISSION_FAILED') process.exitCode = 1;
 }
 
 const invokedPath = process.argv[1] ? pathToFileURL(path.resolve(process.argv[1])).href : '';
 if (invokedPath === import.meta.url) {
   main(process.argv.slice(2)).catch((error: unknown) => {
+    const completedAt = new Date().toISOString();
     const report = {
-      ok: false,
       state: 'URL_SUBMISSION_FAILED',
-      completedAtUtc: new Date().toISOString(),
-      error: error instanceof Error ? error.message : String(error),
-      status: error instanceof IndexNowSubmissionError ? error.status ?? null : null,
-      batch: error instanceof IndexNowSubmissionError ? error.batch ?? null : null,
-      attempts: error instanceof IndexNowSubmissionError ? error.attempts ?? null : null,
-      responseBody: error instanceof IndexNowSubmissionError ? error.responseBody ?? '' : '',
+      site: 'howtofishgamehelp.com',
+      started_at: completedAt,
+      completed_at: completedAt,
+      sitemap_url: 'https://howtofishgamehelp.com/sitemap.xml',
+      url_count: 0,
+      content_hash: createHash('sha256').update('', 'utf8').digest('hex'),
+      mode: process.argv.slice(2).length === 1 && process.argv[2] === '--production' ? 'production' : 'dry-run',
+      http_status: null,
+      response_body: '',
+      key_location: '',
+      limitations: ['local_setup_failed', error instanceof Error ? error.name : 'Error'],
     };
     console.error(JSON.stringify(report, null, 2));
     process.exitCode = 1;

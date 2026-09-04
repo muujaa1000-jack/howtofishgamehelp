@@ -74,6 +74,3 @@ jobs:
 
       - name: Promote production Worker version
         run: npx wrangler versions deploy --env="" --version-tag "${{ steps.worker-release-tag.outputs.tag }}" --yes
-
-      - name: Submit production URLs to IndexNow
-        run: npm run indexnow:submit

@@ -7,12 +7,12 @@ import {
   INDEXNOW_ENDPOINT,
   MAX_URLS_PER_REQUEST,
   IndexNowSubmissionError,
-  assertProductionInvocation,
   buildIndexNowPayloads,
   collectSitemapUrls,
   submitIndexNowPayloads,
   waitForPublishedKey,
 } from '../scripts/indexnow.ts';
+import * as indexNow from '../scripts/indexnow.ts';
 
 const root = path.resolve(import.meta.dirname, '..');
 const canonicalOrigin = 'https://howtofishgamehelp.com';
@@ -126,38 +126,23 @@ test('submitIndexNowPayloads records an HTTP 200 response without retrying', asy
   assert.deepEqual(results, [{ batch: 1, attempts: 1, status: 200, urlCount: 1, responseBody: 'received' }]);
 });
 
-test('submitIndexNowPayloads revalidates the published key and retries HTTP 202 once', async () => {
+test('submitIndexNowPayloads accepts HTTP 202 without retrying', async () => {
   const payloads = buildIndexNowPayloads({ urls: [`${canonicalOrigin}/`], canonicalOrigin, key, keyLocation });
-  const statuses = [202, 200];
   let verified = 0;
   let slept = 0;
+  let calls = 0;
 
   const results = await submitIndexNowPayloads({
     payloads,
-    fetchImpl: async () => response(statuses.shift() === 202 ? 'pending' : 'received', statuses.length === 1 ? 202 : 200, 'text/plain'),
+    fetchImpl: async () => { calls += 1; return response('pending', 202, 'text/plain'); },
     verifyKey: async () => { verified += 1; },
     sleep: async () => { slept += 1; },
   });
 
-  assert.equal(verified, 1);
-  assert.equal(slept, 1);
-  assert.deepEqual(results, [{ batch: 1, attempts: 2, status: 200, urlCount: 1, responseBody: 'received' }]);
-});
-
-test('submitIndexNowPayloads stops after a second HTTP 202', async () => {
-  const payloads = buildIndexNowPayloads({ urls: [`${canonicalOrigin}/`], canonicalOrigin, key, keyLocation });
-  let calls = 0;
-
-  await assert.rejects(
-    submitIndexNowPayloads({
-      payloads,
-      fetchImpl: async () => { calls += 1; return response('pending', 202, 'text/plain'); },
-      verifyKey: async () => {},
-      sleep: async () => {},
-    }),
-    (error) => error instanceof IndexNowSubmissionError && error.status === 202 && error.attempts === 2,
-  );
-  assert.equal(calls, 2);
+  assert.equal(verified, 0);
+  assert.equal(slept, 0);
+  assert.equal(calls, 1);
+  assert.deepEqual(results, [{ batch: 1, attempts: 1, status: 202, urlCount: 1, responseBody: 'pending' }]);
 });
 
 for (const status of [403, 422, 429]) {
@@ -241,17 +226,146 @@ test('the repository publishes one valid self-matching IndexNow key file', async
   assert.equal(candidates.length, 1);
 });
 
-test('IndexNow submission is explicit and runs only after production deployment', async () => {
+test('deployment is decoupled while IndexNow defaults to dry-run and production requires the exact explicit flag', async () => {
   const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
   const workflow = await readFile(path.join(root, '.github/workflows/deploy-production.yml'), 'utf8');
+  const parseIndexNowMode = indexNow.parseIndexNowMode;
 
-  assert.equal(pkg.scripts['indexnow:submit'], 'node --experimental-strip-types scripts/indexnow.ts --production');
-  assert.ok(pkg.scripts.deploy.indexOf('wrangler deploy') < pkg.scripts.deploy.indexOf('npm run indexnow:submit'));
+  assert.equal(typeof parseIndexNowMode, 'function');
+  assert.equal(pkg.scripts['indexnow:submit'], 'node --experimental-strip-types scripts/indexnow.ts');
+  assert.match(pkg.scripts.deploy, /wrangler deploy/);
+  assert.doesNotMatch(pkg.scripts.deploy, /indexnow/i);
   assert.doesNotMatch(pkg.scripts['deploy:preview'], /indexnow/i);
   assert.doesNotMatch(pkg.scripts['deploy:temporary'], /indexnow/i);
-  assert.ok(workflow.indexOf('Promote production Worker version') < workflow.indexOf('Submit production URLs to IndexNow'));
-  assert.match(workflow, /name: Submit production URLs to IndexNow\r?\n\s+run: npm run indexnow:submit/);
-  assert.doesNotThrow(() => assertProductionInvocation(['--production']));
-  assert.throws(() => assertProductionInvocation([]), /production-only/i);
-  assert.throws(() => assertProductionInvocation(['--production', '--preview']), /production-only/i);
+  assert.doesNotMatch(workflow, /indexnow/i);
+  assert.equal(parseIndexNowMode([]), 'dry-run');
+  assert.equal(parseIndexNowMode(['--production']), 'production');
+  assert.throws(() => parseIndexNowMode(['--preview']), /usage/i);
+  assert.throws(() => parseIndexNowMode(['--production', '--preview']), /usage/i);
+});
+
+test('runIndexNow returns the unified dry-run receipt without POST and de-duplicates URLs', async () => {
+  const runIndexNow = indexNow.runIndexNow;
+  assert.equal(typeof runIndexNow, 'function');
+  const calls = [];
+  const fetchImpl = async (input, init) => {
+    const url = String(input);
+    const method = String(init?.method ?? 'GET').toUpperCase();
+    calls.push({ url, method });
+    if (url === keyLocation) return response(`${key}\n`, 200, 'text/plain');
+    if (url === `${canonicalOrigin}/sitemap.xml`) {
+      return response(`<urlset><url><loc>${canonicalOrigin}/</loc></url><url><loc>${canonicalOrigin}/</loc></url></urlset>`);
+    }
+    throw new Error(`Unexpected request: ${method} ${url}`);
+  };
+  const timestamps = [new Date('2026-09-04T13:00:00.000Z'), new Date('2026-09-04T13:00:01.000Z')];
+
+  const receipt = await runIndexNow({ key, fetchImpl, now: () => timestamps.shift() });
+
+  assert.deepEqual(
+    Object.keys(receipt).sort(),
+    ['completed_at', 'content_hash', 'http_status', 'key_location', 'limitations', 'mode', 'response_body', 'site', 'sitemap_url', 'started_at', 'state', 'url_count'],
+  );
+  assert.equal(receipt.state, 'DRY_RUN_COMPLETE');
+  assert.equal(receipt.site, 'howtofishgamehelp.com');
+  assert.equal(receipt.started_at, '2026-09-04T13:00:00.000Z');
+  assert.equal(receipt.completed_at, '2026-09-04T13:00:01.000Z');
+  assert.equal(receipt.sitemap_url, `${canonicalOrigin}/sitemap.xml`);
+  assert.equal(receipt.url_count, 1);
+  assert.match(receipt.content_hash, /^[a-f0-9]{64}$/);
+  assert.equal(receipt.mode, 'dry-run');
+  assert.equal(receipt.http_status, null);
+  assert.equal(receipt.response_body, '');
+  assert.equal(receipt.key_location, keyLocation);
+  assert.ok(receipt.limitations.includes('no_indexing_guarantee'));
+  assert.equal(calls.some((call) => call.method === 'POST'), false);
+});
+
+for (const status of [200, 202]) {
+  test(`runIndexNow records one HTTP ${status} POST as URL_SUBMISSION_RECEIVED`, async () => {
+    let posts = 0;
+    const fetchImpl = async (input, init) => {
+      const url = String(input);
+      if (String(init?.method ?? 'GET').toUpperCase() === 'POST') {
+        posts += 1;
+        return response(status === 200 ? 'received' : 'pending', status, 'text/plain');
+      }
+      if (url === keyLocation) return response(key, 200, 'text/plain');
+      return response(`<urlset><url><loc>${canonicalOrigin}/</loc></url></urlset>`);
+    };
+
+    const receipt = await indexNow.runIndexNow({ mode: 'production', key, fetchImpl });
+
+    assert.equal(receipt.state, 'URL_SUBMISSION_RECEIVED');
+    assert.equal(receipt.http_status, status);
+    assert.equal(receipt.response_body, status === 200 ? 'received' : 'pending');
+    assert.equal(posts, 1);
+  });
+}
+
+test('runIndexNow keeps HTTP 200 as received when bounded response reading is canceled at its limit', async () => {
+  let posts = 0;
+  const fetchImpl = async (input, init) => {
+    const url = String(input);
+    if (String(init?.method ?? 'GET').toUpperCase() === 'POST') {
+      posts += 1;
+      return response('x'.repeat(9_000), 200, 'text/plain');
+    }
+    if (url === keyLocation) return response(key, 200, 'text/plain');
+    return response(`<urlset><url><loc>${canonicalOrigin}/</loc></url></urlset>`);
+  };
+
+  const receipt = await indexNow.runIndexNow({ mode: 'production', key, fetchImpl });
+
+  assert.equal(receipt.state, 'URL_SUBMISSION_RECEIVED');
+  assert.equal(receipt.http_status, 200);
+  assert.equal(receipt.response_body, '');
+  assert.ok(receipt.limitations.includes('response_body_unavailable'));
+  assert.equal(posts, 1);
+});
+
+for (const scenario of [
+  { label: 'HTTP', result: async () => response('denied', 403, 'text/plain'), status: 403, body: 'denied' },
+  { label: 'network', result: async () => { throw new Error('socket closed'); }, status: null, body: '' },
+]) {
+  test(`runIndexNow records ${scenario.label} submission failure without retry`, async () => {
+    let posts = 0;
+    const fetchImpl = async (input, init) => {
+      const url = String(input);
+      if (String(init?.method ?? 'GET').toUpperCase() === 'POST') {
+        posts += 1;
+        return scenario.result();
+      }
+      if (url === keyLocation) return response(key, 200, 'text/plain');
+      return response(`<urlset><url><loc>${canonicalOrigin}/</loc></url></urlset>`);
+    };
+
+    const receipt = await indexNow.runIndexNow({ mode: 'production', key, fetchImpl });
+
+    assert.equal(receipt.state, 'URL_SUBMISSION_FAILED');
+    assert.equal(receipt.http_status, scenario.status);
+    assert.equal(receipt.response_body, scenario.body);
+    assert.ok(receipt.limitations.includes('post_attempted'));
+    assert.ok(receipt.limitations.includes('no_automatic_retry'));
+    assert.equal(receipt.limitations.includes('result_ambiguous'), scenario.label === 'network');
+    assert.equal(posts, 1);
+  });
+}
+
+test('readResponseBodyBounded cancels the stream at its byte limit', async () => {
+  const readResponseBodyBounded = indexNow.readResponseBodyBounded;
+  assert.equal(typeof readResponseBodyBounded, 'function');
+  let canceled = false;
+  const stream = new ReadableStream({
+    start(controller) {
+      controller.enqueue(new TextEncoder().encode('12345'));
+      controller.enqueue(new TextEncoder().encode('67890'));
+    },
+    cancel() {
+      canceled = true;
+    },
+  });
+
+  await assert.rejects(readResponseBodyBounded(new Response(stream), 8), /response_body_limit/);
+  assert.equal(canceled, true);
 });
