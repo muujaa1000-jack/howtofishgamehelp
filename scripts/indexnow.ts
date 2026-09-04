@@ -77,7 +77,7 @@ export async function readResponseBodyBounded(response: Response, maxBytes = MAX
     const { done, value } = await reader.read();
     if (done) break;
     total += value.byteLength;
-    if (total > maxBytes) {
+    if (total >= maxBytes) {
       try {
         await reader.cancel('response_body_limit_exceeded');
       } catch {

@@ -369,3 +369,22 @@ test('readResponseBodyBounded cancels the stream at its byte limit', async () =>
   await assert.rejects(readResponseBodyBounded(new Response(stream), 8), /response_body_limit/);
   assert.equal(canceled, true);
 });
+
+test('readResponseBodyBounded cancels immediately at the exact byte limit', async () => {
+  const readResponseBodyBounded = indexNow.readResponseBodyBounded;
+  let canceled = false;
+  let closeTimer;
+  const stream = new ReadableStream({
+    start(controller) {
+      controller.enqueue(new TextEncoder().encode('12345678'));
+      closeTimer = setTimeout(() => controller.close(), 50);
+    },
+    cancel() {
+      canceled = true;
+      clearTimeout(closeTimer);
+    },
+  });
+
+  await assert.rejects(readResponseBodyBounded(new Response(stream), 8), /response_body_limit/);
+  assert.equal(canceled, true);
+});
