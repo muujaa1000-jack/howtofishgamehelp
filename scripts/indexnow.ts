@@ -1,4 +1,4 @@
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -428,6 +428,43 @@ function receiptBase({
   };
 }
 
+export async function writeReceiptExclusive({
+  baseDirectory,
+  receipt,
+  receiptId,
+}: {
+  baseDirectory: string;
+  receipt: { site: string; completed_at: string };
+  receiptId?: string;
+}): Promise<string> {
+  const directory = path.join(baseDirectory, 'analysis', 'search-ops', 'indexnow-receipts', receipt.site);
+  await mkdir(directory, { recursive: true });
+  const runId = receipt.completed_at.replaceAll('-', '').replaceAll(':', '').replace('.', '');
+  const uniqueId = receiptId ?? `${runId}-${randomUUID()}`;
+  const receiptPath = path.join(directory, `${uniqueId}.json`);
+  await writeFile(receiptPath, `${JSON.stringify(receipt, null, 2)}\n`, { encoding: 'utf8', flag: 'wx' });
+  return receiptPath;
+}
+
+export function receiptAfterLocalWriteFailure<T extends {
+  state: string;
+  mode: string;
+  http_status: number | null;
+  limitations: string[];
+}>(receipt: T): T {
+  const postAttempted = receipt.state === 'URL_SUBMISSION_RECEIVED'
+    || receipt.http_status !== null
+    || receipt.limitations.includes('post_attempted');
+  return {
+    ...receipt,
+    limitations: [...new Set([
+      ...receipt.limitations,
+      'local_receipt_write_failed',
+      ...(postAttempted ? ['post_attempted', 'no_automatic_retry'] : []),
+    ])],
+  };
+}
+
 export async function runIndexNow({
   mode = 'dry-run',
   key,
@@ -484,7 +521,7 @@ export async function runIndexNow({
       limitations: [
         'no_indexing_guarantee',
         'unknown_change_type',
-        'submission_failed_no_retry',
+        submission ? 'submission_failed_no_retry' : 'preflight_failed_no_post',
         ...(submission?.postAttempted ? ['post_attempted', 'no_automatic_retry'] : []),
         ...(submission?.resultAmbiguous ? ['result_ambiguous'] : []),
         ...(submission?.responseBodyUnavailable ? ['response_body_unavailable'] : []),
@@ -495,21 +532,19 @@ export async function runIndexNow({
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-async function writeReceipt(receipt: Awaited<ReturnType<typeof runIndexNow>>): Promise<string> {
-  const directory = path.join(repositoryRoot, 'analysis', 'search-ops', 'indexnow-receipts', receipt.site);
-  await mkdir(directory, { recursive: true });
-  const runId = receipt.completed_at.replaceAll('-', '').replaceAll(':', '').replace('.', '');
-  const receiptPath = path.join(directory, `${runId}.json`);
-  await writeFile(receiptPath, `${JSON.stringify(receipt, null, 2)}\n`, { encoding: 'utf8', flag: 'wx' });
-  return receiptPath;
-}
-
 async function main(args: string[]): Promise<void> {
   const mode = parseIndexNowMode(args);
   const key = await loadRepositoryKey(path.join(repositoryRoot, 'public'));
   const receipt = await runIndexNow({ mode, key });
-  const receiptPath = await writeReceipt(receipt);
-  console.log(JSON.stringify({ ...receipt, receipt_path: receiptPath }, null, 2));
+  let outputReceipt = receipt;
+  let receiptPath: string | null = null;
+  try {
+    receiptPath = await writeReceiptExclusive({ baseDirectory: repositoryRoot, receipt });
+  } catch {
+    outputReceipt = receiptAfterLocalWriteFailure(receipt);
+    process.exitCode = 1;
+  }
+  console.log(JSON.stringify({ ...outputReceipt, receipt_path: receiptPath }, null, 2));
   if (receipt.state === 'URL_SUBMISSION_FAILED') process.exitCode = 1;
 }
 

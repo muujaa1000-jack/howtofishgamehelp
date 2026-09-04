@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import { readFile, readdir } from 'node:fs/promises';
+import { mkdtemp, readFile, readdir, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 
@@ -229,6 +230,7 @@ test('the repository publishes one valid self-matching IndexNow key file', async
 test('deployment is decoupled while IndexNow defaults to dry-run and production requires the exact explicit flag', async () => {
   const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
   const workflow = await readFile(path.join(root, '.github/workflows/deploy-production.yml'), 'utf8');
+  const readme = await readFile(path.join(root, 'README.md'), 'utf8');
   const parseIndexNowMode = indexNow.parseIndexNowMode;
 
   assert.equal(typeof parseIndexNowMode, 'function');
@@ -242,6 +244,9 @@ test('deployment is decoupled while IndexNow defaults to dry-run and production 
   assert.equal(parseIndexNowMode(['--production']), 'production');
   assert.throws(() => parseIndexNowMode(['--preview']), /usage/i);
   assert.throws(() => parseIndexNowMode(['--production', '--preview']), /usage/i);
+  assert.match(readme, /npm run indexnow:submit` performs a read-only dry-run/i);
+  assert.match(readme, /npm run indexnow:submit -- --production/);
+  assert.doesNotMatch(readme, /deploy command.*submit.*IndexNow/i);
 });
 
 test('runIndexNow returns the unified dry-run receipt without POST and de-duplicates URLs', async () => {
@@ -279,6 +284,57 @@ test('runIndexNow returns the unified dry-run receipt without POST and de-duplic
   assert.equal(receipt.key_location, keyLocation);
   assert.ok(receipt.limitations.includes('no_indexing_guarantee'));
   assert.equal(calls.some((call) => call.method === 'POST'), false);
+});
+
+test('runIndexNow returns a unified preflight failure receipt without POST', async () => {
+  let calls = 0;
+  const receipt = await indexNow.runIndexNow({
+    key: 'bad',
+    fetchImpl: async () => { calls += 1; throw new Error('must not fetch'); },
+  });
+
+  assert.equal(receipt.state, 'URL_SUBMISSION_FAILED');
+  assert.equal(receipt.site, 'howtofishgamehelp.com');
+  assert.equal(receipt.url_count, 0);
+  assert.equal(receipt.content_hash, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855');
+  assert.equal(receipt.mode, 'dry-run');
+  assert.equal(receipt.http_status, null);
+  assert.equal(receipt.response_body, '');
+  assert.ok(receipt.limitations.includes('preflight_failed_no_post'));
+  assert.equal(calls, 0);
+});
+
+test('local receipt writes never overwrite and write failures preserve accepted POST facts', async () => {
+  const baseDirectory = await mkdtemp(path.join(tmpdir(), 'howtofish-indexnow-'));
+  const receipt = {
+    state: 'URL_SUBMISSION_RECEIVED',
+    site: 'howtofishgamehelp.com',
+    started_at: '2026-09-04T13:00:00.000Z',
+    completed_at: '2026-09-04T13:00:01.000Z',
+    sitemap_url: `${canonicalOrigin}/sitemap.xml`,
+    url_count: 1,
+    content_hash: 'a'.repeat(64),
+    mode: 'production',
+    http_status: 200,
+    response_body: 'received',
+    key_location: keyLocation,
+    limitations: ['indexnow_receipt_only'],
+  };
+  try {
+    const receiptPath = await indexNow.writeReceiptExclusive({ baseDirectory, receipt, receiptId: 'fixed' });
+    await assert.rejects(indexNow.writeReceiptExclusive({ baseDirectory, receipt, receiptId: 'fixed' }), { code: 'EEXIST' });
+    assert.deepEqual(JSON.parse(await readFile(receiptPath, 'utf8')), receipt);
+
+    const fallback = indexNow.receiptAfterLocalWriteFailure(receipt);
+    assert.equal(fallback.state, 'URL_SUBMISSION_RECEIVED');
+    assert.equal(fallback.http_status, 200);
+    assert.equal(fallback.response_body, 'received');
+    assert.ok(fallback.limitations.includes('local_receipt_write_failed'));
+    assert.ok(fallback.limitations.includes('post_attempted'));
+    assert.ok(fallback.limitations.includes('no_automatic_retry'));
+  } finally {
+    await rm(baseDirectory, { recursive: true, force: true });
+  }
 });
 
 for (const status of [200, 202]) {
