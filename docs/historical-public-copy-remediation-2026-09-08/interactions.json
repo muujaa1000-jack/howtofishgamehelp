@@ -1,0 +1,30 @@
+{
+  "searchQuery": "Steam Cloud",
+  "resultCount": 4,
+  "cloudOpened": true,
+  "maintainerLinkOpened": true,
+  "mobileMenuDestination": "/islands/",
+  "tableChecks": [
+    {
+      "viewport": 320,
+      "page": 320,
+      "table": 301,
+      "tableScroll": 397,
+      "scrollLeft": 96
+    },
+    {
+      "viewport": 390,
+      "page": 390,
+      "table": 371,
+      "tableScroll": 397,
+      "scrollLeft": 26
+    },
+    {
+      "viewport": 768,
+      "page": 768,
+      "table": 736,
+      "tableScroll": 736,
+      "scrollLeft": 0
+    }
+  ]
+}

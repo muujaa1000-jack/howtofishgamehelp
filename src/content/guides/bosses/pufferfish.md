@@ -5,7 +5,7 @@ slug: "pufferfish"
 category: "bosses"
 primaryIntent: "Defeat the Island 3 Pufferfish boss and continue progression"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -47,7 +47,7 @@ Complete the desert tourist’s endangered-catch request and keep the Carrot rew
 
 ## Applies to
 
-The encounter sequence and movement advice come from two independent launch guides reviewed through August 25, 2026. The page retains version 1.0.5 as its route evidence label. Official patch 1.0.9 later added Easy, Normal, and Hard settings, so old expectations about damage taken or fight length are patch-sensitive. This is a source-based guide, not an independently playtested boss report, and it does not claim exact health, damage, or timing values.
+The encounter sequence and movement advice come from two independent launch guides reviewed through August 25, 2026. The fight route was described in 1.0.5 guides. Official patch 1.0.9 later added Easy, Normal, and Hard settings, so old expectations about damage taken or fight length are patch-sensitive.
 
 ## Quick steps
 
@@ -68,7 +68,7 @@ The same logic applies to attacking. A long burst that delays movement is less u
 
 ## Detailed preparation and fight plan
 
-First finish the local request. The Carrot is presented by the walkthrough sources as the boss bait, so a Carrot-shaped expectation from another item is not a substitute. Before equipping it, use the grill and make healing available. This guide does not prescribe a minimum quantity because the sources do not establish a universal number and difficulty now changes incoming pressure.
+First finish the local request. The walkthroughs identify the Carrot reward as the boss bait, so check that you have the quest item before equipping it. Prepare cooked healing before using the Carrot; the amount you need depends on your selected difficulty and how often you take damage.
 
 Choose a ranged weapon that does not tempt you to stand still. Walk to a broad area and look for obstacles behind and beside you. If the fight begins among coconut trees, move the battle toward clearer ground rather than trying to thread every dodge through the same gap.
 
@@ -100,7 +100,7 @@ Solo play keeps the boss’s attention and trophy custody with one person, so mo
 
 ## Patch history and limitations
 
-Patch 1.0.9 officially defines Easy as creatures having 25 percent less health and dealing 50 percent less damage, Normal as the earlier balance, and Hard as creatures having 25 percent more health and dealing 25 percent more damage. This page uses those numbers only because the developer published them. It does not infer Pufferfish’s base health, exact attacks, or a best difficulty. The patch announcement does not state that the Carrot quest or trophy hand-in changed.
+Patch 1.0.9 officially defines Easy as creatures having 25 percent less health and dealing 50 percent less damage, Normal as the earlier balance, and Hard as creatures having 25 percent more health and dealing 25 percent more damage. Pufferfish’s base health and an exact number of hits are unknown. Choose difficulty for the combat pressure you want. The patch announcement does not state that the Carrot quest or trophy hand-in changed.
 
 ## FAQ
 
@@ -110,19 +110,15 @@ The cited progression sources place it after the desert tourist’s endangered-c
 
 ### Should I fight in melee range?
 
-This route recommends a controllable ranged option because the rolling lane and poison trail reward spacing. It does not claim that other weapons cannot work.
+This route recommends a controllable ranged option because the rolling lane and poison trail reward spacing. Other weapons may work, but keep enough space to leave the rolling lane and poison trail.
 
 ### Why are there no exact damage or health numbers?
 
-The reviewed evidence does not establish dependable base values, and 1.0.9 difficulty modifies creature health and damage. Inventing a threshold would be less useful than explaining the movement pattern.
+The reviewed evidence does not establish dependable base values, and 1.0.9 difficulty modifies creature health and damage.
 
 ### Is the fight over when Pufferfish dies?
 
 Combat is over, but story progression still requires the distinct drop and the tourist return.
-
-## Evidence boundaries
-
-The Destructoid walkthrough supports the desert request and progression sequence. Nerdschalk supplies the focused roll, growth, and purple-trail description. The official patch supplies difficulty modifiers only. Where these sources do not establish a fact, this page leaves it unspecified.
 
 ## What to do next
 

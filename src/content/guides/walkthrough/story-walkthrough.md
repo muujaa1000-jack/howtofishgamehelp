@@ -5,7 +5,7 @@ slug: "story-walkthrough"
 category: "walkthrough"
 primaryIntent: "Follow the main How to Fish quest chain in progression order"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-30
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -47,7 +47,7 @@ The source-supported story order is Lighthouse, forest island, desert island, ro
 
 ## Applies to
 
-This walkthrough records the launch progression described by two independent guides and reviewed through the official 1.0.9 announcement. Patch 1.0.9 did not announce a story-order change, but its difficulty system can change boss health and damage relative to earlier descriptions. The route is source-based and has not been independently playtested by this site. Named conditions that the official patch does not address remain dependent on the cited walkthrough evidence.
+This walkthrough records the launch progression described by two independent guides and reviewed through the official 1.0.9 announcement. Patch 1.0.9 did not announce a story-order change, but its difficulty system can change boss health and damage relative to earlier descriptions.
 
 ## Quick steps
 
@@ -78,7 +78,7 @@ Find and activate the island’s request before assuming collected items count. 
 
 ### Desert and Pufferfish
 
-Unlock the grill and speak to the tourist. The documented gate asks for an endangered catch and rewards a Carrot. Prepare cooked healing before equipping that boss bait. Fight Pufferfish in open space, collect its drop, and bring it back to the tourist. Patch 1.0.9 difficulty changes mean an old combat-time estimate would not be dependable, so this walkthrough gives no damage or health thresholds.
+Unlock the grill and speak to the tourist. The documented gate asks for an endangered catch and rewards a Carrot. Prepare cooked healing before equipping that boss bait. Fight Pufferfish in open space, collect its drop, and bring it back to the tourist. Fight length varies with your selected difficulty, so prepare healing rather than relying on an old kill-time estimate.
 
 ### Rock island and the terrorizing bird
 
@@ -111,13 +111,13 @@ The documented island order is the same. Solo play makes item ownership obvious 
 
 ## Patch history and limitations
 
-This page preserves its original 1.0.5 route label because that is the evidence range of the walkthrough sequence. The official 1.0.9 note adds difficulty settings and several troubleshooting changes but does not state that island gates or rewards changed. Easy reduces creature health and damage, Normal keeps the prior balance, and Hard increases them. Those options can affect preparation, not the documented order. Undocumented changes remain unknown until reliable evidence appears.
+The route was described in 1.0.5 walkthroughs. The official 1.0.9 note adds difficulty settings and several troubleshooting changes but does not state that island gates or rewards changed. Easy reduces creature health and damage, Normal keeps the prior balance, and Hard increases them. Those options can affect preparation, not the documented order. Undocumented changes remain unknown until reliable evidence appears.
 
 ## FAQ
 
 ### Can I visit islands out of order?
 
-Exploration may reveal locations, but the source-supported story rewards depend on completing each request and hand-in. This guide does not claim that sequence-breaking records progression safely.
+Exploration may reveal locations, but the source-supported story rewards depend on completing each request and hand-in. Complete the current request and hand-in before following the next route; reaching an island early may leave its quest gate unfinished.
 
 ### Why did a boss kill not unlock the next route?
 
@@ -125,15 +125,11 @@ The usual missing step is its unique drop or the return conversation. Check both
 
 ### Does difficulty change quests?
 
-The 1.0.9 announcement documents health and damage modifiers, not alternate quests. Quest changes are therefore not claimed.
+The 1.0.9 announcement documents health and damage modifiers, not alternate quests. Whether difficulty changes quests is unknown.
 
 ### When is the story actually complete?
 
 The cited walkthroughs continue through returning the final mutated-whale drop, receiving the RHIB key, and starting that boat.
-
-## Evidence boundaries
-
-The two independent walkthroughs agree on the five-location order and principal hand-ins. The official 1.0.9 announcement is used only for current difficulty and technical context. Source agreement reduces uncertainty but does not turn the route into first-hand testing.
 
 ## What to do next
 

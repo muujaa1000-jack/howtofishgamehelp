@@ -5,7 +5,7 @@ slug: "multiplayer-black-screen"
 category: "fixes"
 primaryIntent: "Fix or safely diagnose a black screen when joining How to Fish multiplayer"
 publishedAt: 2026-08-23
-updatedAt: 2026-09-04
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-09-04
 gameVersion: "1.0.5"
 lastSourceReview: 2026-09-04
@@ -55,7 +55,7 @@ priority: "P2"
 
 ## What the patch confirms
 
-Official patch 1.0.4 lists a fix for a black screen while trying to join a lobby and a gray screen when starting the game. The developer wrote “hopefully” for these display fixes, which means the honest status is “addressed, but not promised for every setup.” Patch 1.0.5 then added private invite-only hosting, which provides a cleaner reproduction environment.
+Official patch 1.0.4 lists a fix for a black screen while trying to join a lobby and a gray screen when starting the game. The developer wrote “hopefully” for these display fixes, so some setups may still have the display problem after updating. Patch 1.0.5 then added private invite-only hosting, which provides a cleaner reproduction environment.
 
 The same 1.0.4 notes also say special characters in server names could break a save filename. A new test lobby should therefore use a plain name. This does not prove that every old save is damaged; it simply removes one known launch variable.
 
@@ -77,7 +77,7 @@ Patch 1.0.9 adds a red status when a Steam relay connection fails and asks affec
 
 ## Distinguish the 1.0.11 invisible-player fix
 
-Patch 1.0.11 says it “hopefully fixed” an inventory bug on join that was making players invisible. That is not the same published symptom as a black screen, and the qualified wording is not a guarantee for every lobby. If the world renders but one player model is missing, record that as invisibility after joining. If the joining player sees no scene, keep it classified as a black-screen symptom. This distinction gives the developer a clearer report and avoids claiming that the newer patch directly fixed the older display issue.
+Patch 1.0.11 says it “hopefully fixed” an inventory bug on join that was making players invisible. That is not the same published symptom as a black screen, and the qualified wording is not a guarantee for every lobby. If the world renders but one player model is missing, record that as invisibility after joining. If the joining player sees no scene, keep it classified as a black-screen symptom. Record whether the world is black or a player model is missing so the report identifies the failing symptom.
 
 ## What to do next
 

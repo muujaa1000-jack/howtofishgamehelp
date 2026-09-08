@@ -26,7 +26,7 @@ const articleJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     { '@type': 'Organization', '@id': `${site.url}/#organization`, name: site.name, url: site.url, logo: `${site.url}/brand-mark.svg` },
-    { '@type': 'Article', headline: data.title, description: data.description, datePublished: data.publishedAt.toISOString(), dateModified: data.updatedAt.toISOString(), mainEntityOfPage: `${site.url}${canonicalPath}`, publisher: { '@id': `${site.url}/#organization` }, isPartOf: { '@type': 'WebSite', name: site.name, url: site.url } },
+    { '@type': 'Article', headline: data.title, description: data.description, datePublished: data.publishedAt.toISOString(), dateModified: data.updatedAt.toISOString(), mainEntityOfPage: `${site.url}${canonicalPath}`, author: { '@type': 'Organization', name: site.name, url: `${site.url}/about/` }, publisher: { '@id': `${site.url}/#organization` }, isPartOf: { '@type': 'WebSite', name: site.name, url: site.url } },
     { '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
       { '@type': 'ListItem', position: 2, name: category.label, item: `${site.url}/${category.slug}/` },
@@ -45,10 +45,12 @@ const articleJsonLd = {
             <p class="eyebrow">{category.label}</p>
             <h1>{data.title}</h1>
             <p class="dek">{data.description}</p>
+            <p class="byline">Maintained by <a href="/about/" rel="author">{site.name}</a></p>
           </div>
           <div class="verification-card">
             <dl>
-              <div><dt>Last source review</dt><dd>{sourceReviewDate.toLocaleDateString('en-US', { dateStyle: 'medium' })}</dd></div>
+              <div><dt>Page updated</dt><dd><time datetime={data.updatedAt.toISOString().slice(0, 10)} data-date-kind="page-updated">{data.updatedAt.toLocaleDateString('en-US', { dateStyle: 'medium', timeZone: 'UTC' })}</time></dd></div>
+              <div><dt>Last source review</dt><dd><time datetime={sourceReviewDate.toISOString().slice(0, 10)} data-date-kind="source-checked">{sourceReviewDate.toLocaleDateString('en-US', { dateStyle: 'medium', timeZone: 'UTC' })}</time></dd></div>
               <div><dt>Evidence reviewed through</dt><dd>Patch {evidenceVersion}</dd></div>
               <div><dt>Testing status</dt><dd>{testingStatus}</dd></div>
             </dl>
@@ -70,7 +72,7 @@ const articleJsonLd = {
         {data.sources.length > 0 && (
           <section class="source-note">
             <h2>Sources</h2>
-            <ul>{data.sources.map((source) => <li><a href={source.url} rel="nofollow noopener">{source.title}</a> <span>({source.type.replaceAll('-', ' ')}, checked {source.accessedAt.toISOString().slice(0, 10)})</span></li>)}</ul>
+            <ul>{data.sources.map((source) => <li><a href={source.url} rel="nofollow noopener">{source.title}</a> <span>({source.type.replaceAll('-', ' ')}, checked <time datetime={source.accessedAt.toISOString().slice(0, 10)}>{source.accessedAt.toISOString().slice(0, 10)}</time>)</span></li>)}</ul>
           </section>
         )}
         <nav class="sequence" aria-label="Guide sequence">
@@ -89,6 +91,8 @@ const articleJsonLd = {
   .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 2rem; align-items: end; }
   h1 { max-width: 850px; margin: 2rem 0 1rem; color: white; font-size: clamp(2.25rem, 6vw, 4.2rem); }
   .dek { max-width: 700px; color: #bcd0db; font-size: 1.12rem; }
+  .byline { margin-bottom: 0; color: #bcd0db; font-size: .88rem; }
+  .byline a { color: white; }
   .verification-card { padding: 1rem; border: 1px solid rgba(255,255,255,.16); border-radius: 14px; background: rgba(255,255,255,.06); }
   dl { margin-bottom: 0; }
   dl div { display: flex; justify-content: space-between; gap: .7rem; margin-top: .65rem; }
@@ -108,6 +112,6 @@ const articleJsonLd = {
   .related .grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
   .related a { display: flex; flex-direction: column; justify-content: space-between; min-height: 130px; padding: 1rem; color: var(--navy-950); font-family: Georgia, serif; font-size: 1.05rem; font-weight: 750; text-decoration: none; box-shadow: none; }
   .related a span { color: var(--coral-dark); font-family: "Segoe UI", sans-serif; font-size: .76rem; }
-  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; } .article-grid { grid-template-columns: 1fr; } .toc { position: static; padding: 1rem; border: 1px solid var(--line); border-radius: 12px; } }
+  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; } .article-grid { grid-template-columns: minmax(0, 1fr); } .toc { position: static; padding: 1rem; border: 1px solid var(--line); border-radius: 12px; } }
   @media (max-width: 600px) { .sequence { grid-template-columns: 1fr; } .sequence span { display: none; } }
 </style>

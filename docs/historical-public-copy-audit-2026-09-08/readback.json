@@ -1,0 +1,478 @@
+{
+  "baselineHead": "9443db998642d1c366b7ce8231dbea62e6c0fb3f",
+  "newlyReadPages": 34,
+  "priorCoveredPages": 17,
+  "allDistinctHtmlPages": 51,
+  "guidePagesRead": 25,
+  "guidePagesWithFindings": 11,
+  "guidePagesWithoutFindings": 14,
+  "visibleFindings": 49,
+  "pagesWithFindings": 18,
+  "pagesWithoutFindings": 16,
+  "latentUnrenderedFindings": 1,
+  "adjacentConsistencyNotes": 1,
+  "sourceLineChecks": 51,
+  "quotesMatchedExistingOutput": 49,
+  "verification": "Read source lines and existing build output only. No build, tests, browser session, live-source research or website mutation.",
+  "pageHashes": [
+    {
+      "route": "/guides/beginner-guide/",
+      "file": "dist\\guides\\beginner-guide\\index.html",
+      "htmlSha256": "4313985c8ad5b401c2a9c5cc51bec448434e1af0d5a4eed0f7f25fac5a261edd",
+      "sourceSha256": "9063b0630acfb501a3ed8f366761da1ca82ba1a9d1e8de2555f47cfa77690069"
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "file": "dist\\guides\\difficulty-settings\\index.html",
+      "htmlSha256": "9b04a7461d32628ccce5235e9d88bc79bdee30d1c852e72727aab02403ea1797",
+      "sourceSha256": "a364ec229328af36a08fbfb611af133c2b2b96019ac8f5d4aa95757130cdc970"
+    },
+    {
+      "route": "/guides/unlock-next-island/",
+      "file": "dist\\guides\\unlock-next-island\\index.html",
+      "htmlSha256": "5eaf3f0528ac733d8d1602574f5acd744026ac69c7778e979da200bf050c1520",
+      "sourceSha256": "a500587840211f9b456c5e7715e2211398800d7f3af7bab25e3ce8b7b85ccc34"
+    },
+    {
+      "route": "/guides/what-to-do-after-pufferfish/",
+      "file": "dist\\guides\\what-to-do-after-pufferfish\\index.html",
+      "htmlSha256": "ed66169836abb0cc1d40c40b1e7a0b1f6ab92c91b88f7c4801dd812c243a10ae",
+      "sourceSha256": "9788632b36be0657c37a75e6ec09c87b968718bf8b9ceacec1dc5ac271ff1354"
+    },
+    {
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "dist\\walkthrough\\story-walkthrough\\index.html",
+      "htmlSha256": "247f2e2dffbc1507a14888d5ee7f79da729787dcac238124ce03b90966b58b52",
+      "sourceSha256": "64ce694e098afcfe609a7e9837fb195b91523738d14e658cdfbd9bc1ce5e120a"
+    },
+    {
+      "route": "/walkthrough/lighthouse-first-island/",
+      "file": "dist\\walkthrough\\lighthouse-first-island\\index.html",
+      "htmlSha256": "cd90810c54504c93cbb751f518f5f83a0ee7ecad63f4d37bfc8e74bf53f6c27e",
+      "sourceSha256": "c4a145704fd293d66fdb9e3c55ed90845f83deb11393e4807342fca5977fe3ce"
+    },
+    {
+      "route": "/islands/island-progression/",
+      "file": "dist\\islands\\island-progression\\index.html",
+      "htmlSha256": "4ecab19f00e2c0c847e016bdc1c4a6cd6d0f0591b2c389a542ed83db714e8df0",
+      "sourceSha256": "4c4174fe1b7d6f8cedef29db8a09fef13ed67bbbeba01c8cc9d9a9a40c823edb"
+    },
+    {
+      "route": "/islands/island-two-leeches/",
+      "file": "dist\\islands\\island-two-leeches\\index.html",
+      "htmlSha256": "4bcffc7804f592dd487152ac16abe5194d6df67b0064748cbc87da89cbdaf5df",
+      "sourceSha256": "d8b6a2aad3c4d6137e7088bb586e844a1499798b6508c95ae0456f563d934cc1"
+    },
+    {
+      "route": "/islands/island-three-desert/",
+      "file": "dist\\islands\\island-three-desert\\index.html",
+      "htmlSha256": "a8b4554157cd5fc768bb242f42fa26038660e2f6bab476d81278802a14879338",
+      "sourceSha256": "22757ffacff9114a771329cb5f59fd1ff294c874909ee97ff963f40752cc0257"
+    },
+    {
+      "route": "/islands/island-four-rocks/",
+      "file": "dist\\islands\\island-four-rocks\\index.html",
+      "htmlSha256": "ecb9d80b72e8f0c888ddae97b8d7989309dcc3a5104119462a35a6bf1bf5fa04",
+      "sourceSha256": "a16440e378d99c928bb0a9b3154195e53767be103b9ca5c4606e6ec8179e66d1"
+    },
+    {
+      "route": "/islands/volcano-endgame/",
+      "file": "dist\\islands\\volcano-endgame\\index.html",
+      "htmlSha256": "53724dc57a1bbe2b28d4ace449a712e7f47fc225bba714ca4ad2256262c6d68c",
+      "sourceSha256": "27beb07be737d6d73dead2c416d08240eda3ffc2bf867b5c82c6e20ee0b4a022"
+    },
+    {
+      "route": "/achievements/story-achievements/",
+      "file": "dist\\achievements\\story-achievements\\index.html",
+      "htmlSha256": "a674f989bd48fc0c17d5784c845fbd52e6d6eb6d64eea86e97b62b7b84fc42b8",
+      "sourceSha256": "d886fafc68cf4042dc6150042674f844bfa87fede6668ec6642e72afeac47fdb"
+    },
+    {
+      "route": "/bosses/boss-guide/",
+      "file": "dist\\bosses\\boss-guide\\index.html",
+      "htmlSha256": "f86f565f3b4826e190a1bbaae6c950e65cdecfe3b6ce555d426d2ba41a5fd1a6",
+      "sourceSha256": "9652708904ad9db34c663cde7979c30883a0accd60818d39208e478786c0d3c4"
+    },
+    {
+      "route": "/bosses/spider-crab/",
+      "file": "dist\\bosses\\spider-crab\\index.html",
+      "htmlSha256": "f231958fa048ec019d133ff9a8442ae0ee0368d80da10e61a6abf54f70e148db",
+      "sourceSha256": "f246eb979a8f557857f0f99fb76be1978f800dc5d4533833b91561bcc6b972af"
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "file": "dist\\bosses\\pufferfish\\index.html",
+      "htmlSha256": "e8a79829f0f74f6106400cbdae3ea9030ed72cb2083ab6e31a2ff616e4c8fdcf",
+      "sourceSha256": "a62b53cca105b43dd8a29b622d15a307fefda69a60840f78e8d6774c14901fdb"
+    },
+    {
+      "route": "/bosses/terrorizing-bird/",
+      "file": "dist\\bosses\\terrorizing-bird\\index.html",
+      "htmlSha256": "cebdd4d027f6ae40a1d6752e85973a3340138ea004a8b01afc4206b82528c455",
+      "sourceSha256": "b7f96f62d950a0fa099d1afb1ef9db7fa09fa0ef286b36d556840030185be6ef"
+    },
+    {
+      "route": "/items/early-upgrades/",
+      "file": "dist\\items\\early-upgrades\\index.html",
+      "htmlSha256": "d9efb4c7167b19999ce556a10f50e5404b9eb5d0637deeb11ce3d131c5104bcc",
+      "sourceSha256": "d4618b11af9652a19153772c4aa5ac5ce2ef2289f478724b00a83927fd413b94"
+    },
+    {
+      "route": "/items/lures-and-bait/",
+      "file": "dist\\items\\lures-and-bait\\index.html",
+      "htmlSha256": "cb8e576abc53a7340d011922cd6c59bb965ef25706a6a242685696e6d6e87bea",
+      "sourceSha256": "bc5908370cea675e8587e403b87a39f2aaab9e81d6aba60925c90e984f40a212"
+    },
+    {
+      "route": "/items/money-fast/",
+      "file": "dist\\items\\money-fast\\index.html",
+      "htmlSha256": "a66f59d6ca0e54bb5cbc7ac5adf93f710ccc0a7389f5e57252d81188c370860a",
+      "sourceSha256": "1700d9b4c4ad447774b0554b22ce323a6c4706dffb60811e06094ff92671707d"
+    },
+    {
+      "route": "/items/weapon-progression/",
+      "file": "dist\\items\\weapon-progression\\index.html",
+      "htmlSha256": "a1d3695e38496802345ef71336e03c40951803814be3b22e5447d666e7b56bbe",
+      "sourceSha256": "e3e3db11fcb6796a23b684447b14f3e29a97987ca34c078f38a76f3a5dcd0591"
+    },
+    {
+      "route": "/fixes/steam-relay-connection-failed/",
+      "file": "dist\\fixes\\steam-relay-connection-failed\\index.html",
+      "htmlSha256": "26937dc07de05baa625f1f6b33bea03ed1d39de5cf8ce30cfa6d23447b67b594",
+      "sourceSha256": "fab5ece4e56569fcba62410f84ae28c7a00b6cb549d88ac3b13b24181bfa7645"
+    },
+    {
+      "route": "/fixes/camera-invert-controls/",
+      "file": "dist\\fixes\\camera-invert-controls\\index.html",
+      "htmlSha256": "4da74e7d06417eef94d7b1ccc384cf2807e69f234f60f31f77951db29ffe2dc9",
+      "sourceSha256": "e0b7c9b9943ad34d69f9729690963369b5b720d1c001956a2fc4e8812daf81b1"
+    },
+    {
+      "route": "/fixes/leeches-not-spawning/",
+      "file": "dist\\fixes\\leeches-not-spawning\\index.html",
+      "htmlSha256": "d2b5cb1ebe067a5a7e114260f3d89bee1e8341c78b5b6991c6e3b3dd97ced598",
+      "sourceSha256": "c3868bfb3a5bed77dc5be38bd78dfbdbdbf3ef4f63031d1a8f5b770bffa32ef9"
+    },
+    {
+      "route": "/fixes/multiplayer-black-screen/",
+      "file": "dist\\fixes\\multiplayer-black-screen\\index.html",
+      "htmlSha256": "051b943ffde407df971a5260ddf635fac0c6997d4d844d6b3320fe10be63018b",
+      "sourceSha256": "03d493bbc0e11c3f24058e25b0ac34cd76e7a9515831777bca706b5853d55e14"
+    },
+    {
+      "route": "/fixes/private-lobby-invites/",
+      "file": "dist\\fixes\\private-lobby-invites\\index.html",
+      "htmlSha256": "a5c1f0162801a63f49aff030ffe9a14c60f8efeca657439db4b310830ed0620b",
+      "sourceSha256": "5bcd9f9c661a121bd1519c797de3d36b50cb15ddf77bfd5e3b64dcfb1bb0a295"
+    },
+    {
+      "route": "/about/",
+      "file": "dist\\about\\index.html",
+      "htmlSha256": "7f1aff7e5e990d3084871589219557b0e022f6cdecb562cc5a97236c82f3dd5a",
+      "sourceSha256": "8b6eb1584a9642a676859b5042d321a0296536216b53a7d166f23a11ab6bd0ce"
+    },
+    {
+      "route": "/contact/",
+      "file": "dist\\contact\\index.html",
+      "htmlSha256": "d344c1a038edd46c46a1bddef1411dc0149f2cb58f40a4d8c429c640478ac071",
+      "sourceSha256": "677d855be24c9f44605391bb9c143da25fab02fd0b78bbbd684e97b4f0458ee6"
+    },
+    {
+      "route": "/disclaimer/",
+      "file": "dist\\disclaimer\\index.html",
+      "htmlSha256": "e275502069a87c063bbff45144e9a7b7abf0239a969ddbed8b0f830fc909f56b",
+      "sourceSha256": "dc69c96d2f41693d174fc61869267fc66ab98443d0cf2d63ecdc12a780b41fb5"
+    },
+    {
+      "route": "/terms/",
+      "file": "dist\\terms\\index.html",
+      "htmlSha256": "75c6ab6a9415d6a02ceece8380351e60bfbe4d211b99f8ba85e5d4a615c45a00",
+      "sourceSha256": "b1c50f3a1d3518cff2f43282266367499ae1961e668a142f746bfa9be20568bb"
+    },
+    {
+      "route": "/privacy/",
+      "file": "dist\\privacy\\index.html",
+      "htmlSha256": "ef43ce4ff1186c1f0eea1b8977f710a75284cd21ebb438352ae0fc1f2a9c416c",
+      "sourceSha256": "c37c2abb7118103ce8a213ab4b511f0c97f466a714cb099d85c9287818cb58ad"
+    },
+    {
+      "route": "/404.html",
+      "file": "dist/404.html",
+      "htmlSha256": "36e73034164dc048a14a57208165251cf13c2a56bde9e48c066f077f9415c447",
+      "sourceSha256": "0342273f525844d57f9d87c060027f77612aad9508e6616a9eb4accfaba3b436"
+    },
+    {
+      "route": "/guides/",
+      "file": "dist\\guides\\index.html",
+      "htmlSha256": "40f20c8f51ab788093996c578810872c0633f78cb2f530643a21d29b652d4658",
+      "sourceSha256": "ddffa3e921c59dd4b85273ff828379abcfa112a66c66f8abbd84ef6a4111f102"
+    },
+    {
+      "route": "/walkthrough/",
+      "file": "dist\\walkthrough\\index.html",
+      "htmlSha256": "37a5226e24f95cdc89e8b2ca965e546568c9e6d0b4b45d5b45a611e1bc39a118",
+      "sourceSha256": "ddffa3e921c59dd4b85273ff828379abcfa112a66c66f8abbd84ef6a4111f102"
+    },
+    {
+      "route": "/islands/",
+      "file": "dist\\islands\\index.html",
+      "htmlSha256": "f275da284b920f493501b865306ad00fe78514d079300dd5783e069d81a00450",
+      "sourceSha256": "ddffa3e921c59dd4b85273ff828379abcfa112a66c66f8abbd84ef6a4111f102"
+    }
+  ],
+  "lineChecks": [
+    {
+      "id": "HF-COPY-001",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-002",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-003",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-004",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-005",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-006",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-007",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-008",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-009",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-010",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-011",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-012",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-013",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-014",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-015",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-016",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-017",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-018",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-019",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-020",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-021",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-022",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-023",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-024",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-025",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-026",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-027",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-028",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-029",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-030",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-031",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-032",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-033",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-034",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-035",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-036",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-037",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-038",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-039",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-040",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-041",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-042",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-043",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-044",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-045",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-046",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-047",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-048",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "HF-COPY-049",
+      "sourceQuoteMatches": true,
+      "visibleInExistingDist": true
+    },
+    {
+      "id": "LATENT-01",
+      "sourceQuoteMatches": true
+    },
+    {
+      "id": "CONSISTENCY-01",
+      "sourceQuoteMatches": true
+    }
+  ]
+}

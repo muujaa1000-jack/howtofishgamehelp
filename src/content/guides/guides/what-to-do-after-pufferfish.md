@@ -5,7 +5,7 @@ slug: "what-to-do-after-pufferfish"
 category: "guides"
 primaryIntent: "Continue progression immediately after defeating the Pufferfish boss"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -51,7 +51,7 @@ priority: "P0"
 
 ## The hand-in is the real checkpoint
 
-Both progression walkthroughs agree that the desert boss result must go back to the tourist. Community sources vary between calling the item a fin or tail, so this page avoids making the label more certain than the evidence. What matters operationally is that it is the distinct object left by Pufferfish, not ordinary cooked meat.
+Both progression walkthroughs agree that the desert boss result must go back to the tourist. Guides call the drop either a fin or a tail. Keep the distinct object left by Pufferfish, not ordinary cooked meat, and return it to the tourist.
 
 The next stage changes combat range. Island 4 asks you to catch Tuna and use it to draw a large bird, so arrive with a ranged-weapon plan and money rather than spending everything on the desert island. The radar upgrade also reduces the chance of sailing past the new route.
 

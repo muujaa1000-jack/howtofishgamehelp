@@ -5,7 +5,7 @@ slug: "terrorizing-bird"
 category: "bosses"
 primaryIntent: "Defeat the large bird story boss on Island 4 and unlock the volcano"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-27
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-08-27
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-27
@@ -70,7 +70,7 @@ Solo players should use one building and repeat a patient peek-and-fire rhythm. 
 
 ## Difficulty note for 1.0.9
 
-Patch 1.0.9 changes creature health and damage through the selected mode. It does not announce a different Tuna trigger or hand-in. Treat older combat pacing as Normal-context guidance, avoid invented health thresholds, and use [difficulty settings](/guides/difficulty-settings/) when the aerial encounter feels out of step with an older walkthrough.
+Patch 1.0.9 changes creature health and damage through the selected mode. It does not announce a different Tuna trigger or hand-in. Treat older combat pacing as Normal-context guidance, and use [difficulty settings](/guides/difficulty-settings/) when the aerial encounter feels out of step with an older walkthrough.
 
 ## What to do next
 

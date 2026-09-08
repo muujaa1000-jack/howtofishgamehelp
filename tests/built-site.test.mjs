@@ -297,7 +297,49 @@ test('revised public pages keep player instructions and one truthful testing sta
     if (guides.includes(route)) {
       assert.equal((content.match(/Source-based guide; not independently playtested/g) ?? []).length, 1, route);
       assert.match(html, /class="source-note"[\s\S]*?<h2[^>]*>Sources<\/h2>/, route);
-      assert.match(content, /checked 2026-09-08/, route);
+      assert.match(content, /checked\s+2026-09-08/, route);
     }
   }
+});
+
+test('guides credit the site maintainer and distinguish edits from source checks with time elements', async () => {
+  const flatten = (node) => [node, ...(node.childNodes ?? []).flatMap(flatten)];
+  const attribute = (node, name) => node.attrs?.find((entry) => entry.name === name)?.value;
+  const guideFiles = (await walk(dist)).filter((file) => /[\\/](?:guides|walkthrough|islands|bosses|items|achievements|fixes)[\\/][^\\/]+[\\/]index\.html$/.test(file));
+  assert.equal(guideFiles.length, 36);
+  for (const file of guideFiles) {
+    const html = await readFile(file, 'utf8');
+    const nodes = flatten(parse(html));
+    const graphs = nodes.filter((node) => node.tagName === 'script' && attribute(node, 'type') === 'application/ld+json').flatMap((node) => JSON.parse(textContent(node))['@graph'] ?? []);
+    const article = graphs.find((node) => node['@type'] === 'Article');
+    assert.equal(article.author['@type'], 'Organization', file);
+    assert.equal(article.author.name, 'How to Fish Game Help', file);
+    assert.equal(article.author.url, 'https://howtofishgamehelp.com/about/', file);
+    assert.ok(nodes.some((node) => node.tagName === 'a' && attribute(node, 'rel') === 'author' && attribute(node, 'href') === '/about/' && textContent(node) === 'How to Fish Game Help'), file);
+    const relative = path.relative(dist, file).replaceAll('\\', '/').replace('/index.html', '.md');
+    const source = await readFile(path.resolve('src/content/guides', relative), 'utf8');
+    for (const [field, kind] of [['updatedAt', 'page-updated'], ['lastSourceReview', 'source-checked']]) {
+      const expected = source.match(new RegExp(`^${field}: (\\d{4}-\\d{2}-\\d{2})$`, 'm'))?.[1];
+      assert.ok(expected, `${relative} ${field}`);
+      const stamp = nodes.find((node) => node.tagName === 'time' && attribute(node, 'data-date-kind') === kind);
+      assert.equal(attribute(stamp ?? {}, 'datetime'), expected, `${file} ${field}`);
+      if (field === 'updatedAt') assert.equal(article.dateModified.slice(0, 10), expected, file);
+    }
+  }
+});
+
+test('home uses collection-page semantics and a real stable edit date without invented identity signals', async () => {
+  const html = await text('index.html');
+  const graphs = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].flatMap((match) => JSON.parse(match[1])['@graph'] ?? []);
+  const home = graphs.find((node) => node['@type'] === 'CollectionPage');
+  assert.equal(home?.url, 'https://howtofishgamehelp.com/');
+  assert.equal(home?.dateModified, '2026-09-08');
+  assert.equal(home?.datePublished, undefined);
+  assert.match(html, /<time[^>]*datetime="2026-09-08"[^>]*>/);
+  assert.ok(!graphs.some((node) => ['Article', 'FAQPage', 'HowTo'].includes(node['@type'])));
+  assert.doesNotMatch(html, /"sameAs"|hreflang=/);
+  const logos = [...html.matchAll(/<img[^>]*src="\/brand-mark\.svg"[^>]*>/g)];
+  assert.equal(logos.length, 2);
+  for (const [logo] of logos) assert.match(logo, /alt=""/);
+  assert.match(html, /698774889153168486/);
 });

@@ -98,6 +98,21 @@ const refreshedOnSeptember8 = new Set([
   '/items/grilling-guide/',
 ]);
 const reviewedThroughSeptember8 = (route) => route === '/items/radar-guide/' ? '1.0.9' : route === '/items/grilling-guide/' ? '1.0.11' : '1.0.12';
+const editedOnSeptember8 = new Set([
+  ...refreshedOnSeptember8,
+  '/guides/beginner-guide/',
+  '/guides/difficulty-settings/',
+  '/guides/what-to-do-after-pufferfish/',
+  '/walkthrough/story-walkthrough/',
+  '/islands/island-progression/',
+  '/islands/island-two-leeches/',
+  '/bosses/pufferfish/',
+  '/bosses/terrorizing-bird/',
+  '/fixes/steam-relay-connection-failed/',
+  '/fixes/leeches-not-spawning/',
+  '/fixes/multiplayer-black-screen/',
+  '/items/weapon-progression/',
+]);
 
 test('review set contains 36 substantive public guides', async () => {
   const items = await entries();
@@ -159,7 +174,7 @@ test('launch content keeps current verification metadata and avoids evidence ove
     const expectedPublishedAt = route === '/fixes/steam-cloud-pc-steam-deck-sync/' ? '2026-09-08' : publishedOnAugust27.has(route)
       ? '2026-08-27'
       : publishedOnAugust25.has(route) ? '2026-08-25' : '2026-08-23';
-    const expectedUpdatedAt = refreshedOnSeptember8.has(route) ? '2026-09-08' : refreshedOnSeptember4.has(route)
+    const expectedUpdatedAt = editedOnSeptember8.has(route) ? '2026-09-08' : refreshedOnSeptember4.has(route)
       ? '2026-09-04'
       : refreshedOnAugust30.has(route)
       ? '2026-08-30'
@@ -337,9 +352,8 @@ test('September 8 answers keep official changes distinct from older community me
   assert.match(byRoute.get('/items/grilling-guide/'), /not a method for turning burnt fish/i);
 });
 
-test('September 8 public guide copy addresses players without internal writing instructions', async () => {
+test('all public guide copy addresses players without internal writing instructions', async () => {
   for (const item of await entries()) {
-    if (!refreshedOnSeptember8.has(routeOf(frontmatterOf(item.source)))) continue;
     assert.doesNotMatch(item.source, /this site|this edit|our earlier instruction|editorial|evidence boundaries|the source establishes|(?:this (?:page|guide)|the site) (?:does not|provides no|labels|synthesizes)|(?:should|must) (?:not be described|not be represented|stay limited)/i, item.file);
   }
   const layout = await readFile(path.join(root, 'src/layouts/GuideLayout.astro'), 'utf8');

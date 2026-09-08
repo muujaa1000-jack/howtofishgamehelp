@@ -9,7 +9,7 @@ function escapeXml(value: string) {
 export const GET: APIRoute = async () => {
   const guides = await getCollection('guides', ({ data }) => !data.draft && !data.noindex);
   const urls: Array<{ path: string; lastmod?: string }> = [
-    { path: '/' },
+    { path: '/', lastmod: site.homeUpdatedAt },
     { path: '/about/' },
     { path: '/contact/' },
     { path: '/privacy/' },

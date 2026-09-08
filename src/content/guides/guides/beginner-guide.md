@@ -5,7 +5,7 @@ slug: "beginner-guide"
 category: "guides"
 primaryIntent: "Start How to Fish and reach the first boss without losing progression items"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-30
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -47,7 +47,7 @@ Treat the first island as one connected route: accept the lighthouse keeper’s 
 
 ## Applies to
 
-This is a source-based route for the Steam release. The quest order was documented against version 1.0.5 and its sources were reviewed again after the official 1.0.9 announcement on August 25, 2026. Patch 1.0.9 added Easy, Normal, and Hard difficulty settings; it did not announce a change to the lighthouse quest chain. Combat pressure can therefore differ from older walkthrough descriptions even though the required hand-ins remain the same. No first-hand playtest is claimed here.
+This is a source-based route for the Steam release. The quest order was documented against version 1.0.5 and its sources were reviewed again after the official 1.0.9 announcement on August 25, 2026. Patch 1.0.9 added Easy, Normal, and Hard difficulty settings; it did not announce a change to the lighthouse quest chain. Combat pressure can therefore differ from older walkthrough descriptions even though the required hand-ins remain the same.
 
 ## Quick steps
 
@@ -95,7 +95,7 @@ Solo players should prepare healing and equipment before consuming a quest trigg
 
 ## Patch history and limitations
 
-The route evidence comes from the launch-era Steam description and an independent progression walkthrough. Patch 1.0.9 officially introduced three difficulty choices. Its announcement specifies Easy as lower creature health and damage, Normal as the prior balance, and Hard as higher creature health and damage. It does not document different quest rewards. This guide therefore treats the quest order as unchanged while marking combat advice as patch-sensitive. See [difficulty settings](/guides/difficulty-settings/) before choosing a mode.
+The route evidence comes from the launch-era Steam description and an independent progression walkthrough. Patch 1.0.9 officially introduced three difficulty choices. Its announcement specifies Easy as lower creature health and damage, Normal as the prior balance, and Hard as higher creature health and damage. It does not document different quest rewards. Combat pressure varies with the selected difficulty; complete the keeper’s request and trophy hand-in before leaving the lighthouse. See [difficulty settings](/guides/difficulty-settings/) before choosing a mode.
 
 ## FAQ
 
@@ -114,10 +114,6 @@ You can access the boat, but the documented route also calls for the radar. Coll
 ### Which difficulty should a new player choose?
 
 Normal preserves the pre-1.0.9 balance according to the official patch note. Easy reduces creature pressure; Hard increases it. Difficulty is a preference, not evidence that the story steps change.
-
-## Evidence boundaries
-
-The Steam store supports the high-level progression loop. The independent walkthrough supplies the first-island sequence. The official 1.0.9 announcement supports only the difficulty statements. Source review is not the same as an in-game test, and any undocumented trigger behavior should be treated as uncertain.
 
 ## What to do next
 

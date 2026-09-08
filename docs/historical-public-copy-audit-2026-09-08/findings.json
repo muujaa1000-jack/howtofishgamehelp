@@ -1,0 +1,945 @@
+{
+  "coverage": [
+    {
+      "route": "/guides/beginner-guide/",
+      "file": "src/content/guides/guides/beginner-guide.md",
+      "status": "needs-change",
+      "reason": "正文及摘要逐句审阅；保留旧版路线与难度差异，删除重复测试声明和写作推导。"
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "status": "needs-change",
+      "reason": "百分比、联机归属和成就影响未知应保留；多处转向对作者的指令。"
+    },
+    {
+      "route": "/guides/unlock-next-island/",
+      "file": "src/content/guides/guides/unlock-next-island.md",
+      "status": "no-change",
+      "reason": "交还掉落、钥匙、雷达、旧版捷径限制均直接服务玩家；未见内部采编话术。"
+    },
+    {
+      "route": "/guides/what-to-do-after-pufferfish/",
+      "file": "src/content/guides/guides/what-to-do-after-pufferfish.md",
+      "status": "needs-change",
+      "reason": "掉落名称冲突有用，但表述成了本站如何避免断言。"
+    },
+    {
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "status": "needs-change",
+      "reason": "路线/手交步骤清楚，但适用范围、FAQ 和证据边界重复作者取证说明。"
+    },
+    {
+      "route": "/walkthrough/lighthouse-first-island/",
+      "file": "src/content/guides/walkthrough/lighthouse-first-island.md",
+      "status": "no-change",
+      "reason": "装备来源差异用于解释购买选择，未转为写作/审核要求；其余均为玩家动作。"
+    },
+    {
+      "route": "/islands/island-progression/",
+      "file": "src/content/guides/islands/island-progression.md",
+      "status": "needs-change",
+      "reason": "地形和任务名对照有用；“避免编造正式岛名”是作者说明。"
+    },
+    {
+      "route": "/islands/island-two-leeches/",
+      "file": "src/content/guides/islands/island-two-leeches.md",
+      "status": "needs-change",
+      "reason": "步骤有用，只有“不要编造重生计时”把编辑约束写给玩家。"
+    },
+    {
+      "route": "/islands/island-three-desert/",
+      "file": "src/content/guides/islands/island-three-desert.md",
+      "status": "no-change",
+      "reason": "逐句覆盖抵达、双任务、濒危/Drip 区分、Boss 和难度提醒；均与玩家进度相关。"
+    },
+    {
+      "route": "/islands/island-four-rocks/",
+      "file": "src/content/guides/islands/island-four-rocks.md",
+      "status": "no-change",
+      "reason": "Tuna 身体作为鸟饵及掩体步骤明确；来源归属服务于具体装备差异。"
+    },
+    {
+      "route": "/islands/volcano-endgame/",
+      "file": "src/content/guides/islands/volcano-endgame.md",
+      "status": "no-change",
+      "reason": "双鲸鱼准备、掉落手交、RHIB 与坏档保护均为实际操作。"
+    },
+    {
+      "route": "/achievements/story-achievements/",
+      "file": "src/content/guides/achievements/story-achievements.md",
+      "status": "no-change",
+      "reason": "官方成就条件及联机个人检查为必要完成提示；未见写作门槛或取证流程。"
+    },
+    {
+      "route": "/bosses/boss-guide/",
+      "file": "src/content/guides/bosses/boss-guide.md",
+      "status": "no-change",
+      "reason": "战斗顺序、社区别名和未公布公式帮助识别目标与难度；无直接采编指令。"
+    },
+    {
+      "route": "/bosses/spider-crab/",
+      "file": "src/content/guides/bosses/spider-crab.md",
+      "status": "no-change",
+      "reason": "冲锋闪避、输出窗口、逃跑压力和版本差异均为玩家相关内容。"
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "status": "needs-change",
+      "reason": "战斗和手交步骤保留；多处用不写数值、不推导的作者自述代替玩家提示。"
+    },
+    {
+      "route": "/bosses/terrorizing-bird/",
+      "file": "src/content/guides/bosses/terrorizing-bird.md",
+      "status": "needs-change",
+      "reason": "只有难度段“avoid invented health thresholds”是编辑口吻。"
+    },
+    {
+      "route": "/items/early-upgrades/",
+      "file": "src/content/guides/items/early-upgrades.md",
+      "status": "no-change",
+      "reason": "刀/指虎来源差异和不通用的排名用于购买选择，无工具取证或审核要求。"
+    },
+    {
+      "route": "/items/lures-and-bait/",
+      "file": "src/content/guides/items/lures-and-bait.md",
+      "status": "no-change",
+      "reason": "诱饵分类、任务触发和丢失后恢复规则未知均与玩家决策有关。"
+    },
+    {
+      "route": "/items/money-fast/",
+      "file": "src/content/guides/items/money-fast.md",
+      "status": "no-change",
+      "reason": "收入不确定、旧版卖出前持有规则、赌博风险均为玩家信息。"
+    },
+    {
+      "route": "/items/weapon-progression/",
+      "file": "src/content/guides/items/weapon-progression.md",
+      "status": "no-change",
+      "reason": "本轮目标下未见内部采编规则；装备价格未知及坏档保护保留。另记录与新版Piranha页的用词一致性线索。"
+    },
+    {
+      "route": "/fixes/steam-relay-connection-failed/",
+      "file": "src/content/guides/fixes/steam-relay-connection-failed.md",
+      "status": "needs-change",
+      "reason": "诊断流程服务玩家；适用范围和证据段重复取证方法/本站停止范围。"
+    },
+    {
+      "route": "/fixes/camera-invert-controls/",
+      "file": "src/content/guides/fixes/camera-invert-controls.md",
+      "status": "no-change",
+      "reason": "轴向、瞄准保持、外部重映射和图标差异均是功能说明；应保留。"
+    },
+    {
+      "route": "/fixes/leeches-not-spawning/",
+      "file": "src/content/guides/fixes/leeches-not-spawning.md",
+      "status": "needs-change",
+      "reason": "description、段落末尾和故障项有对编辑者的计时/表述要求。"
+    },
+    {
+      "route": "/fixes/multiplayer-black-screen/",
+      "file": "src/content/guides/fixes/multiplayer-black-screen.md",
+      "status": "needs-change",
+      "reason": "保留 hopefully 和黑屏/隐身区别；删“honest status/avoids claiming”作者口吻。"
+    },
+    {
+      "route": "/fixes/private-lobby-invites/",
+      "file": "src/content/guides/fixes/private-lobby-invites.md",
+      "status": "no-change",
+      "reason": "邀请、重启和红色指示均是玩家流程，无审核门槛或取证过程泄露。"
+    },
+    {
+      "route": "/about/",
+      "file": "src/pages/about.astro",
+      "status": "needs-change",
+      "reason": "研究方法、非官方身份和来源日期解释属于 About 正常透明说明；仅 build date 内部字段承诺建议删减。"
+    },
+    {
+      "route": "/contact/",
+      "file": "src/pages/contact.astro",
+      "status": "needs-change",
+      "reason": "保留公开联系用途和客服能力边界；删 Cloudflare 路由验收与测试邮件声明。"
+    },
+    {
+      "route": "/disclaimer/",
+      "file": "src/pages/disclaimer.astro",
+      "status": "no-change",
+      "reason": "非官方身份、来源日期不等于亲测、商标权利及客服边界与免责声明用途一致。"
+    },
+    {
+      "route": "/terms/",
+      "file": "src/pages/terms.astro",
+      "status": "no-change",
+      "reason": "使用范围、无保证、合理使用及知识产权为本页必要说明；不审查法律有效性。"
+    },
+    {
+      "route": "/privacy/",
+      "file": "src/pages/privacy.astro",
+      "status": "needs-change",
+      "reason": "当前数据处理、浏览器搜索和服务商披露保留；未来同意控件上线门槛是内部计划。已读启用/停用两分支，不复验线上账号配置。"
+    },
+    {
+      "route": "/404.html",
+      "file": "src/pages/404.astro",
+      "status": "needs-change",
+      "reason": "故障提示不应向访客解释更强页面合并和证据门槛。实际静态输出为 /404.html。"
+    },
+    {
+      "route": "/guides/",
+      "file": "src/config/site.ts",
+      "status": "needs-change",
+      "reason": "逐句读 start/route/overview/patchNote/caution 和分类描述；发现关键词变体、证据字段、薄内容写作解释。"
+    },
+    {
+      "route": "/walkthrough/",
+      "file": "src/config/site.ts",
+      "status": "needs-change",
+      "reason": "逐句读入口字段；重复实测声明与作者避免阈值说明需要清理。"
+    },
+    {
+      "route": "/islands/",
+      "file": "src/config/site.ts",
+      "status": "needs-change",
+      "reason": "逐句读入口字段；任务/地形对照应留，避免编造名称、近重复页面等策略应删。"
+    }
+  ],
+  "findings": [
+    {
+      "route": "/guides/beginner-guide/",
+      "file": "src/content/guides/guides/beginner-guide.md",
+      "line": 50,
+      "quote": "No first-hand playtest is claimed here.",
+      "reason": "顶部已保留真实测试状态；正文重复作者声明，打断适用版本说明。",
+      "replacement": "删除此句；保留本段 1.0.5 路线、1.0.9 难度变化和顶部测试状态。",
+      "id": "HF-COPY-001",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/beginner-guide/",
+      "file": "src/content/guides/guides/beginner-guide.md",
+      "line": 98,
+      "quote": "This guide therefore treats the quest order as unchanged while marking combat advice as patch-sensitive.",
+      "reason": "讲解编辑如何标注，而非玩家如何处理版本差异。",
+      "replacement": "The lighthouse route still begins with the keeper’s request and trophy hand-in; combat pressure varies with the selected difficulty.",
+      "id": "HF-COPY-002",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/beginner-guide/",
+      "file": "src/content/guides/guides/beginner-guide.md",
+      "line": 120,
+      "quote": "The Steam store supports the high-level progression loop. The independent walkthrough supplies the first-island sequence. The official 1.0.9 announcement supports only the difficulty statements. Source review is not the same as an in-game test, and any undocumented trigger behavior should be treated as uncertain.",
+      "reason": "整段复述来源分工和取证方法，与来源区及状态卡重复；未指出额外具体未知条件。",
+      "replacement": "删除 Evidence boundaries 小节；将必要版本差异留在 Applies to，保留来源列表与顶部测试状态。",
+      "id": "HF-COPY-003",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "line": 41,
+      "quote": "so this guide does not claim that those systems change.",
+      "reason": "本句前半的功能未知有用，末尾变为本站写作声明。",
+      "replacement": "将整句末尾改为 “their effects on those systems remain unknown.”，保留已明确的健康/伤害百分比。",
+      "id": "HF-COPY-004",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "line": 45,
+      "quote": "The Steam store supports the broader context that the game combines fishing, combat, quests, bosses, solo play, and online co-op. This page is based on those sources and has not independently compared the modes in-game.",
+      "reason": "列来源分工并重复测试状态，没有帮助选择难度。",
+      "replacement": "删除这两句，保留本段版本、公告日期和数值出处。",
+      "id": "HF-COPY-005",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "line": 66,
+      "quote": "A guide should therefore use the official percentages without inventing the numbers they modify.",
+      "reason": "直接给攻略作者的数字写作规则。",
+      "replacement": "These percentages do not tell you a boss’s base health or the number of hits your weapon needs.",
+      "id": "HF-COPY-006",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "line": 80,
+      "quote": "The modifiers also explain why this site avoids universal equipment thresholds. A weapon recommendation based on Normal cannot prove the same fight length on Easy or Hard. Route pages continue to emphasize quest items, movement, recovery, and hand-ins instead of fabricated damage targets.",
+      "reason": "以网站避开什么、页面强调什么组织解释；实际有用信息是不同模式不能沿用击杀次数。",
+      "replacement": "Expect the same weapon to take a different amount of damage or more hits on Hard than on Easy. Keep your selected mode in mind when comparing an older fight guide.",
+      "id": "HF-COPY-007",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "line": 86,
+      "quote": "If reliable later documentation appears, this page can be revised with a new source-review date.",
+      "reason": "公开内部维护计划和字段更新流程。",
+      "replacement": "删除此句；前文具体未知事项继续保留。",
+      "id": "HF-COPY-008",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "line": 93,
+      "quote": "Promising better loot or achievements on Hard without official evidence.",
+      "reason": "Common mistakes 中的动作是作者作承诺，而非玩家操作。",
+      "replacement": "Choosing Hard only because you expect better loot or extra achievements.",
+      "id": "HF-COPY-009",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "line": 107,
+      "quote": "That is an editorial testing suggestion, not a developer-confirmed rule. Do not claim that a joiner’s local selection overrides or inherits the host until an official source or reproducible evidence establishes it.",
+      "reason": "编辑建议标签及“Do not claim”面向作者；联机设置归属未知应改成玩家事实。",
+      "replacement": "Which player’s setting controls a hosted session is unknown. Record the host’s setting and keep the party unchanged when comparing encounters.",
+      "id": "HF-COPY-010",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "line": 111,
+      "quote": "This page deliberately preserves that boundary and will not translate missing documentation into invented mechanics.",
+      "reason": "自述不编造内容的采编规则。",
+      "replacement": "删除此句，保留具体四项百分比变化及未知事项。",
+      "id": "HF-COPY-011",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "line": 137,
+      "quote": "The official patch announcement is the authority for every numeric modifier on this page. The Steam store is used only for the game’s high-level solo, co-op, fishing, combat, and progression context. Last source review: August 25, 2026. Evidence reviewed through: patch 1.0.9. Testing status: source-based guide; not independently playtested.",
+      "reason": "整段是来源使用说明和已在顶部/页尾显示的字段复述。",
+      "replacement": "删除该 Evidence boundaries 小节；保留数值表的官方链接及顶部真实日期/版本/测试状态。",
+      "id": "HF-COPY-012",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/what-to-do-after-pufferfish/",
+      "file": "src/content/guides/guides/what-to-do-after-pufferfish.md",
+      "line": 54,
+      "quote": "Community sources vary between calling the item a fin or tail, so this page avoids making the label more certain than the evidence.",
+      "reason": "名称冲突对玩家有用，但后半是编辑约束。",
+      "replacement": "Guides call the drop either a fin or a tail. Look for the distinct object left by Pufferfish and return it to the tourist.",
+      "id": "HF-COPY-013",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "line": 50,
+      "quote": "The route is source-based and has not been independently playtested by this site. Named conditions that the official patch does not address remain dependent on the cited walkthrough evidence.",
+      "reason": "顶部已有真实测试状态；此处继续讲来源依赖，不帮助走主线。",
+      "replacement": "删除这两句；保留前面的路线版本和难度变化。",
+      "id": "HF-COPY-014",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "line": 81,
+      "quote": "Patch 1.0.9 difficulty changes mean an old combat-time estimate would not be dependable, so this walkthrough gives no damage or health thresholds.",
+      "reason": "前半版本提醒有用，后半说明作者不提供什么。",
+      "replacement": "Fight length varies with your selected difficulty, so prepare healing rather than relying on an old kill-time estimate.",
+      "id": "HF-COPY-015",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "line": 114,
+      "quote": "This page preserves its original 1.0.5 route label because that is the evidence range of the walkthrough sequence.",
+      "reason": "说明内部保留字段的原因。",
+      "replacement": "The route below was described in 1.0.5 walkthroughs. 保留下一句 1.0.9 难度变化说明。",
+      "id": "HF-COPY-016",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "line": 120,
+      "quote": "This guide does not claim that sequence-breaking records progression safely.",
+      "reason": "回答能否跳岛时使用“本站不声称”，没有直接给玩家结论。",
+      "replacement": "Complete the current request and hand-in before following the next route; reaching an island early may leave its quest gate unfinished.",
+      "id": "HF-COPY-017",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "line": 128,
+      "quote": "Quest changes are therefore not claimed.",
+      "reason": "把具体未知写成发布声明。",
+      "replacement": "Whether difficulty changes quests is unknown.",
+      "id": "HF-COPY-018",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "line": 136,
+      "quote": "The two independent walkthroughs agree on the five-location order and principal hand-ins. The official 1.0.9 announcement is used only for current difficulty and technical context. Source agreement reduces uncertainty but does not turn the route into first-hand testing.",
+      "reason": "整段解释采编取证分工并重复实测状态。",
+      "replacement": "删除该 Evidence boundaries 小节；原出处和顶部真实测试状态保留。",
+      "id": "HF-COPY-019",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/islands/island-progression/",
+      "file": "src/content/guides/islands/island-progression.md",
+      "line": 58,
+      "quote": "This avoids inventing formal island names.",
+      "reason": "地形命名的作者自证，对玩家无动作价值。",
+      "replacement": "删除此句；保留后续地形名与游戏内目标对照说明。",
+      "id": "HF-COPY-020",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/islands/island-two-leeches/",
+      "file": "src/content/guides/islands/island-two-leeches.md",
+      "line": 59,
+      "quote": "do not invent a respawn timer.",
+      "reason": "玩家不会编写攻略计时；应直接说明计时未知。",
+      "replacement": "A reliable respawn timer is unknown.",
+      "id": "HF-COPY-021",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "line": 50,
+      "quote": "The page retains version 1.0.5 as its route evidence label.",
+      "reason": "说明内部版本标签的保留行为。",
+      "replacement": "The fight route was described in 1.0.5 guides.",
+      "id": "HF-COPY-022",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "line": 50,
+      "quote": "This is a source-based guide, not an independently playtested boss report, and it does not claim exact health, damage, or timing values.",
+      "reason": "重复顶部测试状态并列作者不声称的清单。",
+      "replacement": "删除此句；保留前文来源版本和难度会影响伤害/时长的具体限制。",
+      "id": "HF-COPY-023",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "line": 71,
+      "quote": "This guide does not prescribe a minimum quantity because the sources do not establish a universal number and difficulty now changes incoming pressure.",
+      "reason": "以作者不规定什么开头；有用的内容是补给需随难度和失误调整。",
+      "replacement": "Prepare cooked healing before using the Carrot; the amount you need depends on your selected difficulty and how often you take damage.",
+      "id": "HF-COPY-024",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "line": 103,
+      "quote": "This page uses those numbers only because the developer published them. It does not infer Pufferfish’s base health, exact attacks, or a best difficulty.",
+      "reason": "解释采编准入和不推导规则。",
+      "replacement": "Pufferfish’s base health and an exact number of hits are unknown; choose difficulty for the combat pressure you want.",
+      "id": "HF-COPY-025",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "line": 113,
+      "quote": "It does not claim that other weapons cannot work.",
+      "reason": "以本攻略的声明范围回答玩家武器选择。",
+      "replacement": "Other weapons may work, but keep enough space to leave the rolling lane and poison trail.",
+      "id": "HF-COPY-026",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "line": 117,
+      "quote": "Inventing a threshold would be less useful than explaining the movement pattern.",
+      "reason": "评价作者是否编造，不能帮助玩家完成战斗。",
+      "replacement": "删除此句；保留上一句基础数值未知与难度影响。",
+      "id": "HF-COPY-027",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "line": 125,
+      "quote": "The Destructoid walkthrough supports the desert request and progression sequence. Nerdschalk supplies the focused roll, growth, and purple-trail description. The official patch supplies difficulty modifiers only. Where these sources do not establish a fact, this page leaves it unspecified.",
+      "reason": "来源分工与留空规则整段重复来源区，没有额外具体未知。",
+      "replacement": "删除 Evidence boundaries 小节；来源列表、日期和顶部真实测试状态保留。",
+      "id": "HF-COPY-028",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/bosses/terrorizing-bird/",
+      "file": "src/content/guides/bosses/terrorizing-bird.md",
+      "line": 73,
+      "quote": "avoid invented health thresholds,",
+      "reason": "“避免编造”是作者职责；玩家需要知道不能照搬旧战斗时长。",
+      "replacement": "删除该插入语；保留 Normal 旧版背景和难度指南链接。",
+      "id": "HF-COPY-029",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/fixes/steam-relay-connection-failed/",
+      "file": "src/content/guides/fixes/steam-relay-connection-failed.md",
+      "line": 45,
+      "quote": "This page combines those official sources with a conservative isolation workflow; it has not independently reproduced the indicator.",
+      "reason": "重复顶部真实测试状态并说明作者组合材料的方法。",
+      "replacement": "删除此句；保留红色状态含义、公告版本和具体原因未知。",
+      "id": "HF-COPY-030",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/fixes/steam-relay-connection-failed/",
+      "file": "src/content/guides/fixes/steam-relay-connection-failed.md",
+      "line": 98,
+      "quote": "This guide intentionally stops at safe isolation and reporting.",
+      "reason": "自述作者工作停止点，玩家需要实际下一步。",
+      "replacement": "If the same failure repeats, keep the result and send the version, roles, and timing to the developer.",
+      "id": "HF-COPY-031",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/fixes/steam-relay-connection-failed/",
+      "file": "src/content/guides/fixes/steam-relay-connection-failed.md",
+      "line": 120,
+      "quote": "The official 1.0.9 announcement supports the meaning of the red status and the request to report it. Valve’s documentation supports the general description of Steam Datagram Relay. The isolation workflow is editorial guidance designed to preserve security and produce a clearer report. Last source review: August 25, 2026. Testing status: source-based; not independently reproduced.",
+      "reason": "整段是来源分工、editorial 标签和已显示的复核字段。",
+      "replacement": "删除 Evidence boundaries 小节；来源链接和顶部真实测试状态继续保留。",
+      "id": "HF-COPY-032",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/fixes/leeches-not-spawning/",
+      "file": "src/content/guides/fixes/leeches-not-spawning.md",
+      "line": 3,
+      "quote": "Diagnose a missing-leech block on the forest island without inventing a spawn timer, deleting a save, or confusing the ground pickups with fish.",
+      "reason": "搜索摘要把“不要编造计时”的作者约束写给玩家。",
+      "replacement": "Check the forest quest, ground pickup prompts, and three-leech counter before reloading once or reporting missing pickups. Preserve your save.",
+      "id": "HF-COPY-033",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/fixes/leeches-not-spawning/",
+      "file": "src/content/guides/fixes/leeches-not-spawning.md",
+      "line": 50,
+      "quote": "That means the safest troubleshooting page must stay narrow too.",
+      "reason": "直接讲排障文章必须如何写。",
+      "replacement": "删除此句；保留具体重生计时/可靠重置办法未知的信息。",
+      "id": "HF-COPY-034",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/fixes/leeches-not-spawning/",
+      "file": "src/content/guides/fixes/leeches-not-spawning.md",
+      "line": 58,
+      "quote": "that does not repair the affected save and should not be presented as a harmless fix.",
+      "reason": "前半为玩家事实，后半是作者如何表述。",
+      "replacement": "a new run does not repair your original save. Keep the affected copy rather than overwriting it.",
+      "id": "HF-COPY-035",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/fixes/multiplayer-black-screen/",
+      "file": "src/content/guides/fixes/multiplayer-black-screen.md",
+      "line": 58,
+      "quote": "which means the honest status is “addressed, but not promised for every setup.”",
+      "reason": "用编辑者评价“诚实状态”代替直接的修复限制；不应删除官方 hopefully。",
+      "replacement": "so some setups may still have the display problem after updating.",
+      "id": "HF-COPY-036",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/fixes/multiplayer-black-screen/",
+      "file": "src/content/guides/fixes/multiplayer-black-screen.md",
+      "line": 80,
+      "quote": "This distinction gives the developer a clearer report and avoids claiming that the newer patch directly fixed the older display issue.",
+      "reason": "“避免声称”的作者说明；之前几句已经给出玩家可见的症状区别。",
+      "replacement": "Record whether the world is black or a player model is missing so the report identifies the failing symptom.",
+      "id": "HF-COPY-037",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/about/",
+      "file": "src/pages/about.astro",
+      "line": 16,
+      "quote": ", and a build date is never substituted for either one.",
+      "reason": "About 的来源/实测日期说明应保留，但 build date 的内部更新约束可省去；这不是否定 About 说明研究方法本身。",
+      "replacement": "将本句收尾为 “A source-review date is not an in-game test date.”，其余透明说明不动。",
+      "id": "HF-COPY-038",
+      "status": "confirmed-source-text",
+      "actionLevel": "可选精简"
+    },
+    {
+      "route": "/contact/",
+      "file": "src/pages/contact.astro",
+      "line": 11,
+      "quote": "This address is published because the exact public Cloudflare Email Routing rule is configured. End-to-end receipt is a separate manual check; this page does not claim that a test message has been received.",
+      "reason": "完整暴露配置前提和验收状态；访客只需要联系用途/公开地址，不需要知道上线审核或测试收件流程。",
+      "replacement": "删除整段；保留上方公开联系地址与来信应包含的信息。不得补写已收件或保证必达。",
+      "id": "HF-COPY-039",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/privacy/",
+      "file": "src/pages/privacy.astro",
+      "line": 47,
+      "quote": "A future consent-management section and footer settings link will be published only after a real Google-certified consent message is live and can reopen its choices.",
+      "reason": "未来控件实施和发布门槛，不是当前个人数据处理事实；当前没有可更新同意的控件已在前文披露。",
+      "replacement": "删除第二句；保留第一句在数据处理方式实质变化时更新政策。现有 Cookie/Consent/搜索/广告披露不变。",
+      "id": "HF-COPY-040",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/404.html",
+      "file": "src/pages/404.astro",
+      "line": 5,
+      "quote": "The page may have moved, been merged with a stronger guide, or failed the evidence gate.",
+      "reason": "把内容合并评分和审核失败写成用户遇到404的解释；“stronger guide/evidence gate”是内部内容策略。",
+      "replacement": "The page may have moved, or the address may be incorrect. Search the guides or return home.",
+      "id": "HF-COPY-041",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/",
+      "file": "src/config/site.ts",
+      "line": 48,
+      "quote": "Each card below states one main problem so the section remains a route, not a list of keyword variations.",
+      "reason": "直接暴露按关键词变体控制内容的 SEO 策略。",
+      "replacement": "删除此句；保留按当前目标选择指南的前文。",
+      "id": "HF-COPY-042",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/",
+      "file": "src/config/site.ts",
+      "line": 49,
+      "quote": "Older route pages retain their original evidence label even when their sources were reviewed against the newer patch.",
+      "reason": "内部版本字段维护说明，不是玩家该如何选择难度。",
+      "replacement": "An older walkthrough’s fight length may differ from your selected difficulty.",
+      "id": "HF-COPY-043",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/guides/",
+      "file": "src/config/site.ts",
+      "line": 51,
+      "quote": "and keeps each guide useful as a direct answer rather than a thin recap of the same route.",
+      "reason": "讨论攻略是否“薄”，是编辑质量目标。",
+      "replacement": "删该后半句，将前半收为 “This helps you focus on the gate that is blocking your current objective.”",
+      "id": "HF-COPY-044",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/walkthrough/",
+      "file": "src/config/site.ts",
+      "line": 64,
+      "quote": "None of them should be read as evidence of an independent site playtest.",
+      "reason": "分类导航末尾重复未实测声明；每个指南已有真实测试状态，读者在此需要选路。",
+      "replacement": "删除此句；保留前面的阅读顺序和适用问题。",
+      "id": "HF-COPY-045",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/walkthrough/",
+      "file": "src/config/site.ts",
+      "line": 66,
+      "quote": "so this Hub avoids unsupported damage thresholds and keeps route evidence separate from balance.",
+      "reason": "介绍 Hub 如何写、如何分类证据。",
+      "replacement": "将全句改为 “Fight length can differ by mode, so prepare for your selected difficulty while following the quest and hand-in sequence.”",
+      "id": "HF-COPY-046",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/islands/",
+      "file": "src/config/site.ts",
+      "line": 74,
+      "quote": "The guides avoid universal spawn timers and drop rates where the evidence does not establish them.",
+      "reason": "泛称网站避免哪些数值，不对应当前岛屿的具体操作。",
+      "replacement": "删除此句；具体计时未知保留在对应缺少水蛭页面。",
+      "id": "HF-COPY-047",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/islands/",
+      "file": "src/config/site.ts",
+      "line": 75,
+      "quote": "This makes the route useful without pretending that an editorial name is an official map label.",
+      "reason": "作者自证命名不冒充官方，读者需要的是地形与任务匹配。",
+      "replacement": "Match the terrain and active objective if your game uses a different location label.",
+      "id": "HF-COPY-048",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    },
+    {
+      "route": "/islands/",
+      "file": "src/config/site.ts",
+      "line": 77,
+      "quote": "This order mirrors player decisions instead of creating near-duplicate pages for every wording of an island question.",
+      "reason": "直接暴露防止按关键词近重复建页的 SEO/编辑规则。",
+      "replacement": "删除此句；保留按岛屿阅读的上一段。",
+      "id": "HF-COPY-049",
+      "status": "confirmed-source-text",
+      "actionLevel": "建议最小修改"
+    }
+  ],
+  "secondary": [
+    {
+      "route": "/items/weapon-progression/",
+      "file": "src/content/guides/items/weapon-progression.md",
+      "line": 71,
+      "quote": "**You run dry on adds:** use melee on small piranhas and save firearm ammunition for the main target.",
+      "reason": "非采编话术问题：旧页仍用确定式要求对小鱼切近战，与已审阅的 Giant Piranha 页把近战作为有空间时的选项不完全一致。无需重做游戏研究即可提交给总指挥决定是否单独修正。",
+      "replacement": "If small piranhas block your route, clear them with an attack that lets you keep moving; try melee only when there is room to escape."
+    }
+  ],
+  "latent": [
+    {
+      "routes": [
+        "/guides/",
+        "/walkthrough/",
+        "/islands/",
+        "/bosses/",
+        "/items/",
+        "/achievements/",
+        "/fixes/"
+      ],
+      "file": "src/pages/[category]/index.astro",
+      "line": 44,
+      "quote": "No page in this section has cleared the publishing gate yet. We do not publish thin placeholders just to fill a category.",
+      "reason": "源码中的空分类分支仍有审核门槛/薄页面说明，但本地现有七分类均有文章，该分支没有渲染；不能计为当前公开页面泄露。",
+      "replacement": "将未来空状态改为 “No guides are available in this category yet. Browse another category or search the site.”；本次只登记潜在项。"
+    }
+  ],
+  "shared": [
+    {
+      "file": "src/layouts/GuideLayout.astro",
+      "status": "prior-reviewed-retained",
+      "reason": "沿用前轮共同来源区处理结果；本轮只确认顶部日期/版本/真实测试状态和来源列表仍存在，不重复审查原11篇正文。"
+    },
+    {
+      "file": "src/layouts/BaseLayout.astro",
+      "status": "no-change",
+      "reason": "只就可见文案确认跳过导航为正常无障碍功能；head/隐私脚本不属本轮SEO技术评分审查。"
+    },
+    {
+      "file": "src/components/Footer.astro",
+      "status": "no-change",
+      "reason": "网站定位、非官方身份、信息页导航及版权为正常公共说明；evidence-labeled标签本身不是写作限制。"
+    },
+    {
+      "file": "src/pages/[category]/index.astro",
+      "status": "latent-only",
+      "reason": "公共标题、分类、阅读导航正常；空分类内部文案列为未渲染潜在项，不计当前页面问题。"
+    }
+  ],
+  "scope": {
+    "baselineHead": "9443db998642d1c366b7ce8231dbea62e6c0fb3f",
+    "reviewDate": "2026-09-08",
+    "kind": "read-only historical public-copy review",
+    "origin": "https://howtofishgamehelp.com",
+    "newlyRead": {
+      "guides": 25,
+      "hubs": 3,
+      "informationAndErrorPages": 6,
+      "totalHtmlPages": 34
+    },
+    "priorCovered": {
+      "guides": 11,
+      "hubs": 4,
+      "home": 1,
+      "search": 1,
+      "totalHtmlPages": 17
+    },
+    "allHtmlCoverage": 51,
+    "method": "Sequential sentence-level reading of each scoped source page with line numbers, including public title/description/answer and full article body; all three hub field sets and six information/error pages read. Keyword scanning was not used as the coverage basis. Existing dist is read only for confirming visible output; no build or tests repeated.",
+    "limits": "Public URLs identify intended routes, not proof of the currently deployed revision. No live crawl, new source research, game playtest, SEO/GEO scores, image alt/hreflang/schema research, account configuration check, publication, or indexing action."
+  },
+  "priorCoverage": [
+    {
+      "route": "/achievements/achievement-guide/",
+      "file": "src/content/guides/achievements/achievement-guide.md",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/achievements/hardest-achievements/",
+      "file": "src/content/guides/achievements/hardest-achievements.md",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/achievements/achievement-not-unlocking/",
+      "file": "src/content/guides/achievements/achievement-not-unlocking.md",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/fixes/steam-cloud-pc-steam-deck-sync/",
+      "file": "src/content/guides/fixes/steam-cloud-pc-steam-deck-sync.md",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/fixes/problems-and-fixes/",
+      "file": "src/content/guides/fixes/problems-and-fixes.md",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/fixes/save-file-corrupted-or-weapon-crash/",
+      "file": "src/content/guides/fixes/save-file-corrupted-or-weapon-crash.md",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/bosses/giant-piranha/",
+      "file": "src/content/guides/bosses/giant-piranha.md",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/bosses/tuna/",
+      "file": "src/content/guides/bosses/tuna.md",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/bosses/mutated-bowhead-whale/",
+      "file": "src/content/guides/bosses/mutated-bowhead-whale.md",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/items/radar-guide/",
+      "file": "src/content/guides/items/radar-guide.md",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/items/grilling-guide/",
+      "file": "src/content/guides/items/grilling-guide.md",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/bosses/",
+      "file": "src/config/site.ts",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/items/",
+      "file": "src/config/site.ts",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/achievements/",
+      "file": "src/config/site.ts",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/fixes/",
+      "file": "src/config/site.ts",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/",
+      "file": "src/pages/index.astro",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-public-copy-rework.md"
+    },
+    {
+      "route": "/search/",
+      "file": "src/pages/search.astro",
+      "status": "prior-reviewed",
+      "evidence": "docs/content-update-2026-09-08-evidence/public-copy-cleanup/search-followup.json"
+    }
+  ],
+  "machineOutputs": [
+    {
+      "route": "/rss.xml",
+      "file": "src/pages/rss.xml.ts",
+      "status": "read-only source mapping checked",
+      "reason": "RSS 直接采用文章 title/description；缺水蛭页 description 的问题会进入其 RSS 摘要，不是独立新文章问题。"
+    },
+    {
+      "route": "/robots.txt",
+      "file": "src/pages/robots.txt.ts",
+      "status": "not-prose",
+      "reason": "搜索引擎指令输出，不是给玩家的正文。"
+    },
+    {
+      "route": "/sitemap.xml",
+      "file": "src/pages/sitemap.xml.ts",
+      "status": "not-prose",
+      "reason": "URL和修改日期输出，不是玩家文案；未提交任何搜索服务。"
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 ---
 title: "Leeches Not Spawning in How to Fish"
-description: "Diagnose a missing-leech block on the forest island without inventing a spawn timer, deleting a save, or confusing the ground pickups with fish."
+description: "Check the forest quest, ground pickup prompts, and three-leech counter before reloading once or reporting missing pickups. Preserve your save."
 slug: "leeches-not-spawning"
 category: "fixes"
 primaryIntent: "Troubleshoot missing leech pickups during the Island 2 quest"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -47,7 +47,7 @@ priority: "P0"
 
 ## Confirm the symptom before resetting
 
-The supported fact is narrow: three ground-collected leeches go to the forest lady, who returns Giant Piranha bait. Public sources do not establish a dependable spawn timer, a console command, or a reliable reset. That means the safest troubleshooting page must stay narrow too.
+The supported fact is narrow: three ground-collected leeches go to the forest lady, who returns Giant Piranha bait. Public sources do not establish a dependable spawn timer, a console command, or a reliable reset.
 
 Most false alarms come from searching the water, missing prompts in grass, or collecting before the quest state is visible. A second category is multiplayer state: another player may grab a pickup while the host watches a different part of the island. Check the shared objective before changing sessions.
 
@@ -55,7 +55,7 @@ Most false alarms come from searching the water, missing prompts in grass, or co
 
 - **Reloading changes nothing:** the missing pickup may be a save-state bug rather than an unloaded object.
 - **A player suggests waiting a fixed number of minutes:** no current evidence supports a precise respawn time.
-- **Starting a new save seems to work:** that does not repair the affected save and should not be presented as a harmless fix.
+- **Starting a new save seems to work:** a new run does not repair your original save. Keep the affected copy rather than overwriting it.
 - **The counter is already complete:** you need to return to the lady, not find another leech.
 - **The bait is missing after hand-in:** check inventory and quest dialogue before re-running the search.
 

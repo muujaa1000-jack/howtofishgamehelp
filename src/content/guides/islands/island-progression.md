@@ -5,7 +5,7 @@ slug: "island-progression"
 category: "islands"
 primaryIntent: "Understand the island order and what unlocks every next destination"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-30
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -55,7 +55,7 @@ priority: "P0"
 | Rocks | Tuna prepared as bait | Terrorizing bird | Bird trophy returned for volcano coordinates |
 | Volcano | Scientist’s fish request | Whale, then mutated whale | Final drop returned for RHIB access |
 
-This avoids inventing formal island names. Sources consistently use descriptive labels—forest, desert, rocks, volcano—and numeric shorthand. If the in-game objective uses a different label after a patch, follow the objective rather than an old guide heading.
+Sources consistently use descriptive labels—forest, desert, rocks, volcano—and numeric shorthand. If the in-game objective uses a different label after a patch, follow the objective rather than an old guide heading.
 
 ## Why it may not work
 

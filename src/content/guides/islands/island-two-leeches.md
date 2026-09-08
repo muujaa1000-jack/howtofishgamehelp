@@ -5,7 +5,7 @@ slug: "island-two-leeches"
 category: "islands"
 primaryIntent: "Find the three leeches and start the Giant Piranha quest on Island 2"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -56,7 +56,7 @@ Use the on-screen counter as the authoritative completion check. A route descrip
 - **The counter never started:** speak to the lady first and exhaust the quest dialogue.
 - **Fishing catches normal creatures:** leeches are ground pickups for this request.
 - **You found fewer than three:** make a full sweep, checking interaction prompts hidden by grass.
-- **The pickups appear absent:** use the separate spawn-problem page; do not invent a respawn timer.
+- **The pickups appear absent:** use the separate spawn-problem page; a reliable respawn timer is unknown.
 - **The boss will not bite:** return the three leeches for the converted quest bait, then equip that item.
 
 ## Solo and co-op notes

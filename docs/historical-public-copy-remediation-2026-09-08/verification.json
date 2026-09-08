@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-09-08T20:34:55+08:00",
+  "build": "passed",
+  "typeCheck": {
+    "errors": 0,
+    "files": 57,
+    "hints": 0,
+    "warnings": 0
+  },
+  "content": {
+    "errors": 0,
+    "publicGuides": 36,
+    "warnings": 0,
+    "drafts": 0
+  },
+  "tests": {
+    "passed": 65,
+    "failed": 0,
+    "skipped": 0
+  },
+  "releaseAudit": {
+    "htmlPages": 51,
+    "indexablePages": 49,
+    "guideCount": 36,
+    "rssItems": 36,
+    "internalAnchorsChecked": 323,
+    "duplicateMetadata": 0,
+    "canonicalErrors": 0,
+    "brokenInternalAnchors": 0,
+    "baselineSnapshotsRead": 11,
+    "notes": "All source answers match rendered direct answers; RSS descriptions match source. Sitemap exactly matches indexable HTML."
+  },
+  "advertisingAudit": "passed",
+  "dependencyVulnerabilities": 0,
+  "docsExport": "passed",
+  "diffWhitespace": "passed",
+  "browserChecks": 102,
+  "indexedGuides": 36,
+  "sourceRechecksInThisRemediation": 0,
+  "productionDeployment": "not performed"
+}

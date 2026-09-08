@@ -5,7 +5,7 @@ slug: "steam-relay-connection-failed"
 category: "fixes"
 primaryIntent: "Diagnose a red Steam relay connection failure in How to Fish multiplayer"
 publishedAt: 2026-08-25
-updatedAt: 2026-08-25
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-08-25
 gameVersion: "1.0.9"
 lastSourceReview: 2026-08-25
@@ -42,7 +42,7 @@ A red Steam relay status means How to Fish detected a failed relay connection in
 
 ## Applies to
 
-The developer introduced the red status and requested reports in the official 1.0.9 announcement. Valve’s Steam Datagram Relay documentation explains the broader relay system used by games, including its role in carrying traffic through Valve’s network. It does not document How to Fish’s interface or prove the cause of a specific player failure. This page combines those official sources with a conservative isolation workflow; it has not independently reproduced the indicator.
+The developer introduced the red status and requested reports in the official 1.0.9 announcement. Valve’s Steam Datagram Relay documentation explains the broader relay system used by games, including its role in carrying traffic through Valve’s network. It does not document How to Fish’s interface or prove the cause of a specific player failure.
 
 ## Quick steps
 
@@ -95,7 +95,7 @@ Steam relay is relevant to the multiplayer path, so a solo check is a control ra
 
 ## Patch history and limitations
 
-Patch 1.0.4 addressed earlier joining and startup display problems. Patch 1.0.5 added private lobbies. Patch 1.0.9 adds the red Steam relay failure status and asks players to tell the developers when it appears. The announcement does not publish an error-code table, a port list, or a confirmed repair procedure. This guide intentionally stops at safe isolation and reporting.
+Patch 1.0.4 addressed earlier joining and startup display problems. Patch 1.0.5 added private lobbies. Patch 1.0.9 adds the red Steam relay failure status and asks players to tell the developers when it appears. The announcement does not publish an error-code table, a port list, or a confirmed repair procedure. If the same failure repeats, keep the result and send the version, roles, and timing to the developer.
 
 ## FAQ
 
@@ -105,7 +105,7 @@ No. Red is a connection diagnostic documented in 1.0.9. A black screen is a visi
 
 ### Should I forward ports?
 
-The reviewed How to Fish patch note does not instruct players to forward ports. This guide does not recommend exposing ports for an undiagnosed relay failure.
+The reviewed How to Fish patch note does not instruct players to forward ports. Do not expose ports for an undiagnosed relay failure.
 
 ### What should I include in a report?
 
@@ -114,10 +114,6 @@ Include game version, host and joiner roles, lobby type, the exact moment red ap
 ### Does Valve’s relay documentation fix this error?
 
 No. It explains the system’s purpose and architecture. The How to Fish developer needs the title-specific reproduction evidence requested in the patch note.
-
-## Evidence boundaries
-
-The official 1.0.9 announcement supports the meaning of the red status and the request to report it. Valve’s documentation supports the general description of Steam Datagram Relay. The isolation workflow is editorial guidance designed to preserve security and produce a clearer report. Last source review: August 25, 2026. Testing status: source-based; not independently reproduced.
 
 ## What to do next
 

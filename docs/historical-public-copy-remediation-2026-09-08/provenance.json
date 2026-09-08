@@ -1,0 +1,260 @@
+{
+  "baseline": "9443db998642d1c366b7ce8231dbea62e6c0fb3f",
+  "guideCount": 36,
+  "bodyEdits": 12,
+  "sourceRechecks": 0,
+  "guides": [
+    {
+      "file": "src/content/guides/achievements/achievement-guide.md",
+      "updatedBefore": "2026-09-08",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/achievements/achievement-not-unlocking.md",
+      "updatedBefore": "2026-09-08",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/achievements/hardest-achievements.md",
+      "updatedBefore": "2026-09-08",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/achievements/story-achievements.md",
+      "updatedBefore": "2026-08-25",
+      "updatedAfter": "2026-08-25",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/bosses/boss-guide.md",
+      "updatedBefore": "2026-08-30",
+      "updatedAfter": "2026-08-30",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/bosses/giant-piranha.md",
+      "updatedBefore": "2026-09-08",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/bosses/mutated-bowhead-whale.md",
+      "updatedBefore": "2026-09-08",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "updatedBefore": "2026-08-25",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    },
+    {
+      "file": "src/content/guides/bosses/spider-crab.md",
+      "updatedBefore": "2026-08-30",
+      "updatedAfter": "2026-08-30",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/bosses/terrorizing-bird.md",
+      "updatedBefore": "2026-08-27",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    },
+    {
+      "file": "src/content/guides/bosses/tuna.md",
+      "updatedBefore": "2026-09-08",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/fixes/camera-invert-controls.md",
+      "updatedBefore": "2026-09-04",
+      "updatedAfter": "2026-09-04",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/fixes/leeches-not-spawning.md",
+      "updatedBefore": "2026-08-25",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    },
+    {
+      "file": "src/content/guides/fixes/multiplayer-black-screen.md",
+      "updatedBefore": "2026-09-04",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    },
+    {
+      "file": "src/content/guides/fixes/private-lobby-invites.md",
+      "updatedBefore": "2026-08-25",
+      "updatedAfter": "2026-08-25",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/fixes/problems-and-fixes.md",
+      "updatedBefore": "2026-09-08",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/fixes/save-file-corrupted-or-weapon-crash.md",
+      "updatedBefore": "2026-09-08",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/fixes/steam-cloud-pc-steam-deck-sync.md",
+      "updatedBefore": "2026-09-08",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/fixes/steam-relay-connection-failed.md",
+      "updatedBefore": "2026-08-25",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    },
+    {
+      "file": "src/content/guides/guides/beginner-guide.md",
+      "updatedBefore": "2026-08-30",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    },
+    {
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "updatedBefore": "2026-08-25",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    },
+    {
+      "file": "src/content/guides/guides/unlock-next-island.md",
+      "updatedBefore": "2026-08-30",
+      "updatedAfter": "2026-08-30",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/guides/what-to-do-after-pufferfish.md",
+      "updatedBefore": "2026-08-25",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    },
+    {
+      "file": "src/content/guides/islands/island-four-rocks.md",
+      "updatedBefore": "2026-08-27",
+      "updatedAfter": "2026-08-27",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/islands/island-progression.md",
+      "updatedBefore": "2026-08-30",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    },
+    {
+      "file": "src/content/guides/islands/island-three-desert.md",
+      "updatedBefore": "2026-08-27",
+      "updatedAfter": "2026-08-27",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/islands/island-two-leeches.md",
+      "updatedBefore": "2026-08-25",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    },
+    {
+      "file": "src/content/guides/islands/volcano-endgame.md",
+      "updatedBefore": "2026-08-25",
+      "updatedAfter": "2026-08-25",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/items/early-upgrades.md",
+      "updatedBefore": "2026-08-25",
+      "updatedAfter": "2026-08-25",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/items/grilling-guide.md",
+      "updatedBefore": "2026-09-08",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/items/lures-and-bait.md",
+      "updatedBefore": "2026-08-30",
+      "updatedAfter": "2026-08-30",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/items/money-fast.md",
+      "updatedBefore": "2026-09-04",
+      "updatedAfter": "2026-09-04",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/items/radar-guide.md",
+      "updatedBefore": "2026-09-08",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/items/weapon-progression.md",
+      "updatedBefore": "2026-09-04",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    },
+    {
+      "file": "src/content/guides/walkthrough/lighthouse-first-island.md",
+      "updatedBefore": "2026-08-30",
+      "updatedAfter": "2026-08-30",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": true
+    },
+    {
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "updatedBefore": "2026-08-30",
+      "updatedAfter": "2026-09-08",
+      "sourceFieldsAndAllCitationsUnchanged": true,
+      "bodyUnchanged": false
+    }
+  ]
+}

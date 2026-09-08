@@ -5,7 +5,7 @@ slug: "weapon-progression"
 category: "items"
 primaryIntent: "Choose weapons that fit each island and boss stage"
 publishedAt: 2026-08-23
-updatedAt: 2026-09-04
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-09-04
 gameVersion: "1.0.5"
 lastSourceReview: 2026-09-04
@@ -48,14 +48,14 @@ priority: "P1"
 
 1. Sharpen one melee weapon for the lighthouse boss.
 2. Buy the shotgun when Island 2 makes a serious firearm worthwhile.
-3. Keep melee available for small piranha adds and low-value close targets.
+3. Keep melee as an optional fallback for close targets when you have room to move.
 4. Continue using the shotgun where close, predictable windows suit it.
 5. Add an Uzi or accurate long-range weapon before the terrorizing bird.
 6. Enter the volcano with an attached assault rifle and a healing plan.
 
 ## Range changes with the story
 
-Weapon progression is not a single damage ranking. Spider Crab gives a safe melee window after a failed charge. Giant Piranha creates adds that are easier to clear without wasting shells. Pufferfish rewards firing after a roll while maintaining distance. The bird spends much of the fight in the air, making short-range spread unreliable. The mutated whale asks for sustained fire while you move around hazards.
+Weapon progression is not a single damage ranking. Spider Crab gives a safe melee window after a failed charge. Giant Piranha creates small fish that can block your escape; clear the ones crowding your route before committing more boss damage. Pufferfish rewards firing after a roll while maintaining distance. The bird spends much of the fight in the air, making short-range spread unreliable. The mutated whale asks for sustained fire while you move around hazards.
 
 That pattern supports a small arsenal with distinct jobs: melee for dependable close work, shotgun for strong mid-story bursts, an Uzi or precision option for the aerial target, and an attached assault rifle for the finale. Attachments should improve the gun you will actually carry rather than decorate an obsolete purchase.
 
@@ -68,7 +68,7 @@ The same patch changes item-dot colors so dropped weapons are orange and dead pl
 ## Why it may not work
 
 - **The “best” gun misses the boss:** match range and attack window, not only displayed damage.
-- **You run dry on adds:** use melee on small piranhas and save firearm ammunition for the main target.
+- **You run dry on adds:** clear fish blocking your route with attacks that let you keep moving. Try melee only when there is room to escape.
 - **Recoil wastes bird windows:** use an accurate option or recoil-control attachment and fire shorter bursts.
 - **The final boss outlasts you:** complete the assault-rifle attachment setup and carry healing for both whale fights.
 - **You cannot afford the next tier:** stop buying overlapping sidearms and use a safe economy loop.

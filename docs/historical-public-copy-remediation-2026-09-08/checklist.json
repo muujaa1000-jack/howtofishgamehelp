@@ -1,0 +1,518 @@
+{
+  "baselineHead": "9443db998642d1c366b7ce8231dbea62e6c0fb3f",
+  "actions": [
+    {
+      "id": "HF-COPY-001",
+      "route": "/guides/beginner-guide/",
+      "file": "src/content/guides/guides/beginner-guide.md",
+      "originalLine": 50,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-002",
+      "route": "/guides/beginner-guide/",
+      "file": "src/content/guides/guides/beginner-guide.md",
+      "originalLine": 98,
+      "status": "verified",
+      "replacement": "Combat pressure varies with the selected difficulty; complete the keeper’s request and trophy hand-in before leaving the lighthouse.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-003",
+      "route": "/guides/beginner-guide/",
+      "file": "src/content/guides/guides/beginner-guide.md",
+      "originalLine": 120,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-004",
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "originalLine": 41,
+      "status": "verified",
+      "replacement": "Whether difficulty also affects quests, rewards, achievement eligibility, prices, drop rates, save slots, or matchmaking rules is unknown.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-005",
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "originalLine": 45,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-006",
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "originalLine": 66,
+      "status": "verified",
+      "replacement": "These percentages do not tell you a boss’s base health or the number of hits your weapon needs.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-007",
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "originalLine": 80,
+      "status": "verified",
+      "replacement": "The same weapon can take a different number of hits to defeat a creature on Easy or Hard. Keep your selected mode in mind when comparing an older fight guide, and prepare healing before spending quest bait.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-008",
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "originalLine": 86,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-009",
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "originalLine": 93,
+      "status": "verified",
+      "replacement": "Choosing Hard only because you expect better loot or extra achievements.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-010",
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "originalLine": 107,
+      "status": "verified",
+      "replacement": "Which player’s setting controls a hosted session is unknown. Keep the party and equipment unchanged during the comparison so you can describe what changed.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-011",
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "originalLine": 111,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-012",
+      "route": "/guides/difficulty-settings/",
+      "file": "src/content/guides/guides/difficulty-settings.md",
+      "originalLine": 137,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-013",
+      "route": "/guides/what-to-do-after-pufferfish/",
+      "file": "src/content/guides/guides/what-to-do-after-pufferfish.md",
+      "originalLine": 54,
+      "status": "verified",
+      "replacement": "Guides call the drop either a fin or a tail. Keep the distinct object left by Pufferfish, not ordinary cooked meat, and return it to the tourist.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-014",
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "originalLine": 50,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-015",
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "originalLine": 81,
+      "status": "verified",
+      "replacement": "Fight length varies with your selected difficulty, so prepare healing rather than relying on an old kill-time estimate.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-016",
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "originalLine": 114,
+      "status": "verified",
+      "replacement": "The route was described in 1.0.5 walkthroughs.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-017",
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "originalLine": 120,
+      "status": "verified",
+      "replacement": "Complete the current request and hand-in before following the next route; reaching an island early may leave its quest gate unfinished.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-018",
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "originalLine": 128,
+      "status": "verified",
+      "replacement": "Whether difficulty changes quests is unknown.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-019",
+      "route": "/walkthrough/story-walkthrough/",
+      "file": "src/content/guides/walkthrough/story-walkthrough.md",
+      "originalLine": 136,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-020",
+      "route": "/islands/island-progression/",
+      "file": "src/content/guides/islands/island-progression.md",
+      "originalLine": 58,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-021",
+      "route": "/islands/island-two-leeches/",
+      "file": "src/content/guides/islands/island-two-leeches.md",
+      "originalLine": 59,
+      "status": "verified",
+      "replacement": "a reliable respawn timer is unknown.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-022",
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "originalLine": 50,
+      "status": "verified",
+      "replacement": "The fight route was described in 1.0.5 guides.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-023",
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "originalLine": 50,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-024",
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "originalLine": 71,
+      "status": "verified",
+      "replacement": "Prepare cooked healing before using the Carrot; the amount you need depends on your selected difficulty and how often you take damage.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-025",
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "originalLine": 103,
+      "status": "verified",
+      "replacement": "Pufferfish’s base health and an exact number of hits are unknown. Choose difficulty for the combat pressure you want.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-026",
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "originalLine": 113,
+      "status": "verified",
+      "replacement": "Other weapons may work, but keep enough space to leave the rolling lane and poison trail.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-027",
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "originalLine": 117,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-028",
+      "route": "/bosses/pufferfish/",
+      "file": "src/content/guides/bosses/pufferfish.md",
+      "originalLine": 125,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-029",
+      "route": "/bosses/terrorizing-bird/",
+      "file": "src/content/guides/bosses/terrorizing-bird.md",
+      "originalLine": 73,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-030",
+      "route": "/fixes/steam-relay-connection-failed/",
+      "file": "src/content/guides/fixes/steam-relay-connection-failed.md",
+      "originalLine": 45,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-031",
+      "route": "/fixes/steam-relay-connection-failed/",
+      "file": "src/content/guides/fixes/steam-relay-connection-failed.md",
+      "originalLine": 98,
+      "status": "verified",
+      "replacement": "If the same failure repeats, keep the result and send the version, roles, and timing to the developer.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-032",
+      "route": "/fixes/steam-relay-connection-failed/",
+      "file": "src/content/guides/fixes/steam-relay-connection-failed.md",
+      "originalLine": 120,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-033",
+      "route": "/fixes/leeches-not-spawning/",
+      "file": "src/content/guides/fixes/leeches-not-spawning.md",
+      "originalLine": 3,
+      "status": "verified",
+      "replacement": "Check the forest quest, ground pickup prompts, and three-leech counter before reloading once or reporting missing pickups. Preserve your save.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-034",
+      "route": "/fixes/leeches-not-spawning/",
+      "file": "src/content/guides/fixes/leeches-not-spawning.md",
+      "originalLine": 50,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-035",
+      "route": "/fixes/leeches-not-spawning/",
+      "file": "src/content/guides/fixes/leeches-not-spawning.md",
+      "originalLine": 58,
+      "status": "verified",
+      "replacement": "a new run does not repair your original save. Keep the affected copy rather than overwriting it.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-036",
+      "route": "/fixes/multiplayer-black-screen/",
+      "file": "src/content/guides/fixes/multiplayer-black-screen.md",
+      "originalLine": 58,
+      "status": "verified",
+      "replacement": "so some setups may still have the display problem after updating.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-037",
+      "route": "/fixes/multiplayer-black-screen/",
+      "file": "src/content/guides/fixes/multiplayer-black-screen.md",
+      "originalLine": 80,
+      "status": "verified",
+      "replacement": "Record whether the world is black or a player model is missing so the report identifies the failing symptom.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-038",
+      "route": "/about/",
+      "file": "src/pages/about.astro",
+      "originalLine": 16,
+      "status": "verified",
+      "replacement": ".",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-039",
+      "route": "/contact/",
+      "file": "src/pages/contact.astro",
+      "originalLine": 11,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-040",
+      "route": "/privacy/",
+      "file": "src/pages/privacy.astro",
+      "originalLine": 47,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-041",
+      "route": "/404.html",
+      "file": "src/pages/404.astro",
+      "originalLine": 5,
+      "status": "verified",
+      "replacement": "The page may have moved, or the address may be incorrect. Search the guides or return home.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-042",
+      "route": "/guides/",
+      "file": "src/config/site.ts",
+      "originalLine": 48,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-043",
+      "route": "/guides/",
+      "file": "src/config/site.ts",
+      "originalLine": 49,
+      "status": "verified",
+      "replacement": "An older walkthrough’s fight length may differ from your selected difficulty.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-044",
+      "route": "/guides/",
+      "file": "src/config/site.ts",
+      "originalLine": 51,
+      "status": "verified",
+      "replacement": ".",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-045",
+      "route": "/walkthrough/",
+      "file": "src/config/site.ts",
+      "originalLine": 64,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-046",
+      "route": "/walkthrough/",
+      "file": "src/config/site.ts",
+      "originalLine": 66,
+      "status": "verified",
+      "replacement": "so prepare for your selected difficulty while following the quest and hand-in sequence.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-047",
+      "route": "/islands/",
+      "file": "src/config/site.ts",
+      "originalLine": 74,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-048",
+      "route": "/islands/",
+      "file": "src/config/site.ts",
+      "originalLine": 75,
+      "status": "verified",
+      "replacement": "Match the terrain and active objective if your game uses a different location label.",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    },
+    {
+      "id": "HF-COPY-049",
+      "route": "/islands/",
+      "file": "src/config/site.ts",
+      "originalLine": 77,
+      "status": "verified",
+      "replacement": "(removed redundant internal sentence/paragraph)",
+      "originalSourceQuoteAbsent": true,
+      "originalRenderedQuoteAbsent": true
+    }
+  ],
+  "latent": {
+    "status": "verified-source-only",
+    "file": "src/pages/[category]/index.astro"
+  },
+  "consistency": {
+    "status": "verified",
+    "file": "src/content/guides/items/weapon-progression.md",
+    "basis": "Existing audited Piranha page: optional melee only when it preserves movement space; no new gameplay claim or source-check date."
+  },
+  "additional": [
+    {
+      "id": "HF-FOLLOWUP-01",
+      "file": "src/content/guides/fixes/steam-relay-connection-failed.md",
+      "change": "FAQ now directly tells players not to expose ports for an undiagnosed failure.",
+      "status": "verified"
+    },
+    {
+      "id": "HF-FOLLOWUP-02",
+      "file": "src/layouts/GuideLayout.astro",
+      "change": "Mobile article grid uses minmax(0, 1fr); the progression table scrolls inside its own width.",
+      "status": "verified-browser-320-390-768"
+    }
+  ]
+}

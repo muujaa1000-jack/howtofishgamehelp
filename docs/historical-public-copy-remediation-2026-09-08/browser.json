@@ -1,0 +1,1255 @@
+{
+  "checks": [
+    {
+      "route": "/404.html",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/about/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/achievements/achievement-guide/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/achievements/achievement-not-unlocking/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/achievements/hardest-achievements/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/achievements/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/achievements/story-achievements/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-08-25",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/boss-guide/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-08-30",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/giant-piranha/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/mutated-bowhead-whale/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/spider-crab/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-08-30",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/terrorizing-bird/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-27",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/tuna/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/contact/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/disclaimer/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/camera-invert-controls/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-04",
+      "reviewed": "2026-09-04",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/leeches-not-spawning/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/multiplayer-black-screen/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-04",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/private-lobby-invites/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-08-25",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/problems-and-fixes/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/save-file-corrupted-or-weapon-crash/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/steam-cloud-pc-steam-deck-sync/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/steam-relay-connection-failed/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/guides/beginner-guide/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/guides/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/guides/unlock-next-island/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-08-30",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/guides/what-to-do-after-pufferfish/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/island-four-rocks/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-08-27",
+      "reviewed": "2026-08-27",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/island-progression/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/island-three-desert/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-08-27",
+      "reviewed": "2026-08-27",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/island-two-leeches/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/volcano-endgame/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-08-25",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/early-upgrades/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-08-25",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/grilling-guide/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/lures-and-bait/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-08-30",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/money-fast/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-04",
+      "reviewed": "2026-09-04",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/radar-guide/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/weapon-progression/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-04",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/privacy/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/search/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/terms/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/walkthrough/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "route": "/walkthrough/lighthouse-first-island/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-08-30",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/walkthrough/story-walkthrough/",
+      "device": "desktop",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 1440,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/404.html",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/about/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/achievements/achievement-guide/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/achievements/achievement-not-unlocking/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/achievements/hardest-achievements/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/achievements/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/achievements/story-achievements/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-08-25",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/boss-guide/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-08-30",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/giant-piranha/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/mutated-bowhead-whale/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/spider-crab/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-08-30",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/terrorizing-bird/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-27",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/bosses/tuna/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/contact/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/disclaimer/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/camera-invert-controls/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-04",
+      "reviewed": "2026-09-04",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/leeches-not-spawning/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/multiplayer-black-screen/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-04",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/private-lobby-invites/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-08-25",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/problems-and-fixes/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/save-file-corrupted-or-weapon-crash/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/steam-cloud-pc-steam-deck-sync/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/fixes/steam-relay-connection-failed/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/guides/beginner-guide/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/guides/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/guides/unlock-next-island/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-08-30",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/guides/what-to-do-after-pufferfish/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/island-four-rocks/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-08-27",
+      "reviewed": "2026-08-27",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/island-progression/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/island-three-desert/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-08-27",
+      "reviewed": "2026-08-27",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/island-two-leeches/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/islands/volcano-endgame/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-08-25",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/early-upgrades/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-08-25",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/grilling-guide/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/lures-and-bait/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-08-30",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/money-fast/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-04",
+      "reviewed": "2026-09-04",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/radar-guide/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-08",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/items/weapon-progression/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-09-04",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/privacy/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/search/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/terms/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/walkthrough/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "route": "/walkthrough/lighthouse-first-island/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-08-30",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    },
+    {
+      "route": "/walkthrough/story-walkthrough/",
+      "device": "mobile",
+      "status": 200,
+      "h1": 1,
+      "scrollWidth": 390,
+      "updated": "2026-09-08",
+      "reviewed": "2026-08-25",
+      "author": "How to Fish Game Help",
+      "duplicateIds": []
+    }
+  ],
+  "searchChecks": [
+    {
+      "route": "/achievements/achievement-guide/",
+      "title": "How to Fish Achievements Guide and Cleanup Plan",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/achievements/achievement-not-unlocking/",
+      "title": "How to Fish Achievement Not Unlocking",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/achievements/hardest-achievements/",
+      "title": "Hardest How to Fish Achievements: Cleanup Plan",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/achievements/story-achievements/",
+      "title": "How to Fish Story Achievements in Quest Order",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/bosses/boss-guide/",
+      "title": "How to Fish Boss Guide and Fight Order",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/bosses/giant-piranha/",
+      "title": "How to Beat Giant Piranha in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/bosses/mutated-bowhead-whale/",
+      "title": "How to Beat the Mutated Bowhead Whale",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/bosses/pufferfish/",
+      "title": "How to Beat Pufferfish in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/bosses/spider-crab/",
+      "title": "How to Beat Spider Crab in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/bosses/terrorizing-bird/",
+      "title": "How to Beat the Terrorizing Bird in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/bosses/tuna/",
+      "title": "How to Catch and Beat the Tuna Boss in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/fixes/camera-invert-controls/",
+      "title": "How to Invert Camera Controls in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/fixes/leeches-not-spawning/",
+      "title": "Leeches Not Spawning in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/fixes/multiplayer-black-screen/",
+      "title": "How to Fish Multiplayer Black Screen Fix",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/fixes/private-lobby-invites/",
+      "title": "How to Host a Private Lobby in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/fixes/problems-and-fixes/",
+      "title": "How to Fish Problems and Fixes: Start Here",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/fixes/save-file-corrupted-or-weapon-crash/",
+      "title": "How to Fish Save Corrupted or Weapon Equip Crash",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/fixes/steam-cloud-pc-steam-deck-sync/",
+      "title": "How to Fish Steam Cloud: Sync PC and Steam Deck Saves",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/fixes/steam-relay-connection-failed/",
+      "title": "How to Fish Steam Relay Connection Failed: Red Status",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/guides/beginner-guide/",
+      "title": "How to Fish Beginner Guide: Your First Island Route",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/guides/difficulty-settings/",
+      "title": "How to Fish Difficulty Settings: Easy, Normal and Hard",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/guides/unlock-next-island/",
+      "title": "How to Get Boat Keys and Unlock Island 2 in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/guides/what-to-do-after-pufferfish/",
+      "title": "What to Do After Pufferfish in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/islands/island-four-rocks/",
+      "title": "How to Fish Island 4 Rocky Island Progression",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/islands/island-progression/",
+      "title": "How to Fish Island Progression and Unlock Order",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/islands/island-three-desert/",
+      "title": "How to Get to and Beat Island 3 in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/islands/island-two-leeches/",
+      "title": "How to Find Three Leeches on Island 2",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/islands/volcano-endgame/",
+      "title": "How to Fish Volcano and Endgame Progression",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/items/early-upgrades/",
+      "title": "Best Early Upgrades in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/items/grilling-guide/",
+      "title": "How to Unlock and Use the Grill in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/items/lures-and-bait/",
+      "title": "How to Fish Lures and Quest Bait Explained",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/items/money-fast/",
+      "title": "How to Make Money Fast in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/items/radar-guide/",
+      "title": "How to Get and Use the Radar in How to Fish",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/items/weapon-progression/",
+      "title": "How to Fish Weapon Progression by Island",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/walkthrough/lighthouse-first-island/",
+      "title": "How to Fish Lighthouse and First Island Walkthrough",
+      "indexed": true,
+      "internalCopyMatches": 0
+    },
+    {
+      "route": "/walkthrough/story-walkthrough/",
+      "title": "How to Fish Walkthrough: Main Story Route",
+      "indexed": true,
+      "internalCopyMatches": 0
+    }
+  ],
+  "pageErrors": []
+}

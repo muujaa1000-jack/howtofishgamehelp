@@ -5,7 +5,7 @@ slug: "difficulty-settings"
 category: "guides"
 primaryIntent: "Understand the official How to Fish difficulty settings and choose a mode"
 publishedAt: 2026-08-25
-updatedAt: 2026-08-25
+updatedAt: 2026-09-08
 lastVerifiedAt: 2026-08-25
 gameVersion: "1.0.9"
 lastSourceReview: 2026-08-25
@@ -38,11 +38,11 @@ priority: "P0"
 
 ## Direct answer
 
-Choose Easy if combat pressure is blocking exploration or story progress, Normal if you want the balance used before patch 1.0.9, and Hard if you want creatures to survive longer and hit harder. The official modifiers apply to creature health and creature damage. The patch note does not document different quests, rewards, achievement eligibility, prices, drop rates, save slots, or matchmaking rules, so this guide does not claim that those systems change.
+Choose Easy if combat pressure is blocking exploration or story progress, Normal if you want the balance used before patch 1.0.9, and Hard if you want creatures to survive longer and hit harder. The official modifiers apply to creature health and creature damage. Whether difficulty also affects quests, rewards, achievement eligibility, prices, drop rates, save slots, or matchmaking rules is unknown.
 
 ## Applies to
 
-Difficulty settings were officially introduced in How to Fish patch 1.0.9, announced on August 25, 2026 in Singapore time. The exact modifiers below come from that developer announcement. The Steam store supports the broader context that the game combines fishing, combat, quests, bosses, solo play, and online co-op. This page is based on those sources and has not independently compared the modes in-game.
+Difficulty settings were officially introduced in How to Fish patch 1.0.9, announced on August 25, 2026 in Singapore time. The exact modifiers below come from that developer announcement.
 
 ## Quick steps
 
@@ -63,7 +63,7 @@ Difficulty settings were officially introduced in How to Fish patch 1.0.9, annou
 | Normal | Previous balance | Previous balance | This preserves the balance used before patch 1.0.9. |
 | Hard | 25% more | 25% more | Encounters require more damage and creature hits are more punishing. |
 
-These percentages describe modifiers, not a published table of base values. For example, the note does not reveal Pufferfish’s base health, the damage of a particular attack, or the time a fight should take. A guide should therefore use the official percentages without inventing the numbers they modify.
+These percentages describe modifiers, not a published table of base values. For example, the note does not reveal Pufferfish’s base health, the damage of a particular attack, or the time a fight should take. These percentages do not tell you a boss’s base health or the number of hits your weapon needs.
 
 ## How to choose a mode
 
@@ -77,20 +77,20 @@ Hard is for players who intentionally want more creature pressure. More health l
 
 The announcement is narrow: creature health and creature damage. That can affect preparation decisions. Healing becomes more forgiving on Easy and more important on Hard. A movement mistake costs less or more. A boss encounter may take fewer or more successful attacks even when its quest trigger and trophy are unchanged.
 
-The modifiers also explain why this site avoids universal equipment thresholds. A weapon recommendation based on Normal cannot prove the same fight length on Easy or Hard. Route pages continue to emphasize quest items, movement, recovery, and hand-ins instead of fabricated damage targets.
+The same weapon can take a different number of hits to defeat a creature on Easy or Hard. Keep your selected mode in mind when comparing an older fight guide, and prepare healing before spending quest bait.
 
 ## What remains unknown
 
 The patch note does not state whether difficulty can be changed during an existing save, exactly where the selector appears in every game state, whether every co-op participant must choose the same value, or which player’s setting controls a hosted session. It also does not mention achievements, economy, drops, quest requirements, AI behavior beyond health and damage, or separate mode-specific endings.
 
-Those omissions are not evidence that hidden differences exist. They mean the reviewed official source does not answer the question. If reliable later documentation appears, this page can be revised with a new source-review date.
+Those omissions are not evidence that hidden differences exist. They mean the reviewed official source does not answer the question.
 
 ## Common mistakes
 
 - Calling Easy “half health.” The official health modifier is 25% less; the 50% reduction applies to creature damage.
 - Calling Hard “double damage.” The published increase is 25% for both creature health and damage.
 - Treating Normal as a newly rebalanced mode. The developer describes it as the previous balance.
-- Promising better loot or achievements on Hard without official evidence.
+- Choosing Hard only because you expect better loot or extra achievements.
 - Applying old boss-time claims to every difficulty.
 - Assuming difficulty repairs a save, relay, or crash issue; those are separate 1.0.9 topics.
 
@@ -104,11 +104,11 @@ Changing difficulty should not be used as a fix for technical instability. Prese
 
 ## Solo and co-op differences
 
-The official Steam listing confirms solo and online co-op, but the 1.0.9 note does not explain how difficulty authority works in multiplayer. A reasonable diagnostic is to have the host state the selected mode and keep the party unchanged while comparing encounters. That is an editorial testing suggestion, not a developer-confirmed rule. Do not claim that a joiner’s local selection overrides or inherits the host until an official source or reproducible evidence establishes it.
+The official Steam listing confirms solo and online co-op, but the 1.0.9 note does not explain how difficulty authority works in multiplayer. A reasonable diagnostic is to have the host state the selected mode and keep the party unchanged while comparing encounters. Which player’s setting controls a hosted session is unknown. Keep the party and equipment unchanged during the comparison so you can describe what changed.
 
 ## Patch history and limitations
 
-Before 1.0.9, the game used the balance now labelled Normal. Patch 1.0.9 adds Easy and Hard around that reference. The note supplies only the four percentage changes and the previous-balance statement. It does not document a difficulty-specific content matrix. This page deliberately preserves that boundary and will not translate missing documentation into invented mechanics.
+Before 1.0.9, the game used the balance now labelled Normal. Patch 1.0.9 adds Easy and Hard around that reference. The note supplies only the four percentage changes and the previous-balance statement. It does not document a difficulty-specific content matrix.
 
 ## FAQ
 
@@ -131,10 +131,6 @@ No restriction or bonus is documented in the 1.0.9 note. This page cannot confir
 ### Which mode should a beginner use?
 
 Choose Easy when combat is blocking learning or progression. Choose Normal if you want the previous balance. The decision does not need to prove skill or change the story route.
-
-## Evidence boundaries
-
-The official patch announcement is the authority for every numeric modifier on this page. The Steam store is used only for the game’s high-level solo, co-op, fishing, combat, and progression context. Last source review: August 25, 2026. Evidence reviewed through: patch 1.0.9. Testing status: source-based guide; not independently playtested.
 
 ## What to do next
 

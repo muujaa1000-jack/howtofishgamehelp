@@ -41,7 +41,7 @@ const jsonLd = { '@context': 'https://schema.org', '@type': 'CollectionPage', na
       <p class="caution"><strong>Evidence note:</strong> {fieldNote.caution}</p>
     </div>
     <QuickAnswerLinks title={`Common ${category.label.toLowerCase()} questions`} links={quickAnswers} />
-    {entries.length ? <div class="grid guide-grid">{entries.map((entry) => <GuideCard entry={entry} />)}</div> : <div class="notice"><h2>Evidence review in progress</h2><p>No page in this section has cleared the publishing gate yet. We do not publish thin placeholders just to fill a category.</p></div>}
+    {entries.length ? <div class="grid guide-grid">{entries.map((entry) => <GuideCard entry={entry} />)}</div> : <div class="notice"><h2>No guides here yet</h2><p>Browse another category or search the site for your next step.</p></div>}
   </section>
 </BaseLayout>
 <style>
