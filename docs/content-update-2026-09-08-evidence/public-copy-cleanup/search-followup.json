@@ -1,0 +1,14 @@
+{
+  "route": "/search/",
+  "scope": "One introductory sentence; existing functionality and noindex unchanged.",
+  "sha256": "38333ec34284cb828cbfb7e77ba02eadf041dc0be896bee175850f3c7283d2c1",
+  "robots": "noindex,follow",
+  "mainText": "Site search Search the field guide Search for a boss, item, island, achievement, or the problem blocking your run. You can also browse the categories below. <p class=\"notice\" data-astro-cid-wp2l4cmv>Search needs JavaScript, but every published section remains available below.</p> Browse by category Start with the section closest to the problem blocking your run: Guides — Start How to Fish with a beginner route, difficulty choices, early spending advice, and focused progression guides for your next objective. Walkthrough — Follow the main quest chain from the lighthouse to the end route. Islands — Unlock each destination and understand the item or boss gate in the way. Bosses — Find the How to Fish boss order, required quest bait, fight strategies, healing preparation, and trophy hand-ins for your next island. Items — Find what to keep, buy, upgrade, or use next: weapons, lures, boss bait, radar, grilling, money, and other How to Fish items. Achievements — Separate story unlocks from cleanup, challenge runs, and collection goals. Fixes — Find the right How to Fish fix for crashes, black screens, Steam relay errors, private lobbies, save problems, missing leeches, and camera controls.",
+  "interactions": {
+    "searchQuery": "Steam Cloud",
+    "resultCount": 4,
+    "openedCloudGuide": true,
+    "mobileMenuDestination": "http://127.0.0.1:4327/fixes/",
+    "screenshots": 4
+  }
+}

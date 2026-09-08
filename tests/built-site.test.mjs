@@ -98,6 +98,8 @@ test('build contains the representative launch routes and metadata', async () =>
   const search = await text('search/index.html');
   assert.match(search, /<meta name="robots" content="noindex,follow">/);
   assert.match(search, /Browse by category/i);
+  assert.match(search, /Search for a boss, item, island, achievement, or the problem blocking your run/);
+  assert.doesNotMatch(textContent(parse(search)), /new indexable page|advertising script|published guide text/);
   for (const route of ['/guides/', '/walkthrough/', '/bosses/', '/fixes/']) {
     assert.match(search, new RegExp(`href="${route.replaceAll('/', '\\/')}"`));
   }
@@ -220,7 +222,7 @@ test('indexable hubs provide concise editorial routes and remain free of ads', a
     ['bosses', {
       title: 'How to Fish Bosses',
       heading: 'How to Fish Bosses: Fight Order, Bait &amp; Strategies',
-      description: 'See the How to Fish boss order, required quest bait, safe fight patterns, trophy hand-ins, and links to each evidence-backed boss guide.',
+      description: 'Find the How to Fish boss order, required quest bait, fight strategies, healing preparation, and trophy hand-ins for your next island.',
     }],
     ['items', {
       title: 'How to Fish Items Guide',
@@ -279,5 +281,23 @@ test('homepage and relevant hubs expose focused quick-answer routes', async () =
   }
   for (const html of [home, bosses]) {
     assert.match(html, />Tuna boss guide: lure, fight and next step</);
+  }
+});
+
+test('revised public pages keep player instructions and one truthful testing status', async () => {
+  const guides = [
+    'achievements/achievement-guide', 'achievements/hardest-achievements', 'achievements/achievement-not-unlocking',
+    'fixes/steam-cloud-pc-steam-deck-sync', 'fixes/problems-and-fixes', 'fixes/save-file-corrupted-or-weapon-crash',
+    'bosses/giant-piranha', 'bosses/tuna', 'bosses/mutated-bowhead-whale', 'items/radar-guide', 'items/grilling-guide',
+  ];
+  for (const route of [...guides, '', 'bosses', 'items', 'achievements', 'fixes']) {
+    const html = await text(`${route ? `${route}/` : ''}index.html`);
+    const content = textContent(parse(html));
+    assert.doesNotMatch(content, /this site|this edit|our earlier instruction|editorial|evidence boundaries|the source establishes|This page synthesizes|It does not claim first-hand testing|should not be (?:described|represented)|does not manufacture/i, route);
+    if (guides.includes(route)) {
+      assert.equal((content.match(/Source-based guide; not independently playtested/g) ?? []).length, 1, route);
+      assert.match(html, /class="source-note"[\s\S]*?<h2[^>]*>Sources<\/h2>/, route);
+      assert.match(content, /checked 2026-09-08/, route);
+    }
   }
 });

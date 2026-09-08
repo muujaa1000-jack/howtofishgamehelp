@@ -313,7 +313,7 @@ test('September 8 answers keep official changes distinct from older community me
     const source = byRoute.get(route);
     assert.doesNotMatch(source, /(?:no weapon use in the final fight|avoid weapon use during|do not use a weapon during|do not combine Bean with Handyman|Handyman and Bean should not share)/i);
     assert.match(source, /older.*(?:player|community)|1\.0\.4/is);
-    assert.match(source, /not (?:reproduced|repeated).*1\.0\.12/is);
+    assert.match(source, /whether (?:this older community |that )method works in 1\.0\.12 is unconfirmed/i);
     assert.match(source, /optional/i);
     assert.match(source, /brass.knuckle/i);
     assert.match(source, /3788992156/);
@@ -335,4 +335,16 @@ test('September 8 answers keep official changes distinct from older community me
   assert.match(fixes, /historical clues/i);
   assert.match(byRoute.get('/items/radar-guide/'), /shop post/);
   assert.match(byRoute.get('/items/grilling-guide/'), /not a method for turning burnt fish/i);
+});
+
+test('September 8 public guide copy addresses players without internal writing instructions', async () => {
+  for (const item of await entries()) {
+    if (!refreshedOnSeptember8.has(routeOf(frontmatterOf(item.source)))) continue;
+    assert.doesNotMatch(item.source, /this site|this edit|our earlier instruction|editorial|evidence boundaries|the source establishes|(?:this (?:page|guide)|the site) (?:does not|provides no|labels|synthesizes)|(?:should|must) (?:not be described|not be represented|stay limited)/i, item.file);
+  }
+  const layout = await readFile(path.join(root, 'src/layouts/GuideLayout.astro'), 'utf8');
+  assert.match(layout, /Source-based guide; not independently playtested/);
+  assert.match(layout, /source\.url/);
+  assert.match(layout, /source\.accessedAt/);
+  assert.doesNotMatch(layout, /This page synthesizes|It does not claim first-hand testing/);
 });

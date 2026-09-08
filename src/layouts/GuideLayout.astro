@@ -69,8 +69,7 @@ const articleJsonLd = {
         <div class="prose"><slot /></div>
         {data.sources.length > 0 && (
           <section class="source-note">
-            <h2>Sources and verification</h2>
-            <p>This page synthesizes the specific facts below. It does not claim first-hand testing. Patch-sensitive details are dated so you can judge whether they may have changed.</p>
+            <h2>Sources</h2>
             <ul>{data.sources.map((source) => <li><a href={source.url} rel="nofollow noopener">{source.title}</a> <span>({source.type.replaceAll('-', ' ')}, checked {source.accessedAt.toISOString().slice(0, 10)})</span></li>)}</ul>
           </section>
         )}

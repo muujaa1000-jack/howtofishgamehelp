@@ -1,0 +1,113 @@
+
+> howtofishgamehelp@1.0.0 build
+> astro build && pagefind --site dist
+
+18:19:06 [content] Syncing content
+18:19:06 [content] Synced content
+18:19:06 [types] Generated 325ms
+18:19:06 [build] output: "static"
+18:19:06 [build] mode: "static"
+18:19:06 [build] directory: C:\Users\Admin\.codex\worktrees\9352\howtofishgamehelp\dist\
+18:19:06 [build] Collecting build info...
+18:19:06 [build] ✓ Completed in 349ms.
+18:19:06 [build] Building static entrypoints...
+18:19:07 [vite] ✓ built in 235ms
+18:19:07 [vite] ✓ built in 21ms
+18:19:07 [build] Rearranging server assets...
+
+ generating static routes
+18:19:07   ├─ /404.html (+7ms)
+18:19:07   ├─ /about/index.html (+3ms)
+18:19:07   ├─ /contact/index.html (+2ms)
+18:19:07   ├─ /disclaimer/index.html (+2ms)
+18:19:07   ├─ /privacy/index.html (+2ms)
+18:19:07   ├─ /robots.txt (+2ms)
+18:19:07   ├─ /rss.xml (+34ms)
+18:19:07   ├─ /search/index.html (+2ms)
+18:19:07   ├─ /sitemap.xml (+2ms)
+18:19:07   ├─ /terms/index.html (+2ms)
+18:19:07   ├─ /achievements/achievement-guide/index.html (+3ms)
+18:19:07   ├─ /achievements/achievement-not-unlocking/index.html (+1ms)
+18:19:07   ├─ /guides/beginner-guide/index.html (+2ms)
+18:19:07   ├─ /bosses/boss-guide/index.html (+2ms)
+18:19:07   ├─ /fixes/camera-invert-controls/index.html (+2ms)
+18:19:07   ├─ /guides/difficulty-settings/index.html (+1ms)
+18:19:07   ├─ /items/early-upgrades/index.html (+2ms)
+18:19:07   ├─ /bosses/giant-piranha/index.html (+1ms)
+18:19:07   ├─ /items/grilling-guide/index.html (+1ms)
+18:19:07   ├─ /achievements/hardest-achievements/index.html (+1ms)
+18:19:07   ├─ /islands/island-four-rocks/index.html (+1ms)
+18:19:07   ├─ /islands/island-progression/index.html (+2ms)
+18:19:07   ├─ /islands/island-three-desert/index.html (+2ms)
+18:19:07   ├─ /islands/island-two-leeches/index.html (+1ms)
+18:19:07   ├─ /fixes/leeches-not-spawning/index.html (+1ms)
+18:19:07   ├─ /walkthrough/lighthouse-first-island/index.html (+2ms)
+18:19:07   ├─ /items/lures-and-bait/index.html (+2ms)
+18:19:07   ├─ /items/money-fast/index.html (+2ms)
+18:19:07   ├─ /fixes/multiplayer-black-screen/index.html (+1ms)
+18:19:07   ├─ /bosses/mutated-bowhead-whale/index.html (+1ms)
+18:19:07   ├─ /fixes/private-lobby-invites/index.html (+2ms)
+18:19:07   ├─ /fixes/problems-and-fixes/index.html (+1ms)
+18:19:07   ├─ /bosses/pufferfish/index.html (+1ms)
+18:19:07   ├─ /items/radar-guide/index.html (+1ms)
+18:19:07   ├─ /fixes/save-file-corrupted-or-weapon-crash/index.html (+2ms)
+18:19:07   ├─ /bosses/spider-crab/index.html (+2ms)
+18:19:07   ├─ /fixes/steam-cloud-pc-steam-deck-sync/index.html (+1ms)
+18:19:07   ├─ /fixes/steam-relay-connection-failed/index.html (+1ms)
+18:19:07   ├─ /achievements/story-achievements/index.html (+1ms)
+18:19:07   ├─ /walkthrough/story-walkthrough/index.html (+1ms)
+18:19:07   ├─ /bosses/terrorizing-bird/index.html (+2ms)
+18:19:07   ├─ /bosses/tuna/index.html (+1ms)
+18:19:07   ├─ /guides/unlock-next-island/index.html (+1ms)
+18:19:07   ├─ /islands/volcano-endgame/index.html (+1ms)
+18:19:07   ├─ /items/weapon-progression/index.html (+1ms)
+18:19:07   ├─ /guides/what-to-do-after-pufferfish/index.html (+2ms)
+18:19:07   ├─ /guides/index.html (+2ms)
+18:19:07   ├─ /walkthrough/index.html (+1ms)
+18:19:07   ├─ /islands/index.html (+2ms)
+18:19:07   ├─ /bosses/index.html (+1ms)
+18:19:07   ├─ /items/index.html (+1ms)
+18:19:07   ├─ /achievements/index.html (+1ms)
+18:19:07   ├─ /fixes/index.html (+1ms)
+18:19:07   ├─ /index.html (+2ms)
+18:19:07 ✓ Completed in 145ms.
+
+18:19:07 [build] ✓ Completed in 436ms.
+18:19:07 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+18:19:07 [build] 51 page(s) built in 824ms
+18:19:07 [build] Complete!
+
+Running Pagefind v1.5.2 (Extended)
+Running from: "C:\\Users\\Admin\\.codex\\worktrees\\9352\\howtofishgamehelp"
+Source:       "dist"
+Output:       "dist\\pagefind"
+
+[Walking source directory]
+Found 51 files matching **/*.{html}
+
+[Parsing files]
+Found a data-pagefind-body element on the site.
+↳ Ignoring pages without this tag.
+
+[Reading languages]
+Discovered 1 language: en
+
+[Building search indexes]
+Total:
+  Indexed 1 language
+  Indexed 36 pages
+  Indexed 1924 words
+  Indexed 0 filters
+  Indexed 0 sorts
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  Pagefind found references to the Default UI (pagefind-ui.js)           │
+│  on your site. The Default UI is supported and will continue            │
+│  to work.                                                               │
+│                                                                         │
+│  As of 1.5.0, if you are setting up a new integration, use the          │
+│  Component UI instead. It includes a search modal, better               │
+│  accessibility and customization: https://pagefind.app/docs/search-ui/  │
+└─────────────────────────────────────────────────────────────────────────┘
+
+Finished in 0.057 seconds

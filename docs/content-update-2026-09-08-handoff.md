@@ -1,6 +1,6 @@
 # How to Fish 1.0.12 内容更新交接
 
-本轮已完成本地内容实施、来源复核、生产构建与浏览器检查；总指挥任务「检查两款游戏内容更新」已完成复核，未发现阻断问题。本批更新已本地提交。未 push、merge、部署、调用 IndexNow/GSC、修改账号、DNS、广告或认证。
+首轮内容实施已提交为 `97d5d84cd4eeb59fa49a7c1e72b0da215a7d2336`。总指挥随后撤销首轮验收，要求清理面向玩家页面中的内部采编话术。该返工的范围、前后示例、最终检查与截图见 [公开文案返工交接](content-update-2026-09-08-public-copy-rework.md)；本文以下保留首轮研究与实施记录，其中首轮验收和检查不代替返工验收。仍未 push、merge、部署、调用 IndexNow/GSC、修改账号、DNS、广告或认证。
 
 ## 工作副本与状态
 
@@ -47,7 +47,7 @@
 
 `updatedAt` 是真实编辑日期；`lastVerifiedAt`、`lastSourceReview` 是本次实际来源复核日期；每条未重新核对的历史来源仍保留原 `accessedAt`。没有批量把旧 `gameVersion` 刷成 1.0.12。Radar 仍保留较早的补丁证据标签；Grilling 保留 1.0.11，补入的设备清洗规则属于 1.0.10。所有页面 `firstHandTested` 仍为 false。
 
-## 检查结果
+## 首轮检查结果（历史记录）
 
 证据目录：`docs/content-update-2026-09-08-evidence/`。截图目录：`docs/qa-screenshots/content-update-2026-09-08/`。
 

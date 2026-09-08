@@ -19,7 +19,7 @@ sources:
     url: "https://steamcommunity.com/app/4001890/discussions/0/582806239606672418/"
     type: "community-thread"
     accessedAt: 2026-09-08
-    notes: "August 24 shop-post reports; exact build unknown, location not replayed on 1.0.12."
+    notes: "August 24 reports of a replacement at the forest shop post; game version unspecified."
   - title: "Complete How to Fish game walkthrough"
     url: "https://www.destructoid.com/complete-how-to-fish-game-walkthrough-100-completion/"
     type: "gameplay-guide"
@@ -36,7 +36,7 @@ relatedGuides:
   - "/islands/island-progression/"
 draft: false
 noindex: false
-answer: "Finish the lighthouse keeper's Spider Crab quest, secure boat access, and obtain the radar before sailing. It follows quest coordinates rather than unlocking islands itself. If you lost it on the forest island, players reported a replacement for sale on the ground against the shop post, beneath the signs. That is an older community report; the location has not been rechecked in-game on 1.0.12."
+answer: "Finish the lighthouse keeper's Spider Crab quest, secure boat access, and obtain the radar before sailing. It follows quest coordinates rather than unlocking islands itself. If you lost it on the forest island, check the ground against the shop post beneath the signs: players reported a replacement for sale there on August 24. Its availability in 1.0.12 is unconfirmed."
 featured: false
 priority: "P0"
 ---
@@ -60,7 +60,7 @@ The launch walkthrough describes a later upgrade that places the radar at a stat
 
 In an [August 24 Steam thread](https://steamcommunity.com/app/4001890/discussions/0/582806239606672418/), a player lost their radar after reloading on the Piranha island. One reply suggested looking below the signs, and another confirmed a purchasable radar on the ground leaning against the shop post. Check there on the forest island before considering a restart.
 
-This is an older-version community location report, reviewed September 8, 2026, not a current-version site playtest. The exact game version and present price are unverified. It does not establish an automatic replacement or a recovery route when you are already lost at sea. If the radar is absent, preserve the save and record the location and current objective rather than overwriting progress.
+That report predates 1.0.12 and does not specify its game version. Current availability and price are unknown. If the radar is absent, preserve the save and record the location and current objective rather than overwriting progress.
 
 ## Why it may not work
 

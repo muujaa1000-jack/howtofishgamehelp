@@ -1,6 +1,6 @@
 ---
 title: "How to Fish Problems and Fixes: Start Here"
-description: "Diagnose current How to Fish problems by separating official patch notes, safe local checks, community workarounds, and unresolved bugs."
+description: "Find checks for How to Fish save sync, loading crashes, lobby failures, voice chat, missing items, FPS changes, and the first Radio purchase stutter."
 slug: "problems-and-fixes"
 category: "fixes"
 primaryIntent: "Find a safe first troubleshooting route for current How to Fish issues"
@@ -23,7 +23,7 @@ sources:
     url: "https://steamcommunity.com/app/4001890/discussions/0/582806239606511453/"
     type: "community-thread"
     accessedAt: 2026-09-08
-    notes: "August 22-25 audio anecdotes only; not a verified 1.0.12 remedy."
+    notes: "August 22-25 reports of audio-device changes and controller disconnection helping duplicated sound."
   - title: "How to Fish Patch 1.0.11"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927885"
     type: "official-patch"
@@ -58,18 +58,18 @@ relatedGuides:
   - "/fixes/save-file-corrupted-or-weapon-crash/"
 draft: false
 noindex: false
-answer: "Update to the current release, 1.0.12 as reviewed September 8. For an existing Steam Cloud save, play and exit on its original device, then wait for sync before switching devices. The patch addresses an FPS-cap override on joining and first-Radio stutter, while voice and item-loss changes remain qualified. Preserve saves and match the symptom to the relevant check; Cloud is not automatic corruption repair."
+answer: "Update to 1.0.12, the current release as of September 8. For an existing Steam Cloud save, play and exit on its original device, then wait for sync before switching. The patch fixes the FPS-cap override on joining and first-Radio stutter; its voice and item-speed changes are intended to reduce some bugs. Choose the matching symptom below and preserve your save. Cloud does not automatically repair corruption."
 featured: true
 priority: "P2"
 ---
 
 ## Direct answer
 
-Update the game and Steam, identify the failing action, and try one reversible check. Separate a missing cross-device save from a loading crash or multiplayer failure. Preserve existing copies; patch notes do not prove that every affected save or computer is repaired.
+Update the game and Steam, identify the failing action, and try one reversible check. First decide whether the save is missing on another device, crashes while loading, or fails only in multiplayer. Preserve existing copies and record the result before changing another setting.
 
 ## Applies to
 
-This index covers official patches through 1.0.12, reviewed September 8, 2026. It separates developer changes, Steam tools, historical player reports, and editorial checks. No device or save was independently tested for this update. The 1.0.11 save safeguards remain relevant, but 1.0.12 Cloud support does not supply a universal restore procedure.
+Start here for save sync, loading and equipment crashes, lobby or relay failures, audio problems, missing items, and controls. The latest patch covered is 1.0.12. If an update changes the symptom, choose the new symptom below rather than continuing a workaround for the old one. A save backup, a Cloud upload, and an installation-file check each solve different problems.
 
 ## Quick steps
 
@@ -94,25 +94,25 @@ Patch 1.0.12 says FishNet no longer overrides your maximum FPS when joining a lo
 
 ### Voice chat or duplicated sound
 
-Patch 1.0.12 updates MetaVoice to 4.3 with the hope of fixing some voice-chat bugs. It does not claim every audio problem is resolved. In an [August sound-duplication thread](https://steamcommunity.com/app/4001890/discussions/0/582806239606511453/), one player reported improvement after changing audio input/output choices, but had not checked their microphone with a party. Another reported improvement after disconnecting a controller. These are historical clues, not proof of a current 1.0.12 fix.
+Patch 1.0.12 updates MetaVoice to 4.3 with the hope of fixing some voice-chat bugs. If duplicated sound persists, an [August 22-25 player thread](https://steamcommunity.com/app/4001890/discussions/0/582806239606511453/) offers two historical clues: one player reported improvement after changing audio input/output choices, but had not checked their microphone with a party; another reported improvement after disconnecting a controller. Whether either helps in 1.0.12 is unknown.
 
 If the symptom matches, note your original audio choices, compare one input/output change or one controller-disconnection test, then restore the setting if it does not help. Check both playback and whether another player can hear your microphone; improved playback alone does not establish working voice chat.
 
 ### Dropped items still disappear
 
-Patch 1.0.12 limits item velocity with the hope of reducing item loss. It does not promise that every dropped object is retained or recovered. Record whether the loss followed an explosion, an inventory action, loading, or joining. Avoid using the only quest item to reproduce it. The earlier 1.0.10 persistence and placement changes address different parts of the problem.
+Patch 1.0.12 limits item velocity with the hope of reducing item loss. If an item still disappears, record whether the loss followed an explosion, an inventory action, loading, or joining. Avoid using the only quest item to reproduce it. The earlier 1.0.10 changes to dropped-item persistence and placement may also matter when comparing older saves or sessions.
 
 ### Startup or joining display failures
 
-Patch 1.0.4 says it addressed a black screen while joining and a gray screen at startup, along with special characters that could break a server-save filename. The same announcement used cautious wording for some display fixes. Update first, then compare solo startup with joining a fresh private lobby. If only the joiner fails, use the [multiplayer black screen guide](/fixes/multiplayer-black-screen/) and note which participant sees the problem.
+Patch 1.0.4 addressed a black screen while joining, hoped to fix the gray startup screen, and fixed special characters breaking a server-save filename. Update first, then compare solo startup with joining a fresh private lobby. If only the joiner fails, use the [multiplayer black screen guide](/fixes/multiplayer-black-screen/) and note which participant sees the problem.
 
 ### Lobby and relay failures
 
-Patch 1.0.5 added private lobbies. Patch 1.0.9 added a red Steam relay status indicator when a connection fails and asked players to report it. Red status is diagnostic evidence, not a command to open ports or disable security software. Use the [Steam relay connection guide](/fixes/steam-relay-connection-failed/) to record host, joiner, status, and timing without making risky network changes.
+Patch 1.0.5 added private lobbies. Patch 1.0.9 added a red Steam relay status indicator when a connection fails and asked players to report it. Use the [Steam relay connection guide](/fixes/steam-relay-connection-failed/) to record host, joiner, status, and timing. Begin with a small private-lobby comparison while keeping your existing network protections in place.
 
 ### Save loading or weapon-equip crashes
 
-Patch 1.0.9 qualified its corruption fix and requested load-crash and weapon-equip reports. Patch 1.0.11 adds checks before loading and backups, without documenting a manual restore sequence. Preserve the files, avoid repeating the triggering action, and use the [save and weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/).
+Patch 1.0.9 described corruption as hopefully fixed and requested load-crash and weapon-equip reports. Patch 1.0.11 adds checks before loading and backups. If a crash persists, preserve the files, avoid repeating the triggering action, and use the [save and weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/).
 
 ### Progression and achievements
 
@@ -126,7 +126,7 @@ Patch 1.0.5 added axis inversion. Patch 1.0.11 adds toggle aiming, toggle sprint
 
 - Applying launch-day workarounds before installing the current patch.
 - Changing drivers, firewall rules, router settings, save files, and lobby settings at the same time.
-- Treating developer wording such as “hopefully fixed” as a universal guarantee.
+- Assuming a save now works because an update installed successfully.
 - Using Verify Integrity as if it repairs gameplay progress inside a corrupted save.
 - Testing only co-op and never checking whether the same save opens in solo.
 - Deleting evidence that the developer would need to reproduce an unresolved crash.
@@ -134,11 +134,11 @@ Patch 1.0.5 added axis inversion. Patch 1.0.11 adds toggle aiming, toggle sprint
 
 ## Why it may not work
 
-One party member may still be on a different build. A legacy lobby or save may retain a state that a new session does not. The symptom may belong to a different layer: installation files, save data, lobby state, Steam connectivity, or a quest dependency. Some 1.0.9 cases were explicitly unresolved, some 1.0.10 item fixes remain qualified, and 1.0.11 still uses “hopefully fixed” for inventory-on-join invisibility. When a reversible check does not change the result, that is useful evidence; it is not a reason to escalate immediately to destructive steps.
+One party member may still be on a different build. A legacy lobby or save may retain a state that a new session does not. The symptom may involve installation files, save data, lobby state, Steam connectivity, or a quest dependency. For example, a save that opens solo but fails when hosting needs a different report from a joiner whose inventory is invisible. Patch 1.0.11 described the latter as hopefully fixed. Record an unchanged result so the next attempt starts from a clear comparison.
 
 ## Safe recovery
 
-Before file work, exit the game and identify whether Steam Cloud is active for the title. Preserve copies outside any directory that the game or Steam may rewrite, but do not publish personal paths or save contents. Steam’s Verify Integrity process checks the installed game files; it should not be described as a save repair. If a clean launch works but one save fails, stop using that save for experiments and record the last known working action, the loading stage, and any weapon involved.
+Before file work, exit the game and identify whether Steam Cloud is active for the title. Preserve copies outside any directory that the game or Steam may rewrite, but do not publish personal paths or save contents. Steam’s Verify Integrity process checks the installed game files; it does not rebuild a save's progression or inventory. If a clean launch works but one save fails, stop using that save for experiments and record the last known working action, the loading stage, and any weapon involved.
 
 For co-op, return to a known baseline: same updated build, plain lobby name, private session, one host, one joiner. Change the host only as a separate comparison. Do not disable antivirus, firewall, or router protections based on a generic guide. If the red relay indicator appears, capture it and report the scenario through an official developer channel referenced by the patch announcement.
 
@@ -148,7 +148,7 @@ A solo test answers whether the installation and save can reach gameplay without
 
 ## Patch history and limitations
 
-The earlier patches remain history, not evidence that every related symptom is gone. The current 1.0.12 additions cover Cloud, specific FPS and Radio issues, and qualified voice and item-loss changes. Its balance notes belong in the [Piranha](/bosses/giant-piranha/), [Tuna](/bosses/tuna/), and [final whale](/bosses/mutated-bowhead-whale/) answers. This index does not extend those claims to unrelated crashes or new gameplay content.
+Patch 1.0.12 adds Cloud and fixes the FPS-cap override on joining and the first-Radio lag spike. Its MetaVoice update and item-speed limit are intended to reduce some voice and item-loss bugs. If your issue is combat behavior rather than a technical failure, check the changed encounters: [Piranha](/bosses/giant-piranha/), [Tuna](/bosses/tuna/), and the [final whale](/bosses/mutated-bowhead-whale/).
 
 ## FAQ
 
@@ -162,15 +162,11 @@ The 1.0.9 note presents it as a connection-failure indicator. It does not instru
 
 ### What changed for saves in 1.0.11 and 1.0.12?
 
-Patch 1.0.11 adds checks before loading and backups. Patch 1.0.12 adds Cloud synchronization and an original-device play-and-exit step for existing saves. Neither publishes a universal manual restore procedure or promises automatic repair of every damaged save.
+Patch 1.0.11 adds checks before loading and backups. Patch 1.0.12 adds Cloud synchronization: play and exit on the original device to upload an existing save, then wait for sync. A synced copy can still contain a loading failure, so preserve the original if it crashes.
 
 ### What should a useful bug report contain?
 
 Include the current game version, whether the issue is solo or co-op, host or joiner role, the exact transition, whether a new session differs, and the smallest repeatable steps. Do not include private account details.
-
-## Evidence boundaries
-
-Official patch notes support the listed changes and their level of certainty. Steam Support provides the installation-file verification route. Editorial steps such as isolating solo from co-op are diagnostic recommendations, clearly separate from developer-confirmed fixes.
 
 ## What to do next
 

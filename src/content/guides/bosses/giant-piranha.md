@@ -27,7 +27,7 @@ sources:
     url: "https://steamcommunity.com/app/4001890/discussions/0/581681298840706905/"
     type: "community-thread"
     accessedAt: 2026-09-08
-    notes: "September 4-5 reports disagree on success after balancing; no controlled test."
+    notes: "September 4-5 players report both successful tactics and failed attempts after balancing."
   - title: "Complete How to Fish game walkthrough"
     url: "https://www.destructoid.com/complete-how-to-fish-game-walkthrough-100-completion/"
     type: "gameplay-guide"
@@ -48,7 +48,7 @@ relatedGuides:
   - "/items/grilling-guide/"
 draft: false
 noindex: false
-answer: "Give three leeches to the forest lady for Giant Piranha bait, prepare a shotgun and healing, and keep a clear movement loop during the fight. Patch 1.0.12 rebalanced Piranha without publishing numbers or calling it a nerf. Player reports suggest circling and eating defeated small piranhas for health, but results differ. Clear nearby threats when they block your escape; melee is an option, not a required switch. Return the boss drop to the lady."
+answer: "Give three leeches to the forest lady for Giant Piranha bait, prepare a shotgun and healing, and keep a clear movement loop during the fight. Clear small piranhas when they block your escape, then return the boss drop to the lady. Piranha was rebalanced in 1.0.12; players report mixed results with circling and eating defeated small fish for health."
 featured: true
 priority: "P0"
 ---
@@ -64,7 +64,7 @@ priority: "P0"
 
 ## Control the adds before they control the arena
 
-The main creature remains dangerous while small piranhas crowd the arena. Keep boss damage going when you have room, and deal with nearby small fish when they block your path. A melee option can help at close range, but switching into a crowd is not a mandatory part of the fight.
+The main creature remains dangerous while small piranhas crowd the arena. Keep boss damage going when you have room, and deal with nearby small fish when they block your path. Try melee at close range only when it leaves enough room to escape.
 
 Unlike Spider Crab, this boss is not built around waiting for a generous self-stun. Kite in a broad loop, fire when the lane is clear, and interrupt your damage plan when the adds close exits. Healing after a clean dodge is safer than opening inventory while surrounded.
 
@@ -82,13 +82,13 @@ Solo players should alternate priorities: boss damage while the arena is clear, 
 
 ## Difficulty note for 1.0.9
 
-The official difficulty settings change creature health and damage, so the pace of this fight is mode-sensitive even though no quest change was announced. This page does not infer a base health value or a fixed number of attacks. Review [Easy, Normal, and Hard](/guides/difficulty-settings/) and keep the source-supported leech, encounter, trophy, and return sequence unchanged.
+The [Easy, Normal, and Hard settings](/guides/difficulty-settings/) change creature health and damage. Keep your selected mode in mind when comparing fight advice or failed attempts. The progression steps are still to collect the leeches, summon the boss, recover its drop, and return to the forest lady.
 
 ## Patch 1.0.12 balance and player reports
 
-The [1.0.12 announcement](https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486) only says Piranha was rebalanced. It does not identify the direction of every change or publish health and damage values. The quest sequence above comes from earlier walkthroughs; this site has not replayed the fight on 1.0.12.
+The [1.0.12 announcement](https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486) says Piranha was rebalanced; the exact changes are unspecified. Older fight advice may need adjusting to your selected difficulty and the pressure from small piranhas.
 
-In the [September 4–5 Steam discussion](https://steamcommunity.com/app/4001890/discussions/0/581681298840706905/), replies recommend an upgraded shotgun, circling the island while shooting, and eating defeated small piranhas for healing. Other players report being overwhelmed or running out of time after the balance update despite succeeding before it. One group still failed while using explosives on small fish and a shotgun on the boss. These are limited, conflicting experiences, not a universal solution.
+In the [September 4–5 Steam discussion](https://steamcommunity.com/app/4001890/discussions/0/581681298840706905/), replies recommend an upgraded shotgun, circling the island while shooting, and eating defeated small piranhas for healing. Other players report being overwhelmed or running out of time after the balance update despite succeeding before it. One group still failed while using explosives on small fish and a shotgun on the boss. Treat these as options to try, with mixed player results.
 
 Try one adjustment at a time and record version, difficulty, player count, and whether damage, movement, or healing ended the attempt. Keep explosives away from your escape route: the 1.0.11 note says your own explosives can kill you even with friendly fire disabled.
 

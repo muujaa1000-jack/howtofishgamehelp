@@ -1,6 +1,6 @@
 ---
 title: "Hardest How to Fish Achievements: Cleanup Plan"
-description: "Plan Bean, Handyman, Fishipedia, Collector, and Easy, with the official bare-hands condition separated from older community final-hit advice."
+description: "Plan Bean, Handyman, Fishipedia, Collector, and Easy: prepare timed runs, track missing creatures, and try the older community fist-finish method."
 slug: "hardest-achievements"
 category: "achievements"
 primaryIntent: "Plan efficient attempts for the hardest and rarest How to Fish achievements"
@@ -19,7 +19,7 @@ sources:
     url: "https://steamcommunity.com/sharedfiles/filedetails/?id=3794248165"
     type: "gameplay-guide"
     accessedAt: 2026-09-08
-    notes: "Author labels the technique 1.0.11; no current-version efficiency or safety claim."
+    notes: "Sprint fishing on 1.0.11; released hostile fish can remain dangerous."
   - title: "How to Fish Patch 1.0.12"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486"
     type: "official-patch"
@@ -28,12 +28,12 @@ sources:
     url: "https://steamcommunity.com/sharedfiles/filedetails/?id=3788992156"
     type: "gameplay-guide"
     accessedAt: 2026-09-08
-    notes: "Older-version report: gun damage followed by a fist finish; not a 1.0.12 playtest."
+    notes: "Older-version report of gun damage followed by a fist finish."
   - title: "Charlie Pork: All 28 Achievements and Post-Game Route"
     url: "https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308"
     type: "gameplay-guide"
     accessedAt: 2026-09-08
-    notes: "Based on 1.0.4; final-hit method and conflicting co-op-credit comment reviewed. Bean shortcut excluded."
+    notes: "Based on 1.0.4: a fist killing blow after gun damage. The guide and a comment disagree on co-op credit."
   - title: "How to Fish Global Achievements"
     url: "https://steamcommunity.com/stats/4001890/achievements/"
     type: "official-achievement"
@@ -54,7 +54,7 @@ relatedGuides:
   - "/items/weapon-progression/"
 draft: false
 noindex: false
-answer: "Use a completed save for collection cleanup and prepare a focused route for Bean. Handyman's official condition is to defeat the final boss with bare hands. Older player guides report using guns to lower its health and fists for the killing blow; this site has not repeated that method on 1.0.12. Practicing Handyman separately from Bean is optional, not a game rule."
+answer: "Use a completed save for collection cleanup and prepare a focused route for Bean. Handyman requires defeating the final boss with bare hands. Older player guides report using guns to lower its health and fists for the killing blow; whether that method works in 1.0.12 is unconfirmed. Separate Handyman practice is optional if you want to learn the finish without Bean's one-hour deadline."
 featured: false
 priority: "P1"
 ---
@@ -72,21 +72,21 @@ priority: "P1"
 
 Steam’s official conditions are concise. Collector requires every creature; Fishipedia requires every Drip creature. Those are coverage problems, best solved with a ledger. Easy requires a boss within ten seconds, which benefits from endgame damage against a familiar early target. Handyman names a bare-hands defeat of the final boss. Bean imposes a one-hour completion limit.
 
-A collection run leaves room for exploration and farming. A timed route needs fewer detours. Separate practice attempts can make failures easier to diagnose, but the reviewed official conditions do not require Handyman and Bean to use different saves.
+A collection run leaves room for exploration and farming. A timed route needs fewer detours. You can practice the final fight separately before attempting Bean; the achievement conditions do not require separate saves.
 
 ## Handyman: official condition and community final-hit method
 
-The [official achievement list](https://steamcommunity.com/stats/4001890/achievements/) requires a bare-hands defeat of the final boss. It does not specify a ban on weapon damage throughout the encounter. Our earlier instruction to avoid every weapon hit added a restriction the text does not establish.
+Handyman requires a bare-hands defeat of the final boss in the [official achievement list](https://steamcommunity.com/stats/4001890/achievements/). The condition does not say that the entire fight must use fists.
 
-[Spatison and a collaborator](https://steamcommunity.com/sharedfiles/filedetails/?id=3788992156) describe gun damage followed by a fist finish. [Charlie Pork](https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308) independently describes the same approach in a guide based on 1.0.4. These are older-version community reports, reviewed September 8; this site has not reproduced Handyman on 1.0.12.
+[Spatison and a collaborator](https://steamcommunity.com/sharedfiles/filedetails/?id=3788992156) describe gun damage followed by a fist finish. [Charlie Pork](https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308) describes the same approach in a guide based on 1.0.4. Whether this older community method works in 1.0.12 is unconfirmed.
 
-To try that method, lower the mutated whale's health with a gun, then stop shooting before it dies. As a precaution, stop any remaining explosive or other ongoing damage, confirm that you have bare fists equipped, and wait for an attack opening to attempt the killing punch. Check your own Steam unlock afterward. These precautions help isolate the final hit; they are not additional official achievement conditions.
+To try that method, lower the mutated whale's health with a gun, then stop shooting before it dies. Stop any remaining explosive or other ongoing damage, confirm that you have bare fists equipped, and wait for an attack opening to attempt the killing punch. Check your own Steam unlock afterward.
 
-Co-op credit is unsettled: Charlie Pork's guide reports lobby-wide credit, but a comment reports only the player landing the kill received it. Do not promise every teammate an unlock. The reviewed evidence also does not establish whether brass knuckles count as bare hands.
+Co-op credit is unsettled: Charlie Pork's guide reports lobby-wide credit, but a comment reports only the player landing the kill received it. Let the player seeking Handyman attempt the final punch, then check each account. Whether brass knuckles count as bare hands is also unknown; use bare fists for this attempt.
 
 ## Optional collection tip from 1.0.11
 
-[Clyde's sprint-fishing guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3794248165) describes standing at the island edge with your legs in the water, dipping the rod, then running left or right while keeping it moving. Keep a wanted catch by bringing it ashore, or release an unwanted one and continue moving. The author labels this method 1.0.11 and warns that some released hostile fish remain dangerous. This site has not checked it on 1.0.12 or compared its Drip yield with other methods; no fastest-method or catch-rate claim is made.
+[Clyde's sprint-fishing guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3794248165) describes standing at the island edge with your legs in the water, dipping the rod, then running left or right while keeping it moving. Keep a wanted catch by bringing it ashore, or release an unwanted one and continue moving. This is a 1.0.11 technique; its effectiveness in 1.0.12 is unknown. Watch released hostile fish: the author reports that some remain dangerous.
 
 ## Why it may not work
 
@@ -102,7 +102,7 @@ Personal action requirements are simplest solo. Co-op can accelerate collection 
 
 ## Difficulty boundary for challenge attempts
 
-Patch 1.0.9 changes creature health and damage but does not state whether difficulty changes achievement eligibility. Choose a mode knowingly, record it when diagnosing a failed unlock, and do not promise that Easy enables or Hard rewards a condition. The official achievement text remains the authority for the named action.
+Patch 1.0.9 changes creature health and damage. Whether the selected difficulty affects achievement eligibility is unknown. Record your mode when diagnosing a failed unlock so that a later attempt can be compared with the same setup.
 
 ## What to do next
 
@@ -112,8 +112,8 @@ Check [achievement not unlocking](/achievements/achievement-not-unlocking/) befo
 
 ### Must the whole Handyman fight be bare-handed?
 
-The official text does not state that. Older community guides report a fist killing blow after gun damage; the method remains untested by this site on 1.0.12.
+The official condition does not say so. Older community guides report a fist killing blow after gun damage; whether it works in 1.0.12 is unconfirmed.
 
 ### Must I keep Handyman separate from Bean?
 
-No such rule appears in the reviewed official conditions. Separate practice is an optional way to work on the finish without a one-hour deadline.
+Separate practice is optional. It lets you work on the finish without a one-hour deadline; the achievement conditions do not require different saves.

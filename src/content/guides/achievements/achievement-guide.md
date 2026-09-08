@@ -1,6 +1,6 @@
 ---
 title: "How to Fish Achievements Guide and Cleanup Plan"
-description: "Plan the 28 reviewed How to Fish achievements by story, combat, collection, economy, and challenges, including older Handyman final-hit reports."
+description: "Plan How to Fish's 28 achievements: finish story hand-ins, track normal and Drip creatures, save money for cleanup, and prepare Handyman and Bean."
 slug: "achievement-guide"
 category: "achievements"
 primaryIntent: "Understand the current Steam achievement list and plan an efficient cleanup order"
@@ -23,12 +23,12 @@ sources:
     url: "https://steamcommunity.com/sharedfiles/filedetails/?id=3788992156"
     type: "gameplay-guide"
     accessedAt: 2026-09-08
-    notes: "Older-version report: gun damage followed by a fist finish; not a 1.0.12 playtest."
+    notes: "Older-version report of gun damage followed by a fist finish."
   - title: "Charlie Pork: All 28 Achievements and Post-Game Route"
     url: "https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308"
     type: "gameplay-guide"
     accessedAt: 2026-09-08
-    notes: "Based on 1.0.4; final-hit method and conflicting co-op-credit comment reviewed. Bean shortcut excluded."
+    notes: "Based on 1.0.4: a fist killing blow after gun damage. The guide and a comment disagree on co-op credit."
   - title: "How to Fish Global Achievements"
     url: "https://steamcommunity.com/stats/4001890/achievements/"
     type: "official-achievement"
@@ -49,18 +49,18 @@ relatedGuides:
   - "/items/money-fast/"
 draft: false
 noindex: false
-answer: "Steam lists 28 achievements as checked on September 8, 2026. Finish the story, use post-story travel for collection cleanup, then plan the challenges. Handyman officially requires a bare-hands final-boss defeat. Older community guides report a fist killing blow after gun damage, but this site has not reproduced it on 1.0.12. Practicing it separately from the one-hour Bean run is an optional planning choice."
+answer: "Finish the story, use post-story travel for collection cleanup, then plan the challenges. Steam lists 28 achievements as of September 8, 2026. Handyman requires a bare-hands final-boss defeat. Older community guides report a fist killing blow after gun damage; whether that method works in 1.0.12 is unconfirmed. Practicing it separately from the one-hour Bean run is optional."
 featured: true
 priority: "P1"
 ---
 
 ## Direct answer
 
-Plan the 28 achievements in layers. Complete the story, collect low-risk interaction and equipment goals while travelling, then use post-story access for collection cleanup. Handyman concerns a bare-hands boss defeat; Bean concerns completion within one hour. Separate practice can help, but the reviewed conditions do not prohibit combining them. Check Steam after personal-action conditions instead of assuming a teammate’s action counted for you.
+Plan the 28 achievements in layers. Complete the story, collect low-risk interaction and equipment goals while travelling, then use post-story access for collection cleanup. Handyman concerns a bare-hands boss defeat; Bean concerns completion within one hour. Separate practice can help you learn the finale before adding timer pressure. Check Steam after personal-action conditions instead of assuming a teammate’s action counted for you.
 
 ## Applies to
 
-The Steam list still showed 28 entries on September 8, 2026. This edit checks Handyman against that list and two older player guides, alongside the 1.0.12 final-boss note. Other cleanup advice retains its earlier source basis. Percentages on Steam are live community statistics, not fixed difficulty scores. This is a source-based planning guide; no achievement trigger was reproduced in-game for this update.
+Use this plan for a first story run or a completed save with missing achievements. Before choosing a goal, compare your Steam list with the groups below. Steam showed 28 entries on September 8, 2026; its completion percentages change as players unlock them. A low percentage can help you pick a goal to investigate, but it does not tell you which creature or action your save is missing.
 
 ## Quick steps
 
@@ -83,9 +83,9 @@ Equipment and economy goals cover engine upgrades, attachments, roulette, a lege
 
 Collector and Fishipedia are different tracking problems. The former concerns all creatures; the latter concerns Drip creatures. A boss checklist alone cannot prove either is complete. Keep two lists and mark the island or condition where each entry was obtained. Steam percentages can help identify what other players find uncommon, but they cannot tell you which item your save lacks.
 
-For Handyman, the official condition names a bare-hands defeat of the final boss without specifying a whole-fight weapon ban. Spatison and a collaborator describe weakening it with guns before a fist finish; Charlie Pork reports the same method from 1.0.4. That is older community evidence, not a site playtest on 1.0.12. See the [Handyman final-hit steps](/achievements/hardest-achievements/#handyman-official-condition-and-community-final-hit-method) for preparation and the evidence limits.
+For Handyman, the official condition names a bare-hands defeat of the final boss without specifying a whole-fight weapon ban. Spatison and a collaborator describe weakening it with guns before a fist finish; Charlie Pork reports the same method from 1.0.4. Whether this older community method works in 1.0.12 is unconfirmed. See the [Handyman final-hit steps](/achievements/hardest-achievements/#handyman-official-condition-and-community-final-hit-method) before attempting the finish.
 
-Stop gunfire before the boss dies, allow any remaining explosive or other ongoing damage to end, confirm bare fists, and attempt the last hit during an opening. Check your own unlock. These are practical precautions for trying the reported method. Separate Bean practice can remove timer pressure, but it is not a required rule or a claim that the two achievements are incompatible.
+Stop gunfire before the boss dies, allow any remaining explosive or other ongoing damage to end, confirm bare fists, and attempt the last hit during an opening. Check your own unlock. In a group, agree when everyone will stop attacking so that another hit does not finish the boss before the punch. Separate Bean practice can remove timer pressure while you learn this transition.
 
 ## Common mistakes
 
@@ -99,7 +99,7 @@ Stop gunfire before the boss dies, allow any remaining explosive or other ongoin
 
 ## Why it may not work
 
-If a story achievement remains locked, complete the hand-in and next required action, then check Steam. If a multiplier or weapon condition fails, confirm it was active at the moment the target died. If Collector stalls, revisit the island checklist and separate normal entries from Drip entries. If an older guide reports a broken trigger, remember that patches 1.0.4 and 1.0.5 explicitly changed some achievement behavior; a current failure needs fresh evidence, not the assumption that an old bug persists.
+If a story achievement remains locked, complete the hand-in and next required action, then check Steam. If a multiplier or weapon condition fails, confirm it was active at the moment the target died. If Collector stalls, revisit the island checklist and separate normal entries from Drip entries. Install current updates before repeating an older workaround: patches 1.0.4 and 1.0.5 changed some achievement triggers. If it still fails, record the exact action, selected difficulty, and player who performed it.
 
 ## Safe recovery
 
@@ -107,17 +107,17 @@ Do not delete the main save to force an achievement. Preserve it, close and upda
 
 ## Solo and co-op differences
 
-Most listed conditions do not state that co-op is required. A group can shorten story combat and collection sweeps, but trigger ownership becomes less clear. The player seeking credit should perform the named action and verify the result in Steam. For Handyman, player reports disagree on lobby-wide credit, so do not promise an unlock to everyone. Whether brass knuckles qualify is also unverified. A solo attempt is easier to interpret if you want to isolate the final hit.
+Most listed conditions do not state that co-op is required. A group can shorten story combat and collection sweeps, but trigger ownership becomes less clear. The player seeking credit should perform the named action and verify the result in Steam. Handyman reports disagree on lobby-wide credit, so check each account after the kill. Whether brass knuckles qualify is also unknown; use bare fists for the reported method. A solo attempt makes it easier to identify the final hit.
 
 ## Patch history and limitations
 
-Patches 1.0.4 and 1.0.5 contained achievement-related fixes, which is why launch reports should not be treated as current proof of failure. Patch 1.0.9 adds Easy, Normal, and Hard. It does not say whether difficulty affects eligibility for any achievement, so this guide does not claim a preferred setting. Steam may update descriptions, statistics, or the list later; the evidence date should be checked before treating 28 as permanent.
+Patches 1.0.4 and 1.0.5 contained achievement-related fixes. Patch 1.0.9 adds Easy, Normal, and Hard; whether difficulty affects achievement eligibility is unknown. Patch 1.0.12 says explosives should now damage the final boss even when they land on its tail. For a Handyman attempt, stop explosive damage before trying the final punch. The hit fix does not clarify co-op achievement credit.
 
 ## FAQ
 
-### How many achievements were in the reviewed list?
+### How many achievements are there?
 
-Steam displayed 28 when the list was checked on September 8, 2026. That is a dated source observation, not a promise that the total never changes.
+Steam displayed 28 on September 8, 2026. Check your Steam achievement list for the current total and your remaining locked entries.
 
 ### Which achievements should be done during the story?
 
@@ -125,19 +125,15 @@ Let story triggers unlock naturally and take easy interaction goals when they re
 
 ### Why separate Handyman and Bean?
 
-Separate practice can make the final punch easier to learn without timer pressure. It is optional; the reviewed official text does not require different attempts.
+Separate practice can make the final punch easier to learn without timer pressure. It is optional; the official conditions do not require different attempts.
 
 ### Does Handyman forbid guns throughout the fight?
 
-That restriction is not stated in the official condition. Older player guides report weakening the boss with guns and finishing with fists. This site has not reproduced that method on 1.0.12 and cannot settle co-op credit or brass-knuckle eligibility.
+The official condition does not say so. Older player guides report weakening the boss with guns and finishing with fists. Whether this works in 1.0.12, whether teammates receive credit, and whether brass knuckles count remain unknown.
 
 ### Does Easy disable achievements?
 
-The reviewed 1.0.9 note defines difficulty modifiers but does not state an achievement restriction. This page therefore labels the effect as unknown rather than guessing.
-
-## Evidence boundaries
-
-The Steam list establishes public conditions. Older guides help organize cleanup and describe the Handyman finish. Patch 1.0.9 supplies difficulty context; 1.0.12 says explosives should now damage the final boss even when landing on its tail. That qualified fix does not verify an achievement trigger or a current Bean route.
+The effect on achievement eligibility is unknown. Patch 1.0.9 defines combat modifiers but does not specify an achievement restriction.
 
 ## What to do next
 

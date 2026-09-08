@@ -44,7 +44,7 @@ relatedGuides:
   - "/fixes/problems-and-fixes/"
 draft: false
 noindex: false
-answer: "Update How to Fish to the current Steam version before repeating an achievement condition. Read its exact Steam wording and finish any required quest hand-in. Earlier patches addressed bare-hands and all-Drip triggers, but the historical notes do not settle every current co-op credit case. For Handyman, record the final hit and check your own unlock; older reports disagree on whether the whole lobby receives it. Preserve the save before repeating a long run."
+answer: "Update How to Fish to the current Steam version before repeating an achievement condition. Read its exact Steam wording and finish any required quest hand-in. For Handyman, record the final hit and check your own unlock; older reports disagree on whether the whole lobby receives it. Preserve the save before repeating a long run."
 featured: false
 priority: "P2"
 ---
@@ -60,13 +60,13 @@ priority: "P2"
 
 ## Start with known fixed triggers
 
-Patch 1.0.4 fixed a bare-hands final-boss achievement issue according to its announcement. Patch 1.0.5 fixed the all-Drip trigger that previously required an extra find. Treat those as historical patch claims, not proof that every current co-op player receives credit from one teammate's action.
+Patch 1.0.4 fixed a bare-hands final-boss achievement issue according to its announcement. Patch 1.0.5 fixed the all-Drip trigger that previously required an extra find. Update before repeating either condition on an old installation.
 
-[Charlie Pork's older guide and a reply](https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308) disagree about lobby-wide Handyman credit. Patch 1.0.12 does not clarify that ownership; it changes the final boss's explosive hit behavior. Record who landed the final hit and verify your own Steam result. The [Handyman guide](/achievements/hardest-achievements/) separates the official condition from older gun-damage-then-fist reports, which this site has not reproduced on 1.0.12.
+[Charlie Pork's older guide and a reply](https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308) disagree about lobby-wide Handyman credit. Record who landed the final hit and verify your own Steam result. The older community method uses gun damage followed by a fist killing blow; whether it works in 1.0.12 is unconfirmed. Follow the [Handyman steps](/achievements/hardest-achievements/) to prepare that attempt.
 
 Other failures often come from the condition boundary. “Finish the game” includes the final RHIB interaction. “Catch dinner” includes delivering the requested result. A multiplier or stunt is measured at the kill. In co-op, a teammate’s action may not satisfy a personal trigger on your account.
 
-Patch 1.0.9 does not document another achievement-trigger fix. It adds difficulty settings, but the official note does not say whether Easy, Normal, or Hard changes achievement eligibility. Keep the selected difficulty in any bug report instead of assuming that Easy either disables or preserves every unlock.
+Whether Easy, Normal, or Hard changes achievement eligibility is unknown. Patch 1.0.9 adds those modes without specifying achievement restrictions. Keep the selected difficulty in any bug report so you can compare attempts with the same setup.
 
 ## Why it may not work
 
@@ -74,7 +74,7 @@ Patch 1.0.9 does not document another achievement-trigger fix. It adds difficult
 - **The guide shortens the condition:** compare it with the current Steam description.
 - **The boss died but the quest did not finish:** complete the NPC hand-in and final dialogue.
 - **A teammate performed the action:** repeat it yourself for personal physics or kill requirements.
-- **A fixed bug persists on one save:** preserve evidence and report it; do not edit or delete the save as an unverified cure.
+- **The same failure persists after updating:** preserve the save and report the failed condition before risking completed progress on another long attempt.
 
 ## Solo and co-op notes
 

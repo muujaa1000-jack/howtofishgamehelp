@@ -43,7 +43,7 @@ relatedGuides:
   - "/islands/island-four-rocks/"
 draft: false
 noindex: false
-answer: "To catch and beat the Tuna boss, activate the Island 4 bird request, equip the Professional Boss Lure, and cast. Dodge across its jumping line, attack after it lands, then keep the body for the bird encounter. Patch 1.0.12 slightly nerfed Tuna without publishing values; the lure and body steps remain based on earlier walkthrough evidence."
+answer: "To catch and beat the Tuna boss, activate the Island 4 bird request, equip the Professional Boss Lure, and cast. Dodge across its jumping line, attack after it lands, then keep the body for the bird encounter. Do not sell or cook it. Patch 1.0.12 slightly nerfed Tuna."
 featured: true
 priority: "P0"
 ---
@@ -59,11 +59,11 @@ priority: "P0"
 
 ## Start the correct Island 4 request
 
-Tuna belongs to the rocky island's two-target progression chain. Activate the NPC request before spending the special lure, then prepare the place where the catch will land. The regular Professional Lure and the Professional Boss Lure serve different purposes; the reviewed walkthroughs identify the boss version as the Tuna trigger.
+Tuna belongs to the rocky island's two-target progression chain. Activate the NPC request before spending the special lure, then prepare the place where the catch will land. Equip the Professional Boss Lure for Tuna; the regular Professional Lure serves a different purpose.
 
 ## Beat the Tuna without losing the next quest item
 
-The reviewed gameplay sources describe a jumping or throwing attack once Tuna reaches land. Keep enough space to see the approach, move across its line, and use the recovery after landing for damage. A close-range weapon can fit this encounter, but no reviewed source establishes a universal damage value or exact number of hits, especially after the Patch 1.0.9 difficulty options.
+Tuna uses a jumping or throwing attack once it reaches land. Keep enough space to see the approach, move across its line, and use the recovery after landing for damage. A close-range weapon can fit this encounter. Leave room to move again after attacking; fight length varies with your equipment and selected difficulty.
 
 The body is the important result. Pick it up after the fight and preserve it. Do not sell or cook the Tuna, because placing that body on the ground starts the following aerial encounter.
 
@@ -79,13 +79,13 @@ The body is the important result. Pick it up after the fight and preserve it. Do
 
 Solo players should clear normal threats and choose the bird-fight cover before casting. In co-op, decide who will carry the Tuna so it is not sold, cooked, or dropped accidentally. Keep the group together when the body is placed because that action transitions directly into the next encounter.
 
-## Patch 1.0.9 difficulty and 1.0.10 recovery boundary
+## Difficulty and respawn changes
 
-Patch 1.0.9 officially changes creature health and damage through Easy, Normal, and Hard. Patch 1.0.10 says it fixed a state where a player could die to Tuna, spawn the albatross, and then become unable to respawn. Neither announcement publishes Tuna health, a fixed fight time, or a different lure and hand-in chain. Follow the same setup on every mode and expect combat pressure to vary.
+Patch 1.0.9 changes creature health and damage through Easy, Normal, and Hard. Patch 1.0.10 fixed a state where a player could die to Tuna, spawn the albatross, and then become unable to respawn. Update before retrying that failure, and choose the bird-fight cover before placing the Tuna body.
 
 ## Patch 1.0.12: slightly reduced difficulty
 
-The [1.0.12 announcement](https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486) explicitly describes a slight Tuna nerf. It provides no health, damage, or timing values and announces no replacement for the Professional Boss Lure or the Tuna-to-bird sequence. Keep those source-supported quest steps; this site has not independently replayed the revised fight.
+The [1.0.12 announcement](https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486) describes a slight Tuna nerf, with the exact changes unspecified. Keep dodging the jump and protecting the body for the next encounter even if the fight feels easier.
 
 ## What to do next
 

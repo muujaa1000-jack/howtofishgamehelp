@@ -1,0 +1,23 @@
+
+> howtofishgamehelp@1.0.0 test:built
+> node --test tests/built-site.test.mjs tests/ads-built-site.test.mjs
+
+✔ concrete guides contain evidence labels but no advertising runtime or empty slot (17.5362ms)
+✔ controlled routes and the complete built corpus contain no advertising runtime (27.5023ms)
+✔ public cards and guide headers do not expose internal priority or review-status codes (1.9358ms)
+✔ build contains the representative launch routes and metadata (11.8986ms)
+✔ guide titles omit the repeated site name while static pages keep it (0.8466ms)
+✔ all generated internal links resolve and launch output contains no private or placeholder configuration (105.4681ms)
+✔ sitemap contains only the intended indexable launch URLs (0.5357ms)
+✔ trust pages use one public identity and disclose review-period data practices (1.5657ms)
+✔ indexable hubs provide concise editorial routes and remain free of ads (18.0454ms)
+✔ homepage and relevant hubs expose focused quick-answer routes (10.3769ms)
+✔ revised public pages keep player instructions and one truthful testing status (16.9291ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 264.1471

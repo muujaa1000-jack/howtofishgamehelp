@@ -39,7 +39,7 @@ relatedGuides:
   - "/bosses/mutated-bowhead-whale/"
 draft: false
 noindex: false
-answer: "On the desert island, complete the creature request beside the grill and speak to that NPC to receive the lighter or start access. Place ordinary catches on the grill and remove them at the cooked state; cooked fish can support healing and, in launch walkthrough evidence, improves sale value. Patch 1.0.11 specifically fixes Drip Parrotfish not being cooked. Practice with cheap catches before using rare or quest-related items."
+answer: "On the desert island, complete the creature request beside the grill and speak to that NPC to receive the lighter or start access. Place an ordinary catch on the grill and remove it at the cooked state. Prepare cooked fish for healing before a boss, and keep quest items off the grill. Patch 1.0.11 fixes Drip Parrotfish not being cooked."
 featured: false
 priority: "P1"
 ---
@@ -55,7 +55,7 @@ priority: "P1"
 
 ## Cooking has three different uses
 
-First, cooked fish supports recovery in later fights. The Pufferfish and whale guides treat prepared food as a core survival resource. Second, the launch walkthrough records a 1.5x sale-value effect for correctly cooked catches in the verified launch build. Third, Steam achievements include starting the grill and eating a burnt creature.
+First, cooked fish supports recovery in later fights, including Pufferfish and the whales. Second, the launch walkthrough reports a 1.5x sale value for correctly cooked catches in 1.0.5; compare the displayed value before selling on a newer version. Third, Steam achievements include starting the grill and eating a burnt creature.
 
 Those goals should not be mixed. Normal boss preparation wants correctly cooked food. The burnt-food achievement intentionally wants the opposite result. Use a cheap creature for experimentation so the timing lesson does not consume a rare catch or a story item.
 
@@ -65,7 +65,7 @@ Those goals should not be mixed. Normal boss preparation wants correctly cooked 
 - **The food becomes burnt:** remove it earlier; practice on common catches and watch the visual state.
 - **A quest item disappears into cooking:** keep story trophies in separate inventory slots and never experiment with them.
 - **Healing is unavailable mid-fight:** cook and place items in accessible slots before summoning the boss.
-- **A value multiplier differs later:** sale systems can change; the 1.5x figure is tied to launch walkthrough evidence checked for 1.0.5.
+- **The sale value differs:** the 1.5x figure comes from a 1.0.5 walkthrough. Check the value in your current game before cooking a larger batch for sale.
 
 ## Solo and co-op notes
 
@@ -73,13 +73,13 @@ Solo players should build a personal reserve before each boss. Co-op groups can 
 
 ## Drip Parrotfish in patch 1.0.11
 
-Patch 1.0.11 lists a fix for Drip Parrotfish not being cooked. If that specific catch failed in an older build, update and retry with one ordinary cooking attempt before changing the broader grill route. The note does not say that every possible cooking failure, timing problem, or burnt-food outcome was changed, so the fix should stay limited to the named creature.
+Patch 1.0.11 fixes Drip Parrotfish not being cooked. If that catch failed in an older build, update and retry with one cooking attempt. Continue watching its state and remove it when cooked so it does not burn while you are waiting.
 
 ## A weapon or tool was accidentally cooked
 
-Patch 1.0.10 adds a way to clear cooking from weapons and tools by dipping them in water. If you put equipment on the grill, dip it into reachable water and check its state afterward. The source establishes the cooking-state cleanup; it does not document repair of every possible item problem.
+Patch 1.0.10 adds a way to clear cooking from weapons and tools by dipping them in water. If you put equipment on the grill, dip it into reachable water and check its state afterward.
 
-This applies to weapons and tools. It is not a method for turning burnt fish back into properly cooked food. Continue practicing food timing with common catches and keep quest items away from the grill. This site has not independently tested the equipment cleanup.
+This applies to weapons and tools. It is not a method for turning burnt fish back into properly cooked food. Continue practicing food timing with common catches and keep quest items away from the grill.
 
 ## What to do next
 
