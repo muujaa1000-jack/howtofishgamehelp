@@ -45,14 +45,15 @@ test('current official release metadata and platform status are published from o
   const release = await text('src/config/gameRelease.ts');
   const home = await text('src/pages/index.astro');
 
-  assert.match(release, /latestKnownVersion:\s*'1\.0\.11'/);
-  assert.match(release, /latestPatchDate:\s*'2026-09-02'/);
-  assert.match(release, /latestSourceReview:\s*'2026-09-04'/);
-  assert.match(release, /698774255287927885/);
+  assert.match(release, /latestKnownVersion:\s*'1\.0\.12'/);
+  assert.match(release, /latestPatchDate:\s*'2026-09-04'/);
+  assert.match(release, /latestSourceReview:\s*'2026-09-08'/);
+  assert.match(release, /698774889153168486/);
   assert.match(home, /gameRelease\.latestKnownVersion/);
   assert.match(home, /Steam Deck Verified/);
   assert.match(home, /GeForce NOW/);
-  assert.doesNotMatch(home, /Steam Cloud/);
+  assert.match(home, /Steam Cloud/);
+  assert.match(home, /\/fixes\/steam-cloud-pc-steam-deck-sync\//);
 });
 
 test('content schema contains every editorial evidence field', async () => {

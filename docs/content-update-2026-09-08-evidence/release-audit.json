@@ -1,0 +1,12 @@
+{
+  "htmlPages": 51,
+  "indexablePages": 49,
+  "guideCount": 36,
+  "rssItems": 36,
+  "internalAnchorsChecked": 331,
+  "duplicateMetadata": 0,
+  "canonicalErrors": 0,
+  "brokenInternalAnchors": 0,
+  "baselineSnapshotsRead": 11,
+  "notes": "All source answers match rendered direct answers; RSS descriptions match source. Sitemap exactly matches indexable HTML."
+}

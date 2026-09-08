@@ -1,0 +1,12 @@
+
+> howtofishgamehelp@1.0.0 check
+> astro check && tsc --noEmit -p tsconfig.worker.json
+
+17:13:07 [content] Syncing content
+17:13:07 [content] Synced content
+17:13:07 [types] Generated 350ms
+17:13:07 [check] Getting diagnostics for Astro files in C:\Users\Admin\.codex\worktrees\9352\howtofishgamehelp...
+Result (44 files):
+- 0 errors
+- 0 warnings
+- 0 hints

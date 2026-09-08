@@ -5,16 +5,25 @@ slug: "problems-and-fixes"
 category: "fixes"
 primaryIntent: "Find a safe first troubleshooting route for current How to Fish issues"
 publishedAt: 2026-08-23
-updatedAt: 2026-09-04
-lastVerifiedAt: 2026-09-04
-gameVersion: "1.0.11"
-lastSourceReview: 2026-09-04
-evidenceThroughVersion: "1.0.11"
+updatedAt: 2026-09-08
+lastVerifiedAt: 2026-09-08
+gameVersion: "1.0.12"
+lastSourceReview: 2026-09-08
+evidenceThroughVersion: "1.0.12"
 firstHandTested: false
 patchSensitive: true
 adEligible: true
-verificationStatus: "official"
+verificationStatus: "mixed"
 sources:
+  - title: "How to Fish Patch 1.0.12"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486"
+    type: "official-patch"
+    accessedAt: 2026-09-08
+  - title: "Steam: Sound duplication"
+    url: "https://steamcommunity.com/app/4001890/discussions/0/582806239606511453/"
+    type: "community-thread"
+    accessedAt: 2026-09-08
+    notes: "August 22-25 audio anecdotes only; not a verified 1.0.12 remedy."
   - title: "How to Fish Patch 1.0.11"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927885"
     type: "official-patch"
@@ -49,18 +58,18 @@ relatedGuides:
   - "/fixes/save-file-corrupted-or-weapon-crash/"
 draft: false
 noindex: false
-answer: "Update How to Fish before trying launch-week workarounds. Patch 1.0.11 adds pre-load corruption checks, save backups, new control options, and a qualified inventory-on-join invisibility fix. It does not publish a manual backup-restore path or guarantee that every older crash is resolved. Reproduce the problem once, separate solo from host or joiner behavior, preserve saves, and change one reversible variable at a time."
+answer: "Update to the current release, 1.0.12 as reviewed September 8. For an existing Steam Cloud save, play and exit on its original device, then wait for sync before switching devices. The patch addresses an FPS-cap override on joining and first-Radio stutter, while voice and item-loss changes remain qualified. Preserve saves and match the symptom to the relevant check; Cloud is not automatic corruption repair."
 featured: true
 priority: "P2"
 ---
 
 ## Direct answer
 
-Start with evidence, not a long list of random fixes. Update the game and Steam, identify whether the failure happens before a save loads, only on one save, only when a weapon is equipped, or only during multiplayer, then run one reversible check. Patch notes are developer claims about changes, not proof that every affected save or computer is repaired. Preserve local and cloud data before troubleshooting and never delete the only save as a first step.
+Update the game and Steam, identify the failing action, and try one reversible check. Separate a missing cross-device save from a loading crash or multiplayer failure. Preserve existing copies; patch notes do not prove that every affected save or computer is repaired.
 
 ## Applies to
 
-This troubleshooting index was updated after reviewing official patches through 1.0.11 on September 4, 2026. It separates actions confirmed by developer notes from Steam’s general file-verification feature and from editorial diagnostic steps. No device or save was independently tested for this update. Patch 1.0.11 adds pre-load corruption checks and backups while using qualified language for the inventory-on-join invisibility fix, so those changes are not presented as a universal restore or multiplayer repair.
+This index covers official patches through 1.0.12, reviewed September 8, 2026. It separates developer changes, Steam tools, historical player reports, and editorial checks. No device or save was independently tested for this update. The 1.0.11 save safeguards remain relevant, but 1.0.12 Cloud support does not supply a universal restore procedure.
 
 ## Quick steps
 
@@ -75,6 +84,24 @@ This troubleshooting index was updated after reviewing official patches through 
 
 ## Match the symptom to the right route
 
+### Save missing on PC or Steam Deck
+
+Patch 1.0.12 adds Steam Cloud. Run and exit the updated game once on the device holding your working save to start its upload, then wait for Steam to finish syncing before changing devices. Follow the [PC and Steam Deck save-sync steps](/fixes/steam-cloud-pc-steam-deck-sync/). If the save itself fails to load, use the corruption guide instead; synchronization does not repair it automatically.
+
+### FPS limit changes after joining, or the first Radio purchase stutters
+
+Patch 1.0.12 says FishNet no longer overrides your maximum FPS when joining a lobby. Record your chosen cap before joining and compare it afterward. It also preloads music to address the lag spike when buying the first Radio. A different persistent frame-rate problem is not covered by those two specific fixes.
+
+### Voice chat or duplicated sound
+
+Patch 1.0.12 updates MetaVoice to 4.3 with the hope of fixing some voice-chat bugs. It does not claim every audio problem is resolved. In an [August sound-duplication thread](https://steamcommunity.com/app/4001890/discussions/0/582806239606511453/), one player reported improvement after changing audio input/output choices, but had not checked their microphone with a party. Another reported improvement after disconnecting a controller. These are historical clues, not proof of a current 1.0.12 fix.
+
+If the symptom matches, note your original audio choices, compare one input/output change or one controller-disconnection test, then restore the setting if it does not help. Check both playback and whether another player can hear your microphone; improved playback alone does not establish working voice chat.
+
+### Dropped items still disappear
+
+Patch 1.0.12 limits item velocity with the hope of reducing item loss. It does not promise that every dropped object is retained or recovered. Record whether the loss followed an explosion, an inventory action, loading, or joining. Avoid using the only quest item to reproduce it. The earlier 1.0.10 persistence and placement changes address different parts of the problem.
+
 ### Startup or joining display failures
 
 Patch 1.0.4 says it addressed a black screen while joining and a gray screen at startup, along with special characters that could break a server-save filename. The same announcement used cautious wording for some display fixes. Update first, then compare solo startup with joining a fresh private lobby. If only the joiner fails, use the [multiplayer black screen guide](/fixes/multiplayer-black-screen/) and note which participant sees the problem.
@@ -85,7 +112,7 @@ Patch 1.0.5 added private lobbies. Patch 1.0.9 added a red Steam relay status in
 
 ### Save loading or weapon-equip crashes
 
-Patch 1.0.9 says the team hopefully fixed save corruption but was still trying to understand some saves that fail while loading or crash when equipping a weapon. Patch 1.0.10 adds dropped-ground-item persistence and qualifies some placement fixes. Patch 1.0.11 says save files are always checked that they are not corrupt before loading and now have backups in case they become corrupt. The announcement does not name the backup files or publish a manual restore sequence. Preserve the files, avoid repeatedly equipping the triggering item, and use the [save and weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/).
+Patch 1.0.9 qualified its corruption fix and requested load-crash and weapon-equip reports. Patch 1.0.11 adds checks before loading and backups, without documenting a manual restore sequence. Preserve the files, avoid repeating the triggering action, and use the [save and weapon crash guide](/fixes/save-file-corrupted-or-weapon-crash/).
 
 ### Progression and achievements
 
@@ -121,7 +148,7 @@ A solo test answers whether the installation and save can reach gameplay without
 
 ## Patch history and limitations
 
-Patch 1.0.4 covers several joining, startup, UI, filename, and achievement issues. Patch 1.0.5 adds private lobbies and invert-axis controls. Patch 1.0.9 adds difficulty, the red relay diagnostic, and a qualified save-corruption change. Patch 1.0.10 adds ground-item saving, fixes the Tuna-to-albatross respawn lock, and qualifies some item placement and level-loading fixes. Patch 1.0.11 adds save checks and backups, four control options, platform support, and a qualified inventory-on-join invisibility fix. This index does not infer results beyond the published wording.
+The earlier patches remain history, not evidence that every related symptom is gone. The current 1.0.12 additions cover Cloud, specific FPS and Radio issues, and qualified voice and item-loss changes. Its balance notes belong in the [Piranha](/bosses/giant-piranha/), [Tuna](/bosses/tuna/), and [final whale](/bosses/mutated-bowhead-whale/) answers. This index does not extend those claims to unrelated crashes or new gameplay content.
 
 ## FAQ
 
@@ -133,9 +160,9 @@ Update and classify the symptom first. Verification is a safe official Steam too
 
 The 1.0.9 note presents it as a connection-failure indicator. It does not instruct players to expose ports. Record the status and use a controlled lobby comparison.
 
-### What does patch 1.0.11 add for saves?
+### What changed for saves in 1.0.11 and 1.0.12?
 
-The developer says saves are always checked for corruption before loading and now have backups in case they become corrupt. The note does not publish filenames, retention, a manual restore procedure, or a promise that every older damaged save is automatically recovered.
+Patch 1.0.11 adds checks before loading and backups. Patch 1.0.12 adds Cloud synchronization and an original-device play-and-exit step for existing saves. Neither publishes a universal manual restore procedure or promises automatic repair of every damaged save.
 
 ### What should a useful bug report contain?
 

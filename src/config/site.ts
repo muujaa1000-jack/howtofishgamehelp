@@ -111,7 +111,7 @@ export const categoryFieldNotes: Record<CategorySlug, CategoryFieldNote> = {
     overview: [
       'Start with the achievement guide to divide the reviewed 28 Steam entries into story, action, equipment, economy, collection, and challenge groups. During the first route, let story achievements unlock through normal hand-ins and collect simple interactions without derailing progression. Post-story access is better for broad collection and expensive cleanup.',
       'Collector and Fishipedia need separate tracking. One concerns ordinary creature coverage and the other Drip variants, so a boss checklist cannot prove either is complete. Record entries by island and check the official Steam condition before repeating a large sweep. Live completion percentages describe player statistics, not an official ranking of difficulty.',
-      'Handyman and Bean are clearer as separate attempts. A restricted final encounter and a one-hour completion route reward conflicting preparation. Use a preserved main save for ordinary cleanup and a controlled attempt for conditions that can become ambiguous. Do not delete completed progress because one trigger failed.',
+      'Handyman officially requires a bare-hands final-boss defeat. Older community guides describe gun damage followed by a fist finish; this site has not reproduced it on 1.0.12. Practicing that finish separately from the one-hour Bean route is optional, not a required rule. Preserve completed progress when diagnosing a failed unlock.',
       'Co-op can shorten travel and combat, but personal-action triggers may belong to the player who performs them. Have the achievement-seeking player complete the named action and check Steam afterward. For story achievements, keep the relevant quest item with the host party until the return conversation records progress.',
       'Recommended reading begins with Achievements Guide and Story Achievements. Use Hardest Achievements only after the route is stable, and open Achievement Not Unlocking when a specific trigger remains absent after updating. Keep the selected difficulty, save, player role, and exact condition in any report. The official list is the authority; this section organizes it without inventing hidden requirements.',
       'Before a long cleanup session, compare the Steam list with your own records and choose one missing group. Finishing a clear group is easier to diagnose than mixing collection, money, stunt, and timed conditions in one run. Keep uncertain co-op ownership and patch-sensitive behavior visible instead of presenting a guessed trigger as settled fact.',
@@ -123,13 +123,13 @@ export const categoryFieldNotes: Record<CategorySlug, CategoryFieldNote> = {
     start: 'Try the narrow, confirmed fix first; preserve saves before repeating a workaround or recreating a lobby.',
     route: ['Check the current game version', 'Reproduce once with the simplest setup', 'Use a community workaround only when its limits are clear'],
     overview: [
-      'Use the troubleshooting index first when the symptom is unclear. Then move to the narrow page for a black screen, private lobby, camera control, missing leeches, red Steam relay status, or save and weapon crash. Each page separates developer patch statements, official platform tools, community observations, and editorial diagnosis so one evidence level is not mistaken for another.',
+      'Use the troubleshooting index first when the symptom is unclear. Then open the page for Steam Cloud sync, a black screen, private lobby, camera control, missing leeches, red Steam relay status, or a save and weapon crash. Each page separates developer statements, platform tools, player reports, and editorial checks.',
       'Preserve state before experimenting. Update the game, record the exact transition, compare solo with co-op only when relevant, and change one reversible variable. Deleting saves, exposing router ports, disabling security controls, or installing unknown repair tools are not safe first steps. A repeatable unchanged result is useful evidence for a developer report.',
       'Patch wording matters. “Fixed” is a developer claim about a release, not proof for every machine. Patch 1.0.9 used qualified language for corruption. Patch 1.0.11 adds pre-load corruption checks and save backups, but does not publish backup filenames, a manual restore procedure, or a guarantee that every older damaged save is restored.',
       'For multiplayer, record host and joiner roles. A red relay indicator, a black screen, and a save that fails in solo are different observations even if they occur in one session. For installation problems, Steam’s Verify Integrity feature checks game files; it should not be described as a universal save repair.',
       'Recommended reading starts with Problems and Fixes. Branch to Steam Relay when red status appears, Multiplayer Black Screen when the joiner has no image, Private Lobby Invites for session setup, or Save Corrupted or Weapon Equip Crash for preserved-data diagnosis. Return to the index instead of combining several remedies when the symptom changes.',
     ],
-    patchNote: 'Patch 1.0.11 adds pre-load save corruption checks and backups, plus an attempted fix for an inventory-on-join invisibility bug. The announcement does not publish a manual restore path or say that every older crash and multiplayer display symptom is resolved.',
+    patchNote: 'The current reviewed release is 1.0.12. It adds Steam Cloud: play and exit on the original device to upload existing saves, then wait for sync before switching. It also addresses the FPS-cap override on joining and the first-Radio lag spike. MetaVoice 4.3 and item-speed limits carry qualified expectations, not a promise that every voice or lost-item problem is fixed. Cloud does not automatically repair corrupted saves.',
     caution: 'A workaround is not a permanent fix. Pages distinguish official patch notes, repeated community reports, and unresolved bugs.',
   },
 };
@@ -156,13 +156,19 @@ const tuna: QuickAnswerLink = {
   href: '/bosses/tuna/',
 };
 
-export const homeQuickAnswers = [boatKeys, radar, islandThree, tuna] as const;
+const steamCloud: QuickAnswerLink = {
+  label: 'Sync a save between PC and Steam Deck',
+  href: '/fixes/steam-cloud-pc-steam-deck-sync/',
+};
+
+export const homeQuickAnswers = [boatKeys, radar, islandThree, tuna, steamCloud] as const;
 
 export const categoryQuickAnswers: Partial<Record<CategorySlug, readonly QuickAnswerLink[]>> = {
   guides: [boatKeys],
   items: [radar],
   islands: [islandThree],
   bosses: [tuna],
+  fixes: [steamCloud],
 };
 
 export function guidePath(category: CategorySlug, slug: string) {

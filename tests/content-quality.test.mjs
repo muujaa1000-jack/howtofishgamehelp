@@ -84,9 +84,24 @@ const refreshedOnSeptember4 = new Set([
   '/items/weapon-progression/',
 ]);
 
-test('review set contains 35 substantive public guides', async () => {
+const refreshedOnSeptember8 = new Set([
+  '/achievements/achievement-not-unlocking/',
+  '/achievements/achievement-guide/',
+  '/achievements/hardest-achievements/',
+  '/bosses/giant-piranha/',
+  '/bosses/tuna/',
+  '/bosses/mutated-bowhead-whale/',
+  '/fixes/problems-and-fixes/',
+  '/fixes/save-file-corrupted-or-weapon-crash/',
+  '/fixes/steam-cloud-pc-steam-deck-sync/',
+  '/items/radar-guide/',
+  '/items/grilling-guide/',
+]);
+const reviewedThroughSeptember8 = (route) => route === '/items/radar-guide/' ? '1.0.9' : route === '/items/grilling-guide/' ? '1.0.11' : '1.0.12';
+
+test('review set contains 36 substantive public guides', async () => {
   const items = await entries();
-  assert.equal(items.length, 35, `expected 35 guides, found ${items.length}`);
+  assert.equal(items.length, 36, `expected 36 guides, found ${items.length}`);
   for (const item of items) {
     const frontmatter = frontmatterOf(item.source);
     const route = routeOf(frontmatter);
@@ -141,17 +156,17 @@ test('launch content keeps current verification metadata and avoids evidence ove
   for (const item of await entries()) {
     const frontmatter = frontmatterOf(item.source);
     const route = routeOf(frontmatter);
-    const expectedPublishedAt = publishedOnAugust27.has(route)
+    const expectedPublishedAt = route === '/fixes/steam-cloud-pc-steam-deck-sync/' ? '2026-09-08' : publishedOnAugust27.has(route)
       ? '2026-08-27'
       : publishedOnAugust25.has(route) ? '2026-08-25' : '2026-08-23';
-    const expectedUpdatedAt = refreshedOnSeptember4.has(route)
+    const expectedUpdatedAt = refreshedOnSeptember8.has(route) ? '2026-09-08' : refreshedOnSeptember4.has(route)
       ? '2026-09-04'
       : refreshedOnAugust30.has(route)
       ? '2026-08-30'
       : refreshedOnAugust27.has(route)
       ? '2026-08-27'
       : route === '/achievements/achievement-not-unlocking/' ? '2026-08-26' : '2026-08-25';
-    const expectedSourceReview = refreshedOnSeptember4.has(route)
+    const expectedSourceReview = refreshedOnSeptember8.has(route) ? '2026-09-08' : refreshedOnSeptember4.has(route)
       ? '2026-09-04'
       : sourceReviewedOnAugust30.has(route)
       ? '2026-08-30'
@@ -161,12 +176,13 @@ test('launch content keeps current verification metadata and avoids evidence ove
     assert.equal(scalar(frontmatter, 'publishedAt'), expectedPublishedAt);
     assert.equal(scalar(frontmatter, 'updatedAt'), expectedUpdatedAt);
     assert.equal(scalar(frontmatter, 'lastSourceReview'), expectedSourceReview);
-    assert.equal(scalar(frontmatter, 'evidenceThroughVersion'), refreshedOnSeptember4.has(route) ? '1.0.11' : sourceReviewedOnAugust30.has(route) ? '1.0.10' : '1.0.9');
-    if (refreshedOnSeptember4.has(route)) assert.equal(scalar(frontmatter, 'lastVerifiedAt'), '2026-09-04');
+    assert.equal(scalar(frontmatter, 'evidenceThroughVersion'), refreshedOnSeptember8.has(route) ? reviewedThroughSeptember8(route) : refreshedOnSeptember4.has(route) ? '1.0.11' : sourceReviewedOnAugust30.has(route) ? '1.0.10' : '1.0.9');
+    if (refreshedOnSeptember8.has(route)) assert.equal(scalar(frontmatter, 'lastVerifiedAt'), '2026-09-08');
+    else if (refreshedOnSeptember4.has(route)) assert.equal(scalar(frontmatter, 'lastVerifiedAt'), '2026-09-04');
     assert.equal(scalar(frontmatter, 'firstHandTested'), 'false');
     assert.match(scalar(frontmatter, 'patchSensitive'), /^(?:true|false)$/);
     assert.match(scalar(frontmatter, 'adEligible'), /^(?:true|false)$/);
-    assert.ok(['1.0.5', '1.0.9', '1.0.10', '1.0.11'].includes(scalar(frontmatter, 'gameVersion')));
+    assert.ok(['1.0.5', '1.0.9', '1.0.10', '1.0.11', '1.0.12'].includes(scalar(frontmatter, 'gameVersion')));
     if (scalar(frontmatter, 'adEligible') === 'true') eligibleRoutes.push(route);
     assert.doesNotMatch(item.source, /\b(I tested|we tested|personally tested|tested on Steam Deck|verified in-game|official guide)\b/i, `${item.file} makes an unsupported testing claim`);
     assert.doesNotMatch(item.source, /\bguaranteed\b/i, `${item.file} makes an absolute claim`);
@@ -190,9 +206,9 @@ test('Island 3 variants stay canonical and Tuna has an evidence-backed route', a
 
   const tuna = byRoute.get('/bosses/tuna/');
   assert.ok(tuna, 'missing focused Tuna mini-boss page');
-  assert.equal(scalar(tuna.frontmatter, 'verificationStatus'), 'community-confirmed');
+  assert.equal(scalar(tuna.frontmatter, 'verificationStatus'), 'mixed');
   assert.equal(scalar(tuna.frontmatter, 'gameVersion'), '1.0.9');
-  assert.equal(scalar(tuna.frontmatter, 'evidenceThroughVersion'), '1.0.10');
+  assert.equal(scalar(tuna.frontmatter, 'evidenceThroughVersion'), '1.0.12');
   assert.match(tuna.source, /Professional Boss Lure/);
   assert.match(tuna.source, /preserve|keep the Tuna|do not sell or cook/i);
   assert.match(tuna.source, /\/bosses\/terrorizing-bird\//);
@@ -274,7 +290,7 @@ test('Patch 1.0.11 facts update only the directly affected guide boundaries', as
   for (const route of refreshedOnSeptember4) {
     const item = byRoute.get(route);
     assert.ok(item, `missing Patch 1.0.11 affected page ${route}`);
-    assert.equal(scalar(item.frontmatter, 'evidenceThroughVersion'), '1.0.11');
+    assert.equal(scalar(item.frontmatter, 'evidenceThroughVersion'), refreshedOnSeptember8.has(route) ? reviewedThroughSeptember8(route) : '1.0.11');
     assert.match(item.source, patchUrl, `${route} must cite the official Patch 1.0.11 announcement`);
   }
 
@@ -289,4 +305,34 @@ test('Patch 1.0.11 facts update only the directly affected guide boundaries', as
 
   assert.equal(scalar(byRoute.get('/guides/difficulty-settings/').frontmatter, 'evidenceThroughVersion'), '1.0.9');
   assert.equal(scalar(byRoute.get('/walkthrough/story-walkthrough/').frontmatter, 'evidenceThroughVersion'), '1.0.9');
+});
+
+test('September 8 answers keep official changes distinct from older community methods', async () => {
+  const byRoute = new Map((await entries()).map((item) => [routeOf(frontmatterOf(item.source)), item.source]));
+  for (const route of ['/achievements/achievement-guide/', '/achievements/hardest-achievements/']) {
+    const source = byRoute.get(route);
+    assert.doesNotMatch(source, /(?:no weapon use in the final fight|avoid weapon use during|do not use a weapon during|do not combine Bean with Handyman|Handyman and Bean should not share)/i);
+    assert.match(source, /older.*(?:player|community)|1\.0\.4/is);
+    assert.match(source, /not (?:reproduced|repeated).*1\.0\.12/is);
+    assert.match(source, /optional/i);
+    assert.match(source, /brass.knuckle/i);
+    assert.match(source, /3788992156/);
+    assert.match(source, /3788027308/);
+  }
+  const piranha = byRoute.get('/bosses/giant-piranha/');
+  assert.match(piranha, /rebalanced/i);
+  assert.doesNotMatch(piranha, /(?:nerfed Piranha|Piranha was nerfed|switch to melee for the adds)/i);
+  assert.match(piranha, /running out of time/i);
+  assert.match(byRoute.get('/bosses/tuna/'), /slight Tuna nerf/i);
+  assert.match(byRoute.get('/bosses/mutated-bowhead-whale/'), /should now receive explosive damage/i);
+  const cloud = byRoute.get('/fixes/steam-cloud-pc-steam-deck-sync/');
+  assert.match(cloud, /original device/i);
+  assert.match(cloud, /wait.*sync/is);
+  assert.match(cloud, /does not automatically repair/i);
+  assert.match(cloud, /conflict/i);
+  const fixes = byRoute.get('/fixes/problems-and-fixes/');
+  for (const term of ['FishNet', 'Radio', 'MetaVoice to 4.3', 'limits item velocity']) assert.ok(fixes.includes(term));
+  assert.match(fixes, /historical clues/i);
+  assert.match(byRoute.get('/items/radar-guide/'), /shop post/);
+  assert.match(byRoute.get('/items/grilling-guide/'), /not a method for turning burnt fish/i);
 });

@@ -1,20 +1,24 @@
 ---
 title: "How to Fish Save Corrupted or Weapon Equip Crash"
-description: "Use Patch 1.0.11 save checks and backups safely, preserve a save that will not load, and diagnose weapon-equip crashes without destructive edits."
+description: "Preserve a How to Fish save that will not load, separate 1.0.12 Steam Cloud sync from corruption recovery, and diagnose weapon-equip crashes safely."
 slug: "save-file-corrupted-or-weapon-crash"
 category: "fixes"
 primaryIntent: "Safely diagnose a corrupted save or weapon equip crash in How to Fish"
 publishedAt: 2026-08-25
-updatedAt: 2026-09-04
-lastVerifiedAt: 2026-09-04
-gameVersion: "1.0.11"
-lastSourceReview: 2026-09-04
-evidenceThroughVersion: "1.0.11"
+updatedAt: 2026-09-08
+lastVerifiedAt: 2026-09-08
+gameVersion: "1.0.12"
+lastSourceReview: 2026-09-08
+evidenceThroughVersion: "1.0.12"
 firstHandTested: false
 patchSensitive: true
 adEligible: true
-verificationStatus: "official"
+verificationStatus: "mixed"
 sources:
+  - title: "How to Fish Patch 1.0.12"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486"
+    type: "official-patch"
+    accessedAt: 2026-09-08
   - title: "How to Fish Patch 1.0.11"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927885"
     type: "official-patch"
@@ -43,7 +47,7 @@ relatedGuides:
   - "/walkthrough/story-walkthrough/"
 draft: false
 noindex: false
-answer: "Patch 1.0.11 says save files are always checked for corruption before loading and now have backups in case they become corrupt. The announcement does not publish backup filenames, retention, or a manual restore procedure, and it does not say every older damaged save or weapon-equip crash is repaired. Update first, stop repeating the failing action, preserve the affected data, and distinguish game-file verification from save recovery."
+answer: "Stop repeating the crash and preserve your save. Patch 1.0.11 adds checks before loading and backups; 1.0.12 adds Steam Cloud, which is synchronization rather than automatic corruption repair. For a working save missing on another device, play and exit once on the original device to upload it, then wait for sync. For a save that crashes, protect the affected data and record the failure; the announcements do not publish a universal manual restore procedure."
 featured: true
 priority: "P0"
 ---
@@ -54,7 +58,7 @@ Stop repeating the failing action and preserve the current save state. Update Ho
 
 ## Applies to
 
-This page covers the two cases named in the official 1.0.9 announcement: a save that crashes while loading and a crash when equipping a weapon. It adds the official 1.0.11 corruption-check and backup behavior, earlier save work in patch 1.0.6, plus Steam’s file-verification and Cloud documentation. The site did not receive or test an affected save. No local save location, backup filename, repair utility, or recovery outcome is claimed without evidence.
+This page covers load and weapon-equip crashes, the 1.0.11 save safeguards, and the limits of 1.0.12 Cloud synchronization. The site did not receive or test an affected save. No save location, backup filename, repair utility, or recovery outcome is claimed without evidence.
 
 ## Quick steps
 
@@ -69,9 +73,7 @@ This page covers the two cases named in the official 1.0.9 announcement: a save 
 
 ## What patch 1.0.9 actually says
 
-The developer says save files being corrupted were “hopefully fixed.” That wording reports an attempted or expected improvement, not proof that every older save is restored or every future corruption path is gone. The same note asks players to get in touch if a save still crashes while loading or when equipping a weapon and says the team was trying to understand those cases.
-
-Those two statements must be kept together. It is inaccurate to publish an unconditional repair claim, and it is also inaccurate to ignore the patch. The useful interpretation is that players should update, protect evidence, and report any remaining reproducible case.
+The developer describes corruption as “hopefully fixed” and asks for reports of saves that still crash during loading or weapon equipment. The qualification matters: update, preserve the failing state, and report a remaining reproducible case instead of assuming every older save has been repaired.
 
 ## What patch 1.0.11 changes
 
@@ -79,11 +81,17 @@ The 1.0.11 announcement says save files are always checked that they are not cor
 
 The announcement does not identify the backup files, say how many are retained, give a manual restore sequence, or promise that an older damaged save will be repaired automatically. It also does not specifically say that the earlier weapon-equip crash is fixed. Treat the new safeguards as prevention and recovery support inside the game, not permission to delete the original or improvise a file replacement.
 
+## What 1.0.12 Cloud support changes
+
+Steam Cloud is now supported. For a working older save, the developer asks you to play and exit once on its original device to trigger upload. Wait for synchronization before switching devices; use the [PC and Steam Deck Cloud guide](/fixes/steam-cloud-pc-steam-deck-sync/) for that sequence and conflict checks.
+
+If the original save crashes, do not keep reopening it to force an upload. Cloud can synchronize the same damaged state; it does not automatically reconstruct missing or corrupted progress. The 1.0.12 announcement does not add a manual recovery path or confirm that every weapon-equip crash is fixed.
+
 ## Separate installation files from save data
 
 Steam Support provides Verify Integrity of Game Files for checking the installed game content. That can replace missing or damaged installation files. It cannot be assumed to reconstruct a save’s quest state, inventory, or equipped item. If verification changes the outcome, report that observation. If it does not, do not repeat it as if additional runs will produce a different class of repair.
 
-Steam Cloud may synchronize save data across devices. That convenience creates a risk during diagnosis: an unwanted state can be synchronized, or a local change can be overwritten. Before touching files, identify whether Cloud is active and preserve the affected state outside any location the game or Steam is expected to rewrite. This guide deliberately does not publish an unverified save path because paths and formats can change.
+Steam Cloud synchronizes save data when enabled. During diagnosis, an unwanted state can be synchronized or a local change overwritten. Before touching files, identify the current copies and preserve the affected state outside any location the game or Steam is expected to rewrite. This guide does not publish an unverified save path.
 
 ## Build a useful reproduction record
 
@@ -118,13 +126,17 @@ A co-op host save may contain shared progression context, while a joiner can exp
 
 ## Patch history and limitations
 
-Patch 1.0.6 contains earlier developer changes relevant to saves and stability. Patch 1.0.9 provides the qualified corruption statement and explicitly names unresolved load and weapon-equip cases for reporting. Patch 1.0.11 adds corruption checks before loading and save backups. Steam Support documents file verification and Cloud behavior at a platform level. None of those sources publishes a universal manual save-repair sequence for How to Fish, so this page does not invent one.
+Patch 1.0.6 contains earlier save work, 1.0.9 names load and equip crashes, 1.0.11 adds checks and backups, and 1.0.12 introduces Cloud. None publishes a universal manual save-repair sequence. Keep installation verification, synchronization, and recovery as separate checks.
 
 ## FAQ
 
 ### Does patch 1.0.11 automatically restore an old corrupted save?
 
 The announcement confirms checks before loading and backups, but it does not promise automatic recovery for every older damaged save or document a manual restore path.
+
+### Does Steam Cloud in 1.0.12 repair corruption?
+
+No automatic corruption repair is established by the announcement. Cloud synchronizes data; if a working save is simply missing on another device, follow the separate upload steps. Preserve a crashing save rather than repeatedly syncing or replacing it.
 
 ### Will Verify Integrity repair my save?
 
@@ -144,7 +156,7 @@ Do not delete or overwrite the only affected save merely to test a theory. A sep
 
 ## Evidence boundaries
 
-Patches 1.0.6, 1.0.9, and 1.0.11 supply the developer’s save and crash context. Steam Support supplies the platform-level file-verification and Cloud references. The preservation and isolation sequence is conservative editorial guidance, not a claimed developer repair. Last source review: September 4, 2026. Testing status: source-based; no affected save was independently tested.
+Patches 1.0.6, 1.0.9, and 1.0.11 supply the save and crash history; 1.0.12 adds Cloud. Steam Support supplies platform-level references. The preservation sequence is editorial guidance, not a claimed developer repair. The 1.0.12 note was reviewed September 8, 2026; earlier source dates remain attached to their entries. No affected save or device transfer was independently tested.
 
 ## What to do next
 

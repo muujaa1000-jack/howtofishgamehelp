@@ -1,0 +1,5 @@
+
+> howtofishgamehelp@1.0.0 validate
+> node scripts/validate-content.mjs
+
+Content validation passed: 36 public guides, 0 drafts, 0 validation errors, 0 warnings.

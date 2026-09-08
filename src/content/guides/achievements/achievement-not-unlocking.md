@@ -5,16 +5,25 @@ slug: "achievement-not-unlocking"
 category: "achievements"
 primaryIntent: "Troubleshoot a How to Fish Steam achievement that did not unlock"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-26
-lastVerifiedAt: 2026-08-23
+updatedAt: 2026-09-08
+lastVerifiedAt: 2026-09-08
 gameVersion: "1.0.5"
-lastSourceReview: 2026-08-26
-evidenceThroughVersion: "1.0.9"
+lastSourceReview: 2026-09-08
+evidenceThroughVersion: "1.0.12"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
-verificationStatus: "official"
+verificationStatus: "mixed"
 sources:
+  - title: "How to Fish Patch 1.0.12"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486"
+    type: "official-patch"
+    accessedAt: 2026-09-08
+  - title: "Charlie Pork: All 28 Achievements and Post-Game Route"
+    url: "https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308"
+    type: "gameplay-guide"
+    accessedAt: 2026-09-08
+    notes: "Older guide and comment disagree on lobby-wide Handyman credit."
   - title: "How to Fish Patch 1.0.4"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/1841579228669389"
     type: "official-patch"
@@ -35,7 +44,7 @@ relatedGuides:
   - "/fixes/problems-and-fixes/"
 draft: false
 noindex: false
-answer: "Update How to Fish to the current Steam version before repeating the achievement condition. Restart Steam and the game, then read the achievement’s exact current wording on Steam. Patch 1.0.4 fixed the final-boss bare-hands result for everyone, and patch 1.0.5 fixed the all-Drip trigger that previously needed one extra find. For story goals, finish the NPC return step. For personal actions in co-op, perform the condition on your own account. Preserve the save before repeating a long run."
+answer: "Update How to Fish to the current Steam version before repeating an achievement condition. Read its exact Steam wording and finish any required quest hand-in. Earlier patches addressed bare-hands and all-Drip triggers, but the historical notes do not settle every current co-op credit case. For Handyman, record the final hit and check your own unlock; older reports disagree on whether the whole lobby receives it. Preserve the save before repeating a long run."
 featured: false
 priority: "P2"
 ---
@@ -51,7 +60,9 @@ priority: "P2"
 
 ## Start with known fixed triggers
 
-The official 1.0.4 notes specifically mention a fix for the achievement tied to beating the final boss with bare hands so that everyone receives it. The 1.0.5 notes specifically mention the all-Drip achievement no longer requiring an unintended extra Drip. Those are stronger evidence than release-day forum advice.
+Patch 1.0.4 fixed a bare-hands final-boss achievement issue according to its announcement. Patch 1.0.5 fixed the all-Drip trigger that previously required an extra find. Treat those as historical patch claims, not proof that every current co-op player receives credit from one teammate's action.
+
+[Charlie Pork's older guide and a reply](https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308) disagree about lobby-wide Handyman credit. Patch 1.0.12 does not clarify that ownership; it changes the final boss's explosive hit behavior. Record who landed the final hit and verify your own Steam result. The [Handyman guide](/achievements/hardest-achievements/) separates the official condition from older gun-damage-then-fist reports, which this site has not reproduced on 1.0.12.
 
 Other failures often come from the condition boundary. “Finish the game” includes the final RHIB interaction. “Catch dinner” includes delivering the requested result. A multiplier or stunt is measured at the kill. In co-op, a teammate’s action may not satisfy a personal trigger on your account.
 

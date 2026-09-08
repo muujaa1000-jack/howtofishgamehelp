@@ -1,0 +1,313 @@
+{
+  "results": [
+    {
+      "device": "desktop",
+      "route": "/",
+      "status": 200,
+      "title": "How to Fish Game Guides, Bosses, Islands & Fixes",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/fixes/",
+      "status": 200,
+      "title": "How to Fish Fixes | How to Fish Game Help",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/fixes/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/achievements/",
+      "status": 200,
+      "title": "How to Fish Achievement Guides | How to Fish Game Help",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/achievements/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/fixes/steam-cloud-pc-steam-deck-sync/",
+      "status": 200,
+      "title": "How to Fish Steam Cloud: Sync PC and Steam Deck Saves",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/fixes/steam-cloud-pc-steam-deck-sync/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/fixes/problems-and-fixes/",
+      "status": 200,
+      "title": "How to Fish Problems and Fixes: Start Here",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/fixes/problems-and-fixes/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/fixes/save-file-corrupted-or-weapon-crash/",
+      "status": 200,
+      "title": "How to Fish Save Corrupted or Weapon Equip Crash",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/fixes/save-file-corrupted-or-weapon-crash/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/achievements/achievement-guide/",
+      "status": 200,
+      "title": "How to Fish Achievements Guide and Cleanup Plan",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/achievements/achievement-guide/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/achievements/hardest-achievements/",
+      "status": 200,
+      "title": "Hardest How to Fish Achievements: Cleanup Plan",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/achievements/hardest-achievements/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/achievements/achievement-not-unlocking/",
+      "status": 200,
+      "title": "How to Fish Achievement Not Unlocking",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/achievements/achievement-not-unlocking/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/bosses/giant-piranha/",
+      "status": 200,
+      "title": "How to Beat Giant Piranha in How to Fish",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/bosses/giant-piranha/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/bosses/tuna/",
+      "status": 200,
+      "title": "How to Catch and Beat the Tuna Boss in How to Fish",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/bosses/tuna/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/bosses/mutated-bowhead-whale/",
+      "status": 200,
+      "title": "How to Beat the Mutated Bowhead Whale",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/bosses/mutated-bowhead-whale/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/items/radar-guide/",
+      "status": 200,
+      "title": "How to Get and Use the Radar in How to Fish",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/items/radar-guide/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "desktop",
+      "route": "/items/grilling-guide/",
+      "status": 200,
+      "title": "How to Unlock and Use the Grill in How to Fish",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/items/grilling-guide/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/",
+      "status": 200,
+      "title": "How to Fish Game Guides, Bosses, Islands & Fixes",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/fixes/",
+      "status": 200,
+      "title": "How to Fish Fixes | How to Fish Game Help",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/fixes/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/achievements/",
+      "status": 200,
+      "title": "How to Fish Achievement Guides | How to Fish Game Help",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/achievements/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/fixes/steam-cloud-pc-steam-deck-sync/",
+      "status": 200,
+      "title": "How to Fish Steam Cloud: Sync PC and Steam Deck Saves",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/fixes/steam-cloud-pc-steam-deck-sync/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/fixes/problems-and-fixes/",
+      "status": 200,
+      "title": "How to Fish Problems and Fixes: Start Here",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/fixes/problems-and-fixes/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/fixes/save-file-corrupted-or-weapon-crash/",
+      "status": 200,
+      "title": "How to Fish Save Corrupted or Weapon Equip Crash",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/fixes/save-file-corrupted-or-weapon-crash/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/achievements/achievement-guide/",
+      "status": 200,
+      "title": "How to Fish Achievements Guide and Cleanup Plan",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/achievements/achievement-guide/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/achievements/hardest-achievements/",
+      "status": 200,
+      "title": "Hardest How to Fish Achievements: Cleanup Plan",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/achievements/hardest-achievements/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/achievements/achievement-not-unlocking/",
+      "status": 200,
+      "title": "How to Fish Achievement Not Unlocking",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/achievements/achievement-not-unlocking/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/bosses/giant-piranha/",
+      "status": 200,
+      "title": "How to Beat Giant Piranha in How to Fish",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/bosses/giant-piranha/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/bosses/tuna/",
+      "status": 200,
+      "title": "How to Catch and Beat the Tuna Boss in How to Fish",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/bosses/tuna/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/bosses/mutated-bowhead-whale/",
+      "status": 200,
+      "title": "How to Beat the Mutated Bowhead Whale",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/bosses/mutated-bowhead-whale/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/items/radar-guide/",
+      "status": 200,
+      "title": "How to Get and Use the Radar in How to Fish",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/items/radar-guide/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    },
+    {
+      "device": "mobile",
+      "route": "/items/grilling-guide/",
+      "status": 200,
+      "title": "How to Unlock and Use the Grill in How to Fish",
+      "h1": 1,
+      "canonical": "https://howtofishgamehelp.com/items/grilling-guide/",
+      "width": 390,
+      "scrollWidth": 390,
+      "duplicateIds": []
+    }
+  ],
+  "pageErrors": []
+}

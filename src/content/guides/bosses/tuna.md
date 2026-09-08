@@ -5,16 +5,20 @@ slug: "tuna"
 category: "bosses"
 primaryIntent: "Catch and defeat the Tuna mini-boss without losing the bird bait"
 publishedAt: 2026-08-27
-updatedAt: 2026-08-30
-lastVerifiedAt: 2026-08-30
+updatedAt: 2026-09-08
+lastVerifiedAt: 2026-09-08
 gameVersion: "1.0.9"
-lastSourceReview: 2026-08-30
-evidenceThroughVersion: "1.0.10"
+lastSourceReview: 2026-09-08
+evidenceThroughVersion: "1.0.12"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
-verificationStatus: "community-confirmed"
+verificationStatus: "mixed"
 sources:
+  - title: "How to Fish Patch 1.0.12"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486"
+    type: "official-patch"
+    accessedAt: 2026-09-08
   - title: "Complete How to Fish game walkthrough"
     url: "https://www.destructoid.com/complete-how-to-fish-game-walkthrough-100-completion/"
     type: "gameplay-guide"
@@ -39,7 +43,7 @@ relatedGuides:
   - "/islands/island-four-rocks/"
 draft: false
 noindex: false
-answer: "To catch and beat the Tuna boss, activate the Island 4 bird request, equip the Professional Boss Lure, and cast. Dodge across its jumping line, attack after it lands, then keep the body instead of selling or cooking it; placing it near cover starts the bird encounter."
+answer: "To catch and beat the Tuna boss, activate the Island 4 bird request, equip the Professional Boss Lure, and cast. Dodge across its jumping line, attack after it lands, then keep the body for the bird encounter. Patch 1.0.12 slightly nerfed Tuna without publishing values; the lure and body steps remain based on earlier walkthrough evidence."
 featured: true
 priority: "P0"
 ---
@@ -78,6 +82,10 @@ Solo players should clear normal threats and choose the bird-fight cover before 
 ## Patch 1.0.9 difficulty and 1.0.10 recovery boundary
 
 Patch 1.0.9 officially changes creature health and damage through Easy, Normal, and Hard. Patch 1.0.10 says it fixed a state where a player could die to Tuna, spawn the albatross, and then become unable to respawn. Neither announcement publishes Tuna health, a fixed fight time, or a different lure and hand-in chain. Follow the same setup on every mode and expect combat pressure to vary.
+
+## Patch 1.0.12: slightly reduced difficulty
+
+The [1.0.12 announcement](https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486) explicitly describes a slight Tuna nerf. It provides no health, damage, or timing values and announces no replacement for the Professional Boss Lure or the Tuna-to-bird sequence. Keep those source-supported quest steps; this site has not independently replayed the revised fight.
 
 ## What to do next
 

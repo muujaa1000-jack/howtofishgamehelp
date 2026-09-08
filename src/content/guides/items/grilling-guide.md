@@ -5,16 +5,20 @@ slug: "grilling-guide"
 category: "items"
 primaryIntent: "Unlock the grill and cook fish for healing, value, and achievements"
 publishedAt: 2026-08-23
-updatedAt: 2026-09-04
-lastVerifiedAt: 2026-09-04
+updatedAt: 2026-09-08
+lastVerifiedAt: 2026-09-08
 gameVersion: "1.0.5"
-lastSourceReview: 2026-09-04
+lastSourceReview: 2026-09-08
 evidenceThroughVersion: "1.0.11"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
 verificationStatus: "community-confirmed"
 sources:
+  - title: "How to Fish Patch 1.0.10"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927073"
+    type: "official-patch"
+    accessedAt: 2026-09-08
   - title: "How to Fish Patch 1.0.11"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927885"
     type: "official-patch"
@@ -70,6 +74,12 @@ Solo players should build a personal reserve before each boss. Co-op groups can 
 ## Drip Parrotfish in patch 1.0.11
 
 Patch 1.0.11 lists a fix for Drip Parrotfish not being cooked. If that specific catch failed in an older build, update and retry with one ordinary cooking attempt before changing the broader grill route. The note does not say that every possible cooking failure, timing problem, or burnt-food outcome was changed, so the fix should stay limited to the named creature.
+
+## A weapon or tool was accidentally cooked
+
+Patch 1.0.10 adds a way to clear cooking from weapons and tools by dipping them in water. If you put equipment on the grill, dip it into reachable water and check its state afterward. The source establishes the cooking-state cleanup; it does not document repair of every possible item problem.
+
+This applies to weapons and tools. It is not a method for turning burnt fish back into properly cooked food. Continue practicing food timing with common catches and keep quest items away from the grill. This site has not independently tested the equipment cleanup.
 
 ## What to do next
 

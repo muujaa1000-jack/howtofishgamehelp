@@ -1,0 +1,214 @@
+### Page
+- Page URL: http://127.0.0.1:4327/search/?q=Steam%20Cloud
+- Page Title: Search Guides | How to Fish Game Help
+### Snapshot
+```yaml
+- generic [ref=f56e1]:
+  - link "Skip to content" [ref=f56e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f56e3]:
+    - generic [ref=f56e4]:
+      - link "How to Fish Game Help home" [ref=f56e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f56e6]: How to FishGame Help
+      - group [ref=f56e7]:
+        - generic "Menu" [ref=f56e8] [cursor=pointer]
+  - main [ref=f56e9]:
+    - generic [ref=f56e10]:
+      - paragraph [ref=f56e11]: Site search
+      - heading "Search the field guide" [level=1] [ref=f56e12]
+      - paragraph [ref=f56e13]: Search results are generated in your browser from published guide text. A search term does not create a new indexable page, and it is not sent to an advertising script.
+      - search "Search this site" [ref=f56e16]:
+        - textbox "Search guides" [active] [ref=f56e17]: Steam Cloud
+        - button "Clear" [ref=f56e18] [cursor=pointer]
+        - generic [ref=f56e54]:
+          - paragraph [ref=f56e55]: 4 results for Steam Cloud
+          - list [ref=f56e56]:
+            - listitem [ref=f56e57]:
+              - generic [ref=f56e65]:
+                - paragraph [ref=f56e66]:
+                  - 'link "How to Fish Steam Cloud: Sync PC and Steam Deck Saves" [ref=f56e67] [cursor=pointer]':
+                    - /url: /fixes/steam-cloud-pc-steam-deck-sync/
+                - paragraph [ref=f56e68]:
+                  - text: FAQ. Does How to Fish support
+                  - mark [ref=f56e69]: Steam
+                  - mark [ref=f56e70]: Cloud
+                  - text: now? Yes, according to
+                - generic [ref=f56e71]:
+                  - paragraph [ref=f56e72]:
+                    - link "⤷ Quick steps" [ref=f56e73] [cursor=pointer]:
+                      - /url: /fixes/steam-cloud-pc-steam-deck-sync/#quick-steps
+                  - paragraph [ref=f56e74]:
+                    - text: Let
+                    - mark [ref=f56e75]: Steam
+                    - text: install 1.0.12 or a later available update. Check that
+                    - mark [ref=f56e76]: Steam
+                - generic [ref=f56e77]:
+                  - paragraph [ref=f56e78]:
+                    - link "⤷ If Steam reports a conflict or failed synchronization" [ref=f56e79] [cursor=pointer]:
+                      - /url: /fixes/steam-cloud-pc-steam-deck-sync/#if-steam-reports-a-conflict-or-failed-synchronization
+                  - paragraph [ref=f56e80]:
+                    - text: If
+                    - mark [ref=f56e81]: Steam
+                    - text: reports a conflict or failed synchronization. Do not continue a
+                - generic [ref=f56e82]:
+                  - paragraph [ref=f56e83]:
+                    - link "⤷ What to do next" [ref=f56e84] [cursor=pointer]:
+                      - /url: /fixes/steam-cloud-pc-steam-deck-sync/#what-to-do-next
+                  - paragraph [ref=f56e85]:
+                    - text: Patch 1.0.12 (official patch, checked 2026-09-08).
+                    - mark [ref=f56e86]: Steamworks
+                    - text: "Documentation:"
+                    - mark [ref=f56e87]: Steam
+                    - mark [ref=f56e88]: Cloud
+                    - text: (official doc,
+            - listitem [ref=f56e59]:
+              - generic [ref=f56e89]:
+                - paragraph [ref=f56e90]:
+                  - link "How to Fish Save Corrupted or Weapon Equip Crash" [ref=f56e91] [cursor=pointer]:
+                    - /url: /fixes/save-file-corrupted-or-weapon-crash/
+                - paragraph [ref=f56e92]:
+                  - text: document a manual restore path. Does
+                  - mark [ref=f56e93]: Steam
+                  - mark [ref=f56e94]: Cloud
+                  - text: in 1.0.12 repair corruption?
+                - generic [ref=f56e95]:
+                  - paragraph [ref=f56e96]:
+                    - link "⤷ Quick steps" [ref=f56e97] [cursor=pointer]:
+                      - /url: /fixes/save-file-corrupted-or-weapon-crash/#quick-steps
+                  - paragraph [ref=f56e98]:
+                    - text: action before the crash. Check whether
+                    - mark [ref=f56e99]: Steam
+                    - mark [ref=f56e100]: Cloud
+                    - text: is active before moving
+                - generic [ref=f56e101]:
+                  - paragraph [ref=f56e102]:
+                    - link "⤷ What 1.0.12 Cloud support changes" [ref=f56e103] [cursor=pointer]:
+                      - /url: /fixes/save-file-corrupted-or-weapon-crash/#what-1012-cloud-support-changes
+                  - paragraph [ref=f56e104]:
+                    - text: 1.0.12
+                    - mark [ref=f56e105]: Cloud
+                    - text: support changes.
+                    - mark [ref=f56e106]: Steam
+                    - mark [ref=f56e107]: Cloud
+                    - text: is now supported. For a working
+                - generic [ref=f56e108]:
+                  - paragraph [ref=f56e109]:
+                    - link "⤷ Separate installation files from save data" [ref=f56e110] [cursor=pointer]:
+                      - /url: /fixes/save-file-corrupted-or-weapon-crash/#separate-installation-files-from-save-data
+                  - paragraph [ref=f56e111]:
+                    - text: produce a different class of repair.
+                    - mark [ref=f56e112]: Steam
+                    - mark [ref=f56e113]: Cloud
+                    - text: synchronizes save data when
+            - listitem [ref=f56e61]:
+              - generic [ref=f56e114]:
+                - paragraph [ref=f56e115]:
+                  - 'link "How to Fish Problems and Fixes: Start Here" [ref=f56e116] [cursor=pointer]':
+                    - /url: /fixes/problems-and-fixes/
+                - paragraph [ref=f56e117]:
+                  - text: on PC or
+                  - mark [ref=f56e118]: Steam
+                  - text: Deck. Patch 1.0.12 adds
+                  - mark [ref=f56e119]: Steam
+                  - mark [ref=f56e120]: Cloud.
+                  - text: Run and
+                - generic [ref=f56e121]:
+                  - paragraph [ref=f56e122]:
+                    - link "⤷ Quick steps" [ref=f56e123] [cursor=pointer]:
+                      - /url: /fixes/problems-and-fixes/#quick-steps
+                  - paragraph [ref=f56e124]:
+                    - text: game and let
+                    - mark [ref=f56e125]: Steam
+                    - text: finish the current update. Restart
+                    - mark [ref=f56e126]: Steam
+                    - text: and confirm
+                - generic [ref=f56e127]:
+                  - paragraph [ref=f56e128]:
+                    - link "⤷ Save missing on PC or Steam Deck" [ref=f56e129] [cursor=pointer]:
+                      - /url: /fixes/problems-and-fixes/#save-missing-on-pc-or-steam-deck
+                  - paragraph [ref=f56e130]:
+                    - text: on PC or
+                    - mark [ref=f56e131]: Steam
+                    - text: Deck. Patch 1.0.12 adds
+                    - mark [ref=f56e132]: Steam
+                    - mark [ref=f56e133]: Cloud.
+                    - text: Run and
+                - generic [ref=f56e134]:
+                  - paragraph [ref=f56e135]:
+                    - link "⤷ Safe recovery" [ref=f56e136] [cursor=pointer]:
+                      - /url: /fixes/problems-and-fixes/#safe-recovery
+                  - paragraph [ref=f56e137]:
+                    - text: exit the game and identify whether
+                    - mark [ref=f56e138]: Steam
+                    - mark [ref=f56e139]: Cloud
+                    - text: is active for the
+            - listitem [ref=f56e63]:
+              - generic [ref=f56e140]:
+                - paragraph [ref=f56e141]:
+                  - 'link "How to Fish Walkthrough: Main Story Route" [ref=f56e142] [cursor=pointer]':
+                    - /url: /walkthrough/story-walkthrough/
+                - generic [ref=f56e143]:
+                  - paragraph [ref=f56e144]:
+                    - link "⤷ Safe recovery" [ref=f56e145] [cursor=pointer]:
+                      - /url: /walkthrough/story-walkthrough/#safe-recovery
+                  - paragraph [ref=f56e146]:
+                    - text: save. Do not delete local or
+                    - mark [ref=f56e147]: cloud
+                    - text: data to fix a missing
+      - region [ref=f56e19]:
+        - heading "Browse by category" [level=2] [ref=f56e20]
+        - paragraph [ref=f56e21]: "Start with the section closest to the problem blocking your run:"
+        - list [ref=f56e22]:
+          - listitem [ref=f56e23]:
+            - link "Guides" [ref=f56e24] [cursor=pointer]:
+              - /url: /guides/
+            - text: — Start How to Fish with a beginner route, difficulty choices, early spending advice, and focused progression guides for your next objective.
+          - listitem [ref=f56e25]:
+            - link "Walkthrough" [ref=f56e26] [cursor=pointer]:
+              - /url: /walkthrough/
+            - text: — Follow the main quest chain from the lighthouse to the end route.
+          - listitem [ref=f56e27]:
+            - link "Islands" [ref=f56e28] [cursor=pointer]:
+              - /url: /islands/
+            - text: — Unlock each destination and understand the item or boss gate in the way.
+          - listitem [ref=f56e29]:
+            - link "Bosses" [ref=f56e30] [cursor=pointer]:
+              - /url: /bosses/
+            - text: — See the How to Fish boss order, required quest bait, safe fight patterns, trophy hand-ins, and links to each evidence-backed boss guide.
+          - listitem [ref=f56e31]:
+            - link "Items" [ref=f56e32] [cursor=pointer]:
+              - /url: /items/
+            - text: "— Find what to keep, buy, upgrade, or use next: weapons, lures, boss bait, radar, grilling, money, and other How to Fish items."
+          - listitem [ref=f56e33]:
+            - link "Achievements" [ref=f56e34] [cursor=pointer]:
+              - /url: /achievements/
+            - text: — Separate story unlocks from cleanup, challenge runs, and collection goals.
+          - listitem [ref=f56e35]:
+            - link "Fixes" [ref=f56e36] [cursor=pointer]:
+              - /url: /fixes/
+            - text: — Find the right How to Fish fix for crashes, black screens, Steam relay errors, private lobbies, save problems, missing leeches, and camera controls.
+  - contentinfo [ref=f56e37]:
+    - generic [ref=f56e38]:
+      - generic [ref=f56e39]:
+        - link "How to Fish Game Help home" [ref=f56e40] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f56e41]: How to FishGame Help
+        - paragraph [ref=f56e42]: Fast, evidence-labeled help for the Steam game by Dazed Games.
+      - navigation "Legal and site links" [ref=f56e43]:
+        - link "About" [ref=f56e44] [cursor=pointer]:
+          - /url: /about/
+        - link "Contact" [ref=f56e45] [cursor=pointer]:
+          - /url: /contact/
+        - link "Privacy" [ref=f56e46] [cursor=pointer]:
+          - /url: /privacy/
+        - link "Terms" [ref=f56e47] [cursor=pointer]:
+          - /url: /terms/
+        - link "Disclaimer" [ref=f56e48] [cursor=pointer]:
+          - /url: /disclaimer/
+        - link "Updates feed" [ref=f56e49] [cursor=pointer]:
+          - /url: /rss.xml
+    - generic [ref=f56e50]:
+      - paragraph [ref=f56e51]: How to Fish Game Help is an independent fan-made guide site and is not affiliated with or endorsed by the game’s developer, publisher, Steam, or Valve.
+      - paragraph [ref=f56e52]: © 2026 How to Fish Game Help.
+```

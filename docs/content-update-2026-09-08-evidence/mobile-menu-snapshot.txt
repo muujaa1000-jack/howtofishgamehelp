@@ -1,0 +1,212 @@
+### Page
+- Page URL: http://127.0.0.1:4327/fixes/steam-cloud-pc-steam-deck-sync/
+- Page Title: How to Fish Steam Cloud: Sync PC and Steam Deck Saves
+### Snapshot
+```yaml
+- generic [ref=f57e1]:
+  - link "Skip to content" [ref=f57e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f57e3]:
+    - generic [ref=f57e4]:
+      - link "How to Fish Game Help home" [ref=f57e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f57e6]: How to FishGame Help
+      - group [ref=f57e7]:
+        - generic "Menu" [active] [ref=f57e8] [cursor=pointer]
+        - navigation "Mobile navigation" [ref=f57e144]:
+          - link "Guides" [ref=f57e145] [cursor=pointer]:
+            - /url: /guides/
+          - link "Walkthrough" [ref=f57e146] [cursor=pointer]:
+            - /url: /walkthrough/
+          - link "Islands" [ref=f57e147] [cursor=pointer]:
+            - /url: /islands/
+          - link "Bosses" [ref=f57e148] [cursor=pointer]:
+            - /url: /bosses/
+          - link "Items" [ref=f57e149] [cursor=pointer]:
+            - /url: /items/
+          - link "Achievements" [ref=f57e150] [cursor=pointer]:
+            - /url: /achievements/
+          - link "Fixes" [ref=f57e151] [cursor=pointer]:
+            - /url: /fixes/
+          - link "Search" [ref=f57e152] [cursor=pointer]:
+            - /url: /search/
+  - main [ref=f57e9]:
+    - article [ref=f57e10]:
+      - generic [ref=f57e12]:
+        - navigation "Breadcrumb" [ref=f57e13]:
+          - list [ref=f57e14]:
+            - listitem [ref=f57e15]:
+              - link "Home" [ref=f57e16] [cursor=pointer]:
+                - /url: /
+              - text: /
+            - listitem [ref=f57e17]:
+              - link "Fixes" [ref=f57e18] [cursor=pointer]:
+                - /url: /fixes/
+              - text: /
+            - listitem [ref=f57e19]: "How to Fish Steam Cloud: Sync PC and Steam Deck Saves"
+        - generic [ref=f57e20]:
+          - generic [ref=f57e21]:
+            - paragraph [ref=f57e22]: Fixes
+            - 'heading "How to Fish Steam Cloud: Sync PC and Steam Deck Saves" [level=1] [ref=f57e23]'
+            - paragraph [ref=f57e24]: Upload an existing How to Fish save with Patch 1.0.12, wait for Steam Cloud before switching PC or Steam Deck, and handle sync warnings safely.
+          - generic [ref=f57e26]:
+            - generic [ref=f57e27]:
+              - term [ref=f57e28]: Last source review
+              - definition [ref=f57e29]: Sep 8, 2026
+            - generic [ref=f57e30]:
+              - term [ref=f57e31]: Evidence reviewed through
+              - definition [ref=f57e32]: Patch 1.0.12
+            - generic [ref=f57e33]:
+              - term [ref=f57e34]: Testing status
+              - definition [ref=f57e35]: Source-based guide; not independently playtested
+      - generic [ref=f57e36]:
+        - complementary "On this page" [ref=f57e37]:
+          - strong [ref=f57e38]: On this page
+          - list [ref=f57e39]:
+            - listitem [ref=f57e40]:
+              - link "Quick steps" [ref=f57e41] [cursor=pointer]:
+                - /url: "#quick-steps"
+            - listitem [ref=f57e42]:
+              - link "Why an older save may not appear yet" [ref=f57e43] [cursor=pointer]:
+                - /url: "#why-an-older-save-may-not-appear-yet"
+            - listitem [ref=f57e44]:
+              - link "If Steam reports a conflict or failed synchronization" [ref=f57e45] [cursor=pointer]:
+                - /url: "#if-steam-reports-a-conflict-or-failed-synchronization"
+            - listitem [ref=f57e46]:
+              - link "Why it may not work" [ref=f57e47] [cursor=pointer]:
+                - /url: "#why-it-may-not-work"
+            - listitem [ref=f57e48]:
+              - link "Synchronization is different from corruption recovery" [ref=f57e49] [cursor=pointer]:
+                - /url: "#synchronization-is-different-from-corruption-recovery"
+            - listitem [ref=f57e50]:
+              - link "Solo and co-op saves" [ref=f57e51] [cursor=pointer]:
+                - /url: "#solo-and-co-op-saves"
+            - listitem [ref=f57e52]:
+              - link "FAQ" [ref=f57e53] [cursor=pointer]:
+                - /url: "#faq"
+            - listitem [ref=f57e54]:
+              - link "What to do next" [ref=f57e55] [cursor=pointer]:
+                - /url: "#what-to-do-next"
+        - generic [ref=f57e56]:
+          - generic [ref=f57e57]:
+            - paragraph [ref=f57e58]: Direct answer
+            - paragraph [ref=f57e59]: How to Fish added Steam Cloud in 1.0.12. On the device that already holds your working save, update the game, play once, and exit normally to trigger its first upload. Leave Steam online and wait for synchronization to finish before opening the game on your PC or Steam Deck. Stop if Steam reports a conflict or failed sync; do not overwrite the only copy. Cloud synchronization does not automatically repair a corrupted save.
+          - generic [ref=f57e60]:
+            - heading "Quick steps" [level=2] [ref=f57e61]
+            - list [ref=f57e62]:
+              - listitem [ref=f57e63]: Start on the device containing the working progress you want to keep. Let Steam install 1.0.12 or a later available update.
+              - listitem [ref=f57e64]: Check that Steam Cloud is enabled for the game and Steam is online. Use the same Steam account on the other device.
+              - listitem [ref=f57e65]: Play How to Fish once on the original device, then quit normally. This is the first-upload step specified by the developer.
+              - listitem [ref=f57e66]: Keep Steam running and wait until the game’s Cloud status shows synchronization has finished. Do not launch the other copy while upload is pending.
+              - listitem [ref=f57e67]: On the destination PC or Steam Deck, let Steam finish synchronization before starting the game.
+              - listitem [ref=f57e68]: Check that the expected save and progress are present before continuing. If progress is missing or Steam shows a warning, stop and investigate that state first.
+            - heading "Why an older save may not appear yet" [level=2] [ref=f57e69]
+            - paragraph [ref=f57e70]:
+              - text: The
+              - link "1.0.12 announcement" [ref=f57e71] [cursor=pointer]:
+                - /url: https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486
+              - text: adds Cloud storage and explicitly asks players to run and exit the game on the device holding their existing save. Installing the update on a second device alone does not complete that first-upload step.
+            - paragraph [ref=f57e72]: The developer’s instruction establishes how to start the upload. Waiting for Steam’s synchronization status and checking the destination save are platform checks and editorial completion checks. This site has not performed a PC-to-Deck or Deck-to-PC transfer in-game.
+            - heading "If Steam reports a conflict or failed synchronization" [level=2] [ref=f57e73]
+            - paragraph [ref=f57e74]:
+              - text: Do not continue a new play session on the other device while synchronization is unresolved. Check that the original device is online, the game has fully closed, and its upload has completed. Follow
+              - link "Steam’s Cloud guidance" [ref=f57e75] [cursor=pointer]:
+                - /url: https://help.steampowered.com/en/faqs/view/68D2-35AB-09A9-7678
+              - text: for the warning shown.
+            - paragraph [ref=f57e76]: If local and cloud copies conflict, identify which device contains the progress you intend to keep and preserve the available copies before choosing a replacement. Do not assume that a cloud copy is always the correct one, or approve an overwrite when you cannot identify the copies. This guide provides no unverified save path or manual file-replacement recipe.
+            - heading "Why it may not work" [level=2] [ref=f57e77]
+            - list [ref=f57e78]:
+              - listitem [ref=f57e79]:
+                - strong [ref=f57e80]: "The original device has not run the updated game:"
+                - text: complete the developer’s play-and-exit step there first, provided its save works.
+              - listitem [ref=f57e81]:
+                - strong [ref=f57e82]: "Steam is still uploading or shows a warning:"
+                - text: wait for successful synchronization before switching devices.
+              - listitem [ref=f57e83]:
+                - strong [ref=f57e84]: "The destination shows different progress:"
+                - text: stop before saving over it and compare the original device’s progress and Cloud status.
+              - listitem [ref=f57e85]:
+                - strong [ref=f57e86]: "The save crashes on the original device:"
+                - text: treat that as a save-loading issue, not a reason to force repeated uploads. Use the
+                - link "save and weapon crash guide" [ref=f57e87] [cursor=pointer]:
+                  - /url: /fixes/save-file-corrupted-or-weapon-crash/
+                - text: .
+            - heading "Synchronization is different from corruption recovery" [level=2] [ref=f57e88]
+            - paragraph [ref=f57e89]: Patch 1.0.11 introduced save checks and backups. Patch 1.0.12 adds Cloud synchronization. The latter can move a save between devices, but neither announcement establishes that syncing reconstructs damaged progress. A synchronized copy can still contain a failing save. Preserve it rather than deleting it or replacing it with an empty run.
+            - heading "Solo and co-op saves" [level=2] [ref=f57e90]
+            - paragraph [ref=f57e91]: Use the device that holds the save you actually want to continue. Being a guest in another player’s lobby does not establish that your device owns that session’s progression. The 1.0.12 note announces Cloud storage, not a transfer of host ownership or a way to merge several players’ saves. For a co-op discrepancy, record the host and joiner roles before changing files.
+            - heading "FAQ" [level=2] [ref=f57e92]
+            - heading "Does How to Fish support Steam Cloud now?" [level=3] [ref=f57e93]
+            - paragraph [ref=f57e94]: Yes, according to the official 1.0.12 announcement reviewed September 8, 2026. Existing saves need the original-device play-and-exit step for their first upload.
+            - heading "Can I close the game and immediately switch to Steam Deck?" [level=3] [ref=f57e95]
+            - paragraph [ref=f57e96]: Wait until Steam finishes synchronization first. Then allow the destination device to sync before launching and confirm the expected progress.
+            - heading "Will Cloud fix a corrupted save?" [level=3] [ref=f57e97]
+            - paragraph [ref=f57e98]: Cloud synchronization is not a documented corruption-repair procedure. Stop at a load failure or unresolved conflict and preserve the copies you have.
+            - heading "What to do next" [level=2] [ref=f57e99]
+            - paragraph [ref=f57e100]:
+              - text: For a save that exists but will not load, use
+              - link "save corruption and weapon-equip crashes" [ref=f57e101] [cursor=pointer]:
+                - /url: /fixes/save-file-corrupted-or-weapon-crash/
+              - text: . For lobby, sound, or frame-rate symptoms, return to
+              - link "problems and fixes" [ref=f57e102] [cursor=pointer]:
+                - /url: /fixes/problems-and-fixes/
+              - text: .
+          - generic [ref=f57e103]:
+            - heading "Sources and verification" [level=2] [ref=f57e104]
+            - paragraph [ref=f57e105]: This page synthesizes the specific facts below. It does not claim first-hand testing. Patch-sensitive details are dated so you can judge whether they may have changed.
+            - list [ref=f57e106]:
+              - listitem [ref=f57e107]:
+                - link "How to Fish Steam Cloud Support and Patch 1.0.12" [ref=f57e108] [cursor=pointer]:
+                  - /url: https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486
+                - text: (official patch, checked 2026-09-08)
+              - listitem [ref=f57e109]:
+                - 'link "Steamworks Documentation: Steam Cloud" [ref=f57e110] [cursor=pointer]':
+                  - /url: https://partner.steamgames.com/doc/features/cloud
+                - text: (official doc, checked 2026-09-08)
+          - navigation "Guide sequence" [ref=f57e111]:
+            - 'link "Previous step ← How to Fish Problems and Fixes: Start Here" [ref=f57e112] [cursor=pointer]':
+              - /url: /fixes/problems-and-fixes/
+              - generic [ref=f57e113]: Previous step
+              - generic [ref=f57e114]: "← How to Fish Problems and Fixes: Start Here"
+            - generic [ref=f57e115]:
+              - generic [ref=f57e116]: You are here
+              - generic [ref=f57e117]: "How to Fish Steam Cloud: Sync PC and Steam Deck Saves"
+            - link "Next step How to Fish Save Corrupted or Weapon Equip Crash →" [ref=f57e118] [cursor=pointer]:
+              - /url: /fixes/save-file-corrupted-or-weapon-crash/
+              - generic [ref=f57e119]: Next step
+              - generic [ref=f57e120]: How to Fish Save Corrupted or Weapon Equip Crash →
+          - generic [ref=f57e121]:
+            - heading "Related guides" [level=2] [ref=f57e122]
+            - generic [ref=f57e123]:
+              - 'link "How to Fish Problems and Fixes: Start Here Read guide →" [ref=f57e124] [cursor=pointer]':
+                - /url: /fixes/problems-and-fixes/
+                - text: "How to Fish Problems and Fixes: Start Here"
+                - generic [ref=f57e125]: Read guide →
+              - link "How to Fish Save Corrupted or Weapon Equip Crash Read guide →" [ref=f57e126] [cursor=pointer]:
+                - /url: /fixes/save-file-corrupted-or-weapon-crash/
+                - text: How to Fish Save Corrupted or Weapon Equip Crash
+                - generic [ref=f57e127]: Read guide →
+  - contentinfo [ref=f57e128]:
+    - generic [ref=f57e129]:
+      - generic [ref=f57e130]:
+        - link "How to Fish Game Help home" [ref=f57e131] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f57e132]: How to FishGame Help
+        - paragraph [ref=f57e133]: Fast, evidence-labeled help for the Steam game by Dazed Games.
+      - navigation "Legal and site links" [ref=f57e134]:
+        - link "About" [ref=f57e135] [cursor=pointer]:
+          - /url: /about/
+        - link "Contact" [ref=f57e136] [cursor=pointer]:
+          - /url: /contact/
+        - link "Privacy" [ref=f57e137] [cursor=pointer]:
+          - /url: /privacy/
+        - link "Terms" [ref=f57e138] [cursor=pointer]:
+          - /url: /terms/
+        - link "Disclaimer" [ref=f57e139] [cursor=pointer]:
+          - /url: /disclaimer/
+        - link "Updates feed" [ref=f57e140] [cursor=pointer]:
+          - /url: /rss.xml
+    - generic [ref=f57e141]:
+      - paragraph [ref=f57e142]: How to Fish Game Help is an independent fan-made guide site and is not affiliated with or endorsed by the game’s developer, publisher, Steam, or Valve.
+      - paragraph [ref=f57e143]: © 2026 How to Fish Game Help.
+```

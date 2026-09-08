@@ -1,20 +1,25 @@
 ---
 title: "How to Get and Use the Radar in How to Fish"
-description: "Get the radar after the lighthouse boss route, use quest coordinates to navigate between islands, and understand what the later boat upgrade changes."
+description: "Get and use the How to Fish radar for island travel, or check the forest shop post for a replacement reported by players after losing one."
 slug: "radar-guide"
 category: "items"
 primaryIntent: "Obtain the radar and use it to navigate to unlocked islands"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-30
-lastVerifiedAt: 2026-08-23
+updatedAt: 2026-09-08
+lastVerifiedAt: 2026-09-08
 gameVersion: "1.0.5"
-lastSourceReview: 2026-08-25
+lastSourceReview: 2026-09-08
 evidenceThroughVersion: "1.0.9"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
 verificationStatus: "community-confirmed"
 sources:
+  - title: "Steam: What do I do if I lose my Radar"
+    url: "https://steamcommunity.com/app/4001890/discussions/0/582806239606672418/"
+    type: "community-thread"
+    accessedAt: 2026-09-08
+    notes: "August 24 shop-post reports; exact build unknown, location not replayed on 1.0.12."
   - title: "Complete How to Fish game walkthrough"
     url: "https://www.destructoid.com/complete-how-to-fish-game-walkthrough-100-completion/"
     type: "gameplay-guide"
@@ -31,7 +36,7 @@ relatedGuides:
   - "/islands/island-progression/"
 draft: false
 noindex: false
-answer: "Finish the lighthouse keeper’s Spider Crab quest and secure boat access, then obtain the radar from the keeper before sailing. The radar works with coordinates awarded by completed island quests; it does not unlock destinations on its own. Early on, carry or equip it as required to read the route. A later boat upgrade lets the radar remain in a fixed position on the boat, which makes navigation easier but does not replace any boss trophy or NPC hand-in."
+answer: "Finish the lighthouse keeper's Spider Crab quest, secure boat access, and obtain the radar before sailing. It follows quest coordinates rather than unlocking islands itself. If you lost it on the forest island, players reported a replacement for sale on the ground against the shop post, beneath the signs. That is an older community report; the location has not been rechecked in-game on 1.0.12."
 featured: false
 priority: "P0"
 ---
@@ -50,6 +55,12 @@ priority: "P0"
 The radar is a navigation tool. Coordinates come from quest progression, and island permission comes from finishing the previous gate. This distinction explains most “radar not working” reports: a player owns the device but has not received a new destination, or has the boss drop but has not returned it.
 
 The launch walkthrough describes a later upgrade that places the radar at a stationary position on the boat. That is a convenience improvement. It frees you from treating the device like a constantly handled item, but the story still advances through the same NPC chain.
+
+## Lost radar: check beside the forest shop post
+
+In an [August 24 Steam thread](https://steamcommunity.com/app/4001890/discussions/0/582806239606672418/), a player lost their radar after reloading on the Piranha island. One reply suggested looking below the signs, and another confirmed a purchasable radar on the ground leaning against the shop post. Check there on the forest island before considering a restart.
+
+This is an older-version community location report, reviewed September 8, 2026, not a current-version site playtest. The exact game version and present price are unverified. It does not establish an automatic replacement or a recovery route when you are already lost at sea. If the radar is absent, preserve the save and record the location and current objective rather than overwriting progress.
 
 ## Why it may not work
 
