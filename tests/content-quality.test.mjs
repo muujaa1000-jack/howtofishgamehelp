@@ -174,7 +174,7 @@ test('launch content keeps current verification metadata and avoids evidence ove
     const expectedPublishedAt = route === '/fixes/steam-cloud-pc-steam-deck-sync/' ? '2026-09-08' : publishedOnAugust27.has(route)
       ? '2026-08-27'
       : publishedOnAugust25.has(route) ? '2026-08-25' : '2026-08-23';
-    const expectedUpdatedAt = editedOnSeptember8.has(route) ? '2026-09-08' : refreshedOnSeptember4.has(route)
+    const expectedUpdatedAt = ['/items/money-fast/', '/items/early-upgrades/'].includes(route) ? '2026-09-11' : editedOnSeptember8.has(route) ? '2026-09-08' : refreshedOnSeptember4.has(route)
       ? '2026-09-04'
       : refreshedOnAugust30.has(route)
       ? '2026-08-30'

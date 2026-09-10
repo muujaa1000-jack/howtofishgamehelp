@@ -5,7 +5,7 @@ slug: "early-upgrades"
 category: "items"
 primaryIntent: "Choose the most useful early weapon and boat upgrades without wasting money"
 publishedAt: 2026-08-23
-updatedAt: 2026-08-25
+updatedAt: 2026-09-11
 lastVerifiedAt: 2026-08-23
 gameVersion: "1.0.5"
 lastSourceReview: 2026-08-25
@@ -65,4 +65,4 @@ Solo players gain more from dependable healing and one well-upgraded weapon than
 
 ## What to do next
 
-Read [weapon progression](/items/weapon-progression/) for the island-by-island range changes. If cash is the limit, use [how to make money faster](/items/money-fast/) without relying on unverified exploits.
+Read [weapon progression](/items/weapon-progression/) for the island-by-island range changes. If cash is the limit, use the [steady money and selling guide](/items/money-fast/) without relying on unverified exploits.
