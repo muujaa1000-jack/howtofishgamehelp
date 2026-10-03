@@ -4,9 +4,14 @@ import { site } from '../config/site';
 ---
 <BaseLayout title="Privacy Policy" description="How to Fish Game Help explains its analytics, hosting, advertising, and visitor-data practices." canonicalPath="/privacy/">
   <article class="narrow section prose">
-    <p class="eyebrow">Effective August 26, 2026</p>
+    <p class="eyebrow">Last updated October 3, 2026</p>
     <h1>Privacy policy</h1>
-    <p>This site serves static informational guides. Google Analytics is <strong>{site.analyticsEnabled ? 'enabled' : 'disabled'}</strong> in this build, Cloudflare Web Analytics is enabled on the production domain, Adsterra advertising units are currently disabled, and Google AdSense advertisements are not enabled.</p>
+    <p>This site serves static informational guides. Umami analytics is enabled for visits to the production domain. Google Analytics is <strong>{site.analyticsEnabled ? 'enabled' : 'disabled'}</strong> in this build, Cloudflare Web Analytics is enabled on the production domain, Adsterra advertising units are currently disabled, and Google AdSense advertisements are not enabled.</p>
+
+    <h2>Umami analytics</h2>
+    <p>This site uses Umami through stats.dawang.dev to understand visits and improve its guides. The tracker loads automatically and records page views without an on-site consent prompt. It does not use tracking cookies.</p>
+    <p>Measurement data may include the visited page path, referring website, browser and device information, screen size, language, and approximate location. Page URL query parameters and fragments are excluded from tracking. We do not configure custom user identifiers or send contact-message contents to Umami.</p>
+    <p>Tracking is restricted to howtofishgamehelp.com, so local development and preview visits are excluded. Browser content blockers may prevent measurement. See the <a href="https://docs.umami.is/docs/faq">Umami documentation</a> for information about its cookie-free tracking.</p>
 
     <h2>Google Analytics and consent</h2>
     {site.analyticsEnabled ? (
