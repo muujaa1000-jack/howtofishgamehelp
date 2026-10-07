@@ -5,16 +5,31 @@ slug: "problems-and-fixes"
 category: "fixes"
 primaryIntent: "Find a safe first troubleshooting route for current How to Fish issues"
 publishedAt: 2026-08-23
-updatedAt: 2026-09-08
-lastVerifiedAt: 2026-09-08
-gameVersion: "1.0.12"
-lastSourceReview: 2026-09-08
-evidenceThroughVersion: "1.0.12"
+updatedAt: 2026-10-07
+lastVerifiedAt: 2026-10-07
+gameVersion: "1.1.3"
+lastSourceReview: 2026-10-07
+evidenceThroughVersion: "1.1.3"
 firstHandTested: false
 patchSensitive: true
 adEligible: true
 verificationStatus: "mixed"
 sources:
+  - title: "How to Fish Patch 1.1.3"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/706658093186943213"
+    type: "official-patch"
+    accessedAt: 2026-10-07
+    notes: "Fishipedia displays the bait name after the first kill."
+  - title: "How to Fish Patch 1.1.2"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/706658093186943189"
+    type: "official-patch"
+    accessedAt: 2026-10-07
+    notes: "Added reload rebinding; enlarged mini-island radar dots; fixed Tench spawning from new bait and the new mini-boss triangle direction."
+  - title: "The Islet Update 1.1.0"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/717916455762395911"
+    type: "official-patch"
+    accessedAt: 2026-10-07
+    notes: "Added mini islands, new bait, creatures, and a mini-boss."
   - title: "How to Fish Patch 1.0.12"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486"
     type: "official-patch"
@@ -58,7 +73,7 @@ relatedGuides:
   - "/fixes/save-file-corrupted-or-weapon-crash/"
 draft: false
 noindex: false
-answer: "Update to 1.0.12, the current release as of September 8. For an existing Steam Cloud save, play and exit on its original device, then wait for sync before switching. The patch fixes the FPS-cap override on joining and first-Radio stutter; its voice and item-speed changes are intended to reduce some bugs. Choose the matching symptom below and preserve your save. Cloud does not automatically repair corruption."
+answer: "The latest announced patch was 1.1.3 when checked on October 7, 2026. Update before troubleshooting, then match the symptom below. Patch 1.1.2 addressed Tench spawning from the new bait, enlarged mini-island radar dots, and added reload rebinding. Patch 1.1.3 shows a Fishipedia bait name only after that fish's first kill. For an existing Steam Cloud save, play and exit on its original device before switching; Cloud does not repair corruption."
 featured: true
 priority: "P2"
 ---
@@ -69,7 +84,7 @@ Update the game and Steam, identify the failing action, and try one reversible c
 
 ## Applies to
 
-Start here for save sync, loading and equipment crashes, lobby or relay failures, audio problems, missing items, and controls. The latest patch covered is 1.0.12. If an update changes the symptom, choose the new symptom below rather than continuing a workaround for the old one. A save backup, a Cloud upload, and an installation-file check each solve different problems.
+Start here for save sync, crashes, lobby failures, audio problems, missing items, controls, and the Islet Update's bait or radar display. The guidance covers official notes through 1.1.3. Choose the current symptom instead of repeating an old workaround.
 
 ## Quick steps
 
@@ -102,6 +117,10 @@ If the symptom matches, note your original audio choices, compare one input/outp
 
 Patch 1.0.12 limits item velocity with the hope of reducing item loss. If an item still disappears, record whether the loss followed an explosion, an inventory action, loading, or joining. Avoid using the only quest item to reproduce it. The earlier 1.0.10 changes to dropped-item persistence and placement may also matter when comparing older saves or sessions.
 
+### New bait, mini-island radar dots, or Fishipedia clues
+
+[Patch 1.1.2](https://steamcommunity.com/games/4001890/announcements/detail/706658093186943189) fixed Tench not spawning from the new bait, enlarged mini-island radar dots, added reload rebinding, and corrected the new mini-boss's triangle direction. Update if you see an older behavior. [Patch 1.1.3](https://steamcommunity.com/games/4001890/announcements/detail/706658093186943213) shows a Fishipedia bait name only after that fish's first kill. For details, see the [radar](/items/radar-guide/) and [bait](/items/lures-and-bait/) guides.
+
 ### Startup or joining display failures
 
 Patch 1.0.4 addressed a black screen while joining, hoped to fix the gray startup screen, and fixed special characters breaking a server-save filename. Update first, then compare solo startup with joining a fresh private lobby. If only the joiner fails, use the [multiplayer black screen guide](/fixes/multiplayer-black-screen/) and note which participant sees the problem.
@@ -120,7 +139,7 @@ Patches 1.0.4 and 1.0.5 list fixes for stuck UI states, boss or quest behavior, 
 
 ### Controls and presentation
 
-Patch 1.0.5 added axis inversion. Patch 1.0.11 adds toggle aiming, toggle sprinting, hold-to-attack, and nametag toggling. Use the [camera and invert controls guide](/fixes/camera-invert-controls/) to separate look direction from aim-button behavior. Do not reinstall the game merely because an option moved or an old guide shows a different label.
+Patch 1.0.5 added axis inversion. Patch 1.0.11 added toggle aiming, toggle sprinting, hold-to-attack, and nametag toggling. Patch 1.1.2 added reload rebinding. Use the [camera and invert controls guide](/fixes/camera-invert-controls/) to separate look direction from aim-button behavior. Do not reinstall the game merely because an option moved or an old guide shows a different label.
 
 ## Common mistakes
 
@@ -144,11 +163,11 @@ For co-op, return to a known baseline: same updated build, plain lobby name, pri
 
 ## Solo and co-op differences
 
-A solo test answers whether the installation and save can reach gameplay without a network session. It does not prove the multiplayer path is healthy. A co-op test adds host state, joiner state, lobby visibility, Steam relay, and item ownership. Record those roles. If a save loads solo but not as host, or a joiner fails while the host continues, that difference narrows the report more than a general statement that “multiplayer is broken.”
+A solo test checks whether the installation and save load without networking. Co-op adds host, joiner, lobby, relay, and item state. Record which role fails. A save that loads solo but not as host needs a different report from a joiner failure.
 
 ## Patch history and limitations
 
-Patch 1.0.12 adds Cloud and fixes the FPS-cap override on joining and the first-Radio lag spike. Its MetaVoice update and item-speed limit are intended to reduce some voice and item-loss bugs. If your issue is combat behavior rather than a technical failure, check the changed encounters: [Piranha](/bosses/giant-piranha/), [Tuna](/bosses/tuna/), and the [final whale](/bosses/mutated-bowhead-whale/).
+Patch 1.0.12 added Cloud and fixed the lobby FPS-cap override and first-Radio lag spike; its voice and item changes were less certain. The Islet Update added locations, creatures, bait, and a mini-boss. Patches 1.1.2 and 1.1.3 addressed the new-content symptoms above. For combat changes, see [Piranha](/bosses/giant-piranha/), [Tuna](/bosses/tuna/), and the [final whale](/bosses/mutated-bowhead-whale/).
 
 ## FAQ
 

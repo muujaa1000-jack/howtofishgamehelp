@@ -98,6 +98,27 @@ const refreshedOnSeptember8 = new Set([
   '/items/grilling-guide/',
 ]);
 const reviewedThroughSeptember8 = (route) => route === '/items/radar-guide/' ? '1.0.9' : route === '/items/grilling-guide/' ? '1.0.11' : '1.0.12';
+const updatedOnOctober7 = new Set([
+  '/achievements/achievement-guide/',
+  '/achievements/achievement-not-unlocking/',
+  '/achievements/hardest-achievements/',
+  '/bosses/mutated-bowhead-whale/',
+  '/fixes/problems-and-fixes/',
+  '/islands/island-progression/',
+  '/items/lures-and-bait/',
+  '/items/radar-guide/',
+  '/items/weapon-progression/',
+]);
+const reviewedOnOctober7 = new Map([
+  ['/achievements/achievement-guide/', '1.1.3'],
+  ['/achievements/achievement-not-unlocking/', '1.1.0'],
+  ['/achievements/hardest-achievements/', '1.1.3'],
+  ['/fixes/problems-and-fixes/', '1.1.3'],
+  ['/islands/island-progression/', '1.1.2'],
+  ['/items/lures-and-bait/', '1.1.3'],
+  ['/items/radar-guide/', '1.1.2'],
+  ['/items/weapon-progression/', '1.1.2'],
+]);
 const editedOnSeptember8 = new Set([
   ...refreshedOnSeptember8,
   '/guides/beginner-guide/',
@@ -174,14 +195,14 @@ test('launch content keeps current verification metadata and avoids evidence ove
     const expectedPublishedAt = route === '/fixes/steam-cloud-pc-steam-deck-sync/' ? '2026-09-08' : publishedOnAugust27.has(route)
       ? '2026-08-27'
       : publishedOnAugust25.has(route) ? '2026-08-25' : '2026-08-23';
-    const expectedUpdatedAt = ['/items/money-fast/', '/items/early-upgrades/'].includes(route) ? '2026-09-11' : editedOnSeptember8.has(route) ? '2026-09-08' : refreshedOnSeptember4.has(route)
+    const expectedUpdatedAt = updatedOnOctober7.has(route) ? '2026-10-07' : ['/items/money-fast/', '/items/early-upgrades/'].includes(route) ? '2026-09-11' : editedOnSeptember8.has(route) ? '2026-09-08' : refreshedOnSeptember4.has(route)
       ? '2026-09-04'
       : refreshedOnAugust30.has(route)
       ? '2026-08-30'
       : refreshedOnAugust27.has(route)
       ? '2026-08-27'
       : route === '/achievements/achievement-not-unlocking/' ? '2026-08-26' : '2026-08-25';
-    const expectedSourceReview = refreshedOnSeptember8.has(route) ? '2026-09-08' : refreshedOnSeptember4.has(route)
+    const expectedSourceReview = reviewedOnOctober7.has(route) ? '2026-10-07' : refreshedOnSeptember8.has(route) ? '2026-09-08' : refreshedOnSeptember4.has(route)
       ? '2026-09-04'
       : sourceReviewedOnAugust30.has(route)
       ? '2026-08-30'
@@ -191,13 +212,14 @@ test('launch content keeps current verification metadata and avoids evidence ove
     assert.equal(scalar(frontmatter, 'publishedAt'), expectedPublishedAt);
     assert.equal(scalar(frontmatter, 'updatedAt'), expectedUpdatedAt);
     assert.equal(scalar(frontmatter, 'lastSourceReview'), expectedSourceReview);
-    assert.equal(scalar(frontmatter, 'evidenceThroughVersion'), refreshedOnSeptember8.has(route) ? reviewedThroughSeptember8(route) : refreshedOnSeptember4.has(route) ? '1.0.11' : sourceReviewedOnAugust30.has(route) ? '1.0.10' : '1.0.9');
-    if (refreshedOnSeptember8.has(route)) assert.equal(scalar(frontmatter, 'lastVerifiedAt'), '2026-09-08');
+    assert.equal(scalar(frontmatter, 'evidenceThroughVersion'), reviewedOnOctober7.get(route) ?? (refreshedOnSeptember8.has(route) ? reviewedThroughSeptember8(route) : refreshedOnSeptember4.has(route) ? '1.0.11' : sourceReviewedOnAugust30.has(route) ? '1.0.10' : '1.0.9'));
+    if (reviewedOnOctober7.has(route)) assert.equal(scalar(frontmatter, 'lastVerifiedAt'), '2026-10-07');
+    else if (refreshedOnSeptember8.has(route)) assert.equal(scalar(frontmatter, 'lastVerifiedAt'), '2026-09-08');
     else if (refreshedOnSeptember4.has(route)) assert.equal(scalar(frontmatter, 'lastVerifiedAt'), '2026-09-04');
     assert.equal(scalar(frontmatter, 'firstHandTested'), 'false');
     assert.match(scalar(frontmatter, 'patchSensitive'), /^(?:true|false)$/);
     assert.match(scalar(frontmatter, 'adEligible'), /^(?:true|false)$/);
-    assert.ok(['1.0.5', '1.0.9', '1.0.10', '1.0.11', '1.0.12'].includes(scalar(frontmatter, 'gameVersion')));
+    assert.ok(['1.0.5', '1.0.9', '1.0.10', '1.0.11', '1.0.12', '1.1.0', '1.1.2', '1.1.3'].includes(scalar(frontmatter, 'gameVersion')));
     if (scalar(frontmatter, 'adEligible') === 'true') eligibleRoutes.push(route);
     assert.doesNotMatch(item.source, /\b(I tested|we tested|personally tested|tested on Steam Deck|verified in-game|official guide)\b/i, `${item.file} makes an unsupported testing claim`);
     assert.doesNotMatch(item.source, /\bguaranteed\b/i, `${item.file} makes an absolute claim`);
@@ -305,7 +327,7 @@ test('Patch 1.0.11 facts update only the directly affected guide boundaries', as
   for (const route of refreshedOnSeptember4) {
     const item = byRoute.get(route);
     assert.ok(item, `missing Patch 1.0.11 affected page ${route}`);
-    assert.equal(scalar(item.frontmatter, 'evidenceThroughVersion'), refreshedOnSeptember8.has(route) ? reviewedThroughSeptember8(route) : '1.0.11');
+    assert.equal(scalar(item.frontmatter, 'evidenceThroughVersion'), reviewedOnOctober7.get(route) ?? (refreshedOnSeptember8.has(route) ? reviewedThroughSeptember8(route) : '1.0.11'));
     assert.match(item.source, patchUrl, `${route} must cite the official Patch 1.0.11 announcement`);
   }
 
@@ -322,13 +344,13 @@ test('Patch 1.0.11 facts update only the directly affected guide boundaries', as
   assert.equal(scalar(byRoute.get('/walkthrough/story-walkthrough/').frontmatter, 'evidenceThroughVersion'), '1.0.9');
 });
 
-test('September 8 answers keep official changes distinct from older community methods', async () => {
+test('revised answers keep official changes distinct from older community methods', async () => {
   const byRoute = new Map((await entries()).map((item) => [routeOf(frontmatterOf(item.source)), item.source]));
   for (const route of ['/achievements/achievement-guide/', '/achievements/hardest-achievements/']) {
     const source = byRoute.get(route);
     assert.doesNotMatch(source, /(?:no weapon use in the final fight|avoid weapon use during|do not use a weapon during|do not combine Bean with Handyman|Handyman and Bean should not share)/i);
     assert.match(source, /older.*(?:player|community)|1\.0\.4/is);
-    assert.match(source, /whether (?:this older community |that )method works in 1\.0\.12 is unconfirmed/i);
+    assert.match(source, /whether (?:this older community |that )method works in 1\.1\.3 is unconfirmed/i);
     assert.match(source, /optional/i);
     assert.match(source, /brass.knuckle/i);
     assert.match(source, /3788992156/);

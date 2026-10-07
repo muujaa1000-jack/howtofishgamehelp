@@ -5,16 +5,26 @@ slug: "achievement-not-unlocking"
 category: "achievements"
 primaryIntent: "Troubleshoot a How to Fish Steam achievement that did not unlock"
 publishedAt: 2026-08-23
-updatedAt: 2026-09-08
-lastVerifiedAt: 2026-09-08
-gameVersion: "1.0.5"
-lastSourceReview: 2026-09-08
-evidenceThroughVersion: "1.0.12"
+updatedAt: 2026-10-07
+lastVerifiedAt: 2026-10-07
+gameVersion: "1.1.0"
+lastSourceReview: 2026-10-07
+evidenceThroughVersion: "1.1.0"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
 verificationStatus: "mixed"
 sources:
+  - title: "The Islet Update 1.1.0"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/717916455762395911"
+    type: "official-patch"
+    accessedAt: 2026-10-07
+    notes: "Announced new achievements."
+  - title: "How to Fish Global Achievements"
+    url: "https://steamcommunity.com/stats/4001890/achievements/"
+    type: "official-achievement"
+    accessedAt: 2026-10-07
+    notes: "Lists 31 achievements."
   - title: "How to Fish Patch 1.0.12"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486"
     type: "official-patch"
@@ -62,7 +72,9 @@ priority: "P2"
 
 Patch 1.0.4 fixed a bare-hands final-boss achievement issue according to its announcement. Patch 1.0.5 fixed the all-Drip trigger that previously required an extra find. Update before repeating either condition on an old installation.
 
-[Charlie Pork's older guide and a reply](https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308) disagree about lobby-wide Handyman credit. Record who landed the final hit and verify your own Steam result. The older community method uses gun damage followed by a fist killing blow; whether it works in 1.0.12 is unconfirmed. Follow the [Handyman steps](/achievements/hardest-achievements/) to prepare that attempt.
+[Charlie Pork's older guide and a reply](https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308) disagree about lobby-wide Handyman credit. Record who landed the final hit and verify your own Steam result. The older community method uses gun damage followed by a fist killing blow; whether it works in later versions is unconfirmed. Follow the [Handyman steps](/achievements/hardest-achievements/) to prepare that attempt.
+
+The Islet Update added achievements, and [Steam now lists 31](https://steamcommunity.com/stats/4001890/achievements/). If a newer goal such as Bilingual, Money in a bottle, or Hobin Rood does not unlock, read its current Steam condition before following a 28-entry launch checklist.
 
 Other failures often come from the condition boundary. “Finish the game” includes the final RHIB interaction. “Catch dinner” includes delivering the requested result. A multiplier or stunt is measured at the kill. In co-op, a teammate’s action may not satisfy a personal trigger on your account.
 

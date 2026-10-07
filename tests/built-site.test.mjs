@@ -289,7 +289,13 @@ test('revised public pages keep player instructions and one truthful testing sta
     'achievements/achievement-guide', 'achievements/hardest-achievements', 'achievements/achievement-not-unlocking',
     'fixes/steam-cloud-pc-steam-deck-sync', 'fixes/problems-and-fixes', 'fixes/save-file-corrupted-or-weapon-crash',
     'bosses/giant-piranha', 'bosses/tuna', 'bosses/mutated-bowhead-whale', 'items/radar-guide', 'items/grilling-guide',
+    'items/lures-and-bait', 'items/weapon-progression', 'islands/island-progression',
   ];
+  const reviewedOnOctober7 = new Set([
+    'achievements/achievement-guide', 'achievements/hardest-achievements', 'achievements/achievement-not-unlocking',
+    'fixes/problems-and-fixes',
+    'items/radar-guide', 'items/lures-and-bait', 'items/weapon-progression', 'islands/island-progression',
+  ]);
   for (const route of [...guides, '', 'bosses', 'items', 'achievements', 'fixes']) {
     const html = await text(`${route ? `${route}/` : ''}index.html`);
     const content = textContent(parse(html));
@@ -297,7 +303,7 @@ test('revised public pages keep player instructions and one truthful testing sta
     if (guides.includes(route)) {
       assert.equal((content.match(/Source-based guide; not independently playtested/g) ?? []).length, 1, route);
       assert.match(html, /class="source-note"[\s\S]*?<h2[^>]*>Sources<\/h2>/, route);
-      assert.match(content, /checked\s+2026-09-08/, route);
+      assert.match(content, new RegExp(`checked\\s+${reviewedOnOctober7.has(route) ? '2026-10-07' : '2026-09-08'}`), route);
     }
   }
 });
@@ -333,13 +339,31 @@ test('home uses collection-page semantics and a real stable edit date without in
   const graphs = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].flatMap((match) => JSON.parse(match[1])['@graph'] ?? []);
   const home = graphs.find((node) => node['@type'] === 'CollectionPage');
   assert.equal(home?.url, 'https://howtofishgamehelp.com/');
-  assert.equal(home?.dateModified, '2026-09-08');
+  assert.equal(home?.dateModified, '2026-10-07');
   assert.equal(home?.datePublished, undefined);
-  assert.match(html, /<time[^>]*datetime="2026-09-08"[^>]*>/);
+  assert.match(html, /<time[^>]*datetime="2026-10-07"[^>]*>/);
   assert.ok(!graphs.some((node) => ['Article', 'FAQPage', 'HowTo'].includes(node['@type'])));
   assert.doesNotMatch(html, /"sameAs"|hreflang=/);
   const logos = [...html.matchAll(/<img[^>]*src="\/brand-mark\.svg"[^>]*>/g)];
   assert.equal(logos.length, 2);
   for (const [logo] of logos) assert.match(logo, /alt=""/);
-  assert.match(html, /698774889153168486/);
+  assert.match(html, /706658093186943213/);
+  assert.match(html, /Patch 1\.1\.3/);
+  assert.match(html, /Find their larger radar dots/);
+});
+
+test('current islet and achievement facts reach the built guides', async () => {
+  const radar = textContent(parse(await text('items/radar-guide/index.html')));
+  const islands = textContent(parse(await text('islands/island-progression/index.html')));
+  const bait = textContent(parse(await text('items/lures-and-bait/index.html')));
+  const weapons = textContent(parse(await text('items/weapon-progression/index.html')));
+  const achievements = textContent(parse(await text('achievements/achievement-guide/index.html')));
+  const fixes = textContent(parse(await text('fixes/problems-and-fixes/index.html')));
+  assert.match(radar, /mini-island dots larger on the radar/);
+  assert.match(islands, /main quest route, not a count of every island/);
+  assert.match(bait, /Fishipedia.*after you have killed a fish once/s);
+  assert.match(weapons, /restored the option to downgrade to ironsight/);
+  assert.match(achievements, /Steam lists 31 achievements/);
+  assert.match(fixes, /latest announced patch was 1\.1\.3/);
+  assert.doesNotMatch(fixes, /1\.0\.12, the current release/);
 });

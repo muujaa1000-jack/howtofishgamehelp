@@ -1,20 +1,25 @@
 ---
 title: "How to Fish Weapon Progression by Island"
-description: "Match melee, shotgun, Uzi or sniper-style range, and an attached assault rifle to the boss patterns that appear through the story."
+description: "Match weapons to story boss patterns and check the restored ironsight downgrade before changing an expensive attachment."
 slug: "weapon-progression"
 category: "items"
 primaryIntent: "Choose weapons that fit each island and boss stage"
 publishedAt: 2026-08-23
-updatedAt: 2026-09-08
-lastVerifiedAt: 2026-09-04
-gameVersion: "1.0.5"
-lastSourceReview: 2026-09-04
-evidenceThroughVersion: "1.0.11"
+updatedAt: 2026-10-07
+lastVerifiedAt: 2026-10-07
+gameVersion: "1.1.2"
+lastSourceReview: 2026-10-07
+evidenceThroughVersion: "1.1.2"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
-verificationStatus: "community-confirmed"
+verificationStatus: "mixed"
 sources:
+  - title: "How to Fish Patch 1.1.2"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/706658093186943189"
+    type: "official-patch"
+    accessedAt: 2026-10-07
+    notes: "Restored the option to downgrade to ironsight."
   - title: "How to Fish Patch 1.0.11"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/698774255287927885"
     type: "official-patch"
@@ -39,7 +44,7 @@ relatedGuides:
   - "/items/grilling-guide/"
 draft: false
 noindex: false
-answer: "Use one sharpened melee weapon for the lighthouse and Spider Crab, then add a shotgun and later an accurate ranged option for the bird and volcano. Patch 1.0.11 removes Iron Sight as a purchase, prevents downgrading a Suppressor to a Compensator, and marks dropped weapons with orange dots. Upgrade a proven weapon before buying overlapping ones, and do not rely on an older shop guide for those two attachment actions."
+answer: "Sharpen one melee weapon for the lighthouse, add a shotgun for the forest, then use accurate range for the bird and volcano. Patch 1.0.11 changed attachment purchases and downgrades, but 1.1.2 restored the option to downgrade to ironsight. Check the current shop menu before replacing an expensive attachment. Dropped weapons have orange dots; the patch notes do not publish a complete best-weapon order."
 featured: false
 priority: "P1"
 ---
@@ -59,9 +64,9 @@ Weapon progression is not a single damage ranking. Spider Crab gives a safe mele
 
 That pattern supports a small arsenal with distinct jobs: melee for dependable close work, shotgun for strong mid-story bursts, an Uzi or precision option for the aerial target, and an attached assault rifle for the finale. Attachments should improve the gun you will actually carry rather than decorate an obsolete purchase.
 
-## Attachment and dropped-weapon changes in 1.0.11
+## Attachment and dropped-weapon changes through 1.1.2
 
-Patch 1.0.11 removes Iron Sight as a purchasable option because players were buying it by mistake and losing expensive attachments. It also says a Suppressor can no longer be downgraded to a Compensator. These are current shop rules; the announcement does not publish new weapon damage, attachment prices, or a complete best-in-slot order.
+Patch 1.0.11 removed Iron Sight as a separate purchase and blocked downgrading a Suppressor to a Compensator. [Patch 1.1.2](https://steamcommunity.com/games/4001890/announcements/detail/706658093186943189) later restored the option to downgrade to ironsight. Do not follow a 1.0.11-only guide that says every ironsight downgrade is unavailable. The 1.1.2 announcement does not spell out every other attachment transition, so check the current shop menu before spending or replacing one.
 
 The same patch changes item-dot colors so dropped weapons are orange and dead players are turquoise. Use the orange marker when recovering a dropped weapon, but do not treat the color as proof that the item is safe to sell or no longer needed for a build.
 

@@ -1,20 +1,30 @@
 ---
 title: "How to Fish Achievements Guide and Cleanup Plan"
-description: "Plan How to Fish's 28 achievements: finish story hand-ins, track normal and Drip creatures, save money for cleanup, and prepare Handyman and Bean."
+description: "Plan How to Fish's 31 Steam achievements, including the new euro, bottle, and arrow goals alongside story, collection, and challenge cleanup."
 slug: "achievement-guide"
 category: "achievements"
 primaryIntent: "Understand the current Steam achievement list and plan an efficient cleanup order"
 publishedAt: 2026-08-23
-updatedAt: 2026-09-08
-lastVerifiedAt: 2026-09-08
-gameVersion: "1.0.5"
-lastSourceReview: 2026-09-08
-evidenceThroughVersion: "1.0.12"
+updatedAt: 2026-10-07
+lastVerifiedAt: 2026-10-07
+gameVersion: "1.1.3"
+lastSourceReview: 2026-10-07
+evidenceThroughVersion: "1.1.3"
 firstHandTested: false
 patchSensitive: true
 adEligible: true
 verificationStatus: "mixed"
 sources:
+  - title: "The Islet Update 1.1.0"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/717916455762395911"
+    type: "official-patch"
+    accessedAt: 2026-10-07
+    notes: "Announced new achievements, creatures, mini islands, and a new weapon."
+  - title: "How to Fish Patch 1.1.3"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/706658093186943213"
+    type: "official-patch"
+    accessedAt: 2026-10-07
+    notes: "Fishipedia shows bait names after the first kill."
   - title: "How to Fish Patch 1.0.12"
     url: "https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486"
     type: "official-patch"
@@ -32,7 +42,7 @@ sources:
   - title: "How to Fish Global Achievements"
     url: "https://steamcommunity.com/stats/4001890/achievements/"
     type: "official-achievement"
-    accessedAt: 2026-09-08
+    accessedAt: 2026-10-07
   - title: "How to Fish How to Get All 28 Achievements"
     url: "https://allthings.how/how-to-fish-how-to-get-all-28-achievements/"
     type: "gameplay-guide"
@@ -49,18 +59,18 @@ relatedGuides:
   - "/items/money-fast/"
 draft: false
 noindex: false
-answer: "Finish the story, use post-story travel for collection cleanup, then plan the challenges. Steam lists 28 achievements as of September 8, 2026. Handyman requires a bare-hands final-boss defeat. Older community guides report a fist killing blow after gun damage; whether that method works in 1.0.12 is unconfirmed. Practicing it separately from the one-hour Bean run is optional."
+answer: "Steam lists 31 achievements as of October 7, 2026, including Bilingual, Money in a bottle, and Hobin Rood. Finish the story, use later travel for collection cleanup, then plan challenge attempts. Patch 1.1.3 shows a bait name in Fishipedia after that fish's first kill. Older player guides report a fist finish for Handyman after gun damage, but that method is unverified in 1.1.3."
 featured: true
 priority: "P1"
 ---
 
 ## Direct answer
 
-Plan the 28 achievements in layers. Complete the story, collect low-risk interaction and equipment goals while travelling, then use post-story access for collection cleanup. Handyman concerns a bare-hands boss defeat; Bean concerns completion within one hour. Separate practice can help you learn the finale before adding timer pressure. Check Steam after personal-action conditions instead of assuming a teammate’s action counted for you.
+Plan the 31 achievements in layers. Complete the story, collect low-risk interaction and equipment goals while travelling, then use post-story access for collection cleanup. Handyman concerns a bare-hands boss defeat; Bean concerns completion within one hour. Separate practice can help you learn the finale before adding timer pressure. Check Steam after personal-action conditions instead of assuming a teammate’s action counted for you.
 
 ## Applies to
 
-Use this plan for a first story run or a completed save with missing achievements. Before choosing a goal, compare your Steam list with the groups below. Steam showed 28 entries on September 8, 2026; its completion percentages change as players unlock them. A low percentage can help you pick a goal to investigate, but it does not tell you which creature or action your save is missing.
+Use this plan for a first story run or a completed save with missing achievements. Before choosing a goal, compare your Steam list with the groups below. Steam shows 31 entries as of October 7, 2026; its completion percentages change as players unlock them. A low percentage can help you pick a goal to investigate, but it does not tell you which creature or action your save is missing.
 
 ## Quick steps
 
@@ -81,9 +91,11 @@ Action and physics goals include Noob, Impressive, 360 no scope, Easy, Let me go
 
 Equipment and economy goals cover engine upgrades, attachments, roulette, a legendary slot result, and a high-value sale. These consume money or depend on an outcome, so doing all of them during early story progression can slow the route. Save currency until the required story purchases are secure, then return after travel access expands.
 
-Collector and Fishipedia are different tracking problems. The former concerns all creatures; the latter concerns Drip creatures. A boss checklist alone cannot prove either is complete. Keep two lists and mark the island or condition where each entry was obtained. Steam percentages can help identify what other players find uncommon, but they cannot tell you which item your save lacks.
+The [Islet Update](https://steamcommunity.com/games/4001890/announcements/detail/717916455762395911) announced new achievements. The [current Steam list](https://steamcommunity.com/stats/4001890/achievements/) includes three goals absent from the older 28-entry total: **Bilingual** (earn a first euro), **Money in a bottle** (find money in a bottle), and **Hobin Rood** (kill a creature with an arrow). Check each exact Steam condition before spending time on an old checklist. The announcement does not specify a euro or bottle location.
 
-For Handyman, the official condition names a bare-hands defeat of the final boss without specifying a whole-fight weapon ban. Spatison and a collaborator describe weakening it with guns before a fist finish; Charlie Pork reports the same method from 1.0.4. Whether this older community method works in 1.0.12 is unconfirmed. See the [Handyman final-hit steps](/achievements/hardest-achievements/#handyman-official-condition-and-community-final-hit-method) before attempting the finish.
+Collector and Fishipedia are different tracking problems. The former concerns all creatures; the latter concerns Drip creatures. A boss checklist alone cannot prove either is complete. Keep two lists and mark the island or condition where each entry was obtained, including new Islet Update entries visible in your game. Patch 1.1.3 adds a bait-name clue after a fish's first kill; it does not reveal bait for an unrecorded fish. Steam percentages can help identify what other players find uncommon, but they cannot tell you which item your save lacks.
+
+For Handyman, the official condition names a bare-hands defeat of the final boss without specifying a whole-fight weapon ban. Spatison and a collaborator describe weakening it with guns before a fist finish; Charlie Pork reports the same method from 1.0.4. Whether this older community method works in 1.1.3 is unconfirmed. See the [Handyman final-hit steps](/achievements/hardest-achievements/#handyman-official-condition-and-community-final-hit-method) before attempting the finish.
 
 Stop gunfire before the boss dies, allow any remaining explosive or other ongoing damage to end, confirm bare fists, and attempt the last hit during an opening. Check your own unlock. In a group, agree when everyone will stop attacking so that another hit does not finish the boss before the punch. Separate Bean practice can remove timer pressure while you learn this transition.
 
@@ -111,13 +123,13 @@ Most listed conditions do not state that co-op is required. A group can shorten 
 
 ## Patch history and limitations
 
-Patches 1.0.4 and 1.0.5 contained achievement-related fixes. Patch 1.0.9 adds Easy, Normal, and Hard; whether difficulty affects achievement eligibility is unknown. Patch 1.0.12 says explosives should now damage the final boss even when they land on its tail. For a Handyman attempt, stop explosive damage before trying the final punch. The hit fix does not clarify co-op achievement credit.
+Patches 1.0.4 and 1.0.5 contained achievement-related fixes. Patch 1.0.9 adds Easy, Normal, and Hard; whether difficulty affects achievement eligibility is unknown. Patch 1.0.12 says explosives should now damage the final boss even when they land on its tail. The 1.1.0 update added achievements, and the Steam list now has 31. For a Handyman attempt, stop explosive damage before trying the final punch. The hit fix does not clarify co-op achievement credit.
 
 ## FAQ
 
 ### How many achievements are there?
 
-Steam displayed 28 on September 8, 2026. Check your Steam achievement list for the current total and your remaining locked entries.
+Steam displays 31 as of October 7, 2026. Check your own list for the entries you still need.
 
 ### Which achievements should be done during the story?
 
@@ -129,7 +141,7 @@ Separate practice can make the final punch easier to learn without timer pressur
 
 ### Does Handyman forbid guns throughout the fight?
 
-The official condition does not say so. Older player guides report weakening the boss with guns and finishing with fists. Whether this works in 1.0.12, whether teammates receive credit, and whether brass knuckles count remain unknown.
+The official condition does not say so. Older player guides report weakening the boss with guns and finishing with fists. Whether this works in 1.1.3, whether teammates receive credit, and whether brass knuckles count remain unknown.
 
 ### Does Easy disable achievements?
 

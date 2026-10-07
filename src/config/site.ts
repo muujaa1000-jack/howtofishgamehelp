@@ -6,7 +6,7 @@ const adsenseAccountIsValid = /^ca-pub-[0-9]{16}$/.test(adsenseAccount);
 export const site = {
   name: 'How to Fish Game Help',
   title: 'How to Fish Game Guides, Bosses, Islands & Fixes',
-  homeUpdatedAt: '2026-09-08',
+  homeUpdatedAt: '2026-10-07',
   description: 'Clear walkthroughs, boss strategies, island progression, achievements, item help, and troubleshooting for How to Fish.',
   url: 'https://howtofishgamehelp.com',
   gameName: 'How to Fish',
@@ -64,20 +64,20 @@ export const categoryFieldNotes: Record<CategorySlug, CategoryFieldNote> = {
       'The ending route continues through the volcano objectives, the mutated whale drop, the scientist return, the RHIB key, and starting that boat. Stopping after a dramatic kill is a common source of confusion. Use the island progression overview for a compact gate map and the boss section for encounter-specific movement.',
       'For a first full run, read Main Story Route, then Lighthouse First Island, and keep Island Progression available as the compact checklist. The longer walkthrough explains recovery and uncertainty; the shorter pages help when a single item or conversation is blocking progress.',
     ],
-    patchNote: 'The reviewed 1.0.9 announcement changes difficulty and technical diagnostics, not the published five-location story order. Fight length can differ by mode, so prepare for your selected difficulty while following the quest and hand-in sequence.',
+    patchNote: 'The Islet Update 1.1.0 added mini islands and adjusted island distances. The five-location sequence here describes the documented main story, while the new islets are separate locations without a published quest order in that announcement.',
     caution: 'The game may label locations through quests rather than numbered-island names, so these guides use landmarks as well as progression order.',
   },
   islands: {
     start: 'Each island is a compact chain of requests, bait preparation, a boss encounter, and a return hand-in.',
     route: ['Read the local requests', 'Gather the required bait or tool', 'Defeat the gate boss and return the trophy'],
     overview: [
-      'Use this section when you know the location but not its progression gate. The island progression page gives the complete order, while the focused pages cover forest leeches, the desert request, the rock-island Tuna gate, and the volcano ending. Read only the current location first so later objectives do not obscure the item you need now.',
+      'Use this section when you know the location but not its progression gate. The island progression page gives the main story order, while the focused pages cover forest leeches, the desert request, the rock-island Tuna gate, and the volcano ending. The 1.1.0 update also added mini islands; check the radar page for their larger 1.1.2 dots. Read only the current story location first so later objectives do not obscure the item you need now.',
       'Every island combines exploration with an NPC dependency. Speak before gathering whenever possible, keep named bait and unusual drops, and finish the return dialogue before sailing. This starts with returning Spider Crab’s drop to the lighthouse keeper for the boat keys. Selling, cooking, or discarding an unfamiliar item can turn a short hand-in into a repeat encounter.',
       'The location names used here describe progression order and visible landmarks. The game may not present the same numbered labels in every interface. Links therefore use both the island position and its recognizable objective. Match the terrain and active objective if your game uses a different location label.',
       'If an island cannot progress, decide whether the symptom is content or technical. A missing leech, Carrot, Tuna, trophy, or NPC return belongs to the relevant island page. A save that will not load, a weapon crash, or a red Steam relay status belongs in Fixes. Preserve the save before crossing from route diagnosis into file troubleshooting.',
       'A practical reading order is Island Progression first, followed by the page for the current location. Forest players can continue to Island Two Leeches, desert players to Island Three Desert, rock-island players to Island Four Rocks, and final-route players to Volcano Endgame.',
     ],
-    patchNote: 'Patch 1.0.9 does not announce new island gates. Its difficulty modifiers can change the pressure of island creatures and bosses, while the relay and save notes affect how technical failures should be reported.',
+    patchNote: 'The Islet Update 1.1.0 added multiple mini islands and changed distances between islands. Patch 1.1.2 enlarged the mini-island dots on the radar. Neither announcement provides a new required quest order for those locations.',
     caution: 'Do not sell, cook, or discard an unfamiliar unique drop until the island hand-in is complete.',
   },
   bosses: {
@@ -97,29 +97,29 @@ export const categoryFieldNotes: Record<CategorySlug, CategoryFieldNote> = {
     start: 'Buy for the next obstacle instead of trying to complete every upgrade path at once.',
     route: ['Protect quest items', 'Upgrade one weapon path', 'Add utility tools when the story calls for them'],
     overview: [
-      'Choose an item guide by the obstacle in front of you. Open Early Upgrades when money is limited, Weapon Progression when combat is blocking the route, and Lures and Bait when you cannot trigger a catch. Radar helps with island travel, Grilling with food preparation, and Money with purchases after the required story supplies are secure.',
+      'Choose an item guide by the obstacle in front of you. Open Early Upgrades when money is limited, Weapon Progression when combat is blocking the route, and Lures and Bait when you cannot trigger a catch. Radar helps with story travel and mini-island dots, Grilling with food preparation, and Money with purchases after the required story supplies are secure.',
       'Keep quest items apart from ordinary catches. A Carrot, Tuna body, boss trophy, or key can be needed for the next encounter or NPC return. Read the active request before selling or cooking an unfamiliar named item. In co-op, agree who will carry it and confirm that player is ready before the group sails to another island.',
       'Buy the upgrade that solves the current obstacle and keep enough resources for recovery. If the next step is a boss, prepare a dependable weapon and cooked fish before optional utility purchases. If the next step is travel, confirm the key and coordinates first. Owning a radar helps you follow a destination; it does not unlock an unfinished island gate.',
-      'For a lost radar on the forest island, players reported a replacement beneath the signs against the shop post on August 24. That report predates 1.0.12, so current availability and price are unknown. Check the location before considering a restart, and preserve your progress if the item is absent. Use the Radar page for the original lighthouse unlock steps.',
+      'For a lost radar on the forest island, players reported a replacement beneath the signs against the shop post on August 24. That report predates the Islet Update, so current availability and price are unknown. Check the location before considering a restart, and preserve your progress if the item is absent. Use the Radar page for the original lighthouse unlock steps and the new mini-island display.',
       'At the grill, practice on an ordinary catch and remove it when cooked. Keep rare catches and story trophies away while learning the timing. If you accidentally cook a weapon or tool, dip it in water to clear its cooking state, a feature added in 1.0.10. This does not turn burnt food back into properly cooked fish.',
       'If equipping a weapon crashes the game, stop that action and preserve the save. Record the weapon name and whether the crash happens while selecting, equipping, or loading with it active, then use the save and weapon crash page in Fixes. After the save works again, return to equipment planning with the next quest in mind.',
     ],
-    patchNote: 'Patch 1.0.11 fixes Drip Parrotfish cooking and marks dropped weapons with orange dots. It also removes Iron Sight from purchases and blocks a Suppressor-to-Compensator downgrade. Patch 1.0.12 limits item velocity in the hope of reducing item loss.',
+    patchNote: 'Patch 1.1.2 enlarges mini-island radar dots and restores the option to downgrade to ironsight. Patch 1.1.3 adds Fishipedia bait names after a fish\'s first kill. Older 1.0.11 attachment restrictions should not be treated as the full current shop rule.',
     caution: 'Check the displayed price before spending, and keep unique quest items until their hand-in is complete.',
   },
   achievements: {
     start: 'Finish the story first, then separate collection cleanup from challenge runs that may need a fresh attempt.',
     route: ['Collect story unlocks', 'Review missing Fishipedia entries', 'Plan the hardest challenge conditions separately'],
     overview: [
-      'Start with the achievement guide to divide the 28 Steam entries listed on September 8 into story, action, equipment, economy, collection, and challenge groups. During the first route, finish NPC hand-ins and take simple interaction goals when they require no detour. Use post-story travel for broad collection and expensive cleanup once required purchases are secure.',
-      'Collector and Fishipedia need separate tracking. One concerns ordinary creature coverage and the other Drip variants, so a boss checklist cannot prove either is complete. Record entries by island and check the official Steam condition before repeating a large sweep. Live completion percentages describe player statistics, not an official ranking of difficulty.',
-      'Handyman requires a bare-hands final-boss defeat. Older community guides describe gun damage followed by a fist finish; whether that method works in 1.0.12 is unconfirmed. Practicing the finish separately from the one-hour Bean route is optional. If you try it, stop other damage before the punch and check your own Steam unlock afterward.',
+      'Start with the achievement guide to divide the 31 Steam entries listed on October 7 into story, action, equipment, economy, collection, and challenge groups. The Islet Update added goals for euros, a money bottle, and an arrow kill. During the first route, finish NPC hand-ins and take simple interaction goals when they require no detour. Use later travel for broad collection and expensive cleanup once required purchases are secure.',
+      'Collector and Fishipedia need separate tracking. One concerns all creatures and the other Drip variants, so a boss checklist cannot prove either is complete. Record entries by island, including those added in the Islet Update, and check the official Steam condition before repeating a large sweep. Fishipedia shows bait names only after a fish\'s first kill in 1.1.3.',
+      'Handyman requires a bare-hands final-boss defeat. Older community guides describe gun damage followed by a fist finish; whether that method works in 1.1.3 is unconfirmed. Practicing the finish separately from the one-hour Bean route is optional. If you try it, stop other damage before the punch and check your own Steam unlock afterward.',
       'Co-op can shorten travel and combat, but personal-action triggers may belong to the player who performs them. Have the achievement-seeking player complete the named action and check Steam afterward. For story achievements, keep the relevant quest item with the host party until the return conversation records progress.',
       'Begin with Achievements Guide and Story Achievements during the first route. Open Hardest Achievements when you are ready to prepare a challenge attempt. If a condition remains locked after updating, use Achievement Not Unlocking before repeating a long run. Keep the selected difficulty, save, player role, and exact action in the report, and preserve your completed progress.',
       'Before a long cleanup session, compare the Steam list with your own records and choose one missing group. Keep normal creatures and Drip variants on separate lists so that each new find has a clear place. For Handyman, reports disagree on lobby-wide credit and brass-knuckle eligibility is unknown. Have the player seeking it use bare fists and check each account after the attempt.',
     ],
-    patchNote: 'Patches 1.0.4 and 1.0.5 included achievement fixes. Patch 1.0.9 adds difficulty but does not announce new achievements or say that a mode changes eligibility, so that effect remains unknown.',
-    caution: 'Steam currently lists 28 achievements, but the list and unlock behavior can change with a game update.',
+    patchNote: 'The Islet Update 1.1.0 added achievements and creatures; Steam lists 31 achievements as of October 7. Patch 1.1.3 adds a post-kill bait clue in Fishipedia. The official notes do not say whether difficulty changes achievement eligibility.',
+    caution: 'Steam listed 31 achievements when checked on October 7, 2026; compare your own current Steam list before a long cleanup run.',
   },
   fixes: {
     start: 'Identify the failing action, try the matching check, and preserve saves before repeating a workaround or recreating a lobby.',
@@ -131,7 +131,7 @@ export const categoryFieldNotes: Record<CategorySlug, CategoryFieldNote> = {
       'For multiplayer, record host and joiner roles. A red relay indicator, a black screen, and a save that fails in solo are different symptoms even if they occur in one session. Steam’s Verify Integrity feature checks installed game files; it does not rebuild save progression or inventory. If the check finishes but the crash persists, keep both results in your report.',
       'Branch to Steam Relay when red status appears, Multiplayer Black Screen when the joiner has no image, and Private Lobby Invites for session setup. Use Save Corrupted or Weapon Equip Crash if the failure follows a specific save or item. If a quest seems stuck while the game otherwise works, check the NPC request, bait, trophy, and return dialogue before changing files.',
     ],
-    patchNote: 'Patch 1.0.12 adds Steam Cloud: play and exit on the original device to upload an existing save, then wait for sync before switching. It fixes the FPS-cap override on joining and the first-Radio lag spike. MetaVoice 4.3 and item-speed limits are intended to reduce some voice and item-loss bugs. Cloud does not automatically repair corrupted saves.',
+    patchNote: 'Patch 1.0.12 added Steam Cloud and fixed the FPS-cap override on joining and the first-Radio lag spike. Patch 1.1.2 fixed Tench spawning from the new bait, enlarged mini-island radar dots, and added reload rebinding. Patch 1.1.3 shows bait names in Fishipedia after a fish\'s first kill. Cloud does not automatically repair corrupted saves.',
     caution: 'If Steam shows a sync conflict, stop and identify the progress you want to keep before choosing a replacement.',
   },
 };
@@ -146,7 +146,7 @@ const boatKeys: QuickAnswerLink = {
   href: '/guides/unlock-next-island/',
 };
 const radar: QuickAnswerLink = {
-  label: 'Find and use the radar',
+  label: 'Use the radar and find mini islands',
   href: '/items/radar-guide/',
 };
 const islandThree: QuickAnswerLink = {

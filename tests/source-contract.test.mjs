@@ -45,10 +45,10 @@ test('current official release metadata and platform status are published from o
   const release = await text('src/config/gameRelease.ts');
   const home = await text('src/pages/index.astro');
 
-  assert.match(release, /latestKnownVersion:\s*'1\.0\.12'/);
-  assert.match(release, /latestPatchDate:\s*'2026-09-04'/);
-  assert.match(release, /latestSourceReview:\s*'2026-09-08'/);
-  assert.match(release, /698774889153168486/);
+  assert.match(release, /latestKnownVersion:\s*'1\.1\.3'/);
+  assert.match(release, /latestPatchDate:\s*'2026-09-29'/);
+  assert.match(release, /latestSourceReview:\s*'2026-10-07'/);
+  assert.match(release, /706658093186943213/);
   assert.match(home, /gameRelease\.latestKnownVersion/);
   assert.match(home, /Steam Deck Verified/);
   assert.match(home, /GeForce NOW/);

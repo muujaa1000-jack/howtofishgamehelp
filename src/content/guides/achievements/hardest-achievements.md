@@ -5,16 +5,26 @@ slug: "hardest-achievements"
 category: "achievements"
 primaryIntent: "Plan efficient attempts for the hardest and rarest How to Fish achievements"
 publishedAt: 2026-08-23
-updatedAt: 2026-09-08
-lastVerifiedAt: 2026-09-08
-gameVersion: "1.0.5"
-lastSourceReview: 2026-09-08
-evidenceThroughVersion: "1.0.12"
+updatedAt: 2026-10-07
+lastVerifiedAt: 2026-10-07
+gameVersion: "1.1.3"
+lastSourceReview: 2026-10-07
+evidenceThroughVersion: "1.1.3"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
 verificationStatus: "mixed"
 sources:
+  - title: "How to Fish Patch 1.1.3"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/706658093186943213"
+    type: "official-patch"
+    accessedAt: 2026-10-07
+    notes: "Fishipedia shows bait names after a fish's first kill."
+  - title: "The Islet Update 1.1.0"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/717916455762395911"
+    type: "official-patch"
+    accessedAt: 2026-10-07
+    notes: "Added creatures and achievements."
   - title: "Clyde The Beloved Bandit: Sprint fishing"
     url: "https://steamcommunity.com/sharedfiles/filedetails/?id=3794248165"
     type: "gameplay-guide"
@@ -37,7 +47,7 @@ sources:
   - title: "How to Fish Global Achievements"
     url: "https://steamcommunity.com/stats/4001890/achievements/"
     type: "official-achievement"
-    accessedAt: 2026-09-08
+    accessedAt: 2026-10-07
   - title: "How to Fish How to Get All 28 Achievements"
     url: "https://allthings.how/how-to-fish-how-to-get-all-28-achievements/"
     type: "gameplay-guide"
@@ -54,7 +64,7 @@ relatedGuides:
   - "/items/weapon-progression/"
 draft: false
 noindex: false
-answer: "Use a completed save for collection cleanup and prepare a focused route for Bean. Handyman requires defeating the final boss with bare hands. Older player guides report using guns to lower its health and fists for the killing blow; whether that method works in 1.0.12 is unconfirmed. Separate Handyman practice is optional if you want to learn the finish without Bean's one-hour deadline."
+answer: "Use a completed save for collection cleanup and prepare a focused route for Bean. The Islet Update added creatures, so compare your collection against the current Fishipedia. Patch 1.1.3 reveals a fish's bait name after its first kill. Older players report a gun-then-fists method for Handyman, but it remains unverified in 1.1.3. Separate Handyman practice is optional before Bean's one-hour attempt."
 featured: false
 priority: "P1"
 ---
@@ -70,7 +80,7 @@ priority: "P1"
 
 ## Which goals need different preparation
 
-Steam’s official conditions are concise. Collector requires every creature; Fishipedia requires every Drip creature. Those are coverage problems, best solved with a ledger. Easy requires a boss within ten seconds, which benefits from endgame damage against a familiar early target. Handyman names a bare-hands defeat of the final boss. Bean imposes a one-hour completion limit.
+Steam’s official conditions are concise. Collector requires every creature; Fishipedia requires every Drip creature. Those are coverage problems, best solved with a ledger that includes the Islet Update's new creatures. Patch 1.1.3 shows a fish's bait name after its first kill, which helps repeat catches but gives no advance clue for an unrecorded fish. Easy requires a boss within ten seconds, which benefits from endgame damage against a familiar early target. Handyman names a bare-hands defeat of the final boss. Bean imposes a one-hour completion limit.
 
 A collection run leaves room for exploration and farming. A timed route needs fewer detours. You can practice the final fight separately before attempting Bean; the achievement conditions do not require separate saves.
 
@@ -78,7 +88,7 @@ A collection run leaves room for exploration and farming. A timed route needs fe
 
 Handyman requires a bare-hands defeat of the final boss in the [official achievement list](https://steamcommunity.com/stats/4001890/achievements/). The condition does not say that the entire fight must use fists.
 
-[Spatison and a collaborator](https://steamcommunity.com/sharedfiles/filedetails/?id=3788992156) describe gun damage followed by a fist finish. [Charlie Pork](https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308) describes the same approach in a guide based on 1.0.4. Whether this older community method works in 1.0.12 is unconfirmed.
+[Spatison and a collaborator](https://steamcommunity.com/sharedfiles/filedetails/?id=3788992156) describe gun damage followed by a fist finish. [Charlie Pork](https://steamcommunity.com/sharedfiles/filedetails/?id=3788027308) describes the same approach in a guide based on 1.0.4. Whether this older community method works in 1.1.3 is unconfirmed.
 
 To try that method, lower the mutated whale's health with a gun, then stop shooting before it dies. Stop any remaining explosive or other ongoing damage, confirm that you have bare fists equipped, and wait for an attack opening to attempt the killing punch. Check your own Steam unlock afterward.
 
@@ -86,7 +96,7 @@ Co-op credit is unsettled: Charlie Pork's guide reports lobby-wide credit, but a
 
 ## Optional collection tip from 1.0.11
 
-[Clyde's sprint-fishing guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3794248165) describes standing at the island edge with your legs in the water, dipping the rod, then running left or right while keeping it moving. Keep a wanted catch by bringing it ashore, or release an unwanted one and continue moving. This is a 1.0.11 technique; its effectiveness in 1.0.12 is unknown. Watch released hostile fish: the author reports that some remain dangerous.
+[Clyde's sprint-fishing guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3794248165) describes standing at the island edge with your legs in the water, dipping the rod, then running left or right while keeping it moving. Keep a wanted catch by bringing it ashore, or release an unwanted one and continue moving. This is a 1.0.11 technique; its effectiveness in later versions is unknown. Watch released hostile fish: the author reports that some remain dangerous.
 
 ## Why it may not work
 
@@ -112,7 +122,7 @@ Check [achievement not unlocking](/achievements/achievement-not-unlocking/) befo
 
 ### Must the whole Handyman fight be bare-handed?
 
-The official condition does not say so. Older community guides report a fist killing blow after gun damage; whether it works in 1.0.12 is unconfirmed.
+The official condition does not say so. Older community guides report a fist killing blow after gun damage; whether it works in 1.1.3 is unconfirmed.
 
 ### Must I keep Handyman separate from Bean?
 

@@ -5,7 +5,7 @@ slug: "mutated-bowhead-whale"
 category: "bosses"
 primaryIntent: "Defeat the final mutated whale boss and trigger the ending"
 publishedAt: 2026-08-23
-updatedAt: 2026-09-08
+updatedAt: 2026-10-07
 lastVerifiedAt: 2026-09-08
 gameVersion: "1.0.5"
 lastSourceReview: 2026-09-08
@@ -89,7 +89,7 @@ Patch 1.0.9 makes creature health and damage mode-dependent. Prepare healing for
 
 The [official note](https://steamcommunity.com/games/4001890/announcements/detail/698774889153168486) says the final boss should now receive explosive damage even when the explosive lands on its tail. If a hit still fails to register, note where it landed and your game version. Older footage may show different behavior.
 
-For Handyman, older player guides describe gun damage followed by a killing punch. Whether that method works in 1.0.12 is unconfirmed. To try it, stop shooting before the boss dies, let any remaining explosive or other ongoing damage end, confirm bare fists, then attempt the final hit during an opening. Co-op credit and brass-knuckle eligibility remain unknown; check your own unlock afterward. See the [Handyman preparation and steps](/achievements/hardest-achievements/#handyman-official-condition-and-community-final-hit-method).
+For Handyman, older player guides describe gun damage followed by a killing punch. Whether that method works in later versions is unconfirmed. To try it, stop shooting before the boss dies, let any remaining explosive or other ongoing damage end, confirm bare fists, then attempt the final hit during an opening. Co-op credit and brass-knuckle eligibility remain unknown; check your own unlock afterward. See the [Handyman preparation and steps](/achievements/hardest-achievements/#handyman-official-condition-and-community-final-hit-method).
 
 ## What to do next
 

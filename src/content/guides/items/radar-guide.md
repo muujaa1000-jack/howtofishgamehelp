@@ -1,20 +1,30 @@
 ---
 title: "How to Get and Use the Radar in How to Fish"
-description: "Get and use the How to Fish radar for island travel, or check the forest shop post for a replacement reported by players after losing one."
+description: "Use the How to Fish radar for quest travel and the new mini-island dots, and check the forest shop post if you lose the device."
 slug: "radar-guide"
 category: "items"
 primaryIntent: "Obtain the radar and use it to navigate to unlocked islands"
 publishedAt: 2026-08-23
-updatedAt: 2026-09-08
-lastVerifiedAt: 2026-09-08
-gameVersion: "1.0.5"
-lastSourceReview: 2026-09-08
-evidenceThroughVersion: "1.0.9"
+updatedAt: 2026-10-07
+lastVerifiedAt: 2026-10-07
+gameVersion: "1.1.2"
+lastSourceReview: 2026-10-07
+evidenceThroughVersion: "1.1.2"
 firstHandTested: false
 patchSensitive: true
 adEligible: false
 verificationStatus: "community-confirmed"
 sources:
+  - title: "The Islet Update 1.1.0"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/717916455762395911"
+    type: "official-patch"
+    accessedAt: 2026-10-07
+    notes: "Introduced multiple mini islands and adjusted distances between islands."
+  - title: "How to Fish Patch 1.1.2"
+    url: "https://steamcommunity.com/games/4001890/announcements/detail/706658093186943189"
+    type: "official-patch"
+    accessedAt: 2026-10-07
+    notes: "Increased the size of mini-island dots on the radar."
   - title: "Steam: What do I do if I lose my Radar"
     url: "https://steamcommunity.com/app/4001890/discussions/0/582806239606672418/"
     type: "community-thread"
@@ -36,7 +46,7 @@ relatedGuides:
   - "/islands/island-progression/"
 draft: false
 noindex: false
-answer: "Finish the lighthouse keeper's Spider Crab quest, secure boat access, and obtain the radar before sailing. It follows quest coordinates rather than unlocking islands itself. If you lost it on the forest island, check the ground against the shop post beneath the signs: players reported a replacement for sale there on August 24. Its availability in 1.0.12 is unconfirmed."
+answer: "After the Spider Crab hand-in, obtain the boat key and radar from the lighthouse keeper. The Islet Update added mini islands, and Patch 1.1.2 enlarged their dots on the radar. Use your active quest coordinates for the main route; a mini-island dot alone does not confirm a new story objective. If you lost the radar on the forest island, players reported a replacement beside the shop post, but its current availability is unverified."
 featured: false
 priority: "P0"
 ---
@@ -46,25 +56,32 @@ priority: "P0"
 1. Complete the beer-thief quest and return Spider Crab’s drop.
 2. Receive the boat key, then obtain the radar from the lighthouse keeper.
 3. Confirm the next coordinates are active before leaving shore.
-4. Board the boat and orient toward the radar’s route instead of choosing a random heading.
+4. Board the boat and use the active quest coordinates for the main route; look for the separate mini-island dots added in the Islet Update.
 5. Complete each island hand-in so the radar can point to the next unlocked destination.
 6. Add the later boat-mounted radar upgrade when it becomes available and affordable.
 
 ## Radar, coordinates, and unlocks are separate
 
-The radar is a navigation tool. Coordinates come from quest progression, and island permission comes from finishing the previous gate. This distinction explains most “radar not working” reports: a player owns the device but has not received a new destination, or has the boss drop but has not returned it.
+The radar is a navigation tool. Coordinates come from quest progression, and island permission comes from finishing the previous gate. This distinction explains many “radar not working” reports: a player owns the device but has not received a new story destination, or has the boss drop but has not returned it.
 
 The launch walkthrough describes a later upgrade that places the radar at a stationary position on the boat. That is a convenience improvement. It frees you from treating the device like a constantly handled item, but the story still advances through the same NPC chain.
+
+## Mini islands on the radar in 1.1.2
+
+The [Islet Update 1.1.0](https://steamcommunity.com/games/4001890/announcements/detail/717916455762395911) added multiple mini islands and adjusted the distance between islands. [Patch 1.1.2](https://steamcommunity.com/games/4001890/announcements/detail/706658093186943189) then made the mini-island dots larger on the radar. If you are looking for the new islets, update the game and scan for those dots; an older screenshot may show them at a smaller size.
+
+The patch notes do not provide a dot-color legend, exact coordinates, or a new unlock sequence for each mini island. Keep the active quest destination separate from the extra dots when following the main story. For the story gate order, use [island progression](/islands/island-progression/).
 
 ## Lost radar: check beside the forest shop post
 
 In an [August 24 Steam thread](https://steamcommunity.com/app/4001890/discussions/0/582806239606672418/), a player lost their radar after reloading on the Piranha island. One reply suggested looking below the signs, and another confirmed a purchasable radar on the ground leaning against the shop post. Check there on the forest island before considering a restart.
 
-That report predates 1.0.12 and does not specify its game version. Current availability and price are unknown. If the radar is absent, preserve the save and record the location and current objective rather than overwriting progress.
+That report predates the Islet Update and does not specify its game version. Current availability and price are unknown. If the radar is absent, preserve the save and record the location and current objective rather than overwriting progress.
 
 ## Why it may not work
 
-- **The display has no new destination:** finish the current island’s trophy hand-in first.
+- **The display has no new story destination:** finish the current island’s trophy hand-in first; mini-island dots are separate from the quest coordinates.
+- **The mini-island dots look too small:** Patch 1.1.2 enlarged them, so check that Steam installed the current update before comparing your radar with newer images.
 - **You own the radar but not the boat:** complete the lighthouse boss route and receive the key.
 - **The route seems to point backward:** check the active objective; you may still owe an NPC a quest item.
 - **A locked island was reachable in an old clip:** patch 1.0.5 fixed unintended travel, so follow the current coordinates.
